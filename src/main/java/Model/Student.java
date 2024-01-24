@@ -23,6 +23,8 @@ import java.util.logging.Logger;
 public class Student {
     
     private int stid;
+    private String student_name;
+    private String student_address;
     private String grade_in_year_of_entarance;
     //private LocalDateTime record_created_at; // = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     private int record_created_by;
@@ -32,11 +34,8 @@ public class Student {
     private String student_identity_code;
     private String student_passport_number;
     private String student_photo_file_path;
-    private String year_of_entarance;
+    private String date_of_entarance;
     private int is_current_student;
-    private DateFormat left_date;// = new SimpleDateFormat("yyyy/MM/dd");
-    private String reason_for_leaving;
-    private String transfered_dschool;
     private LocalDateTime created_or_updated_at = LocalDateTime.now();
 
     public Student(int stid, int is_current_student) {
@@ -44,23 +43,7 @@ public class Student {
         this.is_current_student = is_current_student;
         LocalDateTime updated_at = this.created_or_updated_at;
         
-    }
-
-    public Student(int stid, DateFormat left_date, String reason_for_leaving) {
-        this.stid = stid;
-        this.left_date = new SimpleDateFormat("yyyy/MM/dd");
-        this.left_date = left_date;
-        this.reason_for_leaving = reason_for_leaving;
-        LocalDateTime updated_at = this.created_or_updated_at;
-        
-    }
-
-    public Student(int stid, String transfered_dschool) {
-        this.stid = stid;
-        this.transfered_dschool = transfered_dschool;
-        LocalDateTime updated_at = this.created_or_updated_at;
-        
-    }    
+    }        
 
     public Student() {
     }
@@ -71,6 +54,22 @@ public class Student {
 
     public void setStid(int stid) {
         this.stid = stid;
+    }
+
+    public String getStudent_name() {
+        return student_name;
+    }
+
+    public void setStudent_name(String student_name) {
+        this.student_name = student_name;
+    }
+
+    public String getStudent_address() {
+        return student_address;
+    }
+
+    public void setStudent_address(String student_address) {
+        this.student_address = student_address;
     }
 
     public String getGrade_in_year_of_entarance() {
@@ -129,12 +128,12 @@ public class Student {
         this.student_photo_file_path = student_photo_file_path;
     }
 
-    public String getYear_of_entarance() {
-        return year_of_entarance;
+    public String getDate_of_entarance() {
+        return date_of_entarance;
     }
 
-    public void setYear_of_entarance(String year_of_entarance) {
-        this.year_of_entarance = year_of_entarance;
+    public void setDate_of_entarance(String date_of_entarance) {
+        this.date_of_entarance = date_of_entarance;
     }
     
     public int addStudent(){
@@ -157,17 +156,19 @@ public class Student {
                 returnstatus = 1;
             }
             if(returnstatus < 1){
-                String q = "insert into student (grade_in_year_of_entarance, is_current_student, record_created_at,record_created_by,student_birthday,student_ic,student_passport_number, student_photo_file_path, year_of_entarance) values(?,?,?,?,?,?,?,?,?)";
+                String q = "insert into student (grade_in_year_of_entarance, is_current_student, record_created_at,record_created_by,student_birthday,student_ic,student_passport_number, student_photo_file_path, date_of_entarance, student_name, student_address) values(?,?,?,?,?,?,?,?,?,?,?)";
                 prep_stmt = con.prepareStatement(q);
                 prep_stmt.setString(1, this.getGrade_in_year_of_entarance());
                 prep_stmt.setInt(2, 1);
                 prep_stmt.setTimestamp(3, Timestamp.valueOf(this.created_or_updated_at));
                 prep_stmt.setInt(4, 1);
-                prep_stmt.setTimestamp(5, Timestamp.valueOf(this.getStudent_birthday()));
+                prep_stmt.setDate(5, java.sql.Date.valueOf(this.getStudent_birthday()));
                 prep_stmt.setString(6, this.getStudent_identity_code());
                 prep_stmt.setString(7, this.getStudent_passport_number());
                 prep_stmt.setString(8, this.getStudent_photo_file_path());
-                prep_stmt.setTimestamp(9, Timestamp.valueOf(this.getYear_of_entarance()));
+                prep_stmt.setDate(9, java.sql.Date.valueOf(this.getDate_of_entarance()));
+                prep_stmt.setString(10, this.getStudent_name());
+                prep_stmt.setString(11, this.getStudent_address());
                 
                 int count = prep_stmt.executeUpdate();
             }
@@ -176,12 +177,26 @@ public class Student {
             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getMessage());
         }finally{
-        
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException ex){}
+                result = null;
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){}
+                prep=null;
+            }
+            if(prep_stmt != null){
+                try{
+                    prep_stmt.close();
+                }catch(SQLException ex){}
+                prep_stmt = null;
+            }
         }
         return returnstatus;
     }
-    
-    
-    
     
 }
