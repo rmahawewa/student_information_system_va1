@@ -2,20 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package View.Add;
+package View.Edit;
 
+import View.Add.*;
 import View.*;
 
 /**
  *
  * @author HP
  */
-public class AddExamAssesment extends javax.swing.JPanel {
+public class EditExamAssesment extends javax.swing.JPanel {
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
-    public AddExamAssesment() {
+    public EditExamAssesment() {
         initComponents();
     }
 
@@ -36,7 +37,6 @@ public class AddExamAssesment extends javax.swing.JPanel {
         ampmComboBx = new javax.swing.JComboBox<>();
         hoursComboBx = new javax.swing.JComboBox<>();
         minutesComboBx = new javax.swing.JComboBox<>();
-        assesmentNameText = new javax.swing.JTextField();
         assesmentLabel = new javax.swing.JLabel();
         dayComboBx = new javax.swing.JComboBox<>();
         yearComboBx = new javax.swing.JComboBox<>();
@@ -49,14 +49,12 @@ public class AddExamAssesment extends javax.swing.JPanel {
         examNameValueLabel = new javax.swing.JLabel();
         sessionLabel = new javax.swing.JLabel();
         sessionComboBx = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        assesmentNamesList = new javax.swing.JList<>();
-        clearButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        editExamAssesmentTable = new javax.swing.JTable();
+        assesmentNameValueLabel = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        topicLabel.setText("Add Assesment in Exam Information");
+        topicLabel.setText("Edit Assesment in Exam Information");
 
         examLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         examLabel.setText("Exam:");
@@ -65,7 +63,7 @@ public class AddExamAssesment extends javax.swing.JPanel {
         timeLabel.setText("Time:");
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        submitButton.setText("Submit");
+        submitButton.setText("Update");
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
@@ -78,8 +76,6 @@ public class AddExamAssesment extends javax.swing.JPanel {
 
         minutesComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         minutesComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", " " }));
-
-        assesmentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         assesmentLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         assesmentLabel.setText("Assesment:");
@@ -117,13 +113,7 @@ public class AddExamAssesment extends javax.swing.JPanel {
         sessionComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Session", "Second Session", "Third Session", "Forth Session", " " }));
 
-        assesmentNamesList.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jScrollPane1.setViewportView(assesmentNamesList);
-
-        clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        clearButton.setText("Clear");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        editExamAssesmentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -146,7 +136,10 @@ public class AddExamAssesment extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(editExamAssesmentTable);
+
+        assesmentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentNameValueLabel.setText("assesment name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -155,11 +148,17 @@ public class AddExamAssesment extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(98, 98, 98)
+                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
                         .addComponent(topicLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,24 +185,13 @@ public class AddExamAssesment extends javax.swing.JPanel {
                                             .addGap(20, 20, 20)
                                             .addComponent(ampmComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(130, 130, 130)
-                                    .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(92, 92, 92)
-                                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(assesmentLabel)
-                                    .addComponent(examLabel))
-                                .addGap(108, 108, 108)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(examNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                                            .addComponent(assesmentNameText, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(assesmentLabel)
+                                        .addComponent(examLabel))
+                                    .addGap(108, 108, 108)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(examNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(assesmentNameValueLabel)))))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -215,14 +203,11 @@ public class AddExamAssesment extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(examLabel)
                     .addComponent(examNameValueLabel))
-                .addGap(32, 32, 32)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(assesmentLabel)
-                    .addComponent(assesmentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(clearButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                    .addComponent(assesmentNameValueLabel))
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gradeLabel)
                     .addComponent(gradeComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -246,13 +231,13 @@ public class AddExamAssesment extends javax.swing.JPanel {
                     .addComponent(hoursComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(minutesComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ampmComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(cancelButton))
-                .addGap(42, 42, 42)
+                .addGap(49, 49, 49)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -357,20 +342,17 @@ public class AddExamAssesment extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ampmComboBx;
     private javax.swing.JLabel assesmentLabel;
-    private javax.swing.JTextField assesmentNameText;
-    private javax.swing.JList<String> assesmentNamesList;
+    private javax.swing.JLabel assesmentNameValueLabel;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JButton clearButton;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JComboBox<String> dayComboBx;
+    private javax.swing.JTable editExamAssesmentTable;
     private javax.swing.JLabel examLabel;
     private javax.swing.JLabel examNameValueLabel;
     private javax.swing.JComboBox<String> gradeComboBx;
     private javax.swing.JLabel gradeLabel;
     private javax.swing.JComboBox<String> hoursComboBx;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JComboBox<String> levelComboBx;
     private javax.swing.JLabel levelLabel;
     private javax.swing.JComboBox<String> minutesComboBx;

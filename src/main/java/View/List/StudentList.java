@@ -101,11 +101,11 @@ public class StudentList extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Code", "Date of Birth", "Grade"
+                "ID", "Name", "Date of Birth", "Grade"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false

@@ -8,12 +8,12 @@ package View.List;
  *
  * @author HP
  */
-public class AssesmentList extends javax.swing.JPanel {
+public class StudentMedicalRequirementList extends javax.swing.JPanel {
 
     /**
      * Creates new form AssesmentList
      */
-    public AssesmentList() {
+    public StudentMedicalRequirementList() {
         initComponents();
     }
 
@@ -29,27 +29,27 @@ public class AssesmentList extends javax.swing.JPanel {
         topicLabel = new javax.swing.JLabel();
         assesmentNameLabel = new javax.swing.JLabel();
         assesmentCodeLabel = new javax.swing.JLabel();
-        assesmentNameText = new javax.swing.JTextField();
-        assesmentCodeText = new javax.swing.JTextField();
+        studentNameText = new javax.swing.JTextField();
+        medicalStatusText = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
         viewButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        assesmentListTable = new javax.swing.JTable();
+        studentMedicalStatusListTable = new javax.swing.JTable();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        topicLabel.setText("All Assesment Information");
+        topicLabel.setText("Student's Medical Status Information");
 
         assesmentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        assesmentNameLabel.setText("Assesment name:");
+        assesmentNameLabel.setText("Student name:");
 
         assesmentCodeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        assesmentCodeLabel.setText("Assesment code:");
+        assesmentCodeLabel.setText("Medical status:");
 
-        assesmentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        assesmentCodeText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalStatusText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         searchButton.setText("Search");
@@ -63,20 +63,20 @@ public class AssesmentList extends javax.swing.JPanel {
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
 
-        assesmentListTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        assesmentListTable.setModel(new javax.swing.table.DefaultTableModel(
+        studentMedicalStatusListTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentMedicalStatusListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Assesment name", "Assesment code"
+                "Student name", "Medical Status", "First date of Diagnose", "First date of getting treatments", "Last date of getting treatments", "ID"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -87,7 +87,7 @@ public class AssesmentList extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(assesmentListTable);
+        jScrollPane1.setViewportView(studentMedicalStatusListTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -98,9 +98,6 @@ public class AssesmentList extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(187, 187, 187)
-                            .addComponent(topicLabel))
-                        .addGroup(layout.createSequentialGroup()
                             .addGap(27, 27, 27)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -108,13 +105,15 @@ public class AssesmentList extends javax.swing.JPanel {
                                         .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(18, 18, 18)
                                         .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(assesmentCodeText, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(medicalStatusText, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(assesmentCodeLabel)
                                         .addComponent(assesmentNameLabel))
                                     .addGap(26, 26, 26)
-                                    .addComponent(assesmentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(topicLabel)
+                                        .addComponent(studentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(31, 31, 31)
                             .addComponent(viewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,11 +129,11 @@ public class AssesmentList extends javax.swing.JPanel {
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(assesmentNameLabel)
-                    .addComponent(assesmentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(studentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(assesmentCodeLabel)
-                    .addComponent(assesmentCodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(medicalStatusText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchButton)
@@ -152,14 +151,14 @@ public class AssesmentList extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel assesmentCodeLabel;
-    private javax.swing.JTextField assesmentCodeText;
-    private javax.swing.JTable assesmentListTable;
     private javax.swing.JLabel assesmentNameLabel;
-    private javax.swing.JTextField assesmentNameText;
     private javax.swing.JButton clearButton;
     private javax.swing.JButton editButton;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField medicalStatusText;
     private javax.swing.JButton searchButton;
+    private javax.swing.JTable studentMedicalStatusListTable;
+    private javax.swing.JTextField studentNameText;
     private javax.swing.JLabel topicLabel;
     private javax.swing.JButton viewButton;
     // End of variables declaration//GEN-END:variables

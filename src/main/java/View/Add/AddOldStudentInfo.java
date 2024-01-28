@@ -33,7 +33,6 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
         leftDateLabel = new javax.swing.JLabel();
         reasonLabel = new javax.swing.JLabel();
         transferredDammaSchoolLabel = new javax.swing.JLabel();
-        studentNameText = new javax.swing.JTextField();
         reasonText = new javax.swing.JTextField();
         transferredSchoolText = new javax.swing.JTextField();
         submitButton = new javax.swing.JButton();
@@ -41,9 +40,7 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
         dayComboBx = new javax.swing.JComboBox<>();
         yearComboBx = new javax.swing.JComboBox<>();
         monthComboBx = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        studentNamesList = new javax.swing.JList<>();
-        clearButton = new javax.swing.JButton();
+        oldStudentNameValueLabel = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(595, 462));
 
@@ -61,9 +58,6 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
 
         transferredDammaSchoolLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         transferredDammaSchoolLabel.setText("Transferred Damma School:");
-
-        studentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        studentNameText.setText("fhcsyfcgvbs");
 
         reasonText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -84,9 +78,8 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
         monthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
 
-        jScrollPane1.setViewportView(studentNamesList);
-
-        clearButton.setText("Clear");
+        oldStudentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        oldStudentNameValueLabel.setText("Old student name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -98,45 +91,47 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
                         .addGap(173, 173, 173)
                         .addComponent(topicLabel))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92)
-                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(studentNameLabel)
-                            .addComponent(reasonLabel)
-                            .addComponent(transferredDammaSchoolLabel)
-                            .addComponent(leftDateLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(transferredSchoolText)
-                            .addComponent(reasonText)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(yearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(monthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(dayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(132, 132, 132)
+                                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(92, 92, 92)
+                                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(studentNameText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(reasonLabel)
+                                    .addComponent(transferredDammaSchoolLabel)
+                                    .addComponent(leftDateLabel))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(transferredSchoolText)
+                                    .addComponent(reasonText)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(yearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(monthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(dayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(studentNameLabel)
+                                .addGap(102, 102, 102)
+                                .addComponent(oldStudentNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(topicLabel)
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(studentNameLabel)
+                    .addComponent(oldStudentNameValueLabel))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(studentNameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                        .addGap(6, 6, 6)
                         .addComponent(leftDateLabel)
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,13 +142,6 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
                                     .addComponent(transferredDammaSchoolLabel)
                                     .addComponent(transferredSchoolText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(studentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(clearButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(yearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,7 +155,7 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(cancelButton))
-                .addGap(38, 38, 38))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -215,16 +203,13 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
-    private javax.swing.JButton clearButton;
     private javax.swing.JComboBox<String> dayComboBx;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel leftDateLabel;
     private javax.swing.JComboBox<String> monthComboBx;
+    private javax.swing.JLabel oldStudentNameValueLabel;
     private javax.swing.JLabel reasonLabel;
     private javax.swing.JTextField reasonText;
     private javax.swing.JLabel studentNameLabel;
-    private javax.swing.JTextField studentNameText;
-    private javax.swing.JList<String> studentNamesList;
     private javax.swing.JButton submitButton;
     private javax.swing.JLabel topicLabel;
     private javax.swing.JLabel transferredDammaSchoolLabel;

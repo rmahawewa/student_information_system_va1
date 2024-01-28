@@ -69,14 +69,14 @@ public class AssesmentList extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Assesment name", "Assesment code"
+                "ID", "Assesment name", "Assesment code"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                true, false, false
             };
 
             public Class getColumnClass(int columnIndex) {

@@ -136,7 +136,7 @@ public class Student {
         this.date_of_entarance = date_of_entarance;
     }
     
-    public int addStudent(){
+    public int addStudent() throws SQLException{
         int returnstatus = 0;
         
         Connection con = null;
@@ -195,6 +195,7 @@ public class Student {
                 }catch(SQLException ex){}
                 prep_stmt = null;
             }
+            con.close();
         }
         return returnstatus;
     }

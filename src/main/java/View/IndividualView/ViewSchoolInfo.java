@@ -2,20 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package View.Add;
+package View.IndividualView;
 
+import View.Edit.*;
+import View.Add.*;
 import View.*;
 
 /**
  *
  * @author HP
  */
-public class AddSchoolInfo extends javax.swing.JPanel {
+public class ViewSchoolInfo extends javax.swing.JPanel {
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
-    public AddSchoolInfo() {
+    public ViewSchoolInfo() {
         initComponents();
     }
 
@@ -33,15 +35,15 @@ public class AddSchoolInfo extends javax.swing.JPanel {
         addressLabel = new javax.swing.JLabel();
         contactNumberLabel = new javax.swing.JLabel();
         detailsLabel = new javax.swing.JLabel();
-        schoolNameText = new javax.swing.JTextField();
-        addressText = new javax.swing.JTextField();
-        contactNumberText = new javax.swing.JTextField();
-        detailsText = new javax.swing.JTextField();
-        submitButton = new javax.swing.JButton();
-        cancelButton = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
+        schoolNameValueLabel = new javax.swing.JLabel();
+        addressValueLabel = new javax.swing.JLabel();
+        detailsValueLabel = new javax.swing.JLabel();
+        contactNumberValueLabel = new javax.swing.JLabel();
+        closeFromTopButton = new javax.swing.JButton();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        topicLabel.setText("Add School Information");
+        topicLabel.setText("School Information");
 
         schoolNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         schoolNameLabel.setText("School name:");
@@ -55,84 +57,98 @@ public class AddSchoolInfo extends javax.swing.JPanel {
         detailsLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         detailsLabel.setText("Details:");
 
-        schoolNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setText("Close");
 
-        addressText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolNameValueLabel.setText("school name");
 
-        contactNumberText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addressValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addressValueLabel.setText("address");
 
-        detailsText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        detailsValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        detailsValueLabel.setText("details");
 
-        submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        submitButton.setText("Submit");
+        contactNumberValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        contactNumberValueLabel.setText("contact number");
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cancelButton.setText("Cancel");
+        closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
+        closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeFromTopButton.setForeground(new java.awt.Color(255, 255, 255));
+        closeFromTopButton.setText("X");
+        closeFromTopButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeFromTopButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
-                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(schoolNameLabel)
                     .addComponent(addressLabel)
                     .addComponent(contactNumberLabel)
                     .addComponent(detailsLabel))
+                .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(topicLabel))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(contactNumberText, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addressText, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(detailsText)
-                            .addComponent(schoolNameText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40))))
+                        .addComponent(topicLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(closeFromTopButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addressValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(schoolNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(detailsValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(contactNumberValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 50, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(249, 249, 249))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(topicLabel)
-                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(schoolNameLabel)
-                        .addGap(31, 31, 31)
-                        .addComponent(addressLabel)
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(contactNumberLabel)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addComponent(detailsLabel))))
+                        .addContainerGap()
+                        .addComponent(closeFromTopButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(schoolNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addComponent(addressText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(contactNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(detailsText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addGap(28, 28, 28)
+                        .addComponent(topicLabel)))
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitButton)
-                    .addComponent(cancelButton))
-                .addGap(36, 36, 36))
+                    .addComponent(schoolNameLabel)
+                    .addComponent(schoolNameValueLabel))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addressLabel)
+                    .addComponent(addressValueLabel))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(contactNumberLabel)
+                        .addComponent(contactNumberValueLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(detailsLabel)
+                            .addComponent(detailsValueLabel))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(closeButton)
+                .addGap(45, 45, 45))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void closeFromTopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFromTopButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_closeFromTopButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,15 +190,15 @@ public class AddSchoolInfo extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;
-    private javax.swing.JTextField addressText;
-    private javax.swing.JButton cancelButton;
+    private javax.swing.JLabel addressValueLabel;
+    private javax.swing.JButton closeButton;
+    private javax.swing.JButton closeFromTopButton;
     private javax.swing.JLabel contactNumberLabel;
-    private javax.swing.JTextField contactNumberText;
+    private javax.swing.JLabel contactNumberValueLabel;
     private javax.swing.JLabel detailsLabel;
-    private javax.swing.JTextField detailsText;
+    private javax.swing.JLabel detailsValueLabel;
     private javax.swing.JLabel schoolNameLabel;
-    private javax.swing.JTextField schoolNameText;
-    private javax.swing.JButton submitButton;
+    private javax.swing.JLabel schoolNameValueLabel;
     private javax.swing.JLabel topicLabel;
     // End of variables declaration//GEN-END:variables
 }

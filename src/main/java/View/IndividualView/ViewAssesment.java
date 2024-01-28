@@ -2,20 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package View.Add;
+package View.IndividualView;
 
+//import View.*;
+
+import View.Edit.*;
+import View.Add.*;
 //import View.*;
 
 /**
  *
  * @author HP
  */
-public class AddAssesment extends javax.swing.JPanel {
+public class ViewAssesment extends javax.swing.JPanel {
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
-    public AddAssesment() {
+    public ViewAssesment() {
         initComponents();
     }
 
@@ -31,13 +35,13 @@ public class AddAssesment extends javax.swing.JPanel {
         topicLabel = new javax.swing.JLabel();
         assesmentNameLabel = new javax.swing.JLabel();
         assesmentCodeLabel = new javax.swing.JLabel();
-        assesmentNameText = new javax.swing.JTextField();
-        assesmentCodeText = new javax.swing.JTextField();
-        submitButton = new javax.swing.JButton();
-        cancelButton = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
+        closeFromTopButton = new javax.swing.JButton();
+        assesmentNameValueLabel = new javax.swing.JLabel();
+        assesmentCodeValueLabel = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        topicLabel.setText("Add Assesment");
+        topicLabel.setText("Assesment Information");
 
         assesmentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         assesmentNameLabel.setText("Assesment name:");
@@ -45,72 +49,78 @@ public class AddAssesment extends javax.swing.JPanel {
         assesmentCodeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         assesmentCodeLabel.setText("Assesment code:");
 
-        assesmentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        assesmentNameText.addActionListener(new java.awt.event.ActionListener() {
+        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setText("Close");
+
+        closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
+        closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeFromTopButton.setForeground(new java.awt.Color(255, 255, 255));
+        closeFromTopButton.setText("X");
+        closeFromTopButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                assesmentNameTextActionPerformed(evt);
+                closeFromTopButtonActionPerformed(evt);
             }
         });
 
-        assesmentCodeText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentNameValueLabel.setText("assesment name value");
 
-        submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        submitButton.setText("Submit");
-
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cancelButton.setText("Cancel");
+        assesmentCodeValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentCodeValueLabel.setText("assesment code value");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(assesmentNameLabel)
                     .addComponent(assesmentCodeLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(assesmentCodeText, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(assesmentNameText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
-                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(229, 229, 229)
-                .addComponent(topicLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(assesmentCodeValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(assesmentNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(56, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(topicLabel)
+                        .addGap(169, 169, 169)
+                        .addComponent(closeFromTopButton)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(253, 253, 253))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(topicLabel)
-                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(assesmentNameLabel)
-                        .addGap(31, 31, 31)
-                        .addComponent(assesmentCodeLabel))
+                        .addContainerGap()
+                        .addComponent(closeFromTopButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(assesmentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addComponent(assesmentCodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(56, 56, 56)
+                        .addGap(28, 28, 28)
+                        .addComponent(topicLabel)))
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitButton)
-                    .addComponent(cancelButton))
-                .addContainerGap(50, Short.MAX_VALUE))
+                    .addComponent(assesmentNameLabel)
+                    .addComponent(assesmentNameValueLabel))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(assesmentCodeLabel)
+                    .addComponent(assesmentCodeValueLabel))
+                .addGap(48, 48, 48)
+                .addComponent(closeButton)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void assesmentNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assesmentNameTextActionPerformed
+    private void closeFromTopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFromTopButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_assesmentNameTextActionPerformed
+    }//GEN-LAST:event_closeFromTopButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,11 +174,11 @@ public class AddAssesment extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel assesmentCodeLabel;
-    private javax.swing.JTextField assesmentCodeText;
+    private javax.swing.JLabel assesmentCodeValueLabel;
     private javax.swing.JLabel assesmentNameLabel;
-    private javax.swing.JTextField assesmentNameText;
-    private javax.swing.JButton cancelButton;
-    private javax.swing.JButton submitButton;
+    private javax.swing.JLabel assesmentNameValueLabel;
+    private javax.swing.JButton closeButton;
+    private javax.swing.JButton closeFromTopButton;
     private javax.swing.JLabel topicLabel;
     // End of variables declaration//GEN-END:variables
 }

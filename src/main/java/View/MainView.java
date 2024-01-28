@@ -6,6 +6,8 @@ package View;
 
 import View.*;
 import View.Add.*;
+import View.List.*;
+
 
 /**
  *
@@ -35,11 +37,11 @@ public class MainView extends javax.swing.JFrame {
         l1_student_menu = new javax.swing.JMenu();
         l2_addStudent_menuItem = new javax.swing.JMenuItem();
         l2_listStudents_menuItem = new javax.swing.JMenuItem();
-        l2_editStudent_menuItem = new javax.swing.JMenuItem();
         l2_viewStudent_menuItem = new javax.swing.JMenuItem();
         l2_studentMedicalRequirement_menu = new javax.swing.JMenu();
         l3_addStudentMedicalRequirement_menuItem = new javax.swing.JMenuItem();
         l3_listStudentsMedicalRequirements_menuItem = new javax.swing.JMenuItem();
+        l2_student_oldStudentList_menuItem = new javax.swing.JMenuItem();
         l1_exam_menu = new javax.swing.JMenu();
         l2_addExam_menuItem = new javax.swing.JMenuItem();
         l2_listExams_menuItem = new javax.swing.JMenuItem();
@@ -87,15 +89,12 @@ public class MainView extends javax.swing.JFrame {
         l1_student_menu.add(l2_addStudent_menuItem);
 
         l2_listStudents_menuItem.setText("List");
-        l1_student_menu.add(l2_listStudents_menuItem);
-
-        l2_editStudent_menuItem.setText("Edit");
-        l2_editStudent_menuItem.addActionListener(new java.awt.event.ActionListener() {
+        l2_listStudents_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                l2_editStudent_menuItemActionPerformed(evt);
+                l2_listStudents_menuItemActionPerformed(evt);
             }
         });
-        l1_student_menu.add(l2_editStudent_menuItem);
+        l1_student_menu.add(l2_listStudents_menuItem);
 
         l2_viewStudent_menuItem.setText("View");
         l1_student_menu.add(l2_viewStudent_menuItem);
@@ -115,6 +114,14 @@ public class MainView extends javax.swing.JFrame {
 
         l1_student_menu.add(l2_studentMedicalRequirement_menu);
 
+        l2_student_oldStudentList_menuItem.setText("Old Students List");
+        l2_student_oldStudentList_menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                l2_student_oldStudentList_menuItemActionPerformed(evt);
+            }
+        });
+        l1_student_menu.add(l2_student_oldStudentList_menuItem);
+
         jMenuBar1.add(l1_student_menu);
 
         l1_exam_menu.setText("Exam");
@@ -128,6 +135,11 @@ public class MainView extends javax.swing.JFrame {
         l1_exam_menu.add(l2_addExam_menuItem);
 
         l2_listExams_menuItem.setText("List");
+        l2_listExams_menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                l2_listExams_menuItemActionPerformed(evt);
+            }
+        });
         l1_exam_menu.add(l2_listExams_menuItem);
 
         jMenuBar1.add(l1_exam_menu);
@@ -143,6 +155,11 @@ public class MainView extends javax.swing.JFrame {
         l1_grade_menu.add(l2_addGrade_menuItem);
 
         l2_listGrade_menuItem.setText("List");
+        l2_listGrade_menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                l2_listGrade_menuItemActionPerformed(evt);
+            }
+        });
         l1_grade_menu.add(l2_listGrade_menuItem);
 
         jMenuBar1.add(l1_grade_menu);
@@ -158,6 +175,11 @@ public class MainView extends javax.swing.JFrame {
         l1_assesment_menu.add(l2_addAssesment_menuItem);
 
         l2_listAssesment_menuItem.setText("List");
+        l2_listAssesment_menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                l2_listAssesment_menuItemActionPerformed(evt);
+            }
+        });
         l1_assesment_menu.add(l2_listAssesment_menuItem);
 
         jMenuBar1.add(l1_assesment_menu);
@@ -165,6 +187,11 @@ public class MainView extends javax.swing.JFrame {
         l1_assesmentInExam_menu.setText("Assesment in Exam");
 
         l2_listAssesmentInExam_menuItem.setText("List             ");
+        l2_listAssesmentInExam_menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                l2_listAssesmentInExam_menuItemActionPerformed(evt);
+            }
+        });
         l1_assesmentInExam_menu.add(l2_listAssesmentInExam_menuItem);
 
         jMenuBar1.add(l1_assesmentInExam_menu);
@@ -186,6 +213,11 @@ public class MainView extends javax.swing.JFrame {
         l2_gradeViseExamStudentPerformance_menu.setText("Grade vise Exam");
 
         l3_listGVESP_menuItem.setText("List");
+        l3_listGVESP_menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                l3_listGVESP_menuItemActionPerformed(evt);
+            }
+        });
         l2_gradeViseExamStudentPerformance_menu.add(l3_listGVESP_menuItem);
 
         l3_viewGVESP_menuItem.setText("View");
@@ -227,6 +259,11 @@ public class MainView extends javax.swing.JFrame {
         l1_school_menu.add(l2_addSchool_menuItem);
 
         l2_listSchools_menuItem.setText("List Schools");
+        l2_listSchools_menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                l2_listSchools_menuItemActionPerformed(evt);
+            }
+        });
         l1_school_menu.add(l2_listSchools_menuItem);
 
         jMenuBar1.add(l1_school_menu);
@@ -242,6 +279,11 @@ public class MainView extends javax.swing.JFrame {
         l1_medicalRequirement_menu.add(l2_addMedicalRequirement_menuItem);
 
         l2_listMedicalRequirement_menuItem.setText("List");
+        l2_listMedicalRequirement_menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                l2_listMedicalRequirement_menuItemActionPerformed(evt);
+            }
+        });
         l1_medicalRequirement_menu.add(l2_listMedicalRequirement_menuItem);
 
         jMenuBar1.add(l1_medicalRequirement_menu);
@@ -280,11 +322,9 @@ public class MainView extends javax.swing.JFrame {
 
     private void l3_listSPA_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_listSPA_menuItemActionPerformed
         // TODO add your handling code here:
+        StudentAssesmentExamList sae = new StudentAssesmentExamList();
+        this.mainView_ScrollPane.setViewportView(sae);
     }//GEN-LAST:event_l3_listSPA_menuItemActionPerformed
-
-    private void l2_editStudent_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_editStudent_menuItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_l2_editStudent_menuItemActionPerformed
 
     private void l3_addStudentMedicalRequirement_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_addStudentMedicalRequirement_menuItemActionPerformed
         // TODO add your handling code here:
@@ -292,6 +332,8 @@ public class MainView extends javax.swing.JFrame {
 
     private void l2_listExamForGrades_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listExamForGrades_menuItemActionPerformed
         // TODO add your handling code here:
+        GradeExamList gel = new GradeExamList();
+        this.mainView_ScrollPane.setViewportView(gel);
     }//GEN-LAST:event_l2_listExamForGrades_menuItemActionPerformed
 
     private void l2_addStudent_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_addStudent_menuItemActionPerformed
@@ -329,6 +371,60 @@ public class MainView extends javax.swing.JFrame {
         AddMedicalRequirements amrs = new AddMedicalRequirements();
         this.mainView_ScrollPane.setViewportView(amrs);
     }//GEN-LAST:event_l2_addMedicalRequirement_menuItemActionPerformed
+
+    private void l2_listStudents_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listStudents_menuItemActionPerformed
+        // TODO add your handling code here:
+        StudentList stlst = new StudentList();
+        this.mainView_ScrollPane.setViewportView(stlst);
+    }//GEN-LAST:event_l2_listStudents_menuItemActionPerformed
+
+    private void l2_listExams_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listExams_menuItemActionPerformed
+        // TODO add your handling code here:
+        ExamList exmlst = new ExamList();
+        this.mainView_ScrollPane.setViewportView(exmlst);
+    }//GEN-LAST:event_l2_listExams_menuItemActionPerformed
+
+    private void l2_listGrade_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listGrade_menuItemActionPerformed
+        // TODO add your handling code here:
+        GradeList gl = new GradeList();
+        this.mainView_ScrollPane.setViewportView(gl);
+    }//GEN-LAST:event_l2_listGrade_menuItemActionPerformed
+
+    private void l2_listAssesment_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listAssesment_menuItemActionPerformed
+        // TODO add your handling code here:
+        AssesmentList asmntlst = new AssesmentList();
+        this.mainView_ScrollPane.setViewportView(asmntlst);
+    }//GEN-LAST:event_l2_listAssesment_menuItemActionPerformed
+
+    private void l2_listAssesmentInExam_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listAssesmentInExam_menuItemActionPerformed
+        // TODO add your handling code here:
+        ListOfAssesmentsInExams ael = new ListOfAssesmentsInExams();
+        this.mainView_ScrollPane.setViewportView(ael);
+    }//GEN-LAST:event_l2_listAssesmentInExam_menuItemActionPerformed
+
+    private void l3_listGVESP_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_listGVESP_menuItemActionPerformed
+        // TODO add your handling code here:
+        StudentGradeExamList sgel = new StudentGradeExamList();
+        this.mainView_ScrollPane.setViewportView(sgel);
+    }//GEN-LAST:event_l3_listGVESP_menuItemActionPerformed
+
+    private void l2_listSchools_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listSchools_menuItemActionPerformed
+        // TODO add your handling code here:
+        SchoolList sl = new SchoolList();
+        this.mainView_ScrollPane.setViewportView(sl);
+    }//GEN-LAST:event_l2_listSchools_menuItemActionPerformed
+
+    private void l2_listMedicalRequirement_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listMedicalRequirement_menuItemActionPerformed
+        // TODO add your handling code here:
+        MedicalStatusesList msl = new MedicalStatusesList();
+        this.mainView_ScrollPane.setViewportView(msl);
+    }//GEN-LAST:event_l2_listMedicalRequirement_menuItemActionPerformed
+
+    private void l2_student_oldStudentList_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_student_oldStudentList_menuItemActionPerformed
+        // TODO add your handling code here:
+        OldStudentList osl = new OldStudentList();
+        this.mainView_ScrollPane.setViewportView(osl);
+    }//GEN-LAST:event_l2_student_oldStudentList_menuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -384,7 +480,6 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JMenuItem l2_addSchool_menuItem;
     private javax.swing.JMenuItem l2_addStudent_menuItem;
     private javax.swing.JMenuItem l2_adminS_menuItem;
-    private javax.swing.JMenuItem l2_editStudent_menuItem;
     private javax.swing.JMenu l2_gradeViseExamStudentPerformance_menu;
     private javax.swing.JMenuItem l2_listAssesmentInExam_menuItem;
     private javax.swing.JMenuItem l2_listAssesment_menuItem;
@@ -396,6 +491,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JMenuItem l2_listStudents_menuItem;
     private javax.swing.JMenu l2_studentMedicalRequirement_menu;
     private javax.swing.JMenu l2_studentPerformanceAssesment_menu;
+    private javax.swing.JMenuItem l2_student_oldStudentList_menuItem;
     private javax.swing.JMenuItem l2_userSettings_menuItem;
     private javax.swing.JMenuItem l2_viewStudent_menuItem;
     private javax.swing.JMenuItem l3_addStudentMedicalRequirement_menuItem;

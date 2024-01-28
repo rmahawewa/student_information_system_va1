@@ -8,12 +8,12 @@ package View.List;
  *
  * @author HP
  */
-public class ExamList extends javax.swing.JPanel {
+public class SchoolList extends javax.swing.JPanel {
 
     /**
      * Creates new form ExamList
      */
-    public ExamList() {
+    public SchoolList() {
         initComponents();
     }
 
@@ -27,45 +27,22 @@ public class ExamList extends javax.swing.JPanel {
     private void initComponents() {
 
         topicLabel = new javax.swing.JLabel();
-        examNameLabel = new javax.swing.JLabel();
-        examCodeLabel = new javax.swing.JLabel();
-        yearLabel = new javax.swing.JLabel();
-        semesterLabel = new javax.swing.JLabel();
-        examNameText = new javax.swing.JTextField();
-        examCodeText = new javax.swing.JTextField();
-        yearText = new javax.swing.JTextField();
-        semesterText = new javax.swing.JTextField();
+        schoolNameLabel = new javax.swing.JLabel();
+        schoolNameText = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
         viewButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
-        addGradeButton = new javax.swing.JButton();
-        addAssesmentButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        examTable = new javax.swing.JTable();
+        schoolTable = new javax.swing.JTable();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        topicLabel.setText("All Exams Information");
+        topicLabel.setText("Schools");
 
-        examNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        examNameLabel.setText("Exam name:");
+        schoolNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolNameLabel.setText("School name:");
 
-        examCodeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        examCodeLabel.setText("Exam code:");
-
-        yearLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        yearLabel.setText("Year");
-
-        semesterLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        semesterLabel.setText("Semester:");
-
-        examNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        examCodeText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        yearText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        semesterText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         searchButton.setText("Search");
@@ -84,37 +61,38 @@ public class ExamList extends javax.swing.JPanel {
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
 
-        addGradeButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        addGradeButton.setText("Add Grade");
-
-        addAssesmentButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        addAssesmentButton.setText("Add Assesment");
-
-        examTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        examTable.setModel(new javax.swing.table.DefaultTableModel(
+        schoolTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Exam name", "Exam code", "Semester", "Start date", "End date"
+                "ID", "School name", "Address", "Contact number"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        jScrollPane1.setViewportView(examTable);
+        jScrollPane1.setViewportView(schoolTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(210, 210, 210)
+                .addGap(271, 271, 271)
                 .addComponent(topicLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -122,65 +100,40 @@ public class ExamList extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(viewButton, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addGradeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addAssesmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(schoolNameLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(examCodeLabel)
-                            .addComponent(examNameLabel)
-                            .addComponent(yearLabel)
-                            .addComponent(semesterLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(schoolNameText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(viewButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
-                                .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(yearText, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(examCodeText, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(semesterText, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(examNameText))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(clearButton, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                                    .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(29, 29, 29)
                 .addComponent(topicLabel)
-                .addGap(35, 35, 35)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(examNameLabel)
-                    .addComponent(examNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(examCodeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(examCodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(yearLabel)
-                    .addComponent(yearText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(semesterLabel)
-                    .addComponent(semesterText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(schoolNameLabel)
+                    .addComponent(schoolNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchButton)
                     .addComponent(clearButton))
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addAssesmentButton)
-                    .addComponent(addGradeButton)
                     .addComponent(editButton)
                     .addComponent(viewButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -190,22 +143,14 @@ public class ExamList extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addAssesmentButton;
-    private javax.swing.JButton addGradeButton;
     private javax.swing.JButton clearButton;
     private javax.swing.JButton editButton;
-    private javax.swing.JLabel examCodeLabel;
-    private javax.swing.JTextField examCodeText;
-    private javax.swing.JLabel examNameLabel;
-    private javax.swing.JTextField examNameText;
-    private javax.swing.JTable examTable;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel schoolNameLabel;
+    private javax.swing.JTextField schoolNameText;
+    private javax.swing.JTable schoolTable;
     private javax.swing.JButton searchButton;
-    private javax.swing.JLabel semesterLabel;
-    private javax.swing.JTextField semesterText;
     private javax.swing.JLabel topicLabel;
     private javax.swing.JButton viewButton;
-    private javax.swing.JLabel yearLabel;
-    private javax.swing.JTextField yearText;
     // End of variables declaration//GEN-END:variables
 }

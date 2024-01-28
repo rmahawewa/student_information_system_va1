@@ -2,20 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package View.Add;
+package View.IndividualView;
 
+import View.Edit.*;
+import View.Add.*;
 import View.*;
 
 /**
  *
  * @author HP
  */
-public class StudentAssesmentExam extends javax.swing.JPanel {
+public class ViewStudentAssesmentExam extends javax.swing.JPanel {
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
-    public StudentAssesmentExam() {
+    public ViewStudentAssesmentExam() {
         initComponents();
     }
 
@@ -31,25 +33,21 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
         topicLabel = new javax.swing.JLabel();
         examLabel = new javax.swing.JLabel();
         remarksLabel = new javax.swing.JLabel();
-        submitButton = new javax.swing.JButton();
-        cancelButton = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
         marksLabel = new javax.swing.JLabel();
         assesmentLabel = new javax.swing.JLabel();
         examNameValueLabel = new javax.swing.JLabel();
         gradeLabel = new javax.swing.JLabel();
         assesmentNameValueLabel = new javax.swing.JLabel();
-        marksText = new javax.swing.JTextField();
-        remarksText = new javax.swing.JTextField();
         descriptionLabel = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        descriptionTextArea = new javax.swing.JTextArea();
-        studentNameText = new javax.swing.JTextField();
-        clearButton = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        studentNamesList = new javax.swing.JList<>();
+        studentNameValueLabel = new javax.swing.JLabel();
+        marksValueLabel = new javax.swing.JLabel();
+        remarksValueLabel = new javax.swing.JLabel();
+        descriptionValueLabel = new javax.swing.JLabel();
+        closeFromTopButton = new javax.swing.JButton();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        topicLabel.setText("Add Student Assesment Performance Details");
+        topicLabel.setText("Student Assesment Performance Details");
 
         examLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         examLabel.setText("Exam:");
@@ -57,11 +55,8 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
         remarksLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         remarksLabel.setText("Remarks:");
 
-        submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        submitButton.setText("Submit");
-
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cancelButton.setText("Cancel");
+        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setText("Close");
 
         marksLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         marksLabel.setText("Marks:");
@@ -78,29 +73,36 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
         assesmentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         assesmentNameValueLabel.setText("assesment name");
 
-        marksText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        remarksText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
         descriptionLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         descriptionLabel.setText("Description:");
 
-        descriptionTextArea.setColumns(20);
-        descriptionTextArea.setRows(5);
-        jScrollPane1.setViewportView(descriptionTextArea);
+        studentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameValueLabel.setText("student name");
 
-        studentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        marksValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        marksValueLabel.setText("marks");
 
-        clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        clearButton.setText("Clear");
+        remarksValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        remarksValueLabel.setText("remarks");
 
-        jScrollPane2.setViewportView(studentNamesList);
+        descriptionValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        descriptionValueLabel.setText("description");
+
+        closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
+        closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeFromTopButton.setForeground(new java.awt.Color(255, 255, 255));
+        closeFromTopButton.setText("X");
+        closeFromTopButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeFromTopButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(examLabel)
@@ -109,38 +111,40 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
                     .addComponent(marksLabel)
                     .addComponent(remarksLabel)
                     .addComponent(descriptionLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(examNameValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(assesmentNameValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
-                    .addComponent(remarksText)
-                    .addComponent(marksText, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                            .addComponent(studentNameText, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(clearButton)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(descriptionValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(examNameValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(assesmentNameValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
+                        .addComponent(studentNameValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(marksValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(remarksValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(36, 36, 36))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92)
-                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(127, Short.MAX_VALUE)
+                        .addComponent(topicLabel)
+                        .addGap(93, 93, 93)
+                        .addComponent(closeFromTopButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(topicLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(242, 242, 242)
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(topicLabel)
-                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(closeFromTopButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(topicLabel)))
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(examLabel)
                     .addComponent(examNameValueLabel))
@@ -148,34 +152,31 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(assesmentLabel)
                     .addComponent(assesmentNameValueLabel))
-                .addGap(33, 33, 33)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gradeLabel)
-                    .addComponent(studentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(clearButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                    .addComponent(studentNameValueLabel))
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(marksLabel)
-                    .addComponent(marksText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                    .addComponent(marksValueLabel))
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(remarksLabel)
-                    .addComponent(remarksText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(descriptionLabel)))
-                .addGap(63, 63, 63)
+                    .addComponent(remarksValueLabel))
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitButton)
-                    .addComponent(cancelButton))
-                .addGap(44, 44, 44))
+                    .addComponent(descriptionLabel)
+                    .addComponent(descriptionValueLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(closeButton)
+                .addGap(53, 53, 53))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void closeFromTopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFromTopButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_closeFromTopButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -726,22 +727,18 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel assesmentLabel;
     private javax.swing.JLabel assesmentNameValueLabel;
-    private javax.swing.JButton cancelButton;
-    private javax.swing.JButton clearButton;
+    private javax.swing.JButton closeButton;
+    private javax.swing.JButton closeFromTopButton;
     private javax.swing.JLabel descriptionLabel;
-    private javax.swing.JTextArea descriptionTextArea;
+    private javax.swing.JLabel descriptionValueLabel;
     private javax.swing.JLabel examLabel;
     private javax.swing.JLabel examNameValueLabel;
     private javax.swing.JLabel gradeLabel;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel marksLabel;
-    private javax.swing.JTextField marksText;
+    private javax.swing.JLabel marksValueLabel;
     private javax.swing.JLabel remarksLabel;
-    private javax.swing.JTextField remarksText;
-    private javax.swing.JTextField studentNameText;
-    private javax.swing.JList<String> studentNamesList;
-    private javax.swing.JButton submitButton;
+    private javax.swing.JLabel remarksValueLabel;
+    private javax.swing.JLabel studentNameValueLabel;
     private javax.swing.JLabel topicLabel;
     // End of variables declaration//GEN-END:variables
 }
