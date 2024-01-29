@@ -2,20 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package View.Add;
+package View.Edit;
 
+//import View.*;
+
+import View.Add.*;
 //import View.*;
 
 /**
  *
  * @author HP
  */
-public class AddAssesment extends javax.swing.JPanel {
+public class EditAssesment extends javax.swing.JPanel {
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
-    public AddAssesment() {
+    public EditAssesment() {
         initComponents();
     }
 
@@ -55,7 +58,7 @@ public class AddAssesment extends javax.swing.JPanel {
         assesmentCodeText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        submitButton.setText("Submit");
+        submitButton.setText("Update");
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");

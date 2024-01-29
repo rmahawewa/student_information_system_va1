@@ -2,20 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package View.Add;
+package View.Edit;
 
+import View.Add.*;
 import View.*;
 
 /**
  *
  * @author HP
  */
-public class StudentGradeExam extends javax.swing.JPanel {
+public class EditStudentGradeExam extends javax.swing.JPanel {
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
-    public StudentGradeExam() {
+    public EditStudentGradeExam() {
         initComponents();
     }
 
@@ -46,7 +47,7 @@ public class StudentGradeExam extends javax.swing.JPanel {
         descriptionTextArea = new javax.swing.JTextArea();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        topicLabel.setText("Add Student Examination Performance Details");
+        topicLabel.setText("Edit Student Examination Performance Details");
 
         studentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentNameLabel.setText("Student name:");
@@ -55,7 +56,7 @@ public class StudentGradeExam extends javax.swing.JPanel {
         remarksLabel.setText("Remarks:");
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        submitButton.setText("Submit");
+        submitButton.setText("Update");
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");

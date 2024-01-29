@@ -2,20 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package View.Add;
+package View.IndividualView;
 
+import View.Edit.*;
+import View.Add.*;
 import View.*;
 
 /**
  *
  * @author HP
  */
-public class AddStudentMedicalRequirement extends javax.swing.JPanel {
+public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
-    public AddStudentMedicalRequirement() {
+    public ViewStudentMedicalRequirement() {
         initComponents();
     }
 
@@ -32,32 +34,20 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
         studentNameLabel = new javax.swing.JLabel();
         firstDateOfTreatmentLabel = new javax.swing.JLabel();
         detailsLabel = new javax.swing.JLabel();
-        studentNameText = new javax.swing.JTextField();
-        submitButton = new javax.swing.JButton();
-        cancelButton = new javax.swing.JButton();
-        fdotDayComboBx = new javax.swing.JComboBox<>();
-        fdotYearComboBx = new javax.swing.JComboBox<>();
-        fdotMonthComboBx = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        studentNamesList = new javax.swing.JList<>();
-        studentNameClearButton = new javax.swing.JButton();
-        medicalRequirementText = new javax.swing.JTextField();
+        closeButton = new javax.swing.JButton();
         medicalRequirementLabel = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        medicalRequirementsLabel = new javax.swing.JList<>();
-        medicalRequirementClearButton = new javax.swing.JButton();
-        fdofDayComboBx = new javax.swing.JComboBox<>();
-        fdodYearComboBx = new javax.swing.JComboBox<>();
-        fdodMonthComboBx = new javax.swing.JComboBox<>();
         firstDateOfDiagnoseLabel = new javax.swing.JLabel();
-        ldotDayComboBx = new javax.swing.JComboBox<>();
-        ldotYearComboBx = new javax.swing.JComboBox<>();
-        ldotMonthComboBx = new javax.swing.JComboBox<>();
         lastDateOfTraetementLabel = new javax.swing.JLabel();
         detailsTextField = new javax.swing.JTextField();
+        studentNameLabel1 = new javax.swing.JLabel();
+        medicalRequirementLabel1 = new javax.swing.JLabel();
+        firstDateOfDiagnoseValueLabel = new javax.swing.JLabel();
+        firstDateOfTreatmentValueLabel = new javax.swing.JLabel();
+        lastDateOfTreatmentValueLabel = new javax.swing.JLabel();
+        closeFromTopButton = new javax.swing.JButton();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        topicLabel.setText("Add Student Medical Requirement Information");
+        topicLabel.setText("Student Medical Requirement Information");
 
         studentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentNameLabel.setText("Student name:");
@@ -68,63 +58,46 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
         detailsLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         detailsLabel.setText("Details:");
 
-        studentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        submitButton.setText("Submit");
-
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cancelButton.setText("Cancel");
-
-        fdotDayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        fdotDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-
-        fdotYearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        fdotYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
-
-        fdotMonthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        fdotMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
-
-        jScrollPane1.setViewportView(studentNamesList);
-
-        studentNameClearButton.setText("Clear");
-
-        medicalRequirementText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setText("Close");
 
         medicalRequirementLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         medicalRequirementLabel.setText("Medical Requirement:");
 
-        jScrollPane2.setViewportView(medicalRequirementsLabel);
-
-        medicalRequirementClearButton.setText("Clear");
-
-        fdofDayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        fdofDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-
-        fdodYearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        fdodYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
-
-        fdodMonthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        fdodMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
-
         firstDateOfDiagnoseLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         firstDateOfDiagnoseLabel.setText("First date of diagnose:");
 
-        ldotDayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ldotDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-
-        ldotYearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ldotYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
-
-        ldotMonthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ldotMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
-
         lastDateOfTraetementLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lastDateOfTraetementLabel.setText("Last date of treatement:");
+        lastDateOfTraetementLabel.setText("Last date of treatment:");
 
         detailsTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 detailsTextFieldActionPerformed(evt);
+            }
+        });
+
+        studentNameLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameLabel1.setText("student name value");
+
+        medicalRequirementLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalRequirementLabel1.setText("medical requirement value");
+
+        firstDateOfDiagnoseValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        firstDateOfDiagnoseValueLabel.setText("first date of diagnose");
+
+        firstDateOfTreatmentValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        firstDateOfTreatmentValueLabel.setText("first date of treatment");
+
+        lastDateOfTreatmentValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lastDateOfTreatmentValueLabel.setText("last date of treatment");
+
+        closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
+        closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeFromTopButton.setForeground(new java.awt.Color(255, 255, 255));
+        closeFromTopButton.setText("X");
+        closeFromTopButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeFromTopButtonActionPerformed(evt);
             }
         });
 
@@ -133,125 +106,88 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
-                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(65, 65, 65)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lastDateOfTraetementLabel)
-                            .addComponent(firstDateOfTreatmentLabel)
-                            .addComponent(detailsLabel)
-                            .addComponent(medicalRequirementLabel)
-                            .addComponent(studentNameLabel))
-                        .addGap(32, 32, 32)
-                        .addComponent(detailsTextField))
+                            .addComponent(studentNameLabel)
+                            .addComponent(medicalRequirementLabel))
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(medicalRequirementLabel1)
+                            .addComponent(studentNameLabel1)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(234, 234, 234)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ldotYearComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(ldotMonthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)
-                                .addComponent(ldotDayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(studentNameText, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(studentNameClearButton))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(medicalRequirementText, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(fdodYearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(fdotYearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(fdodMonthComboBx, 0, 145, Short.MAX_VALUE)
-                                                    .addComponent(fdotMonthComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(fdofDayComboBx, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(medicalRequirementClearButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fdotDayComboBx, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(47, 47, 47))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(detailsLabel)
+                            .addComponent(firstDateOfTreatmentLabel)
+                            .addComponent(firstDateOfDiagnoseLabel)
+                            .addComponent(lastDateOfTraetementLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lastDateOfTreatmentValueLabel)
+                            .addComponent(detailsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(firstDateOfTreatmentValueLabel)
+                            .addComponent(firstDateOfDiagnoseValueLabel))))
+                .addContainerGap(32, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(topicLabel)
-                .addGap(109, 109, 109))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(49, 49, 49)
-                    .addComponent(firstDateOfDiagnoseLabel)
-                    .addContainerGap(437, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(269, 269, 269))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(topicLabel)
+                        .addGap(94, 94, 94)
+                        .addComponent(closeFromTopButton)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(topicLabel)
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(studentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(studentNameClearButton)
-                    .addComponent(studentNameLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(medicalRequirementText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(medicalRequirementClearButton)
-                    .addComponent(medicalRequirementLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fdodYearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fdodMonthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fdofDayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fdotYearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fdotMonthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fdotDayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(firstDateOfTreatmentLabel))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(topicLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(closeFromTopButton)))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(studentNameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(studentNameLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ldotMonthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ldotDayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ldotYearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lastDateOfTraetementLabel))
-                .addGap(37, 37, 37)
+                    .addComponent(medicalRequirementLabel)
+                    .addComponent(medicalRequirementLabel1))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstDateOfDiagnoseLabel)
+                    .addComponent(firstDateOfDiagnoseValueLabel))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstDateOfTreatmentLabel)
+                    .addComponent(firstDateOfTreatmentValueLabel))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lastDateOfTraetementLabel)
+                    .addComponent(lastDateOfTreatmentValueLabel))
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(detailsLabel)
                     .addComponent(detailsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitButton)
-                    .addComponent(cancelButton))
-                .addGap(51, 51, 51))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(373, 373, 373)
-                    .addComponent(firstDateOfDiagnoseLabel)
-                    .addContainerGap(373, Short.MAX_VALUE)))
+                .addGap(43, 43, 43)
+                .addComponent(closeButton)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void detailsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_detailsTextFieldActionPerformed
+
+    private void closeFromTopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFromTopButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_closeFromTopButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,32 +240,20 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cancelButton;
+    private javax.swing.JButton closeButton;
+    private javax.swing.JButton closeFromTopButton;
     private javax.swing.JLabel detailsLabel;
     private javax.swing.JTextField detailsTextField;
-    private javax.swing.JComboBox<String> fdodMonthComboBx;
-    private javax.swing.JComboBox<String> fdodYearComboBx;
-    private javax.swing.JComboBox<String> fdofDayComboBx;
-    private javax.swing.JComboBox<String> fdotDayComboBx;
-    private javax.swing.JComboBox<String> fdotMonthComboBx;
-    private javax.swing.JComboBox<String> fdotYearComboBx;
     private javax.swing.JLabel firstDateOfDiagnoseLabel;
+    private javax.swing.JLabel firstDateOfDiagnoseValueLabel;
     private javax.swing.JLabel firstDateOfTreatmentLabel;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel firstDateOfTreatmentValueLabel;
     private javax.swing.JLabel lastDateOfTraetementLabel;
-    private javax.swing.JComboBox<String> ldotDayComboBx;
-    private javax.swing.JComboBox<String> ldotMonthComboBx;
-    private javax.swing.JComboBox<String> ldotYearComboBx;
-    private javax.swing.JButton medicalRequirementClearButton;
+    private javax.swing.JLabel lastDateOfTreatmentValueLabel;
     private javax.swing.JLabel medicalRequirementLabel;
-    private javax.swing.JTextField medicalRequirementText;
-    private javax.swing.JList<String> medicalRequirementsLabel;
-    private javax.swing.JButton studentNameClearButton;
+    private javax.swing.JLabel medicalRequirementLabel1;
     private javax.swing.JLabel studentNameLabel;
-    private javax.swing.JTextField studentNameText;
-    private javax.swing.JList<String> studentNamesList;
-    private javax.swing.JButton submitButton;
+    private javax.swing.JLabel studentNameLabel1;
     private javax.swing.JLabel topicLabel;
     // End of variables declaration//GEN-END:variables
 }

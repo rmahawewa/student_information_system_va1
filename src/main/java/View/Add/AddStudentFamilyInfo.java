@@ -35,7 +35,6 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
         birthdayLabel = new javax.swing.JLabel();
         nicLabel = new javax.swing.JLabel();
         careerLabel = new javax.swing.JLabel();
-        familyContactNumberLabel = new javax.swing.JLabel();
         studentNameValueLabel = new javax.swing.JLabel();
         fMemberNameText = new javax.swing.JTextField();
         relationshipText = new javax.swing.JTextField();
@@ -44,7 +43,6 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
         bdDayCmbBx = new javax.swing.JComboBox<>();
         nicText = new javax.swing.JTextField();
         careerText = new javax.swing.JTextField();
-        contNumText = new javax.swing.JTextField();
         submitButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -73,9 +71,6 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
         careerLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         careerLabel.setText("Career:");
 
-        familyContactNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        familyContactNumberLabel.setText("Family contact number:");
-
         studentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentNameValueLabel.setText("studentNameValueLabel");
 
@@ -95,8 +90,6 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
         nicText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         careerText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        contNumText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Submit");
@@ -141,9 +134,8 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
                     .addComponent(relationshipLabel)
                     .addComponent(birthdayLabel)
                     .addComponent(nicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(careerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(familyContactNumberLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(careerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(relationshipText)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -154,7 +146,6 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
                         .addComponent(bdDayCmbBx, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(nicText, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(careerText, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(contNumText, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(studentNameValueLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(fMemberNameText, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(38, 38, 38))
@@ -205,11 +196,7 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(careerLabel)
                     .addComponent(careerText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(familyContactNumberLabel)
-                    .addComponent(contNumText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(cancelButton))
@@ -263,9 +250,7 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel careerLabel;
     private javax.swing.JTextField careerText;
-    private javax.swing.JTextField contNumText;
     private javax.swing.JTextField fMemberNameText;
-    private javax.swing.JLabel familyContactNumberLabel;
     private javax.swing.JTable familyMembersViewTable;
     private javax.swing.JLabel fmemberNameLabel;
     private javax.swing.JScrollPane jScrollPane1;

@@ -8,12 +8,12 @@ package View.List;
  *
  * @author HP
  */
-public class GradeList extends javax.swing.JPanel {
+public class MedicalStatusesList extends javax.swing.JPanel {
 
     /**
      * Creates new form GradeList
      */
-    public GradeList() {
+    public MedicalStatusesList() {
         initComponents();
     }
 
@@ -28,18 +28,18 @@ public class GradeList extends javax.swing.JPanel {
 
         topicLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        medicalStatusesTable = new javax.swing.JTable();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        topicLabel.setText("Grades");
+        topicLabel.setText("Medical Statuses");
 
-        jTable1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        medicalStatusesTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalStatusesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Grade in number", "Grade in words"
+                "ID", "Medical Status"
             }
         ) {
             Class[] types = new Class [] {
@@ -57,7 +57,7 @@ public class GradeList extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(medicalStatusesTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -66,7 +66,7 @@ public class GradeList extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(topicLabel)
-                .addGap(273, 273, 273))
+                .addGap(231, 231, 231))
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -75,10 +75,10 @@ public class GradeList extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(34, 34, 34)
                 .addComponent(topicLabel)
-                .addGap(44, 44, 44)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -86,7 +86,7 @@ public class GradeList extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable medicalStatusesTable;
     private javax.swing.JLabel topicLabel;
     // End of variables declaration//GEN-END:variables
 }
