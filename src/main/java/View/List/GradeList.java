@@ -4,6 +4,14 @@
  */
 package View.List;
 
+import Controller.GradeController;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author HP
@@ -15,6 +23,35 @@ public class GradeList extends javax.swing.JPanel {
      */
     public GradeList() {
         initComponents();
+        try {        
+            this.loadTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(GradeList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void loadTable() throws SQLException{
+        this.clearTable();
+        GradeController gc = new GradeController();
+        Map<Integer,Map<Integer,String>> hm = gc.getAllGrades();
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap hshmp = (HashMap) value;
+                String[] tbl_data = {(String)hshmp.get(1), (String)hshmp.get(2)};
+                DefaultTableModel dtm = (DefaultTableModel) gradesTable.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
+    }
+    
+    public void clearTable(){
+        DefaultTableModel dtm = (DefaultTableModel) gradesTable.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1; i >= 0; i--){
+            dtm.removeRow(i);
+        }        
+        
     }
 
     /**

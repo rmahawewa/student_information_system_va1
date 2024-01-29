@@ -5,6 +5,12 @@
 package View.Add;
 
 import View.*;
+import java.util.ArrayList;
+import java.util.List;
+import Controller.GradeController;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -51,6 +57,11 @@ public class AddGradeInfo extends javax.swing.JPanel {
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
@@ -102,6 +113,35 @@ public class AddGradeInfo extends javax.swing.JPanel {
                 .addContainerGap(50, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        try {
+            // TODO add your handling code here
+            String gradeInNumber = gradeInNumberText.getText();
+            String gradeInWords = gradeInWordsText.getText();
+            
+            if(!gradeInNumber.equals("") && !gradeInWords.equals("")){
+                List<String> l = new ArrayList<String>();
+                l.add(0, gradeInNumber);
+                l.add(1, gradeInWords);
+
+                GradeController gc = new GradeController();
+                int rslt = gc.addUser(l);
+                if(rslt == 0){
+                    System.out.println("Grade info successfully added");
+                    gradeInNumberText.setText("");
+                    gradeInWordsText.setText("");
+                }
+            }else{
+                // Message Box
+                System.out.println("message box - required fields"); 
+           }           
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(AddGradeInfo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
      * @param args the command line arguments

@@ -7,6 +7,7 @@ package com.mycompany.sis;
 import View.MainView;
 import Controller.UserController;
 import Model.LoggedInUser;
+import UserLibraries.GetTimes;
 
 /**
  *
@@ -15,6 +16,7 @@ import Model.LoggedInUser;
 public class SIS {
 
     public static void main(String[] args) {
+        System.out.println("The current day is: " + GetTimes.getCurrentDay()); 
         System.out.println("Hello World!");
         
 //        MainView mv = new MainView();
@@ -23,7 +25,8 @@ public class SIS {
         uc.user_login("test", "test");
 //        System.out.println("---------------------------------------");
 //        System.out.println(LoggedInUser.getLogged_in_user());
-
+        MainView mv = new MainView();
+        mv.setVisible(true);
         
     }
 }

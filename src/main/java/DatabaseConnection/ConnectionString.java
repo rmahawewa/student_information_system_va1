@@ -37,8 +37,8 @@ public class ConnectionString {
     
     public ConnectionString(){
         LoadDriver();
-        String username="";
-        String password="";
+        String username="root";
+        String password="12345";
         String url = "jdbc:mysql://localhost/studentis?useUnicode=true&characterEncoding=UTF-8";
         try {
             con = DriverManager.getConnection(url, username, password);

@@ -5,6 +5,13 @@
 package View.Add;
 
 import View.*;
+import Controller.ExamController;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import UserLibraries.GetTimes;
 
 /**
  *
@@ -48,7 +55,7 @@ public class AddExam extends javax.swing.JPanel{
         detailsTextField = new javax.swing.JTextField();
         yearLabel = new javax.swing.JLabel();
         semesterLabel = new javax.swing.JLabel();
-        semesterComboBx1 = new javax.swing.JComboBox<>();
+        semesterComboBx = new javax.swing.JComboBox<>();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topicLabel.setText("Add Exam Information");
@@ -71,6 +78,11 @@ public class AddExam extends javax.swing.JPanel{
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
@@ -116,8 +128,8 @@ public class AddExam extends javax.swing.JPanel{
         semesterLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         semesterLabel.setText("Semester:");
 
-        semesterComboBx1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        semesterComboBx1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Semester", "Second Semester", "Third Semester", "Forth Semester", " " }));
+        semesterComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        semesterComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Semester", "Second Semester", "Third Semester", "Forth Semester", " " }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -148,7 +160,7 @@ public class AddExam extends javax.swing.JPanel{
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(examCodeText, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(yearComboBx, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(semesterComboBx1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(semesterComboBx, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(detailsLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -199,7 +211,7 @@ public class AddExam extends javax.swing.JPanel{
                         .addGap(37, 37, 37)
                         .addComponent(yearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
-                        .addComponent(semesterComboBx1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(semesterComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fdYearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,6 +244,66 @@ public class AddExam extends javax.swing.JPanel{
         // TODO add your handling code here:
     }//GEN-LAST:event_examNameTextActionPerformed
 
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        String name = examNameText.getText();
+        String code = examCodeText.getText();
+        String year = yearComboBx.getSelectedItem().toString();
+        String semester = semesterComboBx.getSelectedItem().toString();
+        String frm_dt_y = fdYearComboBx.getSelectedItem().toString();
+        String frm_dt_m = GetTimes.getMonthNumber(fdMonthComboBx.getSelectedItem().toString());
+        String frm_dt_d = fdDayComboBx.getSelectedItem().toString();
+        String frm_date = frm_dt_y+"-"+frm_dt_m+"-"+frm_dt_d;
+        System.out.println("from date:" + frm_date);        
+        String to_dt_y = tdYearComboBx.getSelectedItem().toString();
+        String to_dt_m = GetTimes.getMonthNumber(tdMonthComboBx.getSelectedItem().toString());
+        String to_dt_d = tdDayComboBx.getSelectedItem().toString();
+        String to_date = to_dt_y+"-"+to_dt_m+"-"+to_dt_d;
+        System.out.println("to date:"+ to_date);
+        String details = detailsTextField.getText();
+        
+        
+        
+        if(!name.equals("") && !code.equals("") && !year.equals("") && !semester.equals("") && !frm_dt_y.equals("") && !frm_dt_m.equals("") && !frm_dt_d.equals("") && !to_dt_y.equals("") && !to_dt_m.equals("") && !to_dt_d.equals("")){
+            List<String> lst = new ArrayList<String>();
+            lst.add(0, name);
+            lst.add(1, code);
+            lst.add(2, year);
+            lst.add(3, semester);
+            lst.add(4, (frm_dt_y + "-" + frm_dt_m + "-" + frm_dt_d));
+            lst.add(5, (to_dt_y + "-" + to_dt_m + "-" + to_dt_d));
+            lst.add(6, details);
+            ExamController ec = new ExamController();
+            int i=1;
+            try {
+                i = ec.createExam(lst);
+            } catch (SQLException ex) {
+                Logger.getLogger(AddExam.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            if(i == 0){
+                System.out.println("Exam record successfully created");
+                this.clearForm();
+            }else{
+                System.out.println("Failed to create the exam record");
+            }
+        }
+    }//GEN-LAST:event_submitButtonActionPerformed
+
+    public void clearForm(){
+                examNameText.setText("");
+                examCodeText.setText("");
+                yearComboBx.setSelectedItem(GetTimes.getCurrentYear());
+                semesterComboBx.setSelectedIndex(0);
+                fdYearComboBx.setSelectedItem(GetTimes.getCurrentYear());
+                fdMonthComboBx.setSelectedItem(GetTimes.getCurrentMonth());
+                fdDayComboBx.setSelectedItem(GetTimes.getCurrentDay());
+                tdYearComboBx.setSelectedItem(GetTimes.getCurrentYear());
+                tdMonthComboBx.setSelectedItem(GetTimes.getCurrentMonth());
+                tdDayComboBx.setSelectedItem(GetTimes.getCurrentDay());
+                detailsTextField.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -310,7 +382,7 @@ public class AddExam extends javax.swing.JPanel{
     private javax.swing.JComboBox<String> fdMonthComboBx;
     private javax.swing.JComboBox<String> fdYearComboBx;
     private javax.swing.JLabel fromDateLabel;
-    private javax.swing.JComboBox<String> semesterComboBx1;
+    private javax.swing.JComboBox<String> semesterComboBx;
     private javax.swing.JLabel semesterLabel;
     private javax.swing.JButton submitButton;
     private javax.swing.JComboBox<String> tdDayComboBx;
