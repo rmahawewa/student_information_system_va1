@@ -66,12 +66,14 @@ public class GetTimes {
         //return current_dt.getMonth();
         String mnth = String.valueOf(current_dt.getMonthValue());
         mnth = mnth.length()==1?("0"+mnth):mnth;
+        System.out.println("current month: " + mnth);
         String mt = getMonthText(mnth);
-        return mnth;
+        //System.out.println("current month in word:" + mt);
+        return mt;
     }
     
     public static String getCurrentDay(){
-        LocalDateTime current_dt = LocalDateTime.of(2024, 01, 05, 10, 10);
+        //LocalDateTime current_dt = LocalDateTime.of(2024, 01, 05, 10, 10);
         return (String.valueOf(current_dt.getDayOfMonth()).length()==2?(String.valueOf(current_dt.getDayOfMonth())):("0"+(current_dt.getDayOfMonth())));        
     }
     

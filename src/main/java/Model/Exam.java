@@ -8,9 +8,12 @@ import DatabaseConnection.ConnectionString;
 import Model.LoggedInUser;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -138,6 +141,109 @@ public class Exam {
         }
         
         return ret_stts;
+    }
+    
+    public HashMap getExamDataByInfo(String exam_name, String exam_code, String yr, String semester) throws SQLException{
+    
+        ConnectionString con_str = new ConnectionString();
+        Connection con = con_str.getCon();
+        
+        PreparedStatement prep = null;
+        ResultSet rs = null;
+        
+        Map<Integer, Map<Integer,String>> exam_list = new HashMap<Integer, Map<Integer,String>>();
+        
+        int count = 1;
+        int count1 = 0;
+        int count2 = 0;
+        int count3 = 0;
+        int count4 = 0;
+        String examNameQuery = "";
+        String examCodeQuery = "";
+        String yearQuery = "";
+        String semesterQuery = "";
+                        
+        try{
+            String query = "select exam_id,exam_name,semester,from_date,to_date from exam where exam_id > ?";
+        
+            if(!exam_name.equals("")){
+                examNameQuery = " and exam_name = ?";
+                count++;
+                count1 = count;
+            }
+            if(!exam_code.equals("")){
+                examCodeQuery = " and exam_code = ?";
+                count++;
+                count2 = count;
+            }
+            if(!yr.equals("")){
+                yearQuery = " and year = ?";
+                count++;
+                count3 = count;
+            }        
+            if(!semester.equals("")){
+                semesterQuery = " and semester = ?";
+                count++;
+                count4 = count;
+            }
+
+            query = query + examNameQuery + examCodeQuery + yearQuery + semesterQuery;
+            prep = con.prepareStatement(query);
+
+            prep.setInt(1, 0);
+
+            if(count1 > 1){
+                prep.setString(count1, exam_name);
+            }
+            if(count2 > 1){
+                prep.setString(count2, exam_code);
+            }
+            if(count3 > 1){
+                prep.setString(count3, yr);
+            }
+            if(count4 > 1){
+                prep.setString(count4, semester);
+            }
+
+            rs = prep.executeQuery();
+
+            int cnt=0;
+            while(rs.next()){
+                int exam_id = rs.getInt("exam_id");
+                String em_name = rs.getString("exam_name");
+                String sems = rs.getString("semester");
+                String strt_date = rs.getDate("from_date").toString();
+                String end_date = rs.getDate("to_date").toString();
+
+                Map<Integer,String> row = new HashMap<Integer,String>();
+                row.put(0, Integer.toString(exam_id));
+                row.put(1, em_name);
+                row.put(2, sems);
+                row.put(3, strt_date);
+                row.put(4, end_date);
+
+                exam_list.put(cnt, row);
+                cnt++;
+            }
+        }catch(Exception ex){
+            Logger.getLogger(Exam.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            
+            if(rs != null){
+                try{
+                    rs.close();
+                }catch(SQLException e){}
+                rs=null;
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){}
+                prep.close();
+            }
+            con.close();        
+        }    
+        return (HashMap) exam_list;
     }
     
 }
