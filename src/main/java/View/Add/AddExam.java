@@ -24,6 +24,7 @@ public class AddExam extends javax.swing.JPanel{
      */
     public AddExam() {
         initComponents();
+        this.clearForm();
     }
 
     /**
@@ -108,7 +109,7 @@ public class AddExam extends javax.swing.JPanel{
         fdYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
         fdMonthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        fdMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
+        fdMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
 
         fromDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         fromDateLabel.setText("From date:");
