@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import UserLibraries.GetTimes;
+import java.util.HashMap;
+import java.util.Map;
+import UserLibraries.InputValidation;
 
 /**
  *
@@ -263,9 +266,13 @@ public class AddExam extends javax.swing.JPanel{
         System.out.println("to date:"+ to_date);
         String details = detailsTextField.getText();
         
+        InputValidation iv = new InputValidation();
+        int name_vald = iv.check_on_special_characters(name);
+        int code_vald = iv.check_on_certain_characters(code);
+        boolean whole_vald = (name_vald*code_vald)>0;
         
         
-        if(!name.equals("") && !code.equals("") && !year.equals("") && !semester.equals("") && !frm_dt_y.equals("") && !frm_dt_m.equals("") && !frm_dt_d.equals("") && !to_dt_y.equals("") && !to_dt_m.equals("") && !to_dt_d.equals("")){
+        if(!name.equals("") && !code.equals("") && !year.equals("") && !semester.equals("") && !frm_dt_y.equals("") && !frm_dt_m.equals("") && !frm_dt_d.equals("") && !to_dt_y.equals("") && !to_dt_m.equals("") && !to_dt_d.equals("") && whole_vald){
             List<String> lst = new ArrayList<String>();
             lst.add(0, name);
             lst.add(1, code);
@@ -288,6 +295,8 @@ public class AddExam extends javax.swing.JPanel{
             }else{
                 System.out.println("Failed to create the exam record");
             }
+        }else{
+            System.out.println("Please fill all the fields correctly before proceed");
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 

@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import UserLibraries.Formattings;
 
 /**
  *
@@ -31,17 +32,21 @@ public class GradeList extends javax.swing.JPanel {
     }
     
     public void loadTable() throws SQLException{
-        this.clearTable();
+        //this.clearTable();
+        Formattings fmt = new Formattings();
+        fmt.clearTable(gradesTable);
         GradeController gc = new GradeController();
         Map<Integer,Map<Integer,String>> hm = gc.getAllGrades();
-        if(!hm.isEmpty()){
-            hm.forEach((key,value) -> {
-                HashMap hshmp = (HashMap) value;
-                String[] tbl_data = {(String)hshmp.get(1), (String)hshmp.get(2)};
-                DefaultTableModel dtm = (DefaultTableModel) gradesTable.getModel();
-                dtm.addRow(tbl_data);
-            });
-        }
+        Formattings fmts = new Formattings();
+        fmts.createTable((HashMap) hm, gradesTable);
+//        if(!hm.isEmpty()){
+//            hm.forEach((key,value) -> {
+//                HashMap hshmp = (HashMap) value;
+//                String[] tbl_data = {(String)hshmp.get(1), (String)hshmp.get(2)};
+//                DefaultTableModel dtm = (DefaultTableModel) gradesTable.getModel();
+//                dtm.addRow(tbl_data);
+//            });
+//        }
     }
     
     public void clearTable(){

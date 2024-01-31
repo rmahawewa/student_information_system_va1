@@ -16,6 +16,10 @@ public class ExamList extends javax.swing.JPanel {
     public ExamList() {
         initComponents();
     }
+    
+//    public function loadTable(){
+//        
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.

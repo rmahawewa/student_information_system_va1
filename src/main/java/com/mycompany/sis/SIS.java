@@ -16,6 +16,7 @@ import UserLibraries.GetTimes;
 public class SIS {
 
     public static void main(String[] args) {
+        //System.out.println("පරීක්ෂණය");
         System.out.println("The current day is: " + GetTimes.getCurrentDay()); 
         System.out.println("Hello World!");
         
