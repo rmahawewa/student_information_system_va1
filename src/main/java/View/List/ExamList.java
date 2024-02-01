@@ -4,6 +4,19 @@
  */
 package View.List;
 
+import Controller.ExamController;
+import UserLibraries.Formattings;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import View.IndividualView.ViewExam;
+import View.MainView;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+
 /**
  *
  * @author HP
@@ -13,13 +26,45 @@ public class ExamList extends javax.swing.JPanel {
     /**
      * Creates new form ExamList
      */
+    
+    MainView main_frame;
+    
     public ExamList() {
         initComponents();
+        try {
+            this.loadTable("", "", "", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(ExamList.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
-//    public function loadTable(){
-//        
-//    }
+    public ExamList(MainView mf) {
+        initComponents();
+        this.main_frame = mf;
+        try {
+            this.loadTable("", "", "", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(ExamList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void loadTable(String exm_name, String exm_code, String yr, String semester) throws SQLException{
+        try{
+            this.clearTable();
+            ExamController ec = new ExamController();
+            HashMap<Integer, Map<Integer,String>> hm = ec.getExamDataByFiltering(exm_name, exm_code, yr, semester);        
+            Formattings fmt = new Formattings();
+            fmt.createTable(hm, examTable);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+    }
+    
+    public void clearTable(){
+        Formattings fmt = new Formattings();
+        fmt.clearTable(examTable);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,8 +82,6 @@ public class ExamList extends javax.swing.JPanel {
         semesterLabel = new javax.swing.JLabel();
         examNameText = new javax.swing.JTextField();
         examCodeText = new javax.swing.JTextField();
-        yearText = new javax.swing.JTextField();
-        semesterText = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
         viewButton = new javax.swing.JButton();
@@ -47,6 +90,8 @@ public class ExamList extends javax.swing.JPanel {
         addAssesmentButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         examTable = new javax.swing.JTable();
+        yearComboBx = new javax.swing.JComboBox<>();
+        semesterComboBx = new javax.swing.JComboBox<>();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topicLabel.setText("All Exams Information");
@@ -67,15 +112,21 @@ public class ExamList extends javax.swing.JPanel {
 
         examCodeText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        yearText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        semesterText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
         searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
         viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewButton.setText("View");
@@ -120,6 +171,12 @@ public class ExamList extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(examTable);
 
+        yearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        yearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select year", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
+
+        semesterComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        semesterComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select semester", "First Semester", "Second Semester", "Third Semester", "Forth Semester", " " }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -152,10 +209,10 @@ public class ExamList extends javax.swing.JPanel {
                                 .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(yearText, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(examCodeText, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(semesterText, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(examNameText))))
+                            .addComponent(examNameText)
+                            .addComponent(yearComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(semesterComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
@@ -174,11 +231,11 @@ public class ExamList extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(yearLabel)
-                    .addComponent(yearText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(yearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(semesterLabel)
-                    .addComponent(semesterText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(semesterComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchButton)
@@ -189,15 +246,81 @@ public class ExamList extends javax.swing.JPanel {
                     .addComponent(addGradeButton)
                     .addComponent(editButton)
                     .addComponent(viewButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
         // TODO add your handling code here:
+        int row = examTable.getSelectedRow();
+        System.out.println("selected row: " + row);
+        if(row>-1){
+            DefaultTableModel dtm = (DefaultTableModel) examTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            ExamController ec = new ExamController();
+            HashMap hm = ec.getExamInfoById(id);
+            if(!hm.isEmpty()){
+                String exm_id = hm.get(0).toString();
+                String exm_code = hm.get(1).toString();
+                String exm_name = hm.get(2).toString();
+                String yr = hm.get(3).toString();
+                String semester = hm.get(4).toString();
+                String from_date = hm.get(5).toString();
+                String to_date = hm.get(6).toString();
+                String details = hm.get(7).toString();
+                
+                ViewExam ve = new ViewExam();
+                ve.setExamName(exm_name);
+                ve.setExamCode(exm_code);
+                ve.setYear(yr);
+                ve.setSemester(semester);
+                ve.setFromDate(from_date);
+                ve.setToDate(to_date);
+                ve.setDetails(details);
+                //JFrame frame = new MainView();
+                main_frame.add_new_component(ve,exm_code+" - information");
+            }
+        }
     }//GEN-LAST:event_viewButtonActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // TODO add your handling code here:
+        String exam_name = examNameText.getText();
+        String exam_code = examCodeText.getText();
+        String year = (String) yearComboBx.getSelectedItem();
+        String year_fmt = year.equals("select year")?"":year;
+        String semester = (String) semesterComboBx.getSelectedItem();
+        String semester_fmt = semester.equals("select semester")?"":semester;
+        System.out.println("exam_name: " + exam_name);
+        System.out.println("exam code: " + exam_code);
+        System.out.println("year: " + year_fmt);
+        System.out.println("semester: " + semester_fmt);
+        
+        try {           
+            this.loadTable(exam_name, exam_code, year_fmt, semester_fmt);
+        } catch (SQLException ex) {
+            Logger.getLogger(ExamList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void clear_search_content(){
+        examNameText.setText("");
+        examCodeText.setText("");
+        yearComboBx.setSelectedIndex(0);
+        semesterComboBx.setSelectedIndex(0);
+    }
+    
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+        this.clear_search_content();
+        try {
+            this.loadTable("", "", "", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(ExamList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_clearButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -212,11 +335,11 @@ public class ExamList extends javax.swing.JPanel {
     private javax.swing.JTable examTable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton searchButton;
+    private javax.swing.JComboBox<String> semesterComboBx;
     private javax.swing.JLabel semesterLabel;
-    private javax.swing.JTextField semesterText;
     private javax.swing.JLabel topicLabel;
     private javax.swing.JButton viewButton;
+    private javax.swing.JComboBox<String> yearComboBx;
     private javax.swing.JLabel yearLabel;
-    private javax.swing.JTextField yearText;
     // End of variables declaration//GEN-END:variables
 }

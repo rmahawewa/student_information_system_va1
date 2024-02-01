@@ -105,9 +105,9 @@ public class Grade {
             result = prep.executeQuery();
             while(result.next()){
                 Map<Integer,String> dt = new HashMap<Integer,String>();
-                dt.put(0, result.getString("grade_id"));
-                dt.put(1, result.getString("grade_in_number"));
-                dt.put(2, result.getString("grade_in_words"));
+                //dt.put(0, result.getString("grade_id"));
+                dt.put(0, result.getString("grade_in_number"));
+                dt.put(1, result.getString("grade_in_words"));
                 
                 data.put(count, dt);
                 count++;

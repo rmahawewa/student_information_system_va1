@@ -19,7 +19,7 @@ public class Formattings {
         DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
         int row_count = dtm.getRowCount();
         
-        for(int i = row_count-1;i>0;i--){
+        for(int i = row_count-1;i>=0;i--){
             dtm.removeRow(i);
         }
     
@@ -29,10 +29,12 @@ public class Formattings {
         if(!hm.isEmpty()){
             hm.forEach((key,value) -> {
                 HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
                 int hlength = hsh.size();
                 String[] tbl_data=new String[hlength];
                 hsh.forEach((k,v) -> {
                     tbl_data[k] = v;
+                    //System.out.println("The grade value: " + v);
                 });
                 DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
                 dtm.addRow(tbl_data);

@@ -36,4 +36,10 @@ public class ExamController {
         return hm;
     }
     
+    public HashMap getExamInfoById(int id){
+        Exam e = new Exam();
+        HashMap hm = e.getGivenExamInfo(id);
+        return hm;
+    }
+    
 }

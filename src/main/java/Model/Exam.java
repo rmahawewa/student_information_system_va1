@@ -246,4 +246,45 @@ public class Exam {
         return (HashMap) exam_list;
     }
     
+    public HashMap getGivenExamInfo(int id){
+        Map<Integer, String> hm = new HashMap<Integer,String>();
+        
+        ConnectionString con_str = new ConnectionString();
+        Connection con = con_str.getCon();
+        
+        ResultSet result = null;
+        PreparedStatement prep = null;
+        
+        String query = "select exam_id,exam_code,exam_name,year,semester,from_date,to_date,details from exam where exam_id=? ";
+        
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, id);
+            result = prep.executeQuery();
+            while(result.next()){
+                String exm_id = Integer.toString(result.getInt("exam_id"));
+                String exm_code = result.getString("exam_code");
+                String exm_name = result.getString("exam_name");
+                String yr = result.getString("year");
+                String semester = result.getString("semester");
+                String from_date = result.getDate("from_date").toString();
+                String to_date = result.getDate("to_date").toString();
+                String details = result.getString("details");
+                
+                hm.put(0, exm_id);
+                hm.put(1, exm_code);
+                hm.put(2, exm_name);
+                hm.put(3, yr);
+                hm.put(4, semester);
+                hm.put(5, from_date);
+                hm.put(6, to_date);
+                hm.put(7, details);
+                                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Exam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return (HashMap) hm;
+    }
+    
 }

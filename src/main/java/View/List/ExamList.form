@@ -48,10 +48,10 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="clearButton" min="-2" pref="198" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="yearText" alignment="1" max="32767" attributes="0"/>
                           <Component id="examCodeText" alignment="1" max="32767" attributes="0"/>
-                          <Component id="semesterText" alignment="1" max="32767" attributes="0"/>
                           <Component id="examNameText" alignment="0" max="32767" attributes="0"/>
+                          <Component id="yearComboBx" alignment="0" max="32767" attributes="0"/>
+                          <Component id="semesterComboBx" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -77,12 +77,12 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="yearLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="yearText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="yearComboBx" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="semesterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="semesterText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="semesterComboBx" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -96,9 +96,9 @@
                   <Component id="editButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="viewButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="57" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="446" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace pref="51" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -158,20 +158,6 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="yearText">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="semesterText">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="searchButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -179,6 +165,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="clearButton">
       <Properties>
@@ -187,6 +176,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Clear"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="viewButton">
       <Properties>
@@ -248,5 +240,68 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JComboBox" name="yearComboBx">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="0"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="29">
+            <StringItem index="0" value="select year"/>
+            <StringItem index="1" value="2023"/>
+            <StringItem index="2" value="2024"/>
+            <StringItem index="3" value="2025"/>
+            <StringItem index="4" value="2026"/>
+            <StringItem index="5" value="2027"/>
+            <StringItem index="6" value="2028"/>
+            <StringItem index="7" value="2029"/>
+            <StringItem index="8" value="2030"/>
+            <StringItem index="9" value="2031"/>
+            <StringItem index="10" value="2032"/>
+            <StringItem index="11" value="2033"/>
+            <StringItem index="12" value="2034"/>
+            <StringItem index="13" value="2035"/>
+            <StringItem index="14" value="2036"/>
+            <StringItem index="15" value="2037"/>
+            <StringItem index="16" value="2038"/>
+            <StringItem index="17" value="2039"/>
+            <StringItem index="18" value="2040"/>
+            <StringItem index="19" value="2041"/>
+            <StringItem index="20" value="2042"/>
+            <StringItem index="21" value="2043"/>
+            <StringItem index="22" value="2044"/>
+            <StringItem index="23" value="2045"/>
+            <StringItem index="24" value="2046"/>
+            <StringItem index="25" value="2047"/>
+            <StringItem index="26" value="2048"/>
+            <StringItem index="27" value="2049"/>
+            <StringItem index="28" value="2050"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="semesterComboBx">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="0"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="6">
+            <StringItem index="0" value="select semester"/>
+            <StringItem index="1" value="First Semester"/>
+            <StringItem index="2" value="Second Semester"/>
+            <StringItem index="3" value="Third Semester"/>
+            <StringItem index="4" value="Forth Semester"/>
+            <StringItem index="5" value=" "/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
   </SubComponents>
 </Form>
