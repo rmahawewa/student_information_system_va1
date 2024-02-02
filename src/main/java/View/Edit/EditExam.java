@@ -6,6 +6,14 @@ package View.Edit;
 
 import View.Add.*;
 import View.*;
+import UserLibraries.GetTimes;
+import java.util.ArrayList;
+import java.util.List;
+import Controller.ExamController;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
 
 /**
  *
@@ -13,11 +21,63 @@ import View.*;
  */
 public class EditExam extends javax.swing.JPanel{
 
+    private MainView mv;
+    private int exam_id;
+    
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public EditExam() {
         initComponents();
+    }
+    
+    public EditExam(MainView mf) {
+        initComponents();
+        this.mv = mf;
+    }
+    
+    public JButton getCloseButton(){
+        return this.cancelButton;
+    }
+    
+    public void setExamId(String id){
+        this.exam_id = Integer.parseInt(id);
+    }
+    
+    public void setExamName(String exm_name){
+        examNameText.setText(exm_name);
+    }
+    
+    public void setExamCode(String exm_code){
+        examCodeText.setText(exm_code);
+    }
+    
+    public void setYear(String yr){
+        yearComboBx.setSelectedItem(yr);
+    }
+    
+    public void setSemester(String semester){
+        semesterComboBx1.setSelectedItem(semester);
+    }
+    
+    public void setFromDate(String from_date){
+        GetTimes gt = new GetTimes();
+        String[] date = gt.getDateWithMonthName(from_date);
+        fdYearComboBx.setSelectedItem(date[0]);
+        fdMonthComboBx.setSelectedItem(date[1]);
+        fdDayComboBx.setSelectedItem(date[2]);
+    }
+    
+    public void setToDate(String to_date){
+        GetTimes gt = new GetTimes();
+        String[] date = gt.getDateWithMonthName(to_date);
+        tdYearComboBx.setSelectedItem(date[0]);
+        tdMonthComboBx.setSelectedItem(date[1]);
+        tdDayComboBx.setSelectedItem(date[2]);
+    }
+    
+    public void setDetails(String details){
+        detailsTextField.setText(details);
     }
 
     /**
@@ -34,7 +94,7 @@ public class EditExam extends javax.swing.JPanel{
         toDateLabel = new javax.swing.JLabel();
         detailsLabel = new javax.swing.JLabel();
         examNameText = new javax.swing.JTextField();
-        submitButton = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         tdDayComboBx = new javax.swing.JComboBox<>();
         tdYearComboBx = new javax.swing.JComboBox<>();
@@ -70,11 +130,21 @@ public class EditExam extends javax.swing.JPanel{
             }
         });
 
-        submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        submitButton.setText("Update");
+        updateButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        updateButton.setText("Update");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         tdDayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tdDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
@@ -128,7 +198,7 @@ public class EditExam extends javax.swing.JPanel{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(162, 162, 162)
-                        .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(92, 92, 92)
                         .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -219,7 +289,7 @@ public class EditExam extends javax.swing.JPanel{
                     .addComponent(detailsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitButton)
+                    .addComponent(updateButton)
                     .addComponent(cancelButton))
                 .addGap(32, 32, 32))
         );
@@ -232,6 +302,52 @@ public class EditExam extends javax.swing.JPanel{
     private void examNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_examNameTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_examNameTextActionPerformed
+
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        // TODO add your handling code here:
+        String exam_name = examNameText.getText();
+        String exam_code = examCodeText.getText();
+        String year = (String) yearComboBx.getSelectedItem();
+        String semester = (String) semesterComboBx1.getSelectedItem();
+        String frm_year = (String) fdYearComboBx.getSelectedItem();
+        String frm_month = (String) fdMonthComboBx.getSelectedItem();
+        GetTimes gt = new GetTimes();
+        frm_month = gt.getMonthNumber(frm_month);
+        String frm_day = (String) fdDayComboBx.getSelectedItem();
+        String from_date = frm_year + "-" + frm_month + "-" + frm_day;
+        String to_year = (String) tdYearComboBx.getSelectedItem();
+        String to_month = (String) tdMonthComboBx.getSelectedItem();
+        to_month = gt.getMonthNumber(to_month);
+        String to_day = (String) tdDayComboBx.getSelectedItem();
+        String to_date = to_year + "-" + to_month + "-" + to_day;
+        String details = detailsTextField.getText();
+        
+        List<String> ed = new ArrayList<String>();
+        ed.add(0, Integer.toString(exam_id));
+        ed.add(1, exam_name);
+        ed.add(2, exam_code);
+        ed.add(3, year);
+        ed.add(4, semester);
+        ed.add(5, from_date);
+        ed.add(6, to_date);
+        ed.add(7, details);
+        
+        ExamController ec = new ExamController();
+        try {
+            int stts = ec.updateExamInfo(ed);
+            if(stts >= 0){
+                System.out.println("Record successfully updated");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EditExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_updateButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,12 +429,12 @@ public class EditExam extends javax.swing.JPanel{
     private javax.swing.JLabel fromDateLabel;
     private javax.swing.JComboBox<String> semesterComboBx1;
     private javax.swing.JLabel semesterLabel;
-    private javax.swing.JButton submitButton;
     private javax.swing.JComboBox<String> tdDayComboBx;
     private javax.swing.JComboBox<String> tdMonthComboBx;
     private javax.swing.JComboBox<String> tdYearComboBx;
     private javax.swing.JLabel toDateLabel;
     private javax.swing.JLabel topicLabel;
+    private javax.swing.JButton updateButton;
     private javax.swing.JComboBox<String> yearComboBx;
     private javax.swing.JLabel yearLabel;
     // End of variables declaration//GEN-END:variables

@@ -4,7 +4,19 @@
  */
 package View.Add;
 
+import UserLibraries.GetTimes;
 import View.*;
+import java.util.HashMap;
+import java.util.Map;
+import Controller.ExamGradeController;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import Controller.GradeController;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -12,11 +24,92 @@ import View.*;
  */
 public class AddGradeExam extends javax.swing.JPanel {
 
+    private MainView mv;
+    private int exam_id;
+    
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public AddGradeExam() {
         initComponents();
+    }
+    
+    public AddGradeExam(MainView mf) {
+        initComponents();
+        this.mv = mf;
+        this.loadGrades();
+        this.clearForm();
+        this.loadTable();
+    }
+    
+    public void setExamId(int id){
+        this.exam_id = id;
+    }
+    
+    public void setExamName(String name){
+        this.examNameValueLabel.setText(name);
+    }
+    
+    public void loadGrades(){
+        GradeController gc = new GradeController();
+        try {
+            HashMap<Integer, Map<Integer,String>> hm = gc.getAllGrades();
+            if(!hm.isEmpty()){
+                hm.forEach((key,value) -> {
+                    gradeComboBx.addItem(value.get(1));
+                });
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public void loadTable(){
+        HashMap<Integer, Map<Integer,String>> e_grade_info = new HashMap<Integer, Map<Integer,String>>();
+        ExamGradeController egc = new ExamGradeController();
+        e_grade_info = egc.loadExamGradeInfo(exam_id);
+        clearTable(jTable1);
+        createTable(e_grade_info, jTable1);
+    }
+    
+    public void clearTable(JTable tbl){
+    
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1;i>=0;i--){
+            dtm.removeRow(i);
+        }
+    
+    }
+    
+    public void createTable(HashMap hm, JTable tbl){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
+                int hlength = hsh.size();
+                String[] tbl_data=new String[hlength];
+                hsh.forEach((k,v) -> {
+                    tbl_data[k] = v;
+                    //System.out.println("The grade value: " + v);
+                });
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
+    }
+    
+    public void clearForm(){
+                gradeComboBx.setSelectedIndex(0);
+                sessionComboBx.setSelectedIndex(0);
+                yearComboBx.setSelectedItem(GetTimes.getCurrentYear());
+                monthComboBx.setSelectedItem(GetTimes.getCurrentMonth());
+                dayComboBx.setSelectedItem(GetTimes.getCurrentDay());
+                hoursComboBx.setSelectedIndex(0);
+                minutesComboBx.setSelectedIndex(0);
+                ampmComboBx.setSelectedIndex(0);
     }
 
     /**
@@ -59,9 +152,19 @@ public class AddGradeExam extends javax.swing.JPanel {
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         ampmComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM", " " }));
@@ -85,7 +188,6 @@ public class AddGradeExam extends javax.swing.JPanel {
         dateLabel.setText("Date:");
 
         gradeComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        gradeComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Grade 01", "Grade 02", "Grade 03", "Grade 04", "Grade 05", "Grade 06", "Grade 07", "Grade 08", "Grade 09", "Grade 10", "Grade 11" }));
 
         gradeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         gradeLabel.setText("Grade:");
@@ -212,6 +314,76 @@ public class AddGradeExam extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        String grade = gradeComboBx.getSelectedItem().toString();
+        GradeController gc = new GradeController();
+        int grade_id = 0;
+        try {
+            grade_id = gc.getGradeId(grade);
+        } catch (SQLException ex) {
+            Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        int session = getSessionId(sessionComboBx.getSelectedItem().toString());
+        String d_year = yearComboBx.getSelectedItem().toString();
+        GetTimes gt = new GetTimes();
+        String d_month = gt.getMonthNumber(monthComboBx.getSelectedItem().toString());
+        String d_day = dayComboBx.getSelectedItem().toString();
+        String hour = hoursComboBx.getSelectedItem().toString();
+        String minute = minutesComboBx.getSelectedItem().toString();
+        String ampm = ampmComboBx.getSelectedItem().toString();
+        if(ampm.equals("PM")){
+            int i_hour = Integer.parseInt(hour);
+            i_hour = i_hour + 12;
+            hour = Integer.toString(i_hour);
+        }
+        String date_time = d_year + "-" + d_month + "-" + d_day + " " + hour + ":" + minute + ":00";
+        
+        List<String> egr = new ArrayList<String>();
+        egr.add(0, Integer.toString(exam_id));
+        egr.add(1, Integer.toString(grade_id));
+        egr.add(2, Integer.toString(session));
+        egr.add(3, date_time);
+        
+        ExamGradeController egc = new ExamGradeController();
+        try {
+            int stts = egc.addGradeExam(egr);
+            if(stts > -1){
+                System.out.println("Grade - Exam record successfully created");
+                clearForm();
+                loadTable();
+            }else{
+                System.out.println("Faild to create the record");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Faild to create the record");
+        }
+        
+    }//GEN-LAST:event_submitButtonActionPerformed
+
+    public int getSessionId(String session){
+        int sid = 1;
+        
+        HashMap<String,Integer> hm = new HashMap<String,Integer>();
+        hm.put("First Session", 1);
+        hm.put("Second Session", 2);
+        hm.put("Third Session", 3);
+        hm.put("Forth Session", 4);
+        
+        try{
+            sid = hm.get(session);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return sid;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -238,133 +410,7 @@ public class AddGradeExam extends javax.swing.JPanel {
 //            java.util.logging.Logger.getLogger(AddGradeExam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
+
 //
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {

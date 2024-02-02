@@ -5,7 +5,6 @@
 package View.List;
 
 import Controller.ExamController;
-import UserLibraries.Formattings;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +15,10 @@ import View.IndividualView.ViewExam;
 import View.MainView;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import View.Edit.EditExam;
+import javax.swing.JButton;
+import View.Add.AddGradeExam;
+import javax.swing.JTable;
 
 /**
  *
@@ -50,21 +53,48 @@ public class ExamList extends javax.swing.JPanel {
     
     public void loadTable(String exm_name, String exm_code, String yr, String semester) throws SQLException{
         try{
-            this.clearTable();
+            this.clearTable(examTable);
             ExamController ec = new ExamController();
-            HashMap<Integer, Map<Integer,String>> hm = ec.getExamDataByFiltering(exm_name, exm_code, yr, semester);        
-            Formattings fmt = new Formattings();
-            fmt.createTable(hm, examTable);
+            HashMap<Integer, Map<Integer,String>> hm = ec.getExamDataByFiltering(exm_name, exm_code, yr, semester);
+            this.createTable(hm, examTable);
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
         
     }
     
-    public void clearTable(){
-        Formattings fmt = new Formattings();
-        fmt.clearTable(examTable);
+    public void clearTable(JTable tbl){
+    
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1;i>=0;i--){
+            dtm.removeRow(i);
+        }
+    
     }
+    
+    public void createTable(HashMap hm, JTable tbl){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
+                int hlength = hsh.size();
+                String[] tbl_data=new String[hlength];
+                hsh.forEach((k,v) -> {
+                    tbl_data[k] = v;
+                    //System.out.println("The grade value: " + v);
+                });
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
+    }
+    
+//    public void clearTable(){
+//        Formattings fmt = new Formattings();
+//        fmt.clearTable(examTable);
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -138,9 +168,19 @@ public class ExamList extends javax.swing.JPanel {
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         addGradeButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         addGradeButton.setText("Add Grade");
+        addGradeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addGradeButtonActionPerformed(evt);
+            }
+        });
 
         addAssesmentButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         addAssesmentButton.setText("Add Assesment");
@@ -271,7 +311,7 @@ public class ExamList extends javax.swing.JPanel {
                 String to_date = hm.get(6).toString();
                 String details = hm.get(7).toString();
                 
-                ViewExam ve = new ViewExam();
+                ViewExam ve = new ViewExam(main_frame);
                 ve.setExamName(exm_name);
                 ve.setExamCode(exm_code);
                 ve.setYear(yr);
@@ -280,6 +320,7 @@ public class ExamList extends javax.swing.JPanel {
                 ve.setToDate(to_date);
                 ve.setDetails(details);
                 //JFrame frame = new MainView();
+                
                 main_frame.add_new_component(ve,exm_code+" - information");
             }
         }
@@ -321,6 +362,56 @@ public class ExamList extends javax.swing.JPanel {
             Logger.getLogger(ExamList.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        int row = examTable.getSelectedRow();
+        System.out.println("selected row: " + row);
+        if(row>-1){
+            DefaultTableModel dtm = (DefaultTableModel) examTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            ExamController ec = new ExamController();
+            HashMap hm = ec.getExamInfoById(id);
+            if(!hm.isEmpty()){
+                String exm_id = hm.get(0).toString();
+                String exm_code = hm.get(1).toString();
+                String exm_name = hm.get(2).toString();
+                String yr = hm.get(3).toString();
+                String semester = hm.get(4).toString();
+                String from_date = hm.get(5).toString();
+                String to_date = hm.get(6).toString();
+                String details = hm.get(7).toString();
+                
+                EditExam ee = new EditExam(main_frame);
+                ee.setExamId(exm_id);
+                ee.setExamName(exm_name);
+                ee.setExamCode(exm_code);
+                ee.setYear(yr);
+                ee.setSemester(semester);
+                ee.setFromDate(from_date);
+                ee.setToDate(to_date);
+                ee.setDetails(details);
+                
+                //JFrame frame = new MainView();
+                main_frame.add_new_component(ee,exm_code+" - update");
+            }
+        }
+    }//GEN-LAST:event_editButtonActionPerformed
+
+    private void addGradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGradeButtonActionPerformed
+        // TODO add your handling code here:
+        int row = examTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) examTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String ename = dtm.getValueAt(row, 1).toString();
+            AddGradeExam age = new AddGradeExam(main_frame);
+            age.setExamId(id);
+            age.setExamName(ename);
+            
+            main_frame.add_new_component(age, ename+" - add grade");
+        }
+    }//GEN-LAST:event_addGradeButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

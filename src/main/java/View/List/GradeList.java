@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import UserLibraries.Formattings;
+import javax.swing.JTable;
 
 /**
  *
@@ -33,12 +33,12 @@ public class GradeList extends javax.swing.JPanel {
     
     public void loadTable() throws SQLException{
         //this.clearTable();
-        Formattings fmt = new Formattings();
-        fmt.clearTable(gradesTable);
+        //Formattings fmt = new Formattings();
+        this.clearTable(gradesTable);
         GradeController gc = new GradeController();
         Map<Integer,Map<Integer,String>> hm = gc.getAllGrades();
-        Formattings fmts = new Formattings();
-        fmts.createTable((HashMap) hm, gradesTable);
+        //Formattings fmts = new Formattings();
+        this.createTable((HashMap) hm, gradesTable);
 //        if(!hm.isEmpty()){
 //            hm.forEach((key,value) -> {
 //                HashMap hshmp = (HashMap) value;
@@ -49,15 +49,35 @@ public class GradeList extends javax.swing.JPanel {
 //        }
     }
     
-    public void clearTable(){
-        DefaultTableModel dtm = (DefaultTableModel) gradesTable.getModel();
+    private void clearTable(JTable tbl){
+    
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
         int row_count = dtm.getRowCount();
         
-        for(int i = row_count-1; i >= 0; i--){
+        for(int i = row_count-1;i>=0;i--){
             dtm.removeRow(i);
-        }        
-        
+        }
+    
     }
+    
+    private void createTable(HashMap hm, JTable tbl){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
+                int hlength = hsh.size();
+                String[] tbl_data=new String[hlength];
+                hsh.forEach((k,v) -> {
+                    tbl_data[k] = v;
+                    //System.out.println("The grade value: " + v);
+                });
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
+    }
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.

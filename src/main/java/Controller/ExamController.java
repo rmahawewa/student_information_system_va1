@@ -42,4 +42,22 @@ public class ExamController {
         return hm;
     }
     
+    public int updateExamInfo(List<String> exam) throws SQLException{
+        int retn_stts = 1;
+        
+        Exam e = new Exam();
+        e.setExam_id(Integer.parseInt(exam.get(0)));
+        e.setExam_name(exam.get(1));
+        e.setExam_code(exam.get(2));
+        e.setYear(exam.get(3));
+        e.setSemester(exam.get(4));
+        e.setFrom_date(exam.get(5));
+        e.setTo_date(exam.get(6));
+        e.setDetails(exam.get(7));
+        
+        retn_stts = e.updateExam();
+        
+        return retn_stts;
+    }
+    
 }

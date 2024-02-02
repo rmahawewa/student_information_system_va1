@@ -7,8 +7,11 @@ package View;
 import View.*;
 import View.Add.*;
 import View.List.*;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import UserLibraries.CloseActionHandler;
+import javax.swing.JTabbedPane;
 
 
 /**
@@ -332,13 +335,22 @@ public class MainView extends javax.swing.JFrame {
 
     public void add_new_component(JPanel panel, String topic){
         int tab_count = initialTabbedPane.getTabCount();
-        if(tab_count>1){
-            initialTabbedPane.removeTabAt(tab_count-1);
+        if(tab_count>2){
+            initialTabbedPane.removeTabAt(tab_count-2);
         }        
         JScrollPane sp = new JScrollPane();
         sp.setViewportView(panel);
         initialTabbedPane.addTab(topic, sp);
         
+    }
+    
+    public void close_tab(){
+        int tab_index = initialTabbedPane.getSelectedIndex();
+        initialTabbedPane.removeTabAt(tab_index);
+   }
+    
+    public JTabbedPane getTP(){
+        return this.initialTabbedPane;
     }
     
     private void l3_listSPA_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_listSPA_menuItemActionPerformed

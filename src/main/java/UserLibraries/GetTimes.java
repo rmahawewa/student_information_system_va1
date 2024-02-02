@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import static java.util.Map.entry;
 
@@ -75,6 +76,12 @@ public class GetTimes {
     public static String getCurrentDay(){
         //LocalDateTime current_dt = LocalDateTime.of(2024, 01, 05, 10, 10);
         return (String.valueOf(current_dt.getDayOfMonth()).length()==2?(String.valueOf(current_dt.getDayOfMonth())):("0"+(current_dt.getDayOfMonth())));        
+    }
+    
+    public static String[] getDateWithMonthName(String date){
+        String date_elem[] = date.split("-");
+        date_elem[1] = mit.get(date_elem[1]);
+        return date_elem;
     }
     
 }

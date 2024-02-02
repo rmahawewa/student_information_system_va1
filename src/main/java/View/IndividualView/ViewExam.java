@@ -7,6 +7,7 @@ package View.IndividualView;
 import View.Edit.*;
 import View.Add.*;
 import View.*;
+import javax.swing.JButton;
 
 /**
  *
@@ -18,8 +19,17 @@ public class ViewExam extends javax.swing.JPanel{
      * Creates new form AddStudentSchoolInfo
      */
     
+    private MainView mv;
+    
+    public JButton closebtn = this.closeButton;
+    
     public ViewExam() {
         initComponents();
+    }
+    
+    public ViewExam(MainView mf) {
+        initComponents();
+        this.mv = mf;
     }
     
     public void setExamName(String exam_name){
@@ -44,6 +54,10 @@ public class ViewExam extends javax.swing.JPanel{
         detailsTextField.setText(details);
         //detailsTextField.disable();
     }
+    
+    public JButton getCloseButton(){
+        return this.closebtn;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,7 +71,7 @@ public class ViewExam extends javax.swing.JPanel{
         examNameLabel = new javax.swing.JLabel();
         toDateLabel = new javax.swing.JLabel();
         detailsLabel = new javax.swing.JLabel();
-        cancelButton = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
         examCodeLabel = new javax.swing.JLabel();
         fromDateLabel = new javax.swing.JLabel();
         detailsTextField = new javax.swing.JTextField();
@@ -83,8 +97,13 @@ public class ViewExam extends javax.swing.JPanel{
         detailsLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         detailsLabel.setText("Details:");
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cancelButton.setText("Close");
+        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
 
         examCodeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         examCodeLabel.setText("Exam code:");
@@ -173,7 +192,7 @@ public class ViewExam extends javax.swing.JPanel{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(243, 243, 243)
-                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(222, 222, 222)
@@ -221,7 +240,7 @@ public class ViewExam extends javax.swing.JPanel{
                     .addComponent(detailsLabel)
                     .addComponent(detailsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
-                .addComponent(cancelButton)
+                .addComponent(closeButton)
                 .addGap(34, 34, 34))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -234,6 +253,11 @@ public class ViewExam extends javax.swing.JPanel{
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_closeFromTopButtonActionPerformed
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        // TODO add your handling code here:
+        mv.close_tab();
+    }//GEN-LAST:event_closeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,7 +296,7 @@ public class ViewExam extends javax.swing.JPanel{
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cancelButton;
+    private javax.swing.JButton closeButton;
     private javax.swing.JButton closeFromTopButton;
     private javax.swing.JLabel detailsLabel;
     private javax.swing.JTextField detailsTextField;
