@@ -19,6 +19,7 @@ import View.Edit.EditExam;
 import javax.swing.JButton;
 import View.Add.AddGradeExam;
 import javax.swing.JTable;
+import View.Add.AddExamAssesment;
 
 /**
  *
@@ -184,6 +185,11 @@ public class ExamList extends javax.swing.JPanel {
 
         addAssesmentButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         addAssesmentButton.setText("Add Assesment");
+        addAssesmentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addAssesmentButtonActionPerformed(evt);
+            }
+        });
 
         examTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         examTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -405,13 +411,28 @@ public class ExamList extends javax.swing.JPanel {
             DefaultTableModel dtm = (DefaultTableModel) examTable.getModel();
             int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
             String ename = dtm.getValueAt(row, 1).toString();
-            AddGradeExam age = new AddGradeExam(main_frame);
-            age.setExamId(id);
+            AddGradeExam age = new AddGradeExam(main_frame, id);
+            //age.setExamId(id);
             age.setExamName(ename);
             
             main_frame.add_new_component(age, ename+" - add grade");
         }
     }//GEN-LAST:event_addGradeButtonActionPerformed
+
+    private void addAssesmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAssesmentButtonActionPerformed
+        // TODO add your handling code here:
+        int row = examTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) examTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String ename = dtm.getValueAt(row, 1).toString();
+            AddExamAssesment aea = new AddExamAssesment(main_frame, id);
+            //age.setExamId(id);
+            aea.setExamName(ename);
+            
+            main_frame.add_new_component(aea, ename+" - add assesment");
+        }
+    }//GEN-LAST:event_addAssesmentButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

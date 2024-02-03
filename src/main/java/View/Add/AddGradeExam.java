@@ -30,21 +30,23 @@ public class AddGradeExam extends javax.swing.JPanel {
     /**
      * Creates new form AddStudentSchoolInfo
      */
-    public AddGradeExam() {
-        initComponents();
-    }
+//    public AddGradeExam() {
+//        initComponents();
+//    }
     
-    public AddGradeExam(MainView mf) {
+    public AddGradeExam(MainView mf, int exm_id) {
         initComponents();
         this.mv = mf;
+        this.exam_id = exm_id;
         this.loadGrades();
         this.clearForm();
         this.loadTable();
+        System.out.println("Add grade exam 12345");
     }
     
-    public void setExamId(int id){
-        this.exam_id = id;
-    }
+//    public void setExamId(int id){
+//        this.exam_id = id;
+//    }
     
     public void setExamName(String name){
         this.examNameValueLabel.setText(name);
@@ -69,6 +71,7 @@ public class AddGradeExam extends javax.swing.JPanel {
         HashMap<Integer, Map<Integer,String>> e_grade_info = new HashMap<Integer, Map<Integer,String>>();
         ExamGradeController egc = new ExamGradeController();
         e_grade_info = egc.loadExamGradeInfo(exam_id);
+        System.out.println("HM info: " + e_grade_info + ", exam id: " + exam_id);
         clearTable(jTable1);
         createTable(e_grade_info, jTable1);
     }

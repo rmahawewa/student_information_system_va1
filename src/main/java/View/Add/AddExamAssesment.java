@@ -4,7 +4,24 @@
  */
 package View.Add;
 
+import Controller.AssesmentController;
+import Controller.ExamAssesmentController;
+import Controller.ExamGradeController;
+import Controller.GradeController;
+import UserLibraries.GetTimes;
 import View.*;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import UserLibraries.GetTimes;
+import java.util.ArrayList;
 
 /**
  *
@@ -12,11 +29,95 @@ import View.*;
  */
 public class AddExamAssesment extends javax.swing.JPanel {
 
+    private MainView mv;
+    private int exam_id;
+    private int assesment_id=0;
+    
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public AddExamAssesment() {
         initComponents();
+    }
+    
+    public AddExamAssesment(MainView mf, int xm_id) {
+        initComponents();
+        this.exam_id = xm_id;
+        this.mv = mf;
+        this.loadGrades();
+        this.clearForm();
+        this.loadTable();
+    }
+    
+    public void setExamName(String name){
+        this.examNameValueLabel.setText(name);
+    }
+    
+    public void loadGrades(){
+        GradeController gc = new GradeController();
+        try {
+            HashMap<Integer, Map<Integer,String>> hm = gc.getAllGrades();
+            if(!hm.isEmpty()){
+                hm.forEach((key,value) -> {
+                    gradeComboBx.addItem(value.get(1));
+                });
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public void loadTable(){
+        HashMap<Integer, Map<Integer,String>> e_a_info = new HashMap<Integer, Map<Integer,String>>();
+        ExamAssesmentController eac = new ExamAssesmentController();
+        e_a_info = eac.loadExamAssesmentInfoForId(exam_id);
+        System.out.println("HM info: " + e_a_info + ", exam id: " + exam_id);
+        clearTable(jTable1);
+        createTable(e_a_info, jTable1);
+    }
+    
+    public void clearTable(JTable tbl){
+    
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1;i>=0;i--){
+            dtm.removeRow(i);
+        }
+    
+    }
+    
+    public void createTable(HashMap hm, JTable tbl){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
+                int hlength = hsh.size();
+                String[] tbl_data=new String[hlength];
+                hsh.forEach((k,v) -> {
+                    tbl_data[k] = v;
+                    //System.out.println("The grade value: " + v);
+                });
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
+    }
+    
+    public void clearForm(){
+                assesmentNameText.setText("");
+                //assesmentNamesList.setVisible(false);
+                //assesmentNameListScrollPane.setVisible(false);
+                gradeComboBx.setSelectedIndex(0);
+                levelComboBx.setSelectedIndex(0);
+                sessionComboBx.setSelectedIndex(0);
+                yearComboBx.setSelectedItem(GetTimes.getCurrentYear());
+                monthComboBx.setSelectedItem(GetTimes.getCurrentMonth());
+                dayComboBx.setSelectedItem(GetTimes.getCurrentDay());
+                hoursComboBx.setSelectedIndex(0);
+                minutesComboBx.setSelectedIndex(0);
+                ampmComboBx.setSelectedIndex(0);
     }
 
     /**
@@ -49,11 +150,12 @@ public class AddExamAssesment extends javax.swing.JPanel {
         examNameValueLabel = new javax.swing.JLabel();
         sessionLabel = new javax.swing.JLabel();
         sessionComboBx = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        assesmentNamesList = new javax.swing.JList<>();
         clearButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        assesmentNameListScrollPane = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        assesmentNamesList = new javax.swing.JList<>();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topicLabel.setText("Add Assesment in Exam Information");
@@ -66,6 +168,11 @@ public class AddExamAssesment extends javax.swing.JPanel {
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
@@ -80,6 +187,11 @@ public class AddExamAssesment extends javax.swing.JPanel {
         minutesComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", " " }));
 
         assesmentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentNameText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                assesmentNameTextKeyReleased(evt);
+            }
+        });
 
         assesmentLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         assesmentLabel.setText("Assesment:");
@@ -97,7 +209,6 @@ public class AddExamAssesment extends javax.swing.JPanel {
         dateLabel.setText("Date:");
 
         gradeComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        gradeComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Grade 01", "Grade 02", "Grade 03", "Grade 04", "Grade 05", "Grade 06", "Grade 07", "Grade 08", "Grade 09", "Grade 10", "Grade 11" }));
 
         gradeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         gradeLabel.setText("Grade:");
@@ -115,13 +226,15 @@ public class AddExamAssesment extends javax.swing.JPanel {
         sessionLabel.setText("Session:");
 
         sessionComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Session", "Second Session", "Third Session", "Forth Session", " " }));
-
-        assesmentNamesList.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jScrollPane1.setViewportView(assesmentNamesList);
+        sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Session", "Second Session", "Third Session", "Forth Session" }));
 
         clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -147,6 +260,16 @@ public class AddExamAssesment extends javax.swing.JPanel {
             }
         });
         jScrollPane2.setViewportView(jTable1);
+
+        assesmentNamesList.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentNamesList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                assesmentNamesListMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(assesmentNamesList);
+
+        assesmentNameListScrollPane.setViewportView(jScrollPane1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -196,14 +319,14 @@ public class AddExamAssesment extends javax.swing.JPanel {
                                     .addComponent(assesmentLabel)
                                     .addComponent(examLabel))
                                 .addGap(108, 108, 108)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(examNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                                            .addComponent(assesmentNameText, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(assesmentNameListScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(examNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(assesmentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))))))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -221,8 +344,8 @@ public class AddExamAssesment extends javax.swing.JPanel {
                     .addComponent(assesmentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(clearButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addComponent(assesmentNameListScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gradeLabel)
                     .addComponent(gradeComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -252,10 +375,133 @@ public class AddExamAssesment extends javax.swing.JPanel {
                     .addComponent(cancelButton))
                 .addGap(42, 42, 42)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    DefaultListModel dlm = new DefaultListModel();
+    private void assesmentNameTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_assesmentNameTextKeyReleased
+        // TODO add your handling code here:
+        if(!assesmentNameText.isEditable()){
+            return;
+        }
+        dlm.removeAllElements();
+        
+        String text = assesmentNameText.getText();
+        AssesmentController ac = new AssesmentController();
+        try {
+            List<String> lst = ac.getAssesmentByText(text);
+            System.out.println("Assesment list: " + lst);
+            if(!lst.isEmpty() && lst!=null){
+                for(String t : lst){
+                    dlm.addElement(t);
+                }
+            }else{
+                   dlm.addElement("- No results found -");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AddExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
+            dlm.addElement("- No results found -");
+        }
+        assesmentNamesList.setModel(dlm);
+        assesmentNameListScrollPane.setVisible(true);
+        assesmentNamesList.setVisible(true);        
+        
+    }//GEN-LAST:event_assesmentNameTextKeyReleased
+
+    private void assesmentNamesListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_assesmentNamesListMouseClicked
+        // TODO add your handling code here:
+        JList lst = (JList) evt.getSource();
+        if(evt.getClickCount() >= 1){
+            int index = lst.locationToIndex(evt.getPoint());
+            if(index >= 0){
+                Object o = lst.getModel().getElementAt(index);
+                String name = o.toString();
+                assesmentNameText.setText(name);
+                assesmentNameText.setEditable(false);
+                ((DefaultListModel)lst.getModel()).clear();
+                setAssesmentId(name);                
+            }
+        }
+    }//GEN-LAST:event_assesmentNamesListMouseClicked
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+        assesmentNameText.setEditable(true);
+        assesmentNameText.setText("");
+        ((DefaultListModel)assesmentNamesList.getModel()).clear();
+        this.assesment_id = 0;
+    }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        int stts = -1;
+        int exam_id = this.exam_id;
+        int assesment_id = this.assesment_id;
+        String grade = gradeComboBx.getSelectedItem().toString();
+        int grade_id = 0;
+        GradeController gc = new GradeController();
+        try {
+            grade_id = gc.getGradeId(grade);
+        } catch (SQLException ex) {
+            Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String level = levelComboBx.getSelectedItem().toString();
+        int session = getSessionId(sessionComboBx.getSelectedItem().toString());
+        String year = yearComboBx.getSelectedItem().toString();
+        String month = monthComboBx.getSelectedItem().toString();
+        String day = dayComboBx.getSelectedItem().toString();
+        String hour = hoursComboBx.getSelectedItem().toString();
+        String minute = minutesComboBx.getSelectedItem().toString();
+        String ampm = ampmComboBx.getSelectedItem().toString();
+        String month_in_number = GetTimes.getMonthNumber(month);
+        if(ampm.equals("PM")){
+            int i_hour = Integer.parseInt(hour)+12;
+            hour = Integer.toString(i_hour);
+        }
+        String date_time = year+"-"+month+"-"+day+" "+hour+":"+minute+":00";
+        
+        if(assesment_id > 0){
+            ExamAssesmentController eac = new ExamAssesmentController();
+            List<String> lst = new ArrayList<String>();
+            lst.add(0, Integer.toString(exam_id));
+            lst.add(1, Integer.toString(assesment_id));
+            lst.add(Integer.toString(session));
+            lst.add(3, date_time);
+            lst.add(4,Integer.toString(grade_id));
+            lst.add(level);
+            stts = eac.addRecord(lst);            
+        }
+        if(stts >= 0){
+            System.out.println("Exam-Assesment record successfully added.");
+            loadTable();
+        }else{
+            System.out.println("Failed to add Exam-Assesment record");
+        }
+    }//GEN-LAST:event_submitButtonActionPerformed
+
+    public int getSessionId(String session){
+        int sid = 1;
+        
+        HashMap<String,Integer> hm = new HashMap<String,Integer>();
+        hm.put("First Session", 1);
+        hm.put("Second Session", 2);
+        hm.put("Third Session", 3);
+        hm.put("Forth Session", 4);
+        
+        try{
+            sid = hm.get(session);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return sid;
+    }
+    
+    public void setAssesmentId(String text){
+        String[] values = text.split("-");
+        this.assesment_id = Integer.parseInt(values[0]);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -282,69 +528,7 @@ public class AddExamAssesment extends javax.swing.JPanel {
 //            java.util.logging.Logger.getLogger(AddExamAssesment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
+
 //
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
@@ -357,6 +541,7 @@ public class AddExamAssesment extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ampmComboBx;
     private javax.swing.JLabel assesmentLabel;
+    private javax.swing.JScrollPane assesmentNameListScrollPane;
     private javax.swing.JTextField assesmentNameText;
     private javax.swing.JList<String> assesmentNamesList;
     private javax.swing.JButton cancelButton;
