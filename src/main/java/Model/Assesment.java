@@ -10,9 +10,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -28,6 +31,33 @@ public class Assesment {
     
     ConnectionString con_str = new ConnectionString();
     Connection con = con_str.getCon();
+
+    public Assesment() {
+    }
+
+    public int getAssesment_id() {
+        return assesment_id;
+    }
+
+    public void setAssesment_id(int assesment_id) {
+        this.assesment_id = assesment_id;
+    }
+
+    public String getAssesment_code() {
+        return assesment_code;
+    }
+
+    public void setAssesment_code(String assesment_code) {
+        this.assesment_code = assesment_code;
+    }
+
+    public String getAssesment_name() {
+        return assesment_name;
+    }
+
+    public void setAssesment_name(String assesment_name) {
+        this.assesment_name = assesment_name;
+    }
     
     public List<String> get_assesments_by_text(String text) throws SQLException{
         PreparedStatement ps = null;
@@ -68,6 +98,31 @@ public class Assesment {
             con.close();
         }
         return l;
+    }
+    
+    public int add_assesment(){
+        int stts = -1;
+        PreparedStatement prep = null;
+        
+        String asmt_code = this.getAssesment_code();
+        String asmt_name = this.getAssesment_name();
+        int created_by = this.record_created_or_updated_by;
+        Timestamp created_at = Timestamp.valueOf(record_created_or_updated_at);
+        
+        String query = "insert into assesment (assesment_code, assesment_name, record_created_by, record_created_at) values (?,?,?,?)";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setString(1, asmt_code);
+            prep.setString(2, asmt_name);
+            prep.setInt(3, created_by);
+            prep.setTimestamp(4, created_at);
+            stts = prep.executeUpdate();
+            System.out.println("new assesment insert status is: "+ stts);
+        } catch (SQLException ex) {
+            Logger.getLogger(Assesment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return stts;       
+        
     }
     
 }

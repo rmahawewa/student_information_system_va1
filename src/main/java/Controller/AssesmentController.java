@@ -21,4 +21,17 @@ public class AssesmentController {
         return lst;
     }
     
+    public int addAssesment(List<String> lst){
+        int stts;
+        String asmt_name = lst.get(0);
+        String asmt_code = lst.get(1);
+        
+        asmt.setAssesment_name(asmt_name);
+        asmt.setAssesment_code(asmt_code);
+        
+        stts = asmt.add_assesment();
+        
+        return stts;
+    }
+    
 }

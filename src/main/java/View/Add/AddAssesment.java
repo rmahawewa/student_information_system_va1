@@ -6,6 +6,11 @@ package View.Add;
 
 //import View.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import Controller.AssesmentController;
+
+
 /**
  *
  * @author HP
@@ -56,9 +61,19 @@ public class AddAssesment extends javax.swing.JPanel {
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -112,6 +127,40 @@ public class AddAssesment extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_assesmentNameTextActionPerformed
 
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        String asmt_name = assesmentNameText.getText();
+        String asmt_code = assesmentCodeText.getText();
+        
+        int stts = -1;
+        
+        if(asmt_name != "" && asmt_code != ""){
+            List<String> lst = new ArrayList<String>();
+            lst.add(0, asmt_name);
+            lst.add(1, asmt_code);
+            //System.out.println("list: " + lst);
+            //return;
+            AssesmentController ac = new AssesmentController();
+            stts = ac.addAssesment(lst);
+        }
+        
+        if(stts >= 0){
+            System.out.println("Assesment record successfully created");
+        }else{
+            System.out.println("Failed to create the Assesment record");
+        }
+    }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        clearForm();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void clearForm(){
+        assesmentNameText.setText("");
+        assesmentCodeText.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
