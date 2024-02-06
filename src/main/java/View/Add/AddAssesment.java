@@ -134,7 +134,7 @@ public class AddAssesment extends javax.swing.JPanel {
         
         int stts = -1;
         
-        if(asmt_name != "" && asmt_code != ""){
+        if(!asmt_name.equals("") && !asmt_code.equals("")){
             List<String> lst = new ArrayList<String>();
             lst.add(0, asmt_name);
             lst.add(1, asmt_code);
@@ -142,6 +142,8 @@ public class AddAssesment extends javax.swing.JPanel {
             //return;
             AssesmentController ac = new AssesmentController();
             stts = ac.addAssesment(lst);
+        }else{
+            System.out.println("Please provide values for all the fields before proceed");
         }
         
         if(stts >= 0){

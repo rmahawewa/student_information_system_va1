@@ -7,6 +7,10 @@ package View.Edit;
 //import View.*;
 
 import View.Add.*;
+import View.MainView;
+import Controller.AssesmentController;
+import java.util.ArrayList;
+import java.util.List;
 //import View.*;
 
 /**
@@ -14,12 +18,32 @@ import View.Add.*;
  * @author HP
  */
 public class EditAssesment extends javax.swing.JPanel {
+    
+    MainView mv;
+    int asmt_id;
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public EditAssesment() {
         initComponents();
+    }
+    
+    public EditAssesment(MainView mf) {
+        initComponents();
+        this.mv = mf;
+    }
+    
+    public void set_id(int id){
+        this.asmt_id = id;
+    }
+    
+    public void set_name(String name){
+       assesmentNameText.setText(name);
+    }
+    
+    public void set_code(String code){
+        assesmentCodeText.setText(code);
     }
 
     /**
@@ -59,9 +83,19 @@ public class EditAssesment extends javax.swing.JPanel {
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Update");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -114,6 +148,31 @@ public class EditAssesment extends javax.swing.JPanel {
     private void assesmentNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assesmentNameTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_assesmentNameTextActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        String name = assesmentNameText.getText();
+        String code = assesmentCodeText.getText();
+        if(!name.equals("") && !code.equals("")){
+            AssesmentController ac = new AssesmentController();
+            List<String> lst = new ArrayList<String>();
+            lst.add(0, Integer.toString(asmt_id));
+            lst.add(1, name);
+            lst.add(2, code);
+            
+            boolean b = ac.updateAssesment(lst);
+            if(b){
+                System.out.println("Assesment record successfully updated");
+            }else{
+                System.out.println("Failed to update the assesment record");
+            }
+        }
+    }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
      * @param args the command line arguments

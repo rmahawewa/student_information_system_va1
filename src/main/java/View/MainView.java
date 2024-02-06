@@ -425,7 +425,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void l2_listAssesment_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listAssesment_menuItemActionPerformed
         // TODO add your handling code here:
-        AssesmentList asmntlst = new AssesmentList();
+        AssesmentList asmntlst = new AssesmentList(this);
         this.mainView_ScrollPane.setViewportView(asmntlst);
     }//GEN-LAST:event_l2_listAssesment_menuItemActionPerformed
 

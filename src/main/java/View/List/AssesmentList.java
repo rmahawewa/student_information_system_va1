@@ -4,17 +4,65 @@
  */
 package View.List;
 
+import View.MainView;
+import java.util.HashMap;
+import javax.swing.JTable;
+import Controller.AssesmentController;
+import View.Edit.EditAssesment;
+import View.IndividualView.ViewAssesment;
+import java.util.Map;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author HP
  */
 public class AssesmentList extends javax.swing.JPanel {
+    
+    MainView main_frame;
 
     /**
      * Creates new form AssesmentList
      */
     public AssesmentList() {
         initComponents();
+    }
+    
+    public AssesmentList(MainView mv) {
+        initComponents();
+        this.main_frame = mv;
+        this.load_table("", "", assesmentListTable);
+    }
+    
+    private void load_table(String asmt_name, String asmt_code, JTable table){
+//          System.out.println("asmt name: " + asmt_name);
+//          System.out.println("asmt code: " + asmt_code);
+        AssesmentController ac = new AssesmentController();
+        HashMap<Integer, Map<Integer,String>> hm = ac.getAssesmentsByDetails(asmt_name, asmt_code);
+        this.clear_table(table);
+        this.create_table(table, hm);
+    }
+    
+    private void clear_table(JTable tbl){
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        int rows = dtm.getRowCount();
+        for(int i = rows-1; i>=0; i--){
+            dtm.removeRow(i);
+        }
+    }
+    
+    private void create_table(JTable tbl, HashMap hm){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> mp = (HashMap<Integer,String>) value;
+                String id = mp.get(0);
+                String e_name = mp.get(1);
+                String e_code = mp.get(2);
+                String[] row = {id, e_name, e_code};
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(row);
+            });
+        }
     }
 
     /**
@@ -53,15 +101,35 @@ public class AssesmentList extends javax.swing.JPanel {
 
         searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
         viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewButton.setText("View");
+        viewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewButtonActionPerformed(evt);
+            }
+        });
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         assesmentListTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         assesmentListTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -148,6 +216,54 @@ public class AssesmentList extends javax.swing.JPanel {
                 .addContainerGap(48, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // TODO add your handling code here:
+        String asmt_name = assesmentNameText.getText();
+        String asmt_code = assesmentCodeText.getText();
+        this.load_table(asmt_name, asmt_code, assesmentListTable);
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+        assesmentNameText.setText("");
+        assesmentCodeText.setText("");
+        this.clear_table(assesmentListTable);
+        this.load_table("", "", assesmentListTable);
+    }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = assesmentListTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) assesmentListTable.getModel();
+            String name = dtm.getValueAt(row, 1).toString();
+            String code = dtm.getValueAt(row, 2).toString();
+            
+            ViewAssesment va = new ViewAssesment(main_frame);
+            va.setAssesmentName(name);
+            va.setAssesmentCode(code);
+            main_frame.add_new_component(va, "View Assesment");
+        }
+    }//GEN-LAST:event_viewButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        int row = assesmentListTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) assesmentListTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String name = dtm.getValueAt(row, 1).toString();
+            String code = dtm.getValueAt(row, 2).toString();
+            
+            EditAssesment ea = new EditAssesment(main_frame);
+            ea.set_id(id);
+            ea.set_name(name);
+            ea.set_code(code);
+            
+            main_frame.add_new_component(ea, "Edit Assesment");
+        }
+    }//GEN-LAST:event_editButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
