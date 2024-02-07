@@ -431,7 +431,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void l2_listAssesmentInExam_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listAssesmentInExam_menuItemActionPerformed
         // TODO add your handling code here:
-        ListOfAssesmentsInExams ael = new ListOfAssesmentsInExams();
+        ListOfAssesmentsInExams ael = new ListOfAssesmentsInExams(this);
         this.mainView_ScrollPane.setViewportView(ael);
     }//GEN-LAST:event_l2_listAssesmentInExam_menuItemActionPerformed
 

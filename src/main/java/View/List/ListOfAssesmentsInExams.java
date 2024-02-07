@@ -4,17 +4,64 @@
  */
 package View.List;
 
+import View.MainView;
+import javax.swing.JTable;
+import Controller.ExamAssesmentController;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author HP
  */
 public class ListOfAssesmentsInExams extends javax.swing.JPanel {
+    
+    private MainView mv;
 
     /**
      * Creates new form ListOfAssesmentsInExams
      */
     public ListOfAssesmentsInExams() {
         initComponents();
+    }
+    
+    public ListOfAssesmentsInExams(MainView mf) {
+        initComponents();
+        this.mv = mf;
+        this.load_table("", "", "", "", "", assesmtsInExamTable);
+    }
+    
+    private void load_table(String exam_name, String asmt_name, String date, String time, String level, JTable tble){
+        ExamAssesmentController eac = new ExamAssesmentController();
+        HashMap<Integer, Map<Integer,String>> mp = eac.getExamAssesmentInfo(exam_name, asmt_name, date, time, level);
+        System.out.println(mp);
+        this.clear_table(tble);
+        this.create_table(tble, mp);
+    }
+    
+    private void clear_table(JTable table){
+        DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1; i>=0; i--){
+            dtm.removeRow(i);
+        }
+    }
+    
+    private void create_table(JTable table, HashMap hm){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer, String> mp = (HashMap<Integer, String>) value;
+                int hlngth = mp.size();
+                String[] tbl_data = new String[hlngth];
+                mp.forEach((k,v) -> {
+                    tbl_data[k] = v;
+                });
+                DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
     }
 
     /**

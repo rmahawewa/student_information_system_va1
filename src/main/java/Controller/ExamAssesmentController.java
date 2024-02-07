@@ -37,4 +37,9 @@ public class ExamAssesmentController {
         return stts;
     }
     
+    public HashMap getExamAssesmentInfo(String exam_name, String assesment_name, String date, String time, String level){
+        HashMap hm = ea.get_exam_assesment_records(exam_name, assesment_name, date, time, level);
+        return hm;
+    }
+    
 }

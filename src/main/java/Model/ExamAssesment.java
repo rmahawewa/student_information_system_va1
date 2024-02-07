@@ -154,4 +154,95 @@ public class ExamAssesment {
         return stts;
     }
     
+    public HashMap get_exam_assesment_records(String exam_name, String assesment_name, String date, String time, String level){
+        PreparedStatement prep = null;
+        ResultSet rs = null;
+        HashMap<Integer, Map<Integer,String>> hm = new HashMap<Integer, Map<Integer,String>>();
+        int cnt = 0;
+        
+        int count = 1;
+        int count_exam_name = 0;
+        int count_assesment_name = 0;
+        int count_date = 0;
+        int count_time = 0;
+        int count_level = 0;
+        
+        String q_exam_name = "";
+        String q_assesment_name = "";
+        String q_date = "";
+        String q_time = "";
+        String q_level = "";
+        
+        String query = "select e_a_id, date_and_time, level, exam_name, assesment_name from exam_assesment inner join exam on exam_assesment.exam_id = exam.exam_id inner join assesment on exam_assesment.assesment_id = assesment.assesment_id where e_a_id > ?";
+        
+        if(!exam_name.equals("")){
+            q_exam_name = " and exam_name = ?";
+            count++;
+            count_exam_name = count;
+        }
+        if(!assesment_name.equals("")){
+            q_assesment_name = " and assesment_name = ?";
+            count++;
+            count_assesment_name = count;
+        }
+        if(!date.equals("")){
+            q_date = " and date_and_time like ?";
+            count++;
+            count_date = count;
+        }
+        if(!time.equals("")){
+            q_time = " and date_and_time like ?";
+            count++;
+            count_time = count;
+        }
+        if(!level.equals("")){
+            q_level = " and level = ?";
+            count++;
+            count_level = count;
+        }
+        
+        query = query + q_exam_name + q_assesment_name + q_date + q_time + q_level;
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, 0);
+            if(!exam_name.equals("")){
+                prep.setString(2, exam_name);
+            }
+            if(!assesment_name.equals("")){
+                prep.setString(3, assesment_name);
+            }
+            if(!date.equals("")){
+                prep.setString(4, "%" + date + "%");
+            }
+            if(!time.equals("")){
+                prep.setString(5, time);
+            }
+            if(!level.equals("")){
+                prep.setString(6, level);
+            }
+            rs = prep.executeQuery();
+            while(rs.next()){
+                int id = rs.getInt("e_a_id");
+                String date_time = rs.getString("date_and_time");
+                String levl = rs.getString("level");
+                String exm_name = rs.getString("exam_name");
+                String asmt_name = rs.getString("assesment_name");
+                
+                Map<Integer,String> mp = new HashMap<Integer,String>();
+                mp.put(0, Integer.toString(id));
+                mp.put(1, exm_name);
+                mp.put(2, asmt_name);
+                mp.put(3, levl);
+                mp.put(4, date_time);               
+                
+                hm.put(cnt, mp);
+                cnt++;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return hm;
+    }
+    
 }
