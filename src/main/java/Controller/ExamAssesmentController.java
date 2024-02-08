@@ -42,4 +42,9 @@ public class ExamAssesmentController {
         return hm;
     }
     
+    public HashMap getInfoByExamAssesmentId(int id){
+        HashMap hm = ea.load_info_by_examassesmentid(id);
+        return hm;
+    }
+    
 }

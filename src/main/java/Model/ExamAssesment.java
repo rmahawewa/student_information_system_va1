@@ -155,6 +155,7 @@ public class ExamAssesment {
     }
     
     public HashMap get_exam_assesment_records(String exam_name, String assesment_name, String date, String time, String level){
+
         PreparedStatement prep = null;
         ResultSet rs = null;
         HashMap<Integer, Map<Integer,String>> hm = new HashMap<Integer, Map<Integer,String>>();
@@ -202,23 +203,24 @@ public class ExamAssesment {
         }
         
         query = query + q_exam_name + q_assesment_name + q_date + q_time + q_level;
+        
         try {
             prep = con.prepareStatement(query);
             prep.setInt(1, 0);
             if(!exam_name.equals("")){
-                prep.setString(2, exam_name);
+                prep.setString(count_exam_name, exam_name);
             }
             if(!assesment_name.equals("")){
-                prep.setString(3, assesment_name);
+                prep.setString(count_assesment_name, assesment_name);
             }
             if(!date.equals("")){
-                prep.setString(4, "%" + date + "%");
+                prep.setString(count_date, "%" + date + "%");
             }
             if(!time.equals("")){
-                prep.setString(5, time);
+                prep.setString(count_time, "%" + time + "%");
             }
             if(!level.equals("")){
-                prep.setString(6, level);
+                prep.setString(count_level, level);
             }
             rs = prep.executeQuery();
             while(rs.next()){
@@ -241,8 +243,38 @@ public class ExamAssesment {
             
         } catch (SQLException ex) {
             Logger.getLogger(ExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
+        System.out.println("Exam assesment hashmap: " + hm);
         return hm;
+    }
+    
+    public HashMap load_info_by_examassesmentid(int eaid){
+        HashMap<Integer, String> mp = new HashMap<Integer, String>();
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        String query = "select e_a_id, exam_assesment.level, exam_assesment.date_and_time, e_a_session, exam.exam_name, assesment.assesment_name, grade.grade_in_words from exam_assesment inner join exam on exam_assesment.exam_id = exam.exam_id inner join assesment on exam_assesment.assesment_id = assesment.assesment_id inner join grade on exam_assesment.grade_id = grade.grade_id where e_a_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, eaid);
+            result = prep.executeQuery();
+            
+            while(result.next()){
+                mp.put(0, Integer.toString(result.getInt("e_a_id")));
+                mp.put(1, result.getString("exam.exam_name"));
+                mp.put(2, result.getString("assesment.assesment_name"));
+                mp.put(3, result.getString("grade.grade_in_words"));
+                mp.put(4, result.getString("exam_assesment.level"));
+                mp.put(5, result.getString("e_a_session"));
+                String[] dt = result.getString("exam_assesment.date_and_time").split(" ");
+                mp.put(6, dt[0]);
+                mp.put(7, dt[1]);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mp;
     }
     
 }

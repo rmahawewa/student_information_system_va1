@@ -10,6 +10,8 @@ import Controller.ExamAssesmentController;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
+import UserLibraries.GetTimes;
+import View.IndividualView.ViewIndividualExamAssesment;
 
 /**
  *
@@ -116,15 +118,35 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
 
         searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
         viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewButton.setText("View");
+        viewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewButtonActionPerformed(evt);
+            }
+        });
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         addStudentButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         addStudentButton.setText("Add Student");
@@ -132,6 +154,11 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
         examNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         assignmentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assignmentNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignmentNameTextActionPerformed(evt);
+            }
+        });
 
         assesmtsInExamTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         assesmtsInExamTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -160,10 +187,10 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
         jScrollPane1.setViewportView(assesmtsInExamTable);
 
         hoursComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        hoursComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        hoursComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hour", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
         minutesComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        minutesComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55" }));
+        minutesComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Minute", "00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55" }));
 
         ampmComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
@@ -174,10 +201,10 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
         });
 
         dateYearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dateYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
+        dateYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
         dateMonthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dateMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        dateMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
         dateMonthComboBx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dateMonthComboBxActionPerformed(evt);
@@ -185,10 +212,10 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
         });
 
         dateDayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dateDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        dateDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         levelComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        levelComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Regional Level", "District Level", "Provincial Level", "Whole Island Level", "International Level" }));
+        levelComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Level", "Regional Level", "District Level", "Provincial Level", "Whole Island Level", "International Level" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -294,6 +321,102 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
     private void dateMonthComboBxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateMonthComboBxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dateMonthComboBxActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // TODO add your handling code here:
+        String exm_name = examNameText.getText();
+        String asmt_name = assignmentNameText.getText();
+        String year = dateYearComboBx.getSelectedItem().toString();
+        year = year.equals("Year")?"":year;
+        String month = dateMonthComboBx.getSelectedItem().toString();
+        month = month.equals("Month")?"":month;
+        String day = dateDayComboBx.getSelectedItem().toString();
+        day = day.equals("Day")?"":day;
+        String hour = hoursComboBx.getSelectedItem().toString();
+        hour = hour.equals("Hour")?"":hour;
+        String minute = minutesComboBx.getSelectedItem().toString();
+        minute = minute.equals("Minute")?"":minute;
+        String ampm = ampmComboBx.getSelectedItem().toString();
+        String level = levelComboBx.getSelectedItem().toString();
+        level = level.equals("Select Level")?"":level;
+        
+        //month = GetTimes.getMonthNumber(month);
+        if(ampm.equals("PM")){
+            int hour_i = Integer.parseInt(hour) + 12;
+            hour = Integer.toString(hour_i);
+        }
+        String date = "";
+        String time = ""; 
+        
+        if(!year.equals("") && !month.equals("") && !day.equals("")){
+            date = year + "-" + month + "-" + day;
+        }
+        if(!hour.equals("") && !minute.equals("")){
+            time = hour + ":" + minute + ":00";
+        }
+
+        this.load_table(exm_name, asmt_name, date, time, level, assesmtsInExamTable);
+        
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+        examNameText.setText("");
+        assignmentNameText.setText("");
+        dateYearComboBx.setSelectedIndex(0);
+        dateMonthComboBx.setSelectedIndex(0);
+        dateDayComboBx.setSelectedIndex(0);
+        hoursComboBx.setSelectedIndex(0);
+        minutesComboBx.setSelectedIndex(0);
+        ampmComboBx.setSelectedIndex(0);
+        levelComboBx.setSelectedIndex(0);
+        this.load_table("", "", "", "", "", assesmtsInExamTable);
+    }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void assignmentNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignmentNameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_assignmentNameTextActionPerformed
+
+    private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = assesmtsInExamTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) assesmtsInExamTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            ExamAssesmentController eac = new ExamAssesmentController();
+            HashMap<Integer, String> hm = eac.getInfoByExamAssesmentId(id);
+            ViewIndividualExamAssesment form = new ViewIndividualExamAssesment(mv);
+            form.setExamName(hm.get(1));
+            form.setAssesmentName(hm.get(2));
+            form.setGrade(hm.get(3));
+            form.setLevel(hm.get(4));
+            form.setSession(hm.get(5));
+            form.setDate(hm.get(6));
+            form.setTime(hm.get(7));
+            mv.add_new_component(form, "Assesment in Exam");
+        }        
+        
+    }//GEN-LAST:event_viewButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        int row = assesmtsInExamTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) assesmtsInExamTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            ExamAssesmentController eac = new ExamAssesmentController();
+            HashMap<Integer, String> hm = eac.getInfoByExamAssesmentId(id);
+            String ea_id = hm.get(0);
+            String examName = hm.get(1);
+            String assesmentName = hm.get(2);
+            String grade = hm.get(3);
+            String level = hm.get(4);
+            String session = hm.get(5);
+            String date = hm.get(6);
+            String time = hm.get(7);
+            
+        }
+    }//GEN-LAST:event_editButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
