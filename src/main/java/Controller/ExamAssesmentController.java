@@ -47,4 +47,14 @@ public class ExamAssesmentController {
         return hm;
     }
     
+    public boolean updateExamAssesment(List<String> lst){
+        int e_a_id = Integer.parseInt(lst.get(0));
+        int grade = Integer.parseInt(lst.get(1));
+        String level = lst.get(2);
+        int session = Integer.parseInt(lst.get(3));
+        String date_and_time = lst.get(4);
+        
+        
+    }
+    
 }

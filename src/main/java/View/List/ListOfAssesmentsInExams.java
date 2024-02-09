@@ -12,6 +12,7 @@ import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 import UserLibraries.GetTimes;
 import View.IndividualView.ViewIndividualExamAssesment;
+import View.Edit.EditExamAssesment;
 
 /**
  *
@@ -414,6 +415,23 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
             String session = hm.get(5);
             String date = hm.get(6);
             String time = hm.get(7);
+            String[] date_arr = date.split("-");
+            String[] time_arr = time.split(":");
+            int hour = Integer.parseInt(time_arr[0]);
+            String noon = hour>12?"PM":"AM";
+            hour = hour>12?(hour-12):hour;
+            String s_hour = Integer.toString(hour);
+            
+            EditExamAssesment eea = new EditExamAssesment(mv);
+            eea.set_id(id);
+            eea.set_exam_name(examName);
+            eea.set_assesment_name(assesmentName);
+            eea.set_grade(grade);
+            eea.set_level(level);
+            eea.set_session(session);
+            eea.set_date(date_arr[0], date_arr[1], date_arr[2]);
+            eea.set_time(s_hour, time_arr[1], noon);
+            mv.add_new_component(eea, "Edit Assesment in Exam");
             
         }
     }//GEN-LAST:event_editButtonActionPerformed
