@@ -11,6 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import UserLibraries.CloseActionHandler;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTabbedPane;
 
 
@@ -430,9 +433,13 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_l2_listAssesment_menuItemActionPerformed
 
     private void l2_listAssesmentInExam_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listAssesmentInExam_menuItemActionPerformed
-        // TODO add your handling code here:
-        ListOfAssesmentsInExams ael = new ListOfAssesmentsInExams(this);
-        this.mainView_ScrollPane.setViewportView(ael);
+        try {
+            // TODO add your handling code here:
+            ListOfAssesmentsInExams ael = new ListOfAssesmentsInExams(this);
+            this.mainView_ScrollPane.setViewportView(ael);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_l2_listAssesmentInExam_menuItemActionPerformed
 
     private void l3_listGVESP_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_listGVESP_menuItemActionPerformed

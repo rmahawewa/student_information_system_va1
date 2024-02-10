@@ -46,7 +46,11 @@ public class AddExamAssesment extends javax.swing.JPanel {
         this.mv = mf;
         this.loadGrades();
         this.clearForm();
-        this.loadTable();
+        try {
+            this.loadTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(AddExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void setExamName(String name){
@@ -68,7 +72,7 @@ public class AddExamAssesment extends javax.swing.JPanel {
         
     }
     
-    public void loadTable(){
+    public void loadTable() throws SQLException{
         HashMap<Integer, Map<Integer,String>> e_a_info = new HashMap<Integer, Map<Integer,String>>();
         ExamAssesmentController eac = new ExamAssesmentController();
         e_a_info = eac.loadExamAssesmentInfoForId(exam_id);
@@ -462,19 +466,27 @@ public class AddExamAssesment extends javax.swing.JPanel {
         String date_time = year+"-"+month+"-"+day+" "+hour+":"+minute+":00";
         
         if(assesment_id > 0){
-            ExamAssesmentController eac = new ExamAssesmentController();
-            List<String> lst = new ArrayList<String>();
-            lst.add(0, Integer.toString(exam_id));
-            lst.add(1, Integer.toString(assesment_id));
-            lst.add(Integer.toString(session));
-            lst.add(3, date_time);
-            lst.add(4,Integer.toString(grade_id));
-            lst.add(level);
-            stts = eac.addRecord(lst);            
+            try {
+                ExamAssesmentController eac = new ExamAssesmentController();
+                List<String> lst = new ArrayList<String>();
+                lst.add(0, Integer.toString(exam_id));
+                lst.add(1, Integer.toString(assesment_id));
+                lst.add(Integer.toString(session));
+                lst.add(3, date_time);
+                lst.add(4,Integer.toString(grade_id));
+                lst.add(level);            
+                stts = eac.addRecord(lst);
+            } catch (SQLException ex) {
+                Logger.getLogger(AddExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         if(stts >= 0){
             System.out.println("Exam-Assesment record successfully added.");
-            loadTable();
+            try {
+                loadTable();
+            } catch (SQLException ex) {
+                Logger.getLogger(AddExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }else{
             System.out.println("Failed to add Exam-Assesment record");
         }

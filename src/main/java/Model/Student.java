@@ -13,8 +13,11 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import Model.LoggedInUser;
 
 /**
  *
@@ -136,16 +139,16 @@ public class Student {
         this.date_of_entarance = date_of_entarance;
     }
     
+    ConnectionString con_str = new ConnectionString();
+    Connection con = con_str.getCon();
+    
     public int addStudent() throws SQLException{
         int returnstatus = 0;
         
         Connection con = null;
         PreparedStatement prep = null;
         PreparedStatement prep_stmt = null;
-        ResultSet result = null;
-        
-        ConnectionString con_str = new ConnectionString();
-        con = con_str.getCon();
+        ResultSet result = null;     
         
         String query = "select student_id from student where student_ic = ?";
         try {
@@ -198,6 +201,32 @@ public class Student {
             con.close();
         }
         return returnstatus;
+    }
+    
+    public List<String> get_student_info_by_text(String text){
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        List<String> lst = new ArrayList<String>();
+        
+        String query = "select student_id, student_name from student where student_name like ? or student_ic like ? or student_passport_number like ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setString(1,"%"+text+"%");
+            prep.setString(2,"%"+text+"%");
+            prep.setString(3,"%"+text+"%");
+            result = prep.executeQuery();
+            int count = 0;
+            while(result.next()){
+                String id = Integer.toString(result.getInt("student_id"));
+                String name = result.getString("student_name");
+                String row = id+"-"+name;
+                lst.add(count, row);
+                count++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lst;
     }
     
 }

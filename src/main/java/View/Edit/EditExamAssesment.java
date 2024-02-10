@@ -142,6 +142,11 @@ public class EditExamAssesment extends javax.swing.JPanel {
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         ampmComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM", " " }));
@@ -329,8 +334,23 @@ public class EditExamAssesment extends javax.swing.JPanel {
         lst.add(3, session_id);
         lst.add(4, date_time);
         ExamAssesmentController eac = new ExamAssesmentController();
-        boolean stts = eac.
+        boolean stts = false;
+        try {
+            stts = eac.updateExamAssesment(lst);
+        } catch (SQLException ex) {
+            Logger.getLogger(EditExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(stts){
+            System.out.println("Record updated successfully");
+        }else{
+            System.out.println("Failed to update the record");
+        }
     }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments

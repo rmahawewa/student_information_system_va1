@@ -13,6 +13,10 @@ import javax.swing.table.DefaultTableModel;
 import UserLibraries.GetTimes;
 import View.IndividualView.ViewIndividualExamAssesment;
 import View.Edit.EditExamAssesment;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import View.Add.StudentAssesmentExam;
 
 /**
  *
@@ -29,13 +33,13 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
         initComponents();
     }
     
-    public ListOfAssesmentsInExams(MainView mf) {
+    public ListOfAssesmentsInExams(MainView mf) throws SQLException {
         initComponents();
         this.mv = mf;
         this.load_table("", "", "", "", "", assesmtsInExamTable);
     }
     
-    private void load_table(String exam_name, String asmt_name, String date, String time, String level, JTable tble){
+    private void load_table(String exam_name, String asmt_name, String date, String time, String level, JTable tble) throws SQLException{
         ExamAssesmentController eac = new ExamAssesmentController();
         HashMap<Integer, Map<Integer,String>> mp = eac.getExamAssesmentInfo(exam_name, asmt_name, date, time, level);
         System.out.println(mp);
@@ -151,6 +155,11 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
 
         addStudentButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         addStudentButton.setText("Add Student");
+        addStudentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addStudentButtonActionPerformed(evt);
+            }
+        });
 
         examNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -356,7 +365,11 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
             time = hour + ":" + minute + ":00";
         }
 
-        this.load_table(exm_name, asmt_name, date, time, level, assesmtsInExamTable);
+        try {
+            this.load_table(exm_name, asmt_name, date, time, level, assesmtsInExamTable);
+        } catch (SQLException ex) {
+            Logger.getLogger(ListOfAssesmentsInExams.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_searchButtonActionPerformed
 
@@ -371,7 +384,11 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
         minutesComboBx.setSelectedIndex(0);
         ampmComboBx.setSelectedIndex(0);
         levelComboBx.setSelectedIndex(0);
-        this.load_table("", "", "", "", "", assesmtsInExamTable);
+        try {
+            this.load_table("", "", "", "", "", assesmtsInExamTable);
+        } catch (SQLException ex) {
+            Logger.getLogger(ListOfAssesmentsInExams.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void assignmentNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignmentNameTextActionPerformed
@@ -385,7 +402,12 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
             DefaultTableModel dtm = (DefaultTableModel) assesmtsInExamTable.getModel();
             int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
             ExamAssesmentController eac = new ExamAssesmentController();
-            HashMap<Integer, String> hm = eac.getInfoByExamAssesmentId(id);
+            HashMap<Integer, String> hm = new HashMap<Integer, String>();
+            try {
+                hm = eac.getInfoByExamAssesmentId(id);
+            } catch (SQLException ex) {
+                Logger.getLogger(ListOfAssesmentsInExams.class.getName()).log(Level.SEVERE, null, ex);
+            }
             ViewIndividualExamAssesment form = new ViewIndividualExamAssesment(mv);
             form.setExamName(hm.get(1));
             form.setAssesmentName(hm.get(2));
@@ -406,7 +428,12 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
             DefaultTableModel dtm = (DefaultTableModel) assesmtsInExamTable.getModel();
             int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
             ExamAssesmentController eac = new ExamAssesmentController();
-            HashMap<Integer, String> hm = eac.getInfoByExamAssesmentId(id);
+            HashMap<Integer, String> hm = new HashMap<Integer, String>();
+            try {
+                hm = eac.getInfoByExamAssesmentId(id);
+            } catch (SQLException ex) {
+                Logger.getLogger(ListOfAssesmentsInExams.class.getName()).log(Level.SEVERE, null, ex);
+            }
             String ea_id = hm.get(0);
             String examName = hm.get(1);
             String assesmentName = hm.get(2);
@@ -435,6 +462,30 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
             
         }
     }//GEN-LAST:event_editButtonActionPerformed
+
+    private void addStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStudentButtonActionPerformed
+        // TODO add your handling code here:
+        int row = assesmtsInExamTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) assesmtsInExamTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            HashMap<Integer,String> hm = new HashMap<Integer,String>();
+            ExamAssesmentController eac = new ExamAssesmentController();
+            try {
+                hm = eac.getInfoByExamAssesmentId(id);
+                String e_a_id = hm.get(0);
+                String exam_name = hm.get(1);
+                String assesment_name = hm.get(2);
+                StudentAssesmentExam sae = new StudentAssesmentExam(mv);
+                sae.set_exam_assesment_id(Integer.parseInt(e_a_id));
+                sae.set_exam_name(exam_name);
+                sae.set_assesment_name(assesment_name);
+                mv.add_new_component(sae, "Add students for Assesment");
+            } catch (SQLException ex) {
+                Logger.getLogger(ListOfAssesmentsInExams.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_addStudentButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -97,7 +97,7 @@ public class ExamAssesment {
     }
     
         
-    public HashMap load_exam_assesment_info_for_id(int exam_id){
+    public HashMap load_exam_assesment_info_for_id(int exam_id) throws SQLException{
         ResultSet result = null;
         PreparedStatement prep = null;
         
@@ -126,12 +126,26 @@ public class ExamAssesment {
             
         } catch (SQLException ex) {
             Logger.getLogger(GradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(result != null){
+                try{
+                    result.close();
+                }catch(Exception e){}
+                result = null;
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(Exception ex){}
+                prep = null;
+            }
+            con.close();
         }
         System.out.println("mp");
         return mp;
     }
     
-    public int add_single_record(){
+    public int add_single_record() throws SQLException{
         int stts = 0;
         PreparedStatement prep = null;
         
@@ -150,11 +164,18 @@ public class ExamAssesment {
         } catch (SQLException ex) {
             Logger.getLogger(ExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
             stts = -1;
+        } finally{
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(Exception ex){}
+            }
+            con.close();
         }
         return stts;
     }
     
-    public HashMap get_exam_assesment_records(String exam_name, String assesment_name, String date, String time, String level){
+    public HashMap get_exam_assesment_records(String exam_name, String assesment_name, String date, String time, String level) throws SQLException{
 
         PreparedStatement prep = null;
         ResultSet rs = null;
@@ -244,12 +265,26 @@ public class ExamAssesment {
         } catch (SQLException ex) {
             Logger.getLogger(ExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getMessage());
+        }finally{
+            if(rs != null){
+                try{
+                    rs.close();
+                }catch(Exception ex){}
+                rs = null;
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(Exception ex){}
+                prep = null;
+            }
+            con.close();
         }
         System.out.println("Exam assesment hashmap: " + hm);
         return hm;
     }
     
-    public HashMap load_info_by_examassesmentid(int eaid){
+    public HashMap load_info_by_examassesmentid(int eaid) throws SQLException{
         HashMap<Integer, String> mp = new HashMap<Integer, String>();
         PreparedStatement prep = null;
         ResultSet result = null;
@@ -273,8 +308,53 @@ public class ExamAssesment {
             }
         } catch (SQLException ex) {
             Logger.getLogger(ExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(result != null){
+                try{
+                    result.close();
+                }catch(Exception e){}
+                result = null;
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(Exception ex){}
+                prep = null;
+            }
+            
+            con.close();
         }
         return mp;
+    }
+    
+    public boolean update_exam_assesment_record(int id) throws SQLException{
+        boolean stts = false;
+        PreparedStatement prep = null;
+        
+        String query = "update exam_assesment set e_a_session = ?, grade_id = ?, level = ?, date_and_time = ?, record_updated_by = ?, record_updated_at = ? where e_a_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, this.session);
+            prep.setInt(2, this.getGrade_id());
+            prep.setString(3,this.level);
+            prep.setString(4,this.date_time);
+            prep.setInt(5, this.record_created_or_updated_by);
+            prep.setTimestamp(6, Timestamp.valueOf(this.created_or_updated_at));
+            prep.setInt(7, id);
+            int i = prep.executeUpdate();
+            stts = i>=0?true:false;
+        } catch (SQLException ex) {
+            Logger.getLogger(ExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(Exception e){}
+                prep = null;
+            }
+            con.close();
+        }
+        return stts;
     }
     
 }
