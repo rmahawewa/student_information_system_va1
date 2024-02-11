@@ -11,6 +11,7 @@ import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.table.DefaultTableModel;
+import Controller.StudentAssesmentExamController;
 
 /**
  *
@@ -99,6 +100,11 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         marksLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         marksLabel.setText("Marks:");
@@ -263,6 +269,9 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
             if(index >= 0){
                 Object o = lst.getModel().getElementAt(index);
                 String name = o.toString();
+                if(name.equals("- No results found -")){
+                    return;
+                }
                 this.set_student_id(name);
                 studentNameText.setText(name);
                 studentNameText.setEditable(false);
@@ -284,11 +293,29 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
         String marks = marksText.getText();
         String remarks = remarksText.getText();
         String description = descriptionTextArea.getText();
+        String responce = "Failed to insert the record";
         
         if(!marks.equals("")){
+            String exam_assesment_id = Integer.toString(this.exam_assesment_id);
+            String student_id = Integer.toString(this.student_id);
+            List<String> l = new ArrayList<String>();
+            l.add(0, exam_assesment_id);
+            l.add(1,student_id);
+            l.add(2,marks);
+            l.add(3,remarks);
+            l.add(4,description);
             
+            StudentAssesmentExamController c = new StudentAssesmentExamController();
+            int r = c.addStudentAssesmentExam(l);
+            responce = r>0?"Record successfully inserted":"Failed to insert the record";
         }
+        System.out.println(responce);
     }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     
     
