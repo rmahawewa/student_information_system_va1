@@ -38,6 +38,7 @@ public class Student {
     private String student_passport_number;
     private String student_photo_file_path;
     private String date_of_entarance;
+    private String student_contact_number;
     private int is_current_student;
     private LocalDateTime created_or_updated_at = LocalDateTime.now();
 
@@ -50,6 +51,14 @@ public class Student {
 
     public Student() {
     }
+
+    public String getStudent_contact_number() {
+        return student_contact_number;
+    }
+
+    public void setStudent_contact_number(String student_contact_number) {
+        this.student_contact_number = student_contact_number;
+    }    
 
     public int getStid() {
         return stid;
@@ -144,8 +153,7 @@ public class Student {
     
     public int addStudent() throws SQLException{
         int returnstatus = 0;
-        
-        Connection con = null;
+
         PreparedStatement prep = null;
         PreparedStatement prep_stmt = null;
         ResultSet result = null;     
@@ -159,19 +167,20 @@ public class Student {
                 returnstatus = 1;
             }
             if(returnstatus < 1){
-                String q = "insert into student (grade_in_year_of_entarance, is_current_student, record_created_at,record_created_by,student_birthday,student_ic,student_passport_number, student_photo_file_path, date_of_entarance, student_name, student_address) values(?,?,?,?,?,?,?,?,?,?,?)";
+                String q = "insert into student (grade_in_year_of_entarance, is_current_student, record_created_at,record_created_by,student_birthday,student_ic,student_passport_number, student_photo_file_path, date_of_entarance, student_name, student_address, student_contact_number) values(?,?,?,?,?,?,?,?,?,?,?,?)";
                 prep_stmt = con.prepareStatement(q);
                 prep_stmt.setString(1, this.getGrade_in_year_of_entarance());
                 prep_stmt.setInt(2, 1);
                 prep_stmt.setTimestamp(3, Timestamp.valueOf(this.created_or_updated_at));
                 prep_stmt.setInt(4, 1);
-                prep_stmt.setDate(5, java.sql.Date.valueOf(this.getStudent_birthday()));
+                prep_stmt.setString(5, this.getStudent_birthday());
                 prep_stmt.setString(6, this.getStudent_identity_code());
                 prep_stmt.setString(7, this.getStudent_passport_number());
                 prep_stmt.setString(8, this.getStudent_photo_file_path());
-                prep_stmt.setDate(9, java.sql.Date.valueOf(this.getDate_of_entarance()));
+                prep_stmt.setString(9, this.getDate_of_entarance());
                 prep_stmt.setString(10, this.getStudent_name());
                 prep_stmt.setString(11, this.getStudent_address());
+                prep_stmt.setString(12, this.getStudent_contact_number());
                 
                 int count = prep_stmt.executeUpdate();
             }

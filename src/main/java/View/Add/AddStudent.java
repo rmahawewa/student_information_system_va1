@@ -4,17 +4,57 @@
  */
 package View.Add;
 
+import UserLibraries.GetTimes;
+import Controller.GradeController;
+import java.io.File;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import Controller.StudentController;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author HP
  */
 public class AddStudent extends javax.swing.JPanel {
+    
+    private File file = null;
 
     /**
      * Creates new form AddStudent
      */
     public AddStudent() {
         initComponents();
+        loadGrades();
+    }
+    
+    public void loadGrades(){
+        GradeController gc = new GradeController();
+        try {
+            HashMap<Integer, Map<Integer,String>> hm = gc.getAllGrades();
+            if(!hm.isEmpty()){
+                hm.forEach((key,value) -> {
+                    gradeInYEComboBx.addItem(value.get(1));
+                });
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -49,8 +89,8 @@ public class AddStudent extends javax.swing.JPanel {
         passportNumberLabel = new javax.swing.JLabel();
         bdDComboBx = new javax.swing.JComboBox<>();
         submitButton = new javax.swing.JButton();
-        cancelButton = new javax.swing.JButton();
-        addressText1 = new javax.swing.JTextField();
+        clearButton = new javax.swing.JButton();
+        contactNumberText = new javax.swing.JTextField();
         addressLabel1 = new javax.swing.JLabel();
 
         dateOfEnteranceLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -64,7 +104,6 @@ public class AddStudent extends javax.swing.JPanel {
         nameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         gradeInYEComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        gradeInYEComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Grade 01", "Grade 02", "Grade 03", "Grade 04", "Grade 05", "Grade 06", "Grade 07", "Grade 08", "Grade 09", "Grade 10", "Grade 11" }));
 
         doeYComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         doeYComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050", "2051", " " }));
@@ -133,10 +172,15 @@ public class AddStudent extends javax.swing.JPanel {
             }
         });
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cancelButton.setText("Cancel");
+        clearButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
-        addressText1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        contactNumberText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         addressLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         addressLabel1.setText("Family contact number:");
@@ -187,13 +231,13 @@ public class AddStudent extends javax.swing.JPanel {
                                 .addComponent(passportNumberText, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
                                 .addComponent(identityCodeText, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
                                 .addComponent(nameText)))
-                        .addComponent(addressText1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(contactNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(39, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(164, 164, 164)
                 .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(87, 87, 87)
-                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -223,7 +267,7 @@ public class AddStudent extends javax.swing.JPanel {
                     .addComponent(birthdayLabel))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(addressText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contactNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addressLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,7 +296,7 @@ public class AddStudent extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
-                    .addComponent(cancelButton))
+                    .addComponent(clearButton))
                 .addGap(45, 45, 45))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -265,18 +309,123 @@ public class AddStudent extends javax.swing.JPanel {
 
     }// </editor-fold>//GEN-END:initComponents
 
+    private void clear_form(){
+    
+        this.nameText.setText("");
+        this.addressText.setText("");
+        this.bdYComboBx.setSelectedIndex(0);
+        this.bdMComboBx.setSelectedIndex(0);
+        this.bdDComboBx.setSelectedIndex(0);
+        this.contactNumberText.setText("");
+        this.photoContainerLabel.setIcon(null);
+        this.file = null;
+        this.identityCodeText.setText("");
+        this.passportNumberText.setText("");
+        //String today = GetTimes.getCurrentDay();
+        String[] day = GetTimes.getDateWithMonthName(String.valueOf(LocalDateTime.now()));
+        this.doeYComboBx.setSelectedItem(day[0]);
+        this.doeMComboBx.setSelectedItem(day[1]);
+        this.doeDComboBx.setSelectedItem(day[2]);
+        this.gradeInYEComboBx.setSelectedIndex(0);
+    }
+    
     private void addPhotoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPhotoButtonActionPerformed
         // TODO add your handling code here:
+            FileFilter filter = new FileNameExtensionFilter("JPEG or PNG file", "jpg", "jpeg", "png");
+            final JFileChooser fc = new JFileChooser();
+            fc.addChoosableFileFilter(filter);
+            fc.setAcceptAllFileFilterUsed(false);
+            int returnValue = fc.showOpenDialog(AddStudent.this); 
+            
+            if(returnValue == JFileChooser.APPROVE_OPTION){
+                
+                file = fc.getSelectedFile();
+                System.out.println("Opening: " + file.getName());
+                String path = file.getAbsolutePath();
+                //System.out.println(path);
+                
+                Image im = Toolkit.getDefaultToolkit().createImage(path);
+                im = im.getScaledInstance(photoContainerLabel.getWidth(), photoContainerLabel.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon imicn = new ImageIcon(im);
+                photoContainerLabel.setIcon(imicn);               
+                
+            }else{
+                System.out.println("Open command cancelled by user");
+            }
     }//GEN-LAST:event_addPhotoButtonActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
         System.out.println(nameText.getText());
+        String student_name = nameText.getText();
+        String address = addressText.getText();
+        String bYear = bdYComboBx.getSelectedItem().toString();
+        String bMonth = bdMComboBx.getSelectedItem().toString();
+        String bMonthNumber = GetTimes.getMonthNumber(bMonth);
+        String bDay = bdDComboBx.getSelectedItem().toString();
+        String birthday = bYear + "-" + bMonthNumber + "- " + bDay;
+        String contactNumber = contactNumberText.getText();
+        String identityCode = identityCodeText.getText();
+        String passportNumber = passportNumberText.getText();
+        String doeYear = doeYComboBx.getSelectedItem().toString();
+        String doeMonth = doeMComboBx.getSelectedItem().toString();
+        String doeMonthNumber = GetTimes.getMonthNumber(doeMonth);
+        String doeDay = doeDComboBx.getSelectedItem().toString();
+        String dateOfEnterance = doeYear + "-" + doeMonthNumber + "-" + doeDay;
+        String grade = gradeInYEComboBx.getSelectedItem().toString();
+        GradeController gc = new GradeController();
+        int grade_id = 0;
+        try {
+            grade_id = gc.getGradeId(grade);
+        } catch (SQLException ex) {
+            Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        LocalDateTime timenow = LocalDateTime.now();
+        Timestamp ts = Timestamp.valueOf(timenow);
+        Long ms = ts.getTime();
+        String img_newname = student_name + "_" + ms + ".jpg";
+        File directory = new File("./img/.");
+        String path = directory.getAbsolutePath();
+        String file_location = path.substring(0, path.length()-1) + img_newname;
+        
+        List<String> l = new ArrayList<String>();
+        l.add(0, student_name);
+        l.add(1, address);
+        l.add(2, birthday);
+        l.add(3, contactNumber);
+        l.add(4, identityCode);
+        l.add(5, passportNumber);
+        l.add(6, dateOfEnterance);
+        l.add(7, Integer.toString(grade_id));
+        l.add(8, file_location);
+        
+        StudentController sc = new StudentController();
+        boolean b = sc.addStudentRecord(l);
+        
+        if(b){
+            BufferedImage bi;
+            try {
+                bi = ImageIO.read(file);
+                File outputfile = new File(file_location);
+                ImageIO.write(bi, "png", outputfile);
+            } catch (IOException ex) {
+                Logger.getLogger(AddStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println("The Student record successfully created");
+            this.clear_form();
+        }else{
+            System.out.println("Failed to create the Student record");
+        }
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void doeMComboBxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doeMComboBxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_doeMComboBxActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+        this.clear_form();
+    }//GEN-LAST:event_clearButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -284,12 +433,12 @@ public class AddStudent extends javax.swing.JPanel {
     private javax.swing.JLabel addressLabel;
     private javax.swing.JLabel addressLabel1;
     private javax.swing.JTextField addressText;
-    private javax.swing.JTextField addressText1;
     private javax.swing.JComboBox<String> bdDComboBx;
     private javax.swing.JComboBox<String> bdMComboBx;
     private javax.swing.JComboBox<String> bdYComboBx;
     private javax.swing.JLabel birthdayLabel;
-    private javax.swing.JButton cancelButton;
+    private javax.swing.JButton clearButton;
+    private javax.swing.JTextField contactNumberText;
     private javax.swing.JLabel dateOfEnteranceLabel;
     private javax.swing.JComboBox<String> doeDComboBx;
     private javax.swing.JComboBox<String> doeMComboBx;
