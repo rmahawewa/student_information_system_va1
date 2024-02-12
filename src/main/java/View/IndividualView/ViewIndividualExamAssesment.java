@@ -13,12 +13,48 @@ import View.*;
  * @author HP
  */
 public class ViewIndividualExamAssesment extends javax.swing.JPanel {
+    
+    MainView mv;
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public ViewIndividualExamAssesment() {
         initComponents();
+    }
+    
+    public ViewIndividualExamAssesment(MainView mf) {
+        initComponents();
+        this.mv = mf;
+    }
+    
+    public void setExamName(String text){
+        this.examNameValueLabel.setText(text);
+    }
+    
+    public void setAssesmentName(String text){
+        this.assesmentNameValueLabel.setText(text);
+    }
+    
+    public void setGrade(String text){
+        this.gradeValueLabel.setText(text);
+    }
+    
+    public void setLevel(String text){
+        this.levelValueLabel.setText(text);
+    }
+    
+    public void setSession(String text){
+        String session = text.equals("1")?"First Session":(text.equals("2")?"Second Session":(text.equals("3")?"Third Session":"Forth Session"));
+        this.sessionValueLabel.setText(session);
+    }
+    
+    public void setDate(String text){
+        this.dateValueLabel.setText(text);
+    }
+    
+    public void setTime(String text){
+        this.timeValueLabel.setText(text);
     }
 
     /**
@@ -47,7 +83,6 @@ public class ViewIndividualExamAssesment extends javax.swing.JPanel {
         sessionValueLabel = new javax.swing.JLabel();
         dateValueLabel = new javax.swing.JLabel();
         timeValueLabel = new javax.swing.JLabel();
-        closeFromTopButton1 = new javax.swing.JButton();
 
         closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
         closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -70,6 +105,11 @@ public class ViewIndividualExamAssesment extends javax.swing.JPanel {
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Close");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         assesmentLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         assesmentLabel.setText("Assesment:");
@@ -107,16 +147,6 @@ public class ViewIndividualExamAssesment extends javax.swing.JPanel {
         timeValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         timeValueLabel.setText("time value");
 
-        closeFromTopButton1.setBackground(new java.awt.Color(102, 0, 102));
-        closeFromTopButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        closeFromTopButton1.setForeground(new java.awt.Color(255, 255, 255));
-        closeFromTopButton1.setText("X");
-        closeFromTopButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeFromTopButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -141,14 +171,11 @@ public class ViewIndividualExamAssesment extends javax.swing.JPanel {
                             .addComponent(levelValueLabel)
                             .addComponent(gradeValueLabel)
                             .addComponent(examNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(assesmentNameValueLabel))
-                        .addGap(0, 30, Short.MAX_VALUE))
+                            .addComponent(assesmentNameValueLabel)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
-                        .addComponent(topicLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(closeFromTopButton1)))
-                .addContainerGap())
+                        .addComponent(topicLabel)))
+                .addContainerGap(36, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -157,13 +184,8 @@ public class ViewIndividualExamAssesment extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(topicLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(closeFromTopButton1)))
+                .addGap(29, 29, 29)
+                .addComponent(topicLabel)
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(examLabel)
@@ -202,9 +224,10 @@ public class ViewIndividualExamAssesment extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_closeFromTopButtonActionPerformed
 
-    private void closeFromTopButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFromTopButton1ActionPerformed
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_closeFromTopButton1ActionPerformed
+        mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,7 +332,6 @@ public class ViewIndividualExamAssesment extends javax.swing.JPanel {
     private javax.swing.JLabel assesmentNameValueLabel;
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton closeFromTopButton;
-    private javax.swing.JButton closeFromTopButton1;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JLabel dateValueLabel;
     private javax.swing.JLabel examLabel;

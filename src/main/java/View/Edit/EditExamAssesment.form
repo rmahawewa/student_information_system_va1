@@ -30,48 +30,45 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jScrollPane2" min="-2" pref="524" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="sessionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="dateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="timeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="gradeLabel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="levelLabel" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="sessionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="timeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="gradeLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="levelLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="levelComboBx" min="-2" pref="347" max="-2" attributes="0"/>
+                                  <Component id="gradeComboBx" min="-2" pref="347" max="-2" attributes="0"/>
+                                  <Component id="sessionComboBx" alignment="0" min="-2" pref="347" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="yearComboBx" min="-2" pref="89" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="monthComboBx" min="-2" pref="145" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="dayComboBx" min="-2" pref="75" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="levelComboBx" min="-2" pref="347" max="-2" attributes="0"/>
-                                      <Component id="gradeComboBx" min="-2" pref="347" max="-2" attributes="0"/>
-                                      <Component id="sessionComboBx" alignment="0" min="-2" pref="347" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="yearComboBx" min="-2" pref="89" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="monthComboBx" min="-2" pref="145" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="dayComboBx" min="-2" pref="75" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="hoursComboBx" min="-2" pref="89" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="minutesComboBx" min="-2" pref="145" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                          <Component id="ampmComboBx" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="hoursComboBx" min="-2" pref="89" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="minutesComboBx" min="-2" pref="145" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Component id="ampmComboBx" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="assesmentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="examLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="examNameValueLabel" min="-2" pref="347" max="-2" attributes="0"/>
-                                      <Component id="assesmentNameValueLabel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="assesmentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="examLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="examNameValueLabel" min="-2" pref="347" max="-2" attributes="0"/>
+                                  <Component id="assesmentNameValueLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -130,9 +127,7 @@
                   <Component id="submitButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" pref="348" max="-2" attributes="0"/>
-              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <EmptySpace pref="55" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -169,6 +164,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cancelButton">
       <Properties>
@@ -177,6 +175,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Cancel"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="ampmComboBx">
       <Properties>
@@ -218,6 +219,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hoursComboBxActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -475,27 +479,6 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTable" name="editExamAssesmentTable">
-          <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="0">
-                <Column editable="false" title="Assesment" type="java.lang.String"/>
-                <Column editable="false" title="Grade" type="java.lang.String"/>
-                <Column editable="false" title="Level" type="java.lang.String"/>
-                <Column editable="false" title="Session" type="java.lang.String"/>
-              </Table>
-            </Property>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
     <Component class="javax.swing.JLabel" name="assesmentNameValueLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

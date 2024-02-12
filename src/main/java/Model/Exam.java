@@ -33,6 +33,9 @@ public class Exam {
     private String details;
     private int created_or_updated_by = LoggedInUser.getLogged_in_user();
     private LocalDateTime created_or_updated_at = LocalDateTime.now();
+    
+    private ConnectionString con_str = new ConnectionString();
+    private Connection con = con_str.getCon();
 
     public Exam() {
     }
@@ -104,10 +107,7 @@ public class Exam {
     
     public int addExam() throws SQLException{
         int ret_stts = 0;
-        
-        ConnectionString con_str = new ConnectionString();
-        Connection con = con_str.getCon();
-        
+
         PreparedStatement prep = null;
         
         String query = "insert into exam(exam_code,year,semester,from_date,to_date,exam_name,details,record_created_by,record_created_at) values (?,?,?,?,?,?,?,?,?)";
@@ -144,10 +144,7 @@ public class Exam {
     }
     
     public HashMap getExamDataByInfo(String exam_name, String exam_code, String yr, String semester) throws SQLException{
-    
-        ConnectionString con_str = new ConnectionString();
-        Connection con = con_str.getCon();
-        
+
         PreparedStatement prep = null;
         ResultSet rs = null;
         
@@ -244,6 +241,78 @@ public class Exam {
             con.close();        
         }    
         return (HashMap) exam_list;
+    }
+    
+    public HashMap getGivenExamInfo(int id){
+        Map<Integer, String> hm = new HashMap<Integer,String>();
+        
+        ResultSet result = null;
+        PreparedStatement prep = null;
+        
+        String query = "select exam_id,exam_code,exam_name,year,semester,from_date,to_date,details from exam where exam_id=? ";
+        
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, id);
+            result = prep.executeQuery();
+            while(result.next()){
+                String exm_id = Integer.toString(result.getInt("exam_id"));
+                String exm_code = result.getString("exam_code");
+                String exm_name = result.getString("exam_name");
+                String yr = result.getString("year");
+                String semester = result.getString("semester");
+                String from_date = result.getDate("from_date").toString();
+                String to_date = result.getDate("to_date").toString();
+                String details = result.getString("details");
+                
+                hm.put(0, exm_id);
+                hm.put(1, exm_code);
+                hm.put(2, exm_name);
+                hm.put(3, yr);
+                hm.put(4, semester);
+                hm.put(5, from_date);
+                hm.put(6, to_date);
+                hm.put(7, details);
+                                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Exam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return (HashMap) hm;
+    }
+    
+    public int updateExam() throws SQLException{
+        int stts = 1;
+
+        PreparedStatement prep = null;
+        
+        String query = "update exam set exam_name = ?, exam_code = ?, year = ?, semester = ?, from_date = ?, to_date = ?, details = ?, record_updated_by = ?, record_updated_at = ? where exam_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setString(1, this.getExam_name());
+            prep.setString(2, this.getExam_code());
+            prep.setString(3, this.getYear());
+            prep.setString(4, this.getSemester());
+            prep.setDate(5, java.sql.Date.valueOf(this.getFrom_date()));
+            prep.setDate(6, java.sql.Date.valueOf(this.getTo_date()));
+            prep.setString(7, this.getDetails());
+            prep.setInt(8, created_or_updated_by);
+            prep.setTimestamp(9, Timestamp.valueOf(created_or_updated_at));
+            prep.setInt(10, this.getExam_id());
+            stts = prep.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Exam.class.getName()).log(Level.SEVERE, null, ex);
+            stts = -1;
+        }finally{
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){}
+                prep.close();
+            }
+            con.close(); 
+        }
+        return stts;
     }
     
 }

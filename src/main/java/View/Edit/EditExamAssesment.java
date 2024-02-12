@@ -6,12 +6,25 @@ package View.Edit;
 
 import View.Add.*;
 import View.*;
+import Controller.GradeController;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import Controller.ExamAssesmentController;
 
 /**
  *
  * @author HP
  */
 public class EditExamAssesment extends javax.swing.JPanel {
+    
+    MainView mv;
+    int examAssesmentId;
 
     /**
      * Creates new form AddStudentSchoolInfo
@@ -19,6 +32,65 @@ public class EditExamAssesment extends javax.swing.JPanel {
     public EditExamAssesment() {
         initComponents();
     }
+    
+    public EditExamAssesment(MainView mf) {
+        initComponents();
+        mv = mf;
+        try {
+            this.load_grades();
+        } catch (SQLException ex) {
+            Logger.getLogger(EditExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void set_id(int id){
+        this.examAssesmentId = id;
+    }
+    
+    public void set_exam_name(String exam_name){
+        this.examNameValueLabel.setText(exam_name);
+    }
+    
+    public void set_assesment_name(String assesment){
+        this.assesmentNameValueLabel.setText(assesment);
+    }
+    
+    public void load_grades() throws SQLException{
+        gradeComboBx.removeAllItems();
+        GradeController gc = new GradeController();
+        HashMap hm = gc.getAllGrades();
+        hm.forEach((key,val) -> {
+            HashMap<Integer,String> mp = (HashMap<Integer,String>) val;
+            String grade_in_words = mp.get(1);
+            this.gradeComboBx.addItem(grade_in_words);
+        });
+    }
+    
+    public void set_grade(String grade){
+        gradeComboBx.setSelectedItem(grade);
+    }
+    
+    public void set_level(String level){
+        levelComboBx.setSelectedItem(level);
+    }
+    
+    public void set_session(String session){
+        int s = Integer.parseInt(session)-1;
+        sessionComboBx.setSelectedIndex(s);
+    }
+    
+    public void set_date(String y, String m, String d){
+        this.yearComboBx.setSelectedItem(y);
+        this.monthComboBx.setSelectedItem(m);
+        this.dayComboBx.setSelectedItem(d);
+    }
+    
+    public void set_time(String h, String m, String n){
+        hoursComboBx.setSelectedItem(h);
+        minutesComboBx.setSelectedItem(m);
+        ampmComboBx.setSelectedItem(n);
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,8 +121,6 @@ public class EditExamAssesment extends javax.swing.JPanel {
         examNameValueLabel = new javax.swing.JLabel();
         sessionLabel = new javax.swing.JLabel();
         sessionComboBx = new javax.swing.JComboBox<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        editExamAssesmentTable = new javax.swing.JTable();
         assesmentNameValueLabel = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -64,15 +134,30 @@ public class EditExamAssesment extends javax.swing.JPanel {
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Update");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         ampmComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM", " " }));
 
         hoursComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         hoursComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", " " }));
+        hoursComboBx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hoursComboBxActionPerformed(evt);
+            }
+        });
 
         minutesComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         minutesComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", " " }));
@@ -113,31 +198,6 @@ public class EditExamAssesment extends javax.swing.JPanel {
         sessionComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Session", "Second Session", "Third Session", "Forth Session", " " }));
 
-        editExamAssesmentTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Assesment", "Grade", "Level", "Session"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(editExamAssesmentTable);
-
         assesmentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         assesmentNameValueLabel.setText("assesment name");
 
@@ -157,41 +217,39 @@ public class EditExamAssesment extends javax.swing.JPanel {
                         .addComponent(topicLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(sessionLabel)
-                                        .addComponent(dateLabel)
-                                        .addComponent(timeLabel)
-                                        .addComponent(gradeLabel)
-                                        .addComponent(levelLabel))
-                                    .addGap(129, 129, 129)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(levelComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(gradeComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(sessionComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(yearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(monthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(dayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(hoursComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(minutesComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(20, 20, 20)
-                                            .addComponent(ampmComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(assesmentLabel)
-                                        .addComponent(examLabel))
-                                    .addGap(108, 108, 108)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(examNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(assesmentNameValueLabel)))))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sessionLabel)
+                                    .addComponent(dateLabel)
+                                    .addComponent(timeLabel)
+                                    .addComponent(gradeLabel)
+                                    .addComponent(levelLabel))
+                                .addGap(129, 129, 129)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(levelComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(gradeComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(sessionComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(yearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(monthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(dayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(hoursComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(minutesComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(20, 20, 20)
+                                        .addComponent(ampmComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(assesmentLabel)
+                                    .addComponent(examLabel))
+                                .addGap(108, 108, 108)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(examNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(assesmentNameValueLabel))))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -235,11 +293,64 @@ public class EditExamAssesment extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(cancelButton))
-                .addGap(49, 49, 49)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void hoursComboBxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hoursComboBxActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_hoursComboBxActionPerformed
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        int e_a_id = this.examAssesmentId;
+        String grade = this.gradeComboBx.getSelectedItem().toString();
+        GradeController gc = new GradeController();
+        int grade_id=1;
+        try {
+            grade_id = gc.getGradeId(grade);
+        } catch (SQLException ex) {
+            Logger.getLogger(EditExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String level = this.levelComboBx.getSelectedItem().toString();
+        String session = this.sessionComboBx.getSelectedItem().toString();
+        String session_id = session.equals("First Session")?"1":(session.equals("Second Session")?"2":(session.equals("Third Session"))?"3":"4");
+        String year = yearComboBx.getSelectedItem().toString();
+        String month = monthComboBx.getSelectedItem().toString();
+        String day = dayComboBx.getSelectedItem().toString();
+        String hour = hoursComboBx.getSelectedItem().toString();
+        String minute = minutesComboBx.getSelectedItem().toString();
+        String ampm = ampmComboBx.getSelectedItem().toString();
+        int hour_i = Integer.parseInt(hour);
+        hour_i = ampm.equals("PM")?(hour_i + 12):hour_i;
+        hour = Integer.toString(hour_i);
+        String date_time = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":00";
+        
+        List<String> lst = new ArrayList<String>();
+        lst.add(0, Integer.toString(e_a_id));
+        lst.add(1, Integer.toString(grade_id));
+        lst.add(2, level);
+        lst.add(3, session_id);
+        lst.add(4, date_time);
+        ExamAssesmentController eac = new ExamAssesmentController();
+        boolean stts = false;
+        try {
+            stts = eac.updateExamAssesment(lst);
+        } catch (SQLException ex) {
+            Logger.getLogger(EditExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(stts){
+            System.out.println("Record updated successfully");
+        }else{
+            System.out.println("Failed to update the record");
+        }
+    }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,69 +378,7 @@ public class EditExamAssesment extends javax.swing.JPanel {
 //            java.util.logging.Logger.getLogger(AddExamAssesment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
+
 //
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
@@ -346,13 +395,11 @@ public class EditExamAssesment extends javax.swing.JPanel {
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JComboBox<String> dayComboBx;
-    private javax.swing.JTable editExamAssesmentTable;
     private javax.swing.JLabel examLabel;
     private javax.swing.JLabel examNameValueLabel;
     private javax.swing.JComboBox<String> gradeComboBx;
     private javax.swing.JLabel gradeLabel;
     private javax.swing.JComboBox<String> hoursComboBx;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox<String> levelComboBx;
     private javax.swing.JLabel levelLabel;
     private javax.swing.JComboBox<String> minutesComboBx;

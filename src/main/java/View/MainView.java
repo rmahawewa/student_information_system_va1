@@ -7,6 +7,14 @@ package View;
 import View.*;
 import View.Add.*;
 import View.List.*;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import UserLibraries.CloseActionHandler;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTabbedPane;
 
 
 /**
@@ -32,8 +40,9 @@ public class MainView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        initialTabbedPane = new javax.swing.JTabbedPane();
         mainView_ScrollPane = new javax.swing.JScrollPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        menuBar = new javax.swing.JMenuBar();
         l1_student_menu = new javax.swing.JMenu();
         l2_addStudent_menuItem = new javax.swing.JMenuItem();
         l2_listStudents_menuItem = new javax.swing.JMenuItem();
@@ -77,6 +86,13 @@ public class MainView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Student Information System");
         setResizable(false);
+
+        initialTabbedPane.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                initialTabbedPaneKeyPressed(evt);
+            }
+        });
+        initialTabbedPane.addTab("Hello", mainView_ScrollPane);
 
         l1_student_menu.setText("Student");
 
@@ -122,7 +138,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_student_menu.add(l2_student_oldStudentList_menuItem);
 
-        jMenuBar1.add(l1_student_menu);
+        menuBar.add(l1_student_menu);
 
         l1_exam_menu.setText("Exam");
 
@@ -142,7 +158,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_exam_menu.add(l2_listExams_menuItem);
 
-        jMenuBar1.add(l1_exam_menu);
+        menuBar.add(l1_exam_menu);
 
         l1_grade_menu.setText("Grade");
 
@@ -162,7 +178,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_grade_menu.add(l2_listGrade_menuItem);
 
-        jMenuBar1.add(l1_grade_menu);
+        menuBar.add(l1_grade_menu);
 
         l1_assesment_menu.setText("Assesment");
 
@@ -182,7 +198,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_assesment_menu.add(l2_listAssesment_menuItem);
 
-        jMenuBar1.add(l1_assesment_menu);
+        menuBar.add(l1_assesment_menu);
 
         l1_assesmentInExam_menu.setText("Assesment in Exam");
 
@@ -194,7 +210,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_assesmentInExam_menu.add(l2_listAssesmentInExam_menuItem);
 
-        jMenuBar1.add(l1_assesmentInExam_menu);
+        menuBar.add(l1_assesmentInExam_menu);
 
         l1_examForGrades_menu.setText("Exam for Grades");
 
@@ -206,7 +222,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_examForGrades_menu.add(l2_listExamForGrades_menuItem);
 
-        jMenuBar1.add(l1_examForGrades_menu);
+        menuBar.add(l1_examForGrades_menu);
 
         l1_studentPerformance_menu.setText("Student Performance");
 
@@ -246,7 +262,7 @@ public class MainView extends javax.swing.JFrame {
 
         l1_studentPerformance_menu.add(l2_studentPerformanceAssesment_menu);
 
-        jMenuBar1.add(l1_studentPerformance_menu);
+        menuBar.add(l1_studentPerformance_menu);
 
         l1_school_menu.setText("School");
 
@@ -266,7 +282,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_school_menu.add(l2_listSchools_menuItem);
 
-        jMenuBar1.add(l1_school_menu);
+        menuBar.add(l1_school_menu);
 
         l1_medicalRequirement_menu.setText("Medical Requirement");
 
@@ -286,7 +302,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_medicalRequirement_menu.add(l2_listMedicalRequirement_menuItem);
 
-        jMenuBar1.add(l1_medicalRequirement_menu);
+        menuBar.add(l1_medicalRequirement_menu);
 
         l1_settings_menu.setText("Settings");
 
@@ -296,30 +312,50 @@ public class MainView extends javax.swing.JFrame {
         l2_adminS_menuItem.setText("Admin");
         l1_settings_menu.add(l2_adminS_menuItem);
 
-        jMenuBar1.add(l1_settings_menu);
+        menuBar.add(l1_settings_menu);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(271, 271, 271)
-                .addComponent(mainView_ScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(280, Short.MAX_VALUE)
+                .addComponent(initialTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(mainView_ScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(initialTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void add_new_component(JPanel panel, String topic){
+        int tab_count = initialTabbedPane.getTabCount();
+        if(tab_count>2){
+            initialTabbedPane.removeTabAt(tab_count-2);
+        }        
+        JScrollPane sp = new JScrollPane();
+        sp.setViewportView(panel);
+        initialTabbedPane.addTab(topic, sp);
+        
+    }
+    
+    public void close_tab(){
+        int tab_index = initialTabbedPane.getSelectedIndex();
+        initialTabbedPane.removeTabAt(tab_index);
+   }
+    
+    public JTabbedPane getTP(){
+        return this.initialTabbedPane;
+    }
+    
     private void l3_listSPA_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_listSPA_menuItemActionPerformed
         // TODO add your handling code here:
         StudentAssesmentExamList sae = new StudentAssesmentExamList();
@@ -380,7 +416,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void l2_listExams_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listExams_menuItemActionPerformed
         // TODO add your handling code here:
-        ExamList exmlst = new ExamList();
+        ExamList exmlst = new ExamList(this);
         this.mainView_ScrollPane.setViewportView(exmlst);
     }//GEN-LAST:event_l2_listExams_menuItemActionPerformed
 
@@ -392,14 +428,18 @@ public class MainView extends javax.swing.JFrame {
 
     private void l2_listAssesment_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listAssesment_menuItemActionPerformed
         // TODO add your handling code here:
-        AssesmentList asmntlst = new AssesmentList();
+        AssesmentList asmntlst = new AssesmentList(this);
         this.mainView_ScrollPane.setViewportView(asmntlst);
     }//GEN-LAST:event_l2_listAssesment_menuItemActionPerformed
 
     private void l2_listAssesmentInExam_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listAssesmentInExam_menuItemActionPerformed
-        // TODO add your handling code here:
-        ListOfAssesmentsInExams ael = new ListOfAssesmentsInExams();
-        this.mainView_ScrollPane.setViewportView(ael);
+        try {
+            // TODO add your handling code here:
+            ListOfAssesmentsInExams ael = new ListOfAssesmentsInExams(this);
+            this.mainView_ScrollPane.setViewportView(ael);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_l2_listAssesmentInExam_menuItemActionPerformed
 
     private void l3_listGVESP_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_listGVESP_menuItemActionPerformed
@@ -425,6 +465,10 @@ public class MainView extends javax.swing.JFrame {
         OldStudentList osl = new OldStudentList();
         this.mainView_ScrollPane.setViewportView(osl);
     }//GEN-LAST:event_l2_student_oldStudentList_menuItemActionPerformed
+
+    private void initialTabbedPaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_initialTabbedPaneKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_initialTabbedPaneKeyPressed
 
     /**
      * @param args the command line arguments
@@ -462,7 +506,7 @@ public class MainView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JTabbedPane initialTabbedPane;
     private javax.swing.JMenu l1_assesmentInExam_menu;
     private javax.swing.JMenu l1_assesment_menu;
     private javax.swing.JMenu l1_examForGrades_menu;
@@ -503,5 +547,6 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JMenuItem l3_viewGVESP_menuItem;
     private javax.swing.JMenuItem l3_viewSPA_menuItem;
     private javax.swing.JScrollPane mainView_ScrollPane;
+    private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@ package Controller;
 
 import Model.Exam;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -27,6 +28,36 @@ public class ExamController {
         int r = e.addExam();
         
         return r;
+    }
+    
+    public HashMap getExamDataByFiltering(String exam_name, String exam_code, String yr, String semester) throws SQLException{
+        Exam e = new Exam();
+        HashMap hm = e.getExamDataByInfo(exam_name, exam_code, yr, semester);
+        return hm;
+    }
+    
+    public HashMap getExamInfoById(int id){
+        Exam e = new Exam();
+        HashMap hm = e.getGivenExamInfo(id);
+        return hm;
+    }
+    
+    public int updateExamInfo(List<String> exam) throws SQLException{
+        int retn_stts = 1;
+        
+        Exam e = new Exam();
+        e.setExam_id(Integer.parseInt(exam.get(0)));
+        e.setExam_name(exam.get(1));
+        e.setExam_code(exam.get(2));
+        e.setYear(exam.get(3));
+        e.setSemester(exam.get(4));
+        e.setFrom_date(exam.get(5));
+        e.setTo_date(exam.get(6));
+        e.setDetails(exam.get(7));
+        
+        retn_stts = e.updateExam();
+        
+        return retn_stts;
     }
     
 }

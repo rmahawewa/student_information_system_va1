@@ -27,6 +27,9 @@ public class Grade {
     private String grade_in_words;
     private int created_or_updated_by = LoggedInUser.getLogged_in_user();
     private LocalDateTime created_or_updated_at = LocalDateTime.now();
+    
+    private ConnectionString con_str = new ConnectionString();
+    private Connection con = con_str.getCon();
 
     public Grade() {
     }
@@ -58,10 +61,7 @@ public class Grade {
     
     public int add_grade() throws SQLException{
         int returnst = 0;
-        
-        ConnectionString conStr = new ConnectionString();
-            Connection con = conStr.getCon();
-            
+
             PreparedStatement prep = null;
     
         try {            
@@ -89,9 +89,7 @@ public class Grade {
     }
     
     public HashMap getAllGrades() throws SQLException{
-            ConnectionString con_str = new ConnectionString();
-            Connection con = con_str.getCon();
-            
+
             ResultSet result = null;
             PreparedStatement prep = null;
             
@@ -105,9 +103,9 @@ public class Grade {
             result = prep.executeQuery();
             while(result.next()){
                 Map<Integer,String> dt = new HashMap<Integer,String>();
-                dt.put(0, result.getString("grade_id"));
-                dt.put(1, result.getString("grade_in_number"));
-                dt.put(2, result.getString("grade_in_words"));
+                //dt.put(0, result.getString("grade_id"));
+                dt.put(0, result.getString("grade_in_number"));
+                dt.put(1, result.getString("grade_in_words"));
                 
                 data.put(count, dt);
                 count++;
@@ -132,6 +130,43 @@ public class Grade {
         }
         System.out.println(data);
         return (HashMap) data;
+    }
+    
+    public int getGradeId(String g) throws SQLException{           
+            
+            ResultSet result = null;
+            PreparedStatement prep = null;
+            
+            int id=0;
+            int count = 0;
+            
+        try {           
+            String query = "select grade_id from grade where grade_in_words = ?";
+            prep=con.prepareStatement(query);
+            prep.setString(1, g);
+            result = prep.executeQuery();
+            while(result.next()){
+                id = result.getInt("grade_id");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Grade.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException e){}
+                result.close();
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){}
+                prep.close();
+            }
+            con.close();
+        }
+        System.out.println("Grade id is: " + id);
+        return id;
     }
     
 }

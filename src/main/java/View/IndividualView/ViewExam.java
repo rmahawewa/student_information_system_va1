@@ -7,6 +7,7 @@ package View.IndividualView;
 import View.Edit.*;
 import View.Add.*;
 import View.*;
+import javax.swing.JButton;
 
 /**
  *
@@ -17,10 +18,46 @@ public class ViewExam extends javax.swing.JPanel{
     /**
      * Creates new form AddStudentSchoolInfo
      */
+    
+    private MainView mv;
+    
+    public JButton closebtn = this.closeButton;
+    
     public ViewExam() {
         initComponents();
     }
-
+    
+    public ViewExam(MainView mf) {
+        initComponents();
+        this.mv = mf;
+    }
+    
+    public void setExamName(String exam_name){
+        examNameValueLabel.setText(exam_name);
+    }
+    public void setExamCode(String exam_code){
+        examCodeValueLabel.setText(exam_code);
+    }
+    public void setYear(String year){
+        yearValueLabel.setText(year);
+    }
+    public void setSemester(String semester){
+        semesterValueLabel.setText(semester);
+    }
+    public void setFromDate(String from_date){
+        fromDateValueLabel.setText(from_date);
+    }
+    public void setToDate(String to_date){
+        toDateValueLabel.setText(to_date);
+    }
+    public void setDetails(String details){
+        detailsTextField.setText(details);
+        //detailsTextField.disable();
+    }
+    
+    public JButton getCloseButton(){
+        return this.closebtn;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,18 +71,18 @@ public class ViewExam extends javax.swing.JPanel{
         examNameLabel = new javax.swing.JLabel();
         toDateLabel = new javax.swing.JLabel();
         detailsLabel = new javax.swing.JLabel();
-        cancelButton = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
         examCodeLabel = new javax.swing.JLabel();
         fromDateLabel = new javax.swing.JLabel();
         detailsTextField = new javax.swing.JTextField();
         yearLabel = new javax.swing.JLabel();
         semesterLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        examNameValueLabel = new javax.swing.JLabel();
+        examCodeValueLabel = new javax.swing.JLabel();
+        yearValueLabel = new javax.swing.JLabel();
+        semesterValueLabel = new javax.swing.JLabel();
+        fromDateValueLabel = new javax.swing.JLabel();
+        toDateValueLabel = new javax.swing.JLabel();
         closeFromTopButton = new javax.swing.JButton();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -60,8 +97,13 @@ public class ViewExam extends javax.swing.JPanel{
         detailsLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         detailsLabel.setText("Details:");
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cancelButton.setText("Close");
+        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
 
         examCodeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         examCodeLabel.setText("Exam code:");
@@ -69,6 +111,7 @@ public class ViewExam extends javax.swing.JPanel{
         fromDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         fromDateLabel.setText("From date:");
 
+        detailsTextField.setEditable(false);
         detailsTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 detailsTextFieldActionPerformed(evt);
@@ -81,23 +124,23 @@ public class ViewExam extends javax.swing.JPanel{
         semesterLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         semesterLabel.setText("Semester:");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("exam name label");
+        examNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examNameValueLabel.setText("exam name label");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("exam code label");
+        examCodeValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examCodeValueLabel.setText("exam code label");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("exam year label");
+        yearValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        yearValueLabel.setText("exam year label");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("exam semester label");
+        semesterValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        semesterValueLabel.setText("exam semester label");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("exam from date label");
+        fromDateValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fromDateValueLabel.setText("exam from date label");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("exam to date label");
+        toDateValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        toDateValueLabel.setText("exam to date label");
 
         closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
         closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -120,7 +163,7 @@ public class ViewExam extends javax.swing.JPanel{
                         .addGap(56, 56, 56)
                         .addComponent(examNameLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(examNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 60, Short.MAX_VALUE)
@@ -136,11 +179,11 @@ public class ViewExam extends javax.swing.JPanel{
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(examCodeValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(yearValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(semesterValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(fromDateValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(toDateValueLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(44, 44, 44))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(detailsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,7 +192,7 @@ public class ViewExam extends javax.swing.JPanel{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(243, 243, 243)
-                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(222, 222, 222)
@@ -171,33 +214,33 @@ public class ViewExam extends javax.swing.JPanel{
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(examNameLabel)
-                    .addComponent(jLabel1))
+                    .addComponent(examNameValueLabel))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(examCodeLabel)
-                    .addComponent(jLabel2))
+                    .addComponent(examCodeValueLabel))
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(yearLabel)
-                    .addComponent(jLabel3))
+                    .addComponent(yearValueLabel))
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(semesterLabel)
-                    .addComponent(jLabel4))
+                    .addComponent(semesterValueLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fromDateLabel)
-                    .addComponent(jLabel5))
+                    .addComponent(fromDateValueLabel))
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(toDateLabel)
-                    .addComponent(jLabel6))
+                    .addComponent(toDateValueLabel))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(detailsLabel)
                     .addComponent(detailsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
-                .addComponent(cancelButton)
+                .addComponent(closeButton)
                 .addGap(34, 34, 34))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -208,91 +251,67 @@ public class ViewExam extends javax.swing.JPanel{
 
     private void closeFromTopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFromTopButtonActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_closeFromTopButtonActionPerformed
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        // TODO add your handling code here:
+        mv.close_tab();
+    }//GEN-LAST:event_closeButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
 //    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(AddExam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(AddExam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(AddExam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(AddExam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
+        /* Set the Nimbus look and feel */
+////        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+////        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+////         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+////         */
+////        try {
+////            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+////                if ("Nimbus".equals(info.getName())) {
+////                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+////                    break;
+////                }
+////            }
+////        } catch (ClassNotFoundException ex) {
+////            java.util.logging.Logger.getLogger(AddExam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+////        } catch (InstantiationException ex) {
+////            java.util.logging.Logger.getLogger(AddExam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+////        } catch (IllegalAccessException ex) {
+////            java.util.logging.Logger.getLogger(AddExam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+////        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+////            java.util.logging.Logger.getLogger(AddExam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+////        }
+////        //</editor-fold>
 //
-//        /* Create and display the form */
+
+        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new AddExam().setVisible(true);
+//                new ViewExam().setVisible(true);
 //            }
 //        });
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cancelButton;
+    private javax.swing.JButton closeButton;
     private javax.swing.JButton closeFromTopButton;
     private javax.swing.JLabel detailsLabel;
     private javax.swing.JTextField detailsTextField;
     private javax.swing.JLabel examCodeLabel;
+    private javax.swing.JLabel examCodeValueLabel;
     private javax.swing.JLabel examNameLabel;
+    private javax.swing.JLabel examNameValueLabel;
     private javax.swing.JLabel fromDateLabel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel fromDateValueLabel;
     private javax.swing.JLabel semesterLabel;
+    private javax.swing.JLabel semesterValueLabel;
     private javax.swing.JLabel toDateLabel;
+    private javax.swing.JLabel toDateValueLabel;
     private javax.swing.JLabel topicLabel;
     private javax.swing.JLabel yearLabel;
+    private javax.swing.JLabel yearValueLabel;
     // End of variables declaration//GEN-END:variables
 }

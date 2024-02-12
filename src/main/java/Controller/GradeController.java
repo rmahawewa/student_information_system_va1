@@ -16,8 +16,9 @@ import java.util.Map;
  */
 public class GradeController {
     
+    Grade g = new Grade();
+    
     public int addUser(List<String> list) throws SQLException{
-        Grade g = new Grade();
         g.setGrade_in_number(list.get(0));
         g.setGrade_in_words(list.get(1));
         
@@ -26,11 +27,13 @@ public class GradeController {
     }
     
     public HashMap getAllGrades() throws SQLException{
-        Grade g = new Grade();
         Map<Integer,Map<Integer,String>> hm = g.getAllGrades();
         return (HashMap) hm;
     }
     
-    
+    public int getGradeId(String grade) throws SQLException{        
+        int gid = g.getGradeId(grade);
+        return gid;
+    }
     
 }
