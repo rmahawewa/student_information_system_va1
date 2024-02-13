@@ -4,17 +4,33 @@
  */
 package View.List;
 
+import Controller.StudentController;
+import View.MainView;
+
 /**
  *
  * @author HP
  */
 public class StudentList extends javax.swing.JPanel {
+    
+    MainView mv;
 
     /**
      * Creates new form StudentList
      */
     public StudentList() {
         initComponents();
+    }
+    
+    public StudentList(MainView mf) {
+        initComponents();
+        this.mv = mf;
+        this.load_table();
+    }
+    
+    public void load_table(){
+        StudentController sc = new StudentController();
+        sc.ListStudents();
     }
 
     /**
