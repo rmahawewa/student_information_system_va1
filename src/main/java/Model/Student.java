@@ -232,22 +232,80 @@ public class Student {
         return lst;
     }
     
-    public void getListOfStudentRecords(String std_name, String std_code, int medical_status, int grade, int school){
+    public void getListOfStudentRecords(String std_name, String std_code, String medical_status, int grade, String school){
     
         PreparedStatement prep = null;
         ResultSet rs = null;
         
-        //String query = "select student.student_id, student.student_name, student.student_birthday, student., grade.grade_in_words from student inner join grade on student.";
-        String query = "select TIMESTAMPDIFF(YEAR, student.year_of_entarance, CURDATE()) as year_count, (grade_in_year_of_entarance + TIMESTAMPDIFF(YEAR, student.year_of_entarance, CURDATE())) as current_grade from student";
-        try {
-            prep = con.prepareStatement(query);
-            rs = prep.executeQuery();
-            while(rs.next()){
-                String year_count = rs.getString("year_count");
-                String current_grade = rs.getString("current_grade");
-                System.out.println("year count is: " + year_count);
-                System.out.println("current_grade is: " + current_grade);
+        String qry_std_name = "";
+        String qry_std_code = "";
+        String qry_medical_status = "";
+        String qry_grade = "";
+        String qry_school = "";
+        
+        int count = 1;
+        int count_std_name = 0;
+        int count_std_code = 0;
+        int count_medical_status = 0;
+        int count_grade = 0;
+        int count_school = 0;
+            
+        String query = "select (grade_in_year_of_entarance + TIMESTAMPDIFF(YEAR, student.year_of_entarance, CURDATE())) as current_grade, student.student_id, student_name, student_birthday from student inner join student_medical_requirements on student.student_id = student_medical_requirements.student_id inner join medical_requirements on student_medical_requirements.medical_requirement_id = medical_requirements.medical_requirement_id inner join student_school on student.student_id = student_school.student_id inner join school on student_school.school_id = school.school_id where student.student_id > ?";
+        
+        try{            
+            if(!std_name.equals("")){
+                qry_std_name = " and student.student_name like ?";
+                count++;
+                count_std_name = count;
             }
+            if(!std_code.equals("")){
+                qry_std_code = " and student.student_ic = ?";
+                count++;
+                count_std_code = count;
+            }
+            if(!medical_status.equals("")){
+                qry_medical_status = " and medical_requirements.desease_name like ?";
+                count++;
+                count_medical_status = count;
+            }
+            if(grade > 0){
+                qry_grade = " and student.grade_in_year_of_entarance = (select ? - TIMESTAMPDIFF(YEAR, student.year_of_entarance, CURDATE()))";
+                count++;
+                count_grade = count;
+            }
+            if(!school.equals("")){
+                qry_school = " and school.school_name = ?";
+                count++;
+                count_school = count;
+            }
+            
+            query = query + qry_std_name + qry_std_code + qry_medical_status + qry_grade + qry_school;
+            
+            prep = con.prepareStatement(query);
+            prep.setInt(1,0);
+            if(!std_name.equals("")){
+                prep.setString(count_std_name, std_name);
+            }
+            if(!std_code.equals("")){
+                prep.setString(count_std_code, std_code);
+            }
+            if(!medical_status.equals("")){
+                prep.setString(count_medical_status, medical_status);
+            }
+            if(grade > 0){
+                grade = 8;
+                prep.setInt(count_grade, grade);
+            }
+            if(!school.equals("")){
+                prep.setString(count_school, school);
+            }
+            rs = prep.executeQuery();
+            System.out.println("result set: " + rs);
+            
+            while(rs.next()){
+                
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -61,7 +61,7 @@ public class StudentController {
     }
     
     public void ListStudents(){
-        stnd.getListOfStudentRecords("", "", 0, 0, 0);
+        stnd.getListOfStudentRecords("", "", "", 0, "");
     }
     
 }
