@@ -6,7 +6,9 @@ package Controller;
 import Model.Student;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -60,8 +62,9 @@ public class StudentController {
         return b;
     }
     
-    public void ListStudents(){
-        stnd.getListOfStudentRecords("", "", "", 0, "");
+    public HashMap ListStudents(){
+        HashMap<Integer, Map<Integer,String>> hm = stnd.getListOfStudentRecords("", "", "", 0, "");
+        return hm;
     }
     
 }

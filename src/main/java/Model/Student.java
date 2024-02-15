@@ -19,6 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Model.LoggedInUser;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -232,7 +233,7 @@ public class Student {
         return lst;
     }
     
-    public void getListOfStudentRecords(String std_name, String std_code, String medical_status, int grade, String school){
+    public HashMap getListOfStudentRecords(String std_name, String std_code, String medical_status, int grade, String school){
     
         PreparedStatement prep = null;
         ResultSet rs = null;
@@ -249,6 +250,9 @@ public class Student {
         int count_medical_status = 0;
         int count_grade = 0;
         int count_school = 0;
+        
+        int cnt = 0;
+        HashMap<Integer, Map<Integer,String>> hm = new HashMap<Integer, Map<Integer,String>>();
             
         String query = "select (grade_in_year_of_entarance + TIMESTAMPDIFF(YEAR, student.year_of_entarance, CURDATE())) as current_grade, student.student_id, student_name, student_birthday from student inner join student_medical_requirements on student.student_id = student_medical_requirements.student_id inner join medical_requirements on student_medical_requirements.medical_requirement_id = medical_requirements.medical_requirement_id inner join student_school on student.student_id = student_school.student_id inner join school on student_school.school_id = school.school_id where student.student_id > ?";
         
@@ -284,13 +288,13 @@ public class Student {
             prep = con.prepareStatement(query);
             prep.setInt(1,0);
             if(!std_name.equals("")){
-                prep.setString(count_std_name, std_name);
+                prep.setString(count_std_name, "%" + std_name + "%");
             }
             if(!std_code.equals("")){
                 prep.setString(count_std_code, std_code);
             }
             if(!medical_status.equals("")){
-                prep.setString(count_medical_status, medical_status);
+                prep.setString(count_medical_status, "%" + medical_status + "%");
             }
             if(grade > 0){
                 grade = 8;
@@ -304,11 +308,23 @@ public class Student {
             
             while(rs.next()){
                 
+                Map<Integer, String> mp = new HashMap<Integer,String>();
+                String student_id = Integer.toString(rs.getInt("student.student_id"));
+                String student_name = rs.getString("student_name");
+                String dob = rs.getString("student_birthday");
+                String grde = Integer.toString(rs.getInt("current_grade"));
+                mp.put(0, student_id);
+                mp.put(1, student_name);
+                mp.put(2, dob);
+                mp.put(3, grde);
+                hm.put(cnt, mp);
+                cnt++;
             }
             
         } catch (SQLException ex) {
             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return hm;
     }
     
 }

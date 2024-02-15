@@ -4,8 +4,17 @@
  */
 package View.List;
 
+import Controller.GradeController;
 import Controller.StudentController;
+import View.Add.AddGradeExam;
 import View.MainView;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,12 +34,59 @@ public class StudentList extends javax.swing.JPanel {
     public StudentList(MainView mf) {
         initComponents();
         this.mv = mf;
-        this.load_table();
+        this.loadGrades();
+        this.load_table("","","",0,"");
     }
     
-    public void load_table(){
+   public void loadGrades(){
+        GradeController gc = new GradeController();
+        try {
+            gradeComboBx.addItem("Select grade");
+            HashMap<Integer, Map<Integer,String>> hm = gc.getAllGrades();
+            if(!hm.isEmpty()){
+                hm.forEach((key,value) -> {
+                    gradeComboBx.addItem(value.get(1));
+                });
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public void load_table(String student_name, String student_code, String medical_status,int grade, String school){
         StudentController sc = new StudentController();
-        sc.ListStudents();
+        HashMap<Integer, Map<Integer,String>> mp = sc.ListStudents();
+        this.clearTable(studentInformationTable);
+        this.createTable(mp, studentInformationTable);
+    }
+    
+    public void clearTable(JTable tbl){
+    
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1;i>=0;i--){
+            dtm.removeRow(i);
+        }
+    
+    }
+    
+    public void createTable(HashMap hm, JTable tbl){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
+                int hlength = hsh.size();
+                String[] tbl_data=new String[hlength];
+                hsh.forEach((k,v) -> {
+                    tbl_data[k] = v;
+                    //System.out.println("The grade value: " + v);
+                });
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
     }
 
     /**
@@ -45,7 +101,6 @@ public class StudentList extends javax.swing.JPanel {
         topicLabel = new javax.swing.JLabel();
         studentCodeText = new javax.swing.JTextField();
         medicalStatusText = new javax.swing.JTextField();
-        gradeText = new javax.swing.JTextField();
         schoolText = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         studentNameLabel = new javax.swing.JLabel();
@@ -62,6 +117,7 @@ public class StudentList extends javax.swing.JPanel {
         viewButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         studentInformationTable = new javax.swing.JTable();
+        gradeComboBx = new javax.swing.JComboBox<>();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topicLabel.setText("All Student's Information");
@@ -70,12 +126,15 @@ public class StudentList extends javax.swing.JPanel {
 
         medicalStatusText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        gradeText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
         schoolText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         studentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentNameLabel.setText("Student name:");
@@ -137,6 +196,8 @@ public class StudentList extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(studentInformationTable);
 
+        gradeComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -165,7 +226,6 @@ public class StudentList extends javax.swing.JPanel {
                                     .addComponent(schoolLabel))
                                 .addGap(33, 33, 33)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(gradeText)
                                     .addComponent(schoolText)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,7 +233,8 @@ public class StudentList extends javax.swing.JPanel {
                                         .addComponent(clearButton, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
                                     .addComponent(studentCodeText)
                                     .addComponent(medicalStatusText)
-                                    .addComponent(studentNameText)))
+                                    .addComponent(studentNameText)
+                                    .addComponent(gradeComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(194, 194, 194)
@@ -203,9 +264,9 @@ public class StudentList extends javax.swing.JPanel {
                         .addComponent(studentCodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(medicalStatusText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(gradeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(gradeComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(schoolText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -224,14 +285,34 @@ public class StudentList extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // TODO add your handling code here:
+        String student_name = studentNameText.getText();
+        String student_code = studentCodeText.getText();
+        String medical_status = medicalStatusText.getText();
+        int grade_id = 0;
+        if(!gradeComboBx.getSelectedItem().equals("Select grade")){
+            String grade = gradeComboBx.getSelectedItem().toString();
+            GradeController gc = new GradeController();
+            try {
+                grade_id = gc.getGradeId(grade);
+            } catch (SQLException ex) {
+                Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        String school = schoolText.getText();
+        this.load_table(student_name, student_code, medical_status, grade_id, school);
+        
+    }//GEN-LAST:event_searchButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addFamilyMemberButton;
     private javax.swing.JButton addSchoolButton;
     private javax.swing.JButton clearButton;
     private javax.swing.JButton editButton;
+    private javax.swing.JComboBox<String> gradeComboBx;
     private javax.swing.JLabel gradeLabel;
-    private javax.swing.JTextField gradeText;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel medicalStatusLabel;
     private javax.swing.JTextField medicalStatusText;
