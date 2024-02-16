@@ -155,6 +155,11 @@ public class StudentList extends javax.swing.JPanel {
 
         clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
@@ -170,6 +175,11 @@ public class StudentList extends javax.swing.JPanel {
 
         viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewButton.setText("View");
+        viewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewButtonActionPerformed(evt);
+            }
+        });
 
         studentInformationTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -305,6 +315,29 @@ public class StudentList extends javax.swing.JPanel {
         
     }//GEN-LAST:event_searchButtonActionPerformed
 
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+        this.clearSearchContent();
+        this.load_table("", "", "", 0, "");
+    }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = studentInformationTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) studentInformationTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            
+        }
+    }//GEN-LAST:event_viewButtonActionPerformed
+    
+    private void clearSearchContent(){
+        studentNameText.setText("");
+        studentCodeText.setText("");
+        medicalStatusText.setText("");
+        gradeComboBx.setSelectedIndex(0);
+        schoolText.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addFamilyMemberButton;

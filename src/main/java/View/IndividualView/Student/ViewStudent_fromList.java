@@ -6,6 +6,10 @@ package View.IndividualView.Student;
 
 import View.Edit.*;
 import View.Add.*;
+import View.MainView;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,10 +20,57 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
     /**
      * Creates new form AddStudent
      */
+    
+    MainView mv;
+    
     public ViewStudent_fromList() {
         initComponents();
     }
+    
+    public ViewStudent_fromList(MainView mf) {
+        initComponents();
+        this.mv = mf;
+    }
 
+    public void setName(String name){
+        this.studentNameValueLabel.setText(name);
+    }
+    
+    public void setAddress(String address){
+        this.addressValueLabel.setText(address);
+    }
+    
+    public void setBirthday(String birthday){
+        this.birthdayValueLabel.setText(birthday);
+    }
+    
+    public void setContactNumber(String contact_number){
+        this.contactNumberValueLabel.setText(contact_number);
+    }
+    
+    public void setPhoto(String photo){
+        Image im = Toolkit.getDefaultToolkit().createImage(photo);
+        im = im.getScaledInstance(105, 135, Image.SCALE_SMOOTH);
+        ImageIcon imicn = new ImageIcon(im);
+        photoContainerLabel.setIcon(imicn);
+    }
+    
+    public void setIdentityCode(String ic){
+        this.identityCodeValueLabel.setText(ic);
+    }
+    
+    public void setPassportLabel(String psptnmb){
+        this.passportNumberValueLabel.setText(psptnmb);
+    }
+    
+    public void setDateOfEntarance(String doe){
+        this.dateOfEntaranceValueLabel.setText(doe);
+    }
+    
+    public void setGrade(String grade){
+        this.gradeInyearOfEntaranceValueLabel.setText(grade);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
