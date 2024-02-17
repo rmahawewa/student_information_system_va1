@@ -22,6 +22,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
      */
     
     MainView mv;
+    int student_id;
     
     public ViewStudent_fromList() {
         initComponents();
@@ -69,6 +70,26 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
     
     public void setGrade(String grade){
         this.gradeInyearOfEntaranceValueLabel.setText(grade);
+    }
+    
+    public void studentFamilyInformationTable(int student_id){
+        
+    }
+    
+    public void studentSchoolInformation(int student_id){
+    
+    }
+    
+    public void studentAssesmentPerformance(int student_id){
+    
+    }
+    
+    public void studentExamPerformance(int student_id){
+    
+    }
+    
+    public void studentMedicalStatusInformation(int student_id){
+    
     }
     
     /**
