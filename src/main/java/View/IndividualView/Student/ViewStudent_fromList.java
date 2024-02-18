@@ -4,12 +4,18 @@
  */
 package View.IndividualView.Student;
 
+import Controller.StudentController;
+import Controller.StudentFamilyMemberController;
 import View.Edit.*;
 import View.Add.*;
 import View.MainView;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.ImageIcon;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -73,11 +79,14 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
     }
     
     public void studentFamilyInformationTable(int student_id){
-        
+        StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+        HashMap<Integer, Map<Integer,String>> hm = sfmc.getStudentFamilyMembersByStudentId(student_id);
+        this.clearTable(viewStudentForm_studentFamily_table);
+        this.createTable(hm, viewStudentForm_studentFamily_table);
     }
     
     public void studentSchoolInformation(int student_id){
-    
+        
     }
     
     public void studentAssesmentPerformance(int student_id){
@@ -90,6 +99,41 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
     
     public void studentMedicalStatusInformation(int student_id){
     
+    }
+    
+//        public void load_table(String student_name, String student_code, String medical_status,int grade, String school){
+//        StudentController sc = new StudentController();
+//        HashMap<Integer, Map<Integer,String>> mp = sc.ListStudents();
+//        this.clearTable(studentInformationTable);
+//        this.createTable(mp, studentInformationTable);
+//    }
+    
+    public void clearTable(JTable tbl){
+    
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1;i>=0;i--){
+            dtm.removeRow(i);
+        }
+    
+    }
+    
+    public void createTable(HashMap hm, JTable tbl){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
+                int hlength = hsh.size();
+                String[] tbl_data=new String[hlength];
+                hsh.forEach((k,v) -> {
+                    tbl_data[k] = v;
+                    //System.out.println("The grade value: " + v);
+                });
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
     }
     
     /**
