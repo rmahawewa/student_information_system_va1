@@ -5,7 +5,9 @@
 package Controller;
 
 import Model.StudentAssesmentExam;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -22,5 +24,10 @@ public class StudentAssesmentExamController {
         sae.setDescription(l.get(4));
         int r = sae.add_student_assesment_exam_record();
         return r;
+    }
+    
+    public HashMap get_student_assesment_exam_details(int student_id){
+        HashMap<Integer, Map<Integer,String>> hm = sae.get_student_assesment_exam_details_by_studentid(student_id);
+        return hm;
     }
 }

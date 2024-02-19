@@ -8,8 +8,11 @@ import java.time.LocalDateTime;
 import DatabaseConnection.ConnectionString;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -101,5 +104,34 @@ public class StudentAssesmentExam {
             Logger.getLogger(StudentAssesmentExam.class.getName()).log(Level.SEVERE, null, ex);
         }
         return r;        
+    }
+    
+    public HashMap get_student_assesment_exam_details_by_studentid(int student_id){
+        PreparedStatement prep = null;
+        ResultSet rs = null;
+        int cnt = 0;
+        HashMap<Integer, Map<Integer,String>> hm = new HashMap<Integer, Map<Integer,String>>();        
+        
+        String query = "select student_assesment_exam.student_assesment_exam_id, exam_assesment.date_and_time, assesment.assesment_name, exam.exam_name from student_assesment_exam inner join exam_assesment on student_assesment_exam.exam_assesment_id = exam_assesment.e_a_id inner join exam on exam_assesment.exam_id = exam.exam_id inner join assesment on exam_assesment.assesment_id = assesment.assesment_id where student_assesment_exam.student_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            rs = prep.executeQuery();
+            while(rs.next()){
+                String id = Integer.toString(rs.getInt("student_assesment_exam.student_assesment_exam_id"));
+                String datetime = rs.getString("exam_assesment.date_and_time");
+                String assesment_name = rs.getString("assesment.assesment_name");
+                String exam_name = rs.getString("exam.exam_name");
+                HashMap<Integer,String> mp = new HashMap<Integer,String>();
+                mp.put(0, datetime);
+                mp.put(1, assesment_name);
+                mp.put(2, exam_name);
+                mp.put(3, id);
+                hm.put(cnt, mp);
+                cnt++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentAssesmentExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return hm;
     }
 }

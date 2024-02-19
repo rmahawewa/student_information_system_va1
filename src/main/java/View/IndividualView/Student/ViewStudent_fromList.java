@@ -16,6 +16,8 @@ import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import Controller.StudentSchoolController;
+import Controller.StudentAssesmentExamController;
 
 /**
  *
@@ -86,15 +88,21 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
     }
     
     public void studentSchoolInformation(int student_id){
-        
+        StudentSchoolController ssc = new StudentSchoolController();
+        HashMap<Integer, Map<Integer,String>> hm = ssc.getStudentSchoolDetailsForStudentId(student_id);
+        this.clearTable(viewStudent_studentSchoolInformation_table);
+        this.createTable(hm, viewStudent_studentSchoolInformation_table);
     }
     
     public void studentAssesmentPerformance(int student_id){
-    
+        StudentAssesmentExamController saec = new StudentAssesmentExamController();
+        HashMap<Integer, Map<Integer,String>> hm = saec.get_student_assesment_exam_details(student_id);
+        this.clearTable(viewStudentTable_assesmentPerformance_table);
+        this.createTable(hm, viewStudentTable_assesmentPerformance_table);
     }
     
     public void studentExamPerformance(int student_id){
-    
+        
     }
     
     public void studentMedicalStatusInformation(int student_id){
