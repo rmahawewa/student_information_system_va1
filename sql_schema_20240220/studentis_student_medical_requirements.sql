@@ -16,27 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `last_logged_user`
+-- Table structure for table `student_medical_requirements`
 --
 
-DROP TABLE IF EXISTS `last_logged_user`;
+DROP TABLE IF EXISTS `student_medical_requirements`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `last_logged_user` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `last_logged_user_id` int DEFAULT NULL,
-  `logged_date_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+CREATE TABLE `student_medical_requirements` (
+  `student_medical_requirement_id` int NOT NULL AUTO_INCREMENT,
+  `student_id` int NOT NULL DEFAULT '0',
+  `medical_requirement_id` int NOT NULL DEFAULT '0',
+  `record_created_by` int DEFAULT NULL,
+  `record_updated_by` int DEFAULT NULL,
+  `record_created_at` datetime DEFAULT NULL,
+  `record_updated_at` datetime DEFAULT NULL,
+  `details` text,
+  `first_date_of_diagnose` varchar(12) DEFAULT NULL,
+  `first_date_of_getting_treatment` varchar(12) DEFAULT NULL,
+  `last_date_of_getting_treatment` varchar(12) DEFAULT NULL,
+  PRIMARY KEY (`student_medical_requirement_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `last_logged_user`
+-- Dumping data for table `student_medical_requirements`
 --
 
-LOCK TABLES `last_logged_user` WRITE;
-/*!40000 ALTER TABLE `last_logged_user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `last_logged_user` ENABLE KEYS */;
+LOCK TABLES `student_medical_requirements` WRITE;
+/*!40000 ALTER TABLE `student_medical_requirements` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_medical_requirements` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-12 23:05:33
+-- Dump completed on 2024-02-20 19:27:33

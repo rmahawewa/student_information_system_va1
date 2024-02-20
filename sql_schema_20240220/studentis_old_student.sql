@@ -16,36 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `student_family_member`
+-- Table structure for table `old_student`
 --
 
-DROP TABLE IF EXISTS `student_family_member`;
+DROP TABLE IF EXISTS `old_student`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `student_family_member` (
-  `sfm_id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `old_student` (
+  `old_student_id` int NOT NULL AUTO_INCREMENT,
   `student_id` int DEFAULT NULL,
-  `family_member_name` varchar(45) DEFAULT NULL,
-  `relationship` varchar(45) DEFAULT NULL,
-  `age` varchar(45) DEFAULT NULL,
-  `nic` varchar(45) DEFAULT NULL,
-  `career` varchar(45) DEFAULT NULL,
-  `family_contact_number` varchar(45) DEFAULT NULL,
+  `left_date` date DEFAULT NULL,
+  `reason_for_leaving` text,
+  `transferred_damma_school` text,
   `record_created_by` int DEFAULT NULL,
   `record_created_at` datetime DEFAULT NULL,
   `record_updated_by` int DEFAULT NULL,
   `record_updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`sfm_id`)
+  PRIMARY KEY (`old_student_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `student_family_member`
+-- Dumping data for table `old_student`
 --
 
-LOCK TABLES `student_family_member` WRITE;
-/*!40000 ALTER TABLE `student_family_member` DISABLE KEYS */;
-/*!40000 ALTER TABLE `student_family_member` ENABLE KEYS */;
+LOCK TABLES `old_student` WRITE;
+/*!40000 ALTER TABLE `old_student` DISABLE KEYS */;
+/*!40000 ALTER TABLE `old_student` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -57,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-12 23:05:33
+-- Dump completed on 2024-02-20 19:27:33

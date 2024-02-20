@@ -18,6 +18,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import Controller.StudentSchoolController;
 import Controller.StudentAssesmentExamController;
+import Controller.StudentGradeExamController;
+import Controller.StudentMedicalInformationController;
 
 /**
  *
@@ -102,11 +104,17 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
     }
     
     public void studentExamPerformance(int student_id){
-        
+        StudentGradeExamController sgec = new StudentGradeExamController();
+        HashMap<Integer, Map<Integer,String>> hm = sgec.get_Info_by_student_id(student_id);
+        this.clearTable(viewStudentForm_examPerformance_table);
+        this.createTable(hm, viewStudentForm_examPerformance_table);
     }
     
     public void studentMedicalStatusInformation(int student_id){
-    
+        StudentMedicalInformationController c = new StudentMedicalInformationController();
+        HashMap<Integer, Map<Integer,String>> hm = c.get_student_medical_requirement_info(student_id);
+        this.clearTable(viewStudentForm_medicalStatus_table);
+        this.createTable(hm, viewStudentForm_medicalStatus_table);
     }
     
 //        public void load_table(String student_name, String student_code, String medical_status,int grade, String school){

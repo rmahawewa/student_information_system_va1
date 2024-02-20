@@ -16,35 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `student_assesment_exam`
+-- Table structure for table `assesment`
 --
 
-DROP TABLE IF EXISTS `student_assesment_exam`;
+DROP TABLE IF EXISTS `assesment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `student_assesment_exam` (
-  `student_assesment_exam_id` int NOT NULL AUTO_INCREMENT,
-  `student_id` int NOT NULL,
-  `marks` varchar(45) DEFAULT NULL,
-  `remarks` varchar(45) DEFAULT NULL,
-  `description` mediumtext,
+CREATE TABLE `assesment` (
+  `assesment_id` int NOT NULL AUTO_INCREMENT,
+  `assesment_code` varchar(45) DEFAULT NULL,
+  `assesment_name` varchar(45) DEFAULT NULL,
   `record_created_by` int DEFAULT NULL,
   `record_updated_by` int DEFAULT NULL,
   `record_created_at` datetime DEFAULT NULL,
   `record_updated_at` datetime DEFAULT NULL,
-  `exam_assesment_id` int DEFAULT NULL,
-  PRIMARY KEY (`student_assesment_exam_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+  PRIMARY KEY (`assesment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `student_assesment_exam`
+-- Dumping data for table `assesment`
 --
 
-LOCK TABLES `student_assesment_exam` WRITE;
-/*!40000 ALTER TABLE `student_assesment_exam` DISABLE KEYS */;
-INSERT INTO `student_assesment_exam` VALUES (1,1,'75','Good','Consistancy is key',1,NULL,'2024-02-11 18:10:39',NULL,2),(2,1,'90','Very good','Consistancy is key',1,NULL,'2024-02-12 15:35:10',NULL,3);
-/*!40000 ALTER TABLE `student_assesment_exam` ENABLE KEYS */;
+LOCK TABLES `assesment` WRITE;
+/*!40000 ALTER TABLE `assesment` DISABLE KEYS */;
+INSERT INTO `assesment` VALUES (1,'asmt_01_01','grade one assesment one',1,NULL,'2024-02-03 17:47:00',NULL),(2,'asmt_02_01','grade two assesment one',1,NULL,'2024-02-03 17:02:03',NULL),(3,'asmt-0051','Essays',1,NULL,'2024-02-06 18:02:17',NULL),(4,'code','name',1,NULL,'2024-02-04 19:02:45',NULL),(5,'','',1,NULL,'2024-02-06 18:02:47',NULL),(6,'t2','t1',1,NULL,'2024-02-06 18:05:29',NULL);
+/*!40000 ALTER TABLE `assesment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-12 23:05:33
+-- Dump completed on 2024-02-20 19:27:34

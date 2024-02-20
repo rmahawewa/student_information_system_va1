@@ -16,36 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `exam_assesment`
+-- Table structure for table `subject`
 --
 
-DROP TABLE IF EXISTS `exam_assesment`;
+DROP TABLE IF EXISTS `subject`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `exam_assesment` (
-  `e_a_id` int NOT NULL AUTO_INCREMENT,
-  `exam_id` int NOT NULL,
-  `assesment_id` int NOT NULL,
-  `e_a_session` int DEFAULT NULL,
-  `grade_id` int DEFAULT NULL,
-  `level` varchar(45) DEFAULT NULL,
-  `record_created_by` int DEFAULT NULL,
+CREATE TABLE `subject` (
+  `sub_id` int NOT NULL AUTO_INCREMENT,
+  `sub_code` varchar(45) NOT NULL DEFAULT 'defaultsubjectcode',
+  `sub_name` varchar(45) NOT NULL DEFAULT 'defaultsubjectname',
+  `learning_grade` varchar(45) NOT NULL DEFAULT 'defaultlearninggrade',
+  `record_created_by` int NOT NULL,
   `record_updated_by` int DEFAULT NULL,
-  `record_created_at` datetime DEFAULT NULL,
+  `record_created_at` datetime NOT NULL,
   `record_updated_at` datetime DEFAULT NULL,
-  `date_and_time` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`e_a_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+  PRIMARY KEY (`sub_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `exam_assesment`
+-- Dumping data for table `subject`
 --
 
-LOCK TABLES `exam_assesment` WRITE;
-/*!40000 ALTER TABLE `exam_assesment` DISABLE KEYS */;
-INSERT INTO `exam_assesment` VALUES (1,3,2,1,1,'Regional Level',1,1,'2024-02-03 22:30:40','2024-02-10 15:11:42','2024-September-03 1:00:00'),(2,4,2,1,2,'Whole Island Level',1,1,'2024-02-03 22:43:13','2024-02-10 15:12:27','2024-August-03 1:00:00'),(3,4,1,1,1,'Regional Level',1,1,'2024-02-03 22:44:38','2024-02-10 15:10:45','2024-April-03 11:00:00');
-/*!40000 ALTER TABLE `exam_assesment` ENABLE KEYS */;
+LOCK TABLES `subject` WRITE;
+/*!40000 ALTER TABLE `subject` DISABLE KEYS */;
+/*!40000 ALTER TABLE `subject` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -57,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-12 23:05:33
+-- Dump completed on 2024-02-20 19:27:33
