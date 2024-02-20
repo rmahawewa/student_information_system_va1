@@ -4,8 +4,22 @@
  */
 package View.IndividualView.Student;
 
+import Controller.StudentController;
+import Controller.StudentFamilyMemberController;
 import View.Edit.*;
 import View.Add.*;
+import View.MainView;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.ImageIcon;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import Controller.StudentSchoolController;
+import Controller.StudentAssesmentExamController;
+import Controller.StudentGradeExamController;
+import Controller.StudentMedicalInformationController;
 
 /**
  *
@@ -16,10 +30,128 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
     /**
      * Creates new form AddStudent
      */
+    
+    MainView mv;
+    int student_id;
+    
     public ViewStudent_fromList() {
         initComponents();
     }
+    
+    public ViewStudent_fromList(MainView mf) {
+        initComponents();
+        this.mv = mf;
+    }
 
+    public void setName(String name){
+        this.studentNameValueLabel.setText(name);
+    }
+    
+    public void setAddress(String address){
+        this.addressValueLabel.setText(address);
+    }
+    
+    public void setBirthday(String birthday){
+        this.birthdayValueLabel.setText(birthday);
+    }
+    
+    public void setContactNumber(String contact_number){
+        this.contactNumberValueLabel.setText(contact_number);
+    }
+    
+    public void setPhoto(String photo){
+        Image im = Toolkit.getDefaultToolkit().createImage(photo);
+        im = im.getScaledInstance(105, 135, Image.SCALE_SMOOTH);
+        ImageIcon imicn = new ImageIcon(im);
+        photoContainerLabel.setIcon(imicn);
+    }
+    
+    public void setIdentityCode(String ic){
+        this.identityCodeValueLabel.setText(ic);
+    }
+    
+    public void setPassportLabel(String psptnmb){
+        this.passportNumberValueLabel.setText(psptnmb);
+    }
+    
+    public void setDateOfEntarance(String doe){
+        this.dateOfEntaranceValueLabel.setText(doe);
+    }
+    
+    public void setGrade(String grade){
+        this.gradeInyearOfEntaranceValueLabel.setText(grade);
+    }
+    
+    public void studentFamilyInformationTable(int student_id){
+        StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+        HashMap<Integer, Map<Integer,String>> hm = sfmc.getStudentFamilyMembersByStudentId(student_id);
+        this.clearTable(viewStudentForm_studentFamily_table);
+        this.createTable(hm, viewStudentForm_studentFamily_table);
+    }
+    
+    public void studentSchoolInformation(int student_id){
+        StudentSchoolController ssc = new StudentSchoolController();
+        HashMap<Integer, Map<Integer,String>> hm = ssc.getStudentSchoolDetailsForStudentId(student_id);
+        this.clearTable(viewStudent_studentSchoolInformation_table);
+        this.createTable(hm, viewStudent_studentSchoolInformation_table);
+    }
+    
+    public void studentAssesmentPerformance(int student_id){
+        StudentAssesmentExamController saec = new StudentAssesmentExamController();
+        HashMap<Integer, Map<Integer,String>> hm = saec.get_student_assesment_exam_details(student_id);
+        this.clearTable(viewStudentTable_assesmentPerformance_table);
+        this.createTable(hm, viewStudentTable_assesmentPerformance_table);
+    }
+    
+    public void studentExamPerformance(int student_id){
+        StudentGradeExamController sgec = new StudentGradeExamController();
+        HashMap<Integer, Map<Integer,String>> hm = sgec.get_Info_by_student_id(student_id);
+        this.clearTable(viewStudentForm_examPerformance_table);
+        this.createTable(hm, viewStudentForm_examPerformance_table);
+    }
+    
+    public void studentMedicalStatusInformation(int student_id){
+        StudentMedicalInformationController c = new StudentMedicalInformationController();
+        HashMap<Integer, Map<Integer,String>> hm = c.get_student_medical_requirement_info(student_id);
+        this.clearTable(viewStudentForm_medicalStatus_table);
+        this.createTable(hm, viewStudentForm_medicalStatus_table);
+    }
+    
+//        public void load_table(String student_name, String student_code, String medical_status,int grade, String school){
+//        StudentController sc = new StudentController();
+//        HashMap<Integer, Map<Integer,String>> mp = sc.ListStudents();
+//        this.clearTable(studentInformationTable);
+//        this.createTable(mp, studentInformationTable);
+//    }
+    
+    public void clearTable(JTable tbl){
+    
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1;i>=0;i--){
+            dtm.removeRow(i);
+        }
+    
+    }
+    
+    public void createTable(HashMap hm, JTable tbl){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
+                int hlength = hsh.size();
+                String[] tbl_data=new String[hlength];
+                hsh.forEach((k,v) -> {
+                    tbl_data[k] = v;
+                    //System.out.println("The grade value: " + v);
+                });
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

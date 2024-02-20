@@ -67,7 +67,7 @@ public class AddExamAssesment extends javax.swing.JPanel {
                 });
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }

@@ -6,7 +6,9 @@ package Controller;
 import Model.Student;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,6 +40,7 @@ public class StudentController {
         //return false;
         int grade_id = Integer.parseInt(l.get(7));
         String file_location = l.get(8);
+        String year_of_entarance = l.get(9);
         
         stnd.setStudent_name(student_name);
         stnd.setStudent_address(address);
@@ -48,6 +51,7 @@ public class StudentController {
         stnd.setDate_of_entarance(dateOfEnterance);
         stnd.setGrade_in_year_of_entarance(Integer.toString(grade_id));
         stnd.setStudent_photo_file_path(file_location);
+        stnd.setYear_of_entarance(year_of_entarance);
         
         try {
             b=stnd.addStudent() >= 0 ? true : false;
@@ -56,6 +60,11 @@ public class StudentController {
         }
         
         return b;
+    }
+    
+    public HashMap ListStudents(){
+        HashMap<Integer, Map<Integer,String>> hm = stnd.getListOfStudentRecords("", "", "", 0, "");
+        return hm;
     }
     
 }

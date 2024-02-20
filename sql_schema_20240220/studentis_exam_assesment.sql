@@ -16,40 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `student`
+-- Table structure for table `exam_assesment`
 --
 
-DROP TABLE IF EXISTS `student`;
+DROP TABLE IF EXISTS `exam_assesment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `student` (
-  `student_id` int NOT NULL AUTO_INCREMENT,
-  `student_ic` varchar(45) DEFAULT NULL,
-  `student_passport_number` varchar(45) DEFAULT NULL,
-  `grade_in_year_of_entarance` varchar(45) DEFAULT NULL,
+CREATE TABLE `exam_assesment` (
+  `e_a_id` int NOT NULL AUTO_INCREMENT,
+  `exam_id` int NOT NULL,
+  `assesment_id` int NOT NULL,
+  `e_a_session` int DEFAULT NULL,
+  `grade_id` int DEFAULT NULL,
+  `level` varchar(45) DEFAULT NULL,
   `record_created_by` int DEFAULT NULL,
   `record_updated_by` int DEFAULT NULL,
   `record_created_at` datetime DEFAULT NULL,
   `record_updated_at` datetime DEFAULT NULL,
-  `is_current_student` int DEFAULT NULL,
-  `student_name` varchar(255) DEFAULT NULL,
-  `student_address` text,
-  `student_contact_number` varchar(25) DEFAULT NULL,
-  `student_birthday` varchar(25) DEFAULT NULL,
-  `date_of_entarance` varchar(25) DEFAULT NULL,
-  `student_photo_file_path` mediumtext,
-  PRIMARY KEY (`student_id`)
+  `date_and_time` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`e_a_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `student`
+-- Dumping data for table `exam_assesment`
 --
 
-LOCK TABLES `student` WRITE;
-/*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (1,'915245201v','375845236','5',1,NULL,'2024-02-11 18:36:20',NULL,1,'samana kireema','earth',NULL,NULL,NULL,NULL),(2,'12345','12345678910','1',1,NULL,'2024-02-12 22:22:01',NULL,1,'g','g','0712735639','2015-01- 01','2020-01-01','C:\\Users\\HP\\OneDrive\\Documents\\NetBeansProjects\\SIS\\.\\img\\g_1707756720638.jpg'),(3,'916832575V','12345678910','1',1,NULL,'2024-02-12 22:44:16',NULL,1,'Ravini Dimanthi Mahawewa','Colombo','0712735639','2015-01- 01','2020-01-01','C:\\Users\\HP\\OneDrive\\Documents\\NetBeansProjects\\SIS\\.\\img\\Ravini Dimanthi Mahawewa_1707758055812.jpg');
-/*!40000 ALTER TABLE `student` ENABLE KEYS */;
+LOCK TABLES `exam_assesment` WRITE;
+/*!40000 ALTER TABLE `exam_assesment` DISABLE KEYS */;
+INSERT INTO `exam_assesment` VALUES (1,3,2,1,1,'Regional Level',1,1,'2024-02-03 22:30:40','2024-02-10 15:11:42','2024-September-03 1:00:00'),(2,4,2,1,2,'Whole Island Level',1,1,'2024-02-03 22:43:13','2024-02-10 15:12:27','2024-August-03 1:00:00'),(3,4,1,1,1,'Regional Level',1,1,'2024-02-03 22:44:38','2024-02-10 15:10:45','2024-April-03 11:00:00');
+/*!40000 ALTER TABLE `exam_assesment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -61,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-12 23:05:33
+-- Dump completed on 2024-02-20 19:27:34

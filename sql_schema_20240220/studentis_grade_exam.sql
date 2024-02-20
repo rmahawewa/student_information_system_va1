@@ -16,35 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `student_grade_exam`
+-- Table structure for table `grade_exam`
 --
 
-DROP TABLE IF EXISTS `student_grade_exam`;
+DROP TABLE IF EXISTS `grade_exam`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `student_grade_exam` (
-  `student_grade_exam_id` int NOT NULL AUTO_INCREMENT,
-  `student_id` int NOT NULL,
-  `subject_id` int NOT NULL,
-  `exam_id` int NOT NULL,
-  `marks` varchar(45) DEFAULT NULL,
-  `remarks` varchar(45) DEFAULT NULL,
-  `description` mediumtext,
+CREATE TABLE `grade_exam` (
+  `g_e_id` int NOT NULL AUTO_INCREMENT,
+  `gd_id` int DEFAULT NULL,
+  `em_id` int DEFAULT NULL,
+  `session` int DEFAULT NULL,
   `record_created_by` int DEFAULT NULL,
   `record_updated_by` int DEFAULT NULL,
   `record_created_at` datetime DEFAULT NULL,
   `record_updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`student_grade_exam_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `date_and_time` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`g_e_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `student_grade_exam`
+-- Dumping data for table `grade_exam`
 --
 
-LOCK TABLES `student_grade_exam` WRITE;
-/*!40000 ALTER TABLE `student_grade_exam` DISABLE KEYS */;
-/*!40000 ALTER TABLE `student_grade_exam` ENABLE KEYS */;
+LOCK TABLES `grade_exam` WRITE;
+/*!40000 ALTER TABLE `grade_exam` DISABLE KEYS */;
+INSERT INTO `grade_exam` VALUES (1,1,1,1,1,NULL,'2024-02-02 22:11:18',NULL,'2024-02-08 13:00:00'),(2,3,3,3,1,NULL,'2024-02-03 11:52:31',NULL,'2025-08-03 10:00:00'),(3,4,3,2,1,NULL,'2024-02-03 11:53:19',NULL,'2025-08-04 09:00:00'),(4,1,3,1,1,NULL,'2024-02-03 12:00:11',NULL,'2024-02-03 01:00:00');
+/*!40000 ALTER TABLE `grade_exam` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-12 23:05:32
+-- Dump completed on 2024-02-20 19:27:32

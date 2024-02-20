@@ -398,6 +398,7 @@ public class AddStudent extends javax.swing.JPanel {
         l.add(6, dateOfEnterance);
         l.add(7, Integer.toString(grade_id));
         l.add(8, file_location);
+        l.add(9, doeYear+"-01-01");
         
         StudentController sc = new StudentController();
         boolean b = sc.addStudentRecord(l);

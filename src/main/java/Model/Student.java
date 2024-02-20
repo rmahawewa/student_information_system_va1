@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Model.LoggedInUser;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -26,19 +28,19 @@ import Model.LoggedInUser;
 public class Student {
     
     private int stid;
-    private String student_name;
-    private String student_address;
-    private String grade_in_year_of_entarance;
+    private String student_name = "";
+    private String student_address = "";
+    private String grade_in_year_of_entarance = "";
     //private LocalDateTime record_created_at; // = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-    private int record_created_by;
+    private int record_created_or_updated_by = LoggedInUser.getLogged_in_user();
     //private LocalDateTime record_updated_at; // = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-    private int record_updated_by;
-    private String student_birthday;
-    private String student_identity_code;
-    private String student_passport_number;
-    private String student_photo_file_path;
-    private String date_of_entarance;
-    private String student_contact_number;
+    private String student_birthday="";
+    private String student_identity_code="";
+    private String student_passport_number="";
+    private String student_photo_file_path="";
+    private String date_of_entarance="";
+    private String year_of_entarance="";
+    private String student_contact_number="";
     private int is_current_student;
     private LocalDateTime created_or_updated_at = LocalDateTime.now();
 
@@ -52,6 +54,14 @@ public class Student {
     public Student() {
     }
 
+    public String getYear_of_entarance() {
+        return year_of_entarance;
+    }
+
+    public void setYear_of_entarance(String year_of_entarance) {
+        this.year_of_entarance = year_of_entarance;
+    }
+    
     public String getStudent_contact_number() {
         return student_contact_number;
     }
@@ -91,23 +101,7 @@ public class Student {
     public void setGrade_in_year_of_entarance(String grade_in_year_of_entarance) {
         this.grade_in_year_of_entarance = grade_in_year_of_entarance;
     }
-
-    public int getRecord_created_by() {
-        return record_created_by;
-    }
-
-    public void setRecord_created_by(int record_created_by) {
-        this.record_created_by = record_created_by;
-    }
-
-    public int getRecord_updated_by() {
-        return record_updated_by;
-    }
-
-    public void setRecord_updated_by(int record_updated_by) {
-        this.record_updated_by = record_updated_by;
-    }
-
+    
     public String getStudent_birthday() {
         return student_birthday;
     }
@@ -167,12 +161,12 @@ public class Student {
                 returnstatus = 1;
             }
             if(returnstatus < 1){
-                String q = "insert into student (grade_in_year_of_entarance, is_current_student, record_created_at,record_created_by,student_birthday,student_ic,student_passport_number, student_photo_file_path, date_of_entarance, student_name, student_address, student_contact_number) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+                String q = "insert into student (grade_in_year_of_entarance, is_current_student, record_created_at, record_created_by, student_birthday, student_ic, student_passport_number, student_photo_file_path, date_of_entarance, student_name, student_address, student_contact_number, year_of_entarance) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 prep_stmt = con.prepareStatement(q);
                 prep_stmt.setString(1, this.getGrade_in_year_of_entarance());
                 prep_stmt.setInt(2, 1);
                 prep_stmt.setTimestamp(3, Timestamp.valueOf(this.created_or_updated_at));
-                prep_stmt.setInt(4, 1);
+                prep_stmt.setInt(4, this.record_created_or_updated_by);
                 prep_stmt.setString(5, this.getStudent_birthday());
                 prep_stmt.setString(6, this.getStudent_identity_code());
                 prep_stmt.setString(7, this.getStudent_passport_number());
@@ -181,6 +175,7 @@ public class Student {
                 prep_stmt.setString(10, this.getStudent_name());
                 prep_stmt.setString(11, this.getStudent_address());
                 prep_stmt.setString(12, this.getStudent_contact_number());
+                prep_stmt.setString(13, this.getYear_of_entarance());
                 
                 int count = prep_stmt.executeUpdate();
             }
@@ -236,6 +231,100 @@ public class Student {
             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lst;
+    }
+    
+    public HashMap getListOfStudentRecords(String std_name, String std_code, String medical_status, int grade, String school){
+    
+        PreparedStatement prep = null;
+        ResultSet rs = null;
+        
+        String qry_std_name = "";
+        String qry_std_code = "";
+        String qry_medical_status = "";
+        String qry_grade = "";
+        String qry_school = "";
+        
+        int count = 1;
+        int count_std_name = 0;
+        int count_std_code = 0;
+        int count_medical_status = 0;
+        int count_grade = 0;
+        int count_school = 0;
+        
+        int cnt = 0;
+        HashMap<Integer, Map<Integer,String>> hm = new HashMap<Integer, Map<Integer,String>>();
+            
+        String query = "select (grade_in_year_of_entarance + TIMESTAMPDIFF(YEAR, student.year_of_entarance, CURDATE())) as current_grade, student.student_id, student_name, student_birthday from student inner join student_medical_requirements on student.student_id = student_medical_requirements.student_id inner join medical_requirements on student_medical_requirements.medical_requirement_id = medical_requirements.medical_requirement_id inner join student_school on student.student_id = student_school.student_id inner join school on student_school.school_id = school.school_id where student.student_id > ?";
+        
+        try{            
+            if(!std_name.equals("")){
+                qry_std_name = " and student.student_name like ?";
+                count++;
+                count_std_name = count;
+            }
+            if(!std_code.equals("")){
+                qry_std_code = " and student.student_ic = ?";
+                count++;
+                count_std_code = count;
+            }
+            if(!medical_status.equals("")){
+                qry_medical_status = " and medical_requirements.desease_name like ?";
+                count++;
+                count_medical_status = count;
+            }
+            if(grade > 0){
+                qry_grade = " and student.grade_in_year_of_entarance = (select ? - TIMESTAMPDIFF(YEAR, student.year_of_entarance, CURDATE()))";
+                count++;
+                count_grade = count;
+            }
+            if(!school.equals("")){
+                qry_school = " and school.school_name = ?";
+                count++;
+                count_school = count;
+            }
+            
+            query = query + qry_std_name + qry_std_code + qry_medical_status + qry_grade + qry_school;
+            
+            prep = con.prepareStatement(query);
+            prep.setInt(1,0);
+            if(!std_name.equals("")){
+                prep.setString(count_std_name, "%" + std_name + "%");
+            }
+            if(!std_code.equals("")){
+                prep.setString(count_std_code, std_code);
+            }
+            if(!medical_status.equals("")){
+                prep.setString(count_medical_status, "%" + medical_status + "%");
+            }
+            if(grade > 0){
+                grade = 8;
+                prep.setInt(count_grade, grade);
+            }
+            if(!school.equals("")){
+                prep.setString(count_school, school);
+            }
+            rs = prep.executeQuery();
+            System.out.println("result set: " + rs);
+            
+            while(rs.next()){
+                
+                Map<Integer, String> mp = new HashMap<Integer,String>();
+                String student_id = Integer.toString(rs.getInt("student.student_id"));
+                String student_name = rs.getString("student_name");
+                String dob = rs.getString("student_birthday");
+                String grde = Integer.toString(rs.getInt("current_grade"));
+                mp.put(0, student_id);
+                mp.put(1, student_name);
+                mp.put(2, dob);
+                mp.put(3, grde);
+                hm.put(cnt, mp);
+                cnt++;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return hm;
     }
     
 }

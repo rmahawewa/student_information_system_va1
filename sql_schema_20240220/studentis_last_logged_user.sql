@@ -16,32 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `assesment`
+-- Table structure for table `last_logged_user`
 --
 
-DROP TABLE IF EXISTS `assesment`;
+DROP TABLE IF EXISTS `last_logged_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `assesment` (
-  `assesment_id` int NOT NULL AUTO_INCREMENT,
-  `assesment_code` varchar(45) DEFAULT NULL,
-  `assesment_name` varchar(45) DEFAULT NULL,
-  `record_created_by` int DEFAULT NULL,
-  `record_updated_by` int DEFAULT NULL,
-  `record_created_at` datetime DEFAULT NULL,
-  `record_updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`assesment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `last_logged_user` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `last_logged_user_id` int DEFAULT NULL,
+  `logged_date_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `assesment`
+-- Dumping data for table `last_logged_user`
 --
 
-LOCK TABLES `assesment` WRITE;
-/*!40000 ALTER TABLE `assesment` DISABLE KEYS */;
-INSERT INTO `assesment` VALUES (1,'asmt_01_01','grade one assesment one',1,NULL,'2024-02-03 17:47:00',NULL),(2,'asmt_02_01','grade two assesment one',1,NULL,'2024-02-03 17:02:03',NULL),(3,'asmt-0051','Essays',1,NULL,'2024-02-06 18:02:17',NULL),(4,'code','name',1,NULL,'2024-02-04 19:02:45',NULL),(5,'','',1,NULL,'2024-02-06 18:02:47',NULL),(6,'t2','t1',1,NULL,'2024-02-06 18:05:29',NULL);
-/*!40000 ALTER TABLE `assesment` ENABLE KEYS */;
+LOCK TABLES `last_logged_user` WRITE;
+/*!40000 ALTER TABLE `last_logged_user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `last_logged_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-12 23:05:32
+-- Dump completed on 2024-02-20 19:27:33
