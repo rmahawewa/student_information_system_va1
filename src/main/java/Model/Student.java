@@ -254,7 +254,8 @@ public class Student {
         int cnt = 0;
         HashMap<Integer, Map<Integer,String>> hm = new HashMap<Integer, Map<Integer,String>>();
             
-        String query = "select (grade_in_year_of_entarance + TIMESTAMPDIFF(YEAR, student.year_of_entarance, CURDATE())) as current_grade, student.student_id, student_name, student_birthday from student inner join student_medical_requirements on student.student_id = student_medical_requirements.student_id inner join medical_requirements on student_medical_requirements.medical_requirement_id = medical_requirements.medical_requirement_id inner join student_school on student.student_id = student_school.student_id inner join school on student_school.school_id = school.school_id where student.student_id > ?";
+        //String query = "select (grade_in_year_of_entarance + TIMESTAMPDIFF(YEAR, student.year_of_entarance, CURDATE())) as current_grade, student.student_id, student_name, student_birthday from student inner join student_medical_requirements on student.student_id = student_medical_requirements.student_id inner join medical_requirements on student_medical_requirements.medical_requirement_id = medical_requirements.medical_requirement_id inner join student_school on student.student_id = student_school.student_id inner join school on student_school.school_id = school.school_id where student.student_id > ?";
+        String query = "select (grade_in_year_of_entarance + TIMESTAMPDIFF(YEAR, student.year_of_entarance, CURDATE())) as current_grade, student.student_id, student_name, student_birthday from student left outer join student_medical_requirements on student.student_id = student_medical_requirements.student_id left outer join medical_requirements on student_medical_requirements.medical_requirement_id = medical_requirements.medical_requirement_id left outer join student_school on student.student_id = student_school.student_id left outer join school on student_school.school_id = school.school_id where student.student_id > ?";
         
         try{            
             if(!std_name.equals("")){
@@ -297,7 +298,7 @@ public class Student {
                 prep.setString(count_medical_status, "%" + medical_status + "%");
             }
             if(grade > 0){
-                grade = 8;
+                //grade = 8;
                 prep.setInt(count_grade, grade);
             }
             if(!school.equals("")){
@@ -325,6 +326,35 @@ public class Student {
             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
         }
         return hm;
+    }
+    
+    public List get_student_details_by_id(int student_id){
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        List<String> l = new ArrayList<String>();
+        
+        String query = "select student_name, student_address, student_birthday, student_contact_number, student_photo_file_path, student_ic, student_passport_number, date_of_entarance, grade_in_year_of_entarance from student where student_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, student_id);
+            result = prep.executeQuery();
+            while(result.next()){
+                l.add(0, result.getString("student_name"));
+                l.add(1, result.getString("student_address"));
+                l.add(2, result.getString("student_birthday"));
+                l.add(3, result.getString("student_contact_number"));
+                l.add(4, result.getString("student_photo_file_path"));
+                l.add(5, result.getString("student_ic"));
+                l.add(6, result.getString("student_passport_number"));
+                l.add(7, result.getString("date_of_entarance"));
+                l.add(8, result.getString("grade_in_year_of_entarance"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return l;
     }
     
 }

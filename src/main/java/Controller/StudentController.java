@@ -62,9 +62,14 @@ public class StudentController {
         return b;
     }
     
-    public HashMap ListStudents(){
-        HashMap<Integer, Map<Integer,String>> hm = stnd.getListOfStudentRecords("", "", "", 0, "");
+    public HashMap ListStudents(String student_name, String student_code, String medical_status,int grade, String school){
+        HashMap<Integer, Map<Integer,String>> hm = stnd.getListOfStudentRecords(student_name, student_code, medical_status, grade, school);
         return hm;
+    }
+    
+    public List get_student_details_by_id(int student_id){
+        List<String> l = stnd.get_student_details_by_id(student_id);
+        return l;
     }
     
 }

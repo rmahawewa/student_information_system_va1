@@ -10,6 +10,7 @@ import View.Add.AddGradeExam;
 import View.MainView;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -56,7 +57,8 @@ public class StudentList extends javax.swing.JPanel {
     
     public void load_table(String student_name, String student_code, String medical_status,int grade, String school){
         StudentController sc = new StudentController();
-        HashMap<Integer, Map<Integer,String>> mp = sc.ListStudents();
+        HashMap<Integer, Map<Integer,String>> mp = sc.ListStudents(student_name, student_code, medical_status, grade, school);
+        System.out.println("The student list is: " + mp);
         this.clearTable(studentInformationTable);
         this.createTable(mp, studentInformationTable);
     }
@@ -327,6 +329,11 @@ public class StudentList extends javax.swing.JPanel {
         if(row > -1){
             DefaultTableModel dtm = (DefaultTableModel) studentInformationTable.getModel();
             int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            int grade = Integer.parseInt(dtm.getValueAt(row, 3).toString());
+            GradeController gc = new GradeController();
+            String grade_in_text = gc.get_grade_in_words(grade);
+            StudentController sc = new StudentController();
+            List<String> l = sc.get_student_details_by_id(id);
             
         }
     }//GEN-LAST:event_viewButtonActionPerformed
