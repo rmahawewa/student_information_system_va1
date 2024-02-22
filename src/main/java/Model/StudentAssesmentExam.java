@@ -115,6 +115,7 @@ public class StudentAssesmentExam {
         String query = "select student_assesment_exam.student_assesment_exam_id, exam_assesment.date_and_time, assesment.assesment_name, exam.exam_name from student_assesment_exam inner join exam_assesment on student_assesment_exam.exam_assesment_id = exam_assesment.e_a_id inner join exam on exam_assesment.exam_id = exam.exam_id inner join assesment on exam_assesment.assesment_id = assesment.assesment_id where student_assesment_exam.student_id = ?";
         try {
             prep = con.prepareStatement(query);
+            prep.setInt(1, student_id);
             rs = prep.executeQuery();
             while(rs.next()){
                 String id = Integer.toString(rs.getInt("student_assesment_exam.student_assesment_exam_id"));

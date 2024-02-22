@@ -42,7 +42,7 @@ public class StudentSchool {
         int cnt = 0;
         HashMap<Integer, Map<Integer,String>> hm = new HashMap<Integer,Map<Integer,String>>();
                 
-        String query = "select student_school_id, school.school_name, date_of_entarance, is_currently_studing, String date_of_leave from student_school inner join school on student_school.school_id = school.school_id where student_school.student_id = ?";
+        String query = "select student_school_id, school.school_name, date_of_entarance, is_currently_studing, date_of_leave from student_school inner join school on student_school.school_id = school.school_id where student_school.student_id = ?";
         try {
             prep = con.prepareStatement(query);
             prep.setInt(1, student_id);

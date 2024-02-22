@@ -84,8 +84,12 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         this.dateOfEntaranceValueLabel.setText(doe);
     }
     
-    public void setGrade(String grade){
+    public void setGradeInYearOfEntarance(String grade){
         this.gradeInyearOfEntaranceValueLabel.setText(grade);
+    }
+    
+    public void setCurrentGrade(String g){
+        this.currentGradeValueLabel.setText(g);
     }
     
     public void studentFamilyInformationTable(int student_id){

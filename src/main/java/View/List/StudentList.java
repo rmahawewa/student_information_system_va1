@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import View.IndividualView.Student.ViewStudent_fromList;
 
 /**
  *
@@ -334,7 +335,18 @@ public class StudentList extends javax.swing.JPanel {
             String grade_in_text = gc.get_grade_in_words(grade);
             StudentController sc = new StudentController();
             List<String> l = sc.get_student_details_by_id(id);
-            
+            ViewStudent_fromList vsfl = new ViewStudent_fromList(mv, id);
+            vsfl.setName(l.get(0));
+            vsfl.setAddress(l.get(1));
+            vsfl.setBirthday(l.get(2));
+            vsfl.setContactNumber(l.get(3));
+            vsfl.setPhoto(l.get(4));
+            vsfl.setIdentityCode(l.get(5));
+            vsfl.setPassportLabel(l.get(6));
+            vsfl.setDateOfEntarance(l.get(7));
+            vsfl.setGradeInYearOfEntarance(l.get(8));
+            vsfl.setCurrentGrade(grade_in_text);
+            mv.add_new_component(vsfl, "Student Information");
         }
     }//GEN-LAST:event_viewButtonActionPerformed
     
