@@ -360,6 +360,7 @@ public class AddGradeExam extends javax.swing.JPanel {
                 System.out.println("Grade - Exam record successfully created");
                 clearForm();
                 loadTable();
+                
             }else{
                 System.out.println("Faild to create the record");
             }

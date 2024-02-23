@@ -121,4 +121,8 @@ public class StudentGradeExam {
         return hm;        
     }
     
+    public int add_students_to_grade_exam(int exam_id, int grade_id){
+        return 1;
+    }
+    
 }

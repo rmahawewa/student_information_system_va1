@@ -189,4 +189,12 @@ public class Grade {
         return grade_in_words;
     }
     
+    public int get_grade_id(int grade_id, int exam_id       ){
+        int r = -1;
+        
+        
+        
+        return r;
+    }
+    
 }
