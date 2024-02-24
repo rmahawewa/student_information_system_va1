@@ -356,6 +356,7 @@ public class AddGradeExam extends javax.swing.JPanel {
         ExamGradeController egc = new ExamGradeController();
         try {
             int stts = egc.addGradeExam(egr);
+            System.out.println("the grade exam status is: " + stts);
             if(stts > -1){
                 System.out.println("Grade - Exam record successfully created");
                 clearForm();

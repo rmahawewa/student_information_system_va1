@@ -189,12 +189,22 @@ public class Grade {
         return grade_in_words;
     }
     
-    public int get_grade_id(int grade_id, int exam_id       ){
+    public int get_grade_in_number(int grade_id){
         int r = -1;
+        PreparedStatement prep = null;
+        ResultSet result = null;
         
-        
-        
+        String query = "select grade_in_number from grade where grade_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1,grade_id);
+            result = prep.executeQuery();
+            while(result.next()){
+                r = result.getInt("grade_in_number");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Grade.class.getName()).log(Level.SEVERE, null, ex);
+        }                
         return r;
-    }
-    
+    }    
 }

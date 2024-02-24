@@ -15,6 +15,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import Model.Grade;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -121,7 +125,46 @@ public class StudentGradeExam {
         return hm;        
     }
     
-    public int add_students_to_grade_exam(int exam_id, int grade_id){
+    public int add_students_to_grade_exam(int exam_grade_id, int grade_id){
+        Grade g = new Grade();
+        int grade_in_number = g.get_grade_in_number(grade_id);
+        
+        PreparedStatement prep1 = null;
+        ResultSet result = null;
+        
+        String query = "select student_id from student where grade_in_year_of_entarance = (select ? - TIMESTAMPDIFF(YEAR, student.year_of_entarance, CURDATE())) and is_current_student = ?";
+        try {
+            prep1 = con.prepareStatement(query);
+            prep1.setInt(1, grade_in_number);
+            prep1.setInt(2, 1);
+            result = prep1.executeQuery();
+//            List<Integer> l = new ArrayList<Integer>();
+//            int count = 0;
+              String query1 = "";
+            while(result.next()){
+//                l.add(count, result.getInt("student_id"));
+//                count++;
+                PreparedStatement prep2 = null;
+                query1 = "insert into student_grade_exam (student_id, grade_exam_id, record_created_at, record_created_by) values (?,?,?,?)";
+                prep2 = con.prepareStatement(query1);
+                prep2.setInt(1, result.getInt("student_id"));
+                prep2.setInt(2, exam_grade_id);
+                prep2.setTimestamp(3, Timestamp.valueOf(this.record_created_or_updated_at));
+                prep2.setInt(4, this.record_created_or_updated_by);
+                prep2.executeQuery();
+                
+                if(prep2 != null){
+                    try{
+                        prep2.close();
+                    }catch(Exception e){}
+                    prep2 = null;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         return 1;
     }
     
