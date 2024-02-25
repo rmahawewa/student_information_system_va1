@@ -126,10 +126,12 @@ public class StudentGradeExam {
     }
     
     public int add_students_to_grade_exam(int exam_grade_id, int grade_id){
+        int return_status= 1;
         Grade g = new Grade();
         int grade_in_number = g.get_grade_in_number(grade_id);
         
         PreparedStatement prep1 = null;
+        PreparedStatement prep2 = null;
         ResultSet result = null;
         
         String query = "select student_id from student where grade_in_year_of_entarance = (select ? - TIMESTAMPDIFF(YEAR, student.year_of_entarance, CURDATE())) and is_current_student = ?";
@@ -143,15 +145,14 @@ public class StudentGradeExam {
               String query1 = "";
             while(result.next()){
 //                l.add(count, result.getInt("student_id"));
-//                count++;
-                PreparedStatement prep2 = null;
+//                count++;                
                 query1 = "insert into student_grade_exam (student_id, grade_exam_id, record_created_at, record_created_by) values (?,?,?,?)";
                 prep2 = con.prepareStatement(query1);
                 prep2.setInt(1, result.getInt("student_id"));
                 prep2.setInt(2, exam_grade_id);
                 prep2.setTimestamp(3, Timestamp.valueOf(this.record_created_or_updated_at));
                 prep2.setInt(4, this.record_created_or_updated_by);
-                prep2.executeQuery();
+                prep2.executeUpdate();
                 
                 if(prep2 != null){
                     try{
@@ -162,10 +163,28 @@ public class StudentGradeExam {
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentGradeExam.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        return 1;
+            return_status = -1;
+        }finally{
+            if(prep1 != null){
+                try{
+                    prep1.close();
+                }catch(Exception e){}
+                prep1 = null;
+            }
+            if(prep2 != null){
+                    try{
+                        prep2.close();
+                    }catch(Exception e){}
+                    prep2 = null;
+            }
+            if(result != null){
+                try{
+                    result.close();
+                }catch(Exception e){}
+                result = null;
+            }
+        }     
+        return return_status;
     }
     
 }

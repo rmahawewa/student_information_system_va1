@@ -12,6 +12,7 @@ import Controller.ExamGradeController;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import Controller.GradeController;
+import Controller.StudentGradeExamController;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -361,7 +362,12 @@ public class AddGradeExam extends javax.swing.JPanel {
                 System.out.println("Grade - Exam record successfully created");
                 clearForm();
                 loadTable();
-                
+                StudentGradeExamController sgec = new StudentGradeExamController();
+                try{
+                    sgec.add_students_to_exam_grade(stts, grade_id);
+                }catch(Exception e){
+                    System.out.println(e.getMessage());
+                }
             }else{
                 System.out.println("Faild to create the record");
             }
