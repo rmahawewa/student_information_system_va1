@@ -379,8 +379,7 @@ public class AddGradeExam extends javax.swing.JPanel {
     }//GEN-LAST:event_submitButtonActionPerformed
 
     public int getSessionId(String session){
-        int sid = 1;
-        
+        int sid = 1;        
         HashMap<String,Integer> hm = new HashMap<String,Integer>();
         hm.put("First Session", 1);
         hm.put("Second Session", 2);
