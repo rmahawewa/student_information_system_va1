@@ -364,7 +364,7 @@ public class AddGradeExam extends javax.swing.JPanel {
                 loadTable();
                 StudentGradeExamController sgec = new StudentGradeExamController();
                 try{
-                    sgec.add_students_to_exam_grade(stts, grade_id);
+                    sgec.add_students_to_exam_grade(stts, grade_id, d_year);
                 }catch(Exception e){
                     System.out.println(e.getMessage());
                 }

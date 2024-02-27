@@ -21,8 +21,8 @@ public class StudentGradeExamController {
         return hm;
     }
     
-    public int add_students_to_exam_grade(int exam_grade_id, int grade_id){
-        int r = sge.add_students_to_grade_exam(exam_grade_id, grade_id);
+    public int add_students_to_exam_grade(int exam_grade_id, int grade_id, String year){
+        int r = sge.add_students_to_grade_exam(exam_grade_id, grade_id, year);
         return r;
     }
     

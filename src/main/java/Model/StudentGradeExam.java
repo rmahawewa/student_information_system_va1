@@ -16,7 +16,9 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Model.Grade;
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -125,7 +127,7 @@ public class StudentGradeExam {
         return hm;        
     }
     
-    public int add_students_to_grade_exam(int exam_grade_id, int grade_id){
+    public int add_students_to_grade_exam(int exam_grade_id, int grade_id, String year){
         int return_status= 1;
         Grade g = new Grade();
         int grade_in_number = g.get_grade_in_number(grade_id);
@@ -134,11 +136,13 @@ public class StudentGradeExam {
         PreparedStatement prep2 = null;
         ResultSet result = null;
         
-        String query = "select student_id from student where grade_in_year_of_entarance = (select ? - TIMESTAMPDIFF(YEAR, student.year_of_entarance, CURDATE())) and is_current_student = ?";
+        //String query = "select student_id from student where grade_in_year_of_entarance = (select ? - TIMESTAMPDIFF(YEAR, student.year_of_entarance, CURDATE())) and is_current_student = ?";
+        String query = "select student_id from student where grade_in_year_of_entarance = (select ? - TIMESTAMPDIFF(YEAR, student.year_of_entarance, ?)) and is_current_student = ?";
         try {
             prep1 = con.prepareStatement(query);
             prep1.setInt(1, grade_in_number);
-            prep1.setInt(2, 1);
+            prep1.setDate(2, java.sql.Date.valueOf(year + "-01-01"));
+            prep1.setInt(3, 1);
             result = prep1.executeQuery();
 //            List<Integer> l = new ArrayList<Integer>();
 //            int count = 0;
