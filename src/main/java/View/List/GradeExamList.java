@@ -69,6 +69,11 @@ public class GradeExamList extends javax.swing.JPanel {
 
         searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         clearButton.setText("Clear");
@@ -228,6 +233,10 @@ public class GradeExamList extends javax.swing.JPanel {
                 .addGap(47, 47, 47))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
