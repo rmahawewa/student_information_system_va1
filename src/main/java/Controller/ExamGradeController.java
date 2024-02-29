@@ -37,4 +37,9 @@ public class ExamGradeController {
         return r;
     }
     
+    public HashMap getFilteredRecords(String exam_name, String grade, String date, String time, String session){
+        HashMap<Integer, Map<Integer, String>> hm = ge.get_filtered_examgrade_records(exam_name, grade, date, time, session);
+        return hm;
+    }
+    
 }
