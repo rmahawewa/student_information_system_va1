@@ -42,4 +42,8 @@ public class ExamGradeController {
         return hm;
     }
     
+//    public HashMap get_exam_grade_info_by_id(int exam_grade_id){
+//        HashMap<Integer, String> hm = 
+//    }
+    
 }

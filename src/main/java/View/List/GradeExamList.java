@@ -4,9 +4,14 @@
  */
 package View.List;
 
+import Controller.ExamAssesmentController;
 import Controller.ExamController;
 import UserLibraries.GetTimes;
 import Controller.ExamGradeController;
+import Controller.GradeController;
+import View.Add.AddGradeExam;
+import View.IndividualView.ViewIndividualGradeExam;
+import View.MainView;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +25,8 @@ import javax.swing.table.DefaultTableModel;
  * @author HP
  */
 public class GradeExamList extends javax.swing.JPanel {
+    
+    MainView mv;
 
     /**
      * Creates new form ListOfAssesmentsInExams
@@ -27,6 +34,32 @@ public class GradeExamList extends javax.swing.JPanel {
     public GradeExamList() {
         initComponents();
         //this.loadTable(TOOL_TIP_TEXT_KEY, TOOL_TIP_TEXT_KEY, TOOL_TIP_TEXT_KEY, TOOL_TIP_TEXT_KEY, TOOL_TIP_TEXT_KEY);
+    }
+    
+    public GradeExamList(MainView mf) {
+        initComponents();
+        this.mv = mf;
+        this.loadGrades();
+        try {
+            this.loadTable("", "", "", "", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(GradeExamList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void loadGrades(){
+        GradeController gc = new GradeController();
+        try {
+            gradeComboBx.addItem("");
+            HashMap<Integer, Map<Integer,String>> hm = gc.getAllGrades();
+            if(!hm.isEmpty()){
+                hm.forEach((key,value) -> {
+                    gradeComboBx.addItem(value.get(1));
+                });
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -92,6 +125,11 @@ public class GradeExamList extends javax.swing.JPanel {
 
         viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewButton.setText("View");
+        viewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewButtonActionPerformed(evt);
+            }
+        });
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
@@ -269,7 +307,7 @@ public class GradeExamList extends javax.swing.JPanel {
         String date = "";
         String time = "";
         if(!year.equals("Year") && !month.equals("Month") && !day.equals("Day")){
-            date = year + "-" + month + "-" + day;
+            date = year + "-" + month_number + "-" + day;
         }
         if(!hour.equals("Hour") && !minute.equals("Minute")){
             int hour_i = Integer.parseInt(hour);
@@ -284,6 +322,28 @@ public class GradeExamList extends javax.swing.JPanel {
             Logger.getLogger(GradeExamList.class.getName()).log(Level.SEVERE, null, ex);
         }    
     }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = examsForGradesTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) examsForGradesTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String exam = dtm.getValueAt(row, 1).toString();
+            String grade = dtm.getValueAt(row, 2).toString();
+            String session = dtm.getValueAt(row, 3).toString();
+            String date_time = dtm.getValueAt(row, 4).toString();
+            String[] datetime = date_time.split(" ");
+            
+            ViewIndividualGradeExam form = new ViewIndividualGradeExam(mv);
+            form.set_exam_name(exam);
+            form.set_grade(grade);
+            form.set_session(session);
+            form.set_date(datetime[0]);
+            form.set_time(datetime[1]);
+            mv.add_new_component(form, "Grade Exam info");
+        }
+    }//GEN-LAST:event_viewButtonActionPerformed
 
     
     public void loadTable(String exam_name, String grade, String date, String time, String session) throws SQLException{

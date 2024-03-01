@@ -13,6 +13,8 @@ import View.*;
  * @author HP
  */
 public class ViewIndividualGradeExam extends javax.swing.JPanel {
+    
+    MainView mv;
 
     /**
      * Creates new form AddStudentSchoolInfo
@@ -20,6 +22,33 @@ public class ViewIndividualGradeExam extends javax.swing.JPanel {
     public ViewIndividualGradeExam() {
         initComponents();
     }
+    
+    public ViewIndividualGradeExam(MainView mf) {
+        initComponents();
+        this.mv = mf;
+    }
+        
+    public void set_exam_name(String exam){
+        examNameValueLabel.setText(exam);
+    }  
+    
+    public void set_grade(String grade){
+        gradeValueLabel.setText(grade);
+    }
+    
+    public void set_session(String session){
+        sessionValueLabel.setText(session);
+    }
+    
+    public void set_date(String date){
+        dateValueLabel.setText(date);
+    }
+    
+    public void set_time(String time){
+        timeValueLabel.setText(time);
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,6 +84,11 @@ public class ViewIndividualGradeExam extends javax.swing.JPanel {
 
         closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
 
         dateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         dateLabel.setText("Date:");
@@ -173,6 +207,11 @@ public class ViewIndividualGradeExam extends javax.swing.JPanel {
     private void closeFromTopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFromTopButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_closeFromTopButtonActionPerformed
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        // TODO add your handling code here:
+        mv.close_tab();
+    }//GEN-LAST:event_closeButtonActionPerformed
 
     /**
      * @param args the command line arguments

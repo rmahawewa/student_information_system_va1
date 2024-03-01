@@ -248,4 +248,11 @@ public class GradeExam {
         return hm;
     }
     
+//    public HashMap get_record_by_id(int id){
+//        PreparedStatement prep = null;
+//        ResultSet rs = null;
+//        
+//        String query = "";
+//    }
+    
 }
