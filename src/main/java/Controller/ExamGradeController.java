@@ -42,8 +42,12 @@ public class ExamGradeController {
         return hm;
     }
     
-//    public HashMap get_exam_grade_info_by_id(int exam_grade_id){
-//        HashMap<Integer, String> hm = 
-//    }
+    public int edit_exam_grade_record(int id, int session, String date_time){
+        ge.setG_e_id(id);
+        ge.setSession(session);
+        ge.setDate_time(date_time);
+        int d = ge.update_grade_exam_record();
+        return d;
+    }
     
 }

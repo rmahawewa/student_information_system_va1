@@ -19,6 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import View.Edit.EditGradeExam;
 
 /**
  *
@@ -81,7 +82,6 @@ public class GradeExamList extends javax.swing.JPanel {
         clearButton = new javax.swing.JButton();
         viewButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
-        addStudentButton = new javax.swing.JButton();
         examNameText = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         examsForGradesTable = new javax.swing.JTable();
@@ -133,9 +133,11 @@ public class GradeExamList extends javax.swing.JPanel {
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
-
-        addStudentButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        addStudentButton.setText("Add Student");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         examNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -201,43 +203,41 @@ public class GradeExamList extends javax.swing.JPanel {
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(assesmentNameLabel)
-                                        .addComponent(examNameLabel)
-                                        .addComponent(dateLabel)
-                                        .addComponent(timeLabel)
-                                        .addComponent(level_label))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(hourComboBx, 0, 100, Short.MAX_VALUE)
-                                                .addComponent(yearComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addGap(18, 18, 18)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(monthComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(minuteComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(0, 0, Short.MAX_VALUE)))
-                                            .addGap(18, 18, 18)
-                                            .addComponent(dateComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(236, 236, 236)
-                                            .addComponent(ampmComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(examNameText)
-                                        .addComponent(gradeComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(viewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(addStudentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(assesmentNameLabel)
+                                    .addComponent(examNameLabel)
+                                    .addComponent(dateLabel)
+                                    .addComponent(timeLabel)
+                                    .addComponent(level_label))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(hourComboBx, 0, 100, Short.MAX_VALUE)
+                                            .addComponent(yearComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(monthComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(minuteComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(dateComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(236, 236, 236)
+                                        .addComponent(ampmComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(examNameText)
+                                    .addComponent(gradeComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(viewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
                 .addContainerGap(36, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -276,12 +276,11 @@ public class GradeExamList extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchButton)
                     .addComponent(clearButton))
-                .addGap(39, 39, 39)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewButton)
-                    .addComponent(editButton)
-                    .addComponent(addStudentButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                    .addComponent(editButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,6 +344,41 @@ public class GradeExamList extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_viewButtonActionPerformed
 
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        int row = examsForGradesTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) examsForGradesTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String exam = dtm.getValueAt(row, 1).toString();
+            String grade = dtm.getValueAt(row, 2).toString();
+            String session = dtm.getValueAt(row, 3).toString();
+            String ssn = session.equals("1")?"First Session":(session.equals("2")?"Second Session":(session.equals("3")?"Third Session":(session.equals("4")?"Forth Session":"Session")));
+            String date_time = dtm.getValueAt(row, 4).toString();
+            String[] datetime = date_time.split(" ");
+            String[]  date = datetime[0].split("-");
+            String month = GetTimes.getMonthText(date[1]);
+            String[] time = datetime[1].split(":");
+            String ampm = "AM";
+            String hour = time[0];
+            if(Integer.parseInt(hour) > 12){
+                int h = Integer.parseInt(hour);
+                h = h - 12;
+                hour = Integer.toString(h);
+                ampm = "PM";
+            }
+            
+            
+            EditGradeExam form = new EditGradeExam(mv, id);
+            form.set_exam_name(exam);
+            form.set_grade(grade);
+            form.set_session(ssn);
+            form.set_date(date[0],month,date[2]);
+            form.set_time(hour, time[1], ampm);
+            mv.add_new_component(form, "Grade Exam edit");
+        }
+    }//GEN-LAST:event_editButtonActionPerformed
+
     
     public void loadTable(String exam_name, String grade, String date, String time, String session) throws SQLException{
         try{
@@ -387,7 +421,6 @@ public class GradeExamList extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addStudentButton;
     private javax.swing.JComboBox<String> ampmComboBx;
     private javax.swing.JLabel assesmentNameLabel;
     private javax.swing.JButton clearButton;

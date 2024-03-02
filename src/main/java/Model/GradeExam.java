@@ -248,11 +248,21 @@ public class GradeExam {
         return hm;
     }
     
-//    public HashMap get_record_by_id(int id){
-//        PreparedStatement prep = null;
-//        ResultSet rs = null;
-//        
-//        String query = "";
-//    }
+    public int update_grade_exam_record(){
+        PreparedStatement prep = null;
+        int d = -1;
+        
+        String query = "update grade_exam set session = ?, date_and_time = ? where g_e_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, this.session);
+            prep.setString(2, this.date_time);
+            prep.setInt(3, this.g_e_id);
+            d = prep.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(GradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return d;
+    }
     
 }
