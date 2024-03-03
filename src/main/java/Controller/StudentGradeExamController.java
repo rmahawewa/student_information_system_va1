@@ -26,4 +26,9 @@ public class StudentGradeExamController {
         return r;
     }
     
+    public HashMap filtered_Student_grade_exam_list(String student, String exam, String grade){
+        HashMap<Integer, Map<Integer, String>> hm = sge.get_record_list_by_filtering(student, exam, grade);
+        return hm;
+    }
+    
 }

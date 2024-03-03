@@ -444,7 +444,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void l3_listGVESP_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_listGVESP_menuItemActionPerformed
         // TODO add your handling code here:
-        StudentGradeExamList sgel = new StudentGradeExamList();
+        StudentGradeExamList sgel = new StudentGradeExamList(this);
         this.mainView_ScrollPane.setViewportView(sgel);
     }//GEN-LAST:event_l3_listGVESP_menuItemActionPerformed
 

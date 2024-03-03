@@ -122,6 +122,11 @@ public class GradeExamList extends javax.swing.JPanel {
 
         clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
         viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewButton.setText("View");
@@ -378,6 +383,25 @@ public class GradeExamList extends javax.swing.JPanel {
             mv.add_new_component(form, "Grade Exam edit");
         }
     }//GEN-LAST:event_editButtonActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+        examNameText.setText("");
+        gradeComboBx.setSelectedIndex(0);
+        yearComboBx.setSelectedIndex(0);
+        monthComboBx.setSelectedIndex(0);
+        dateComboBx.setSelectedIndex(0);
+        hourComboBx.setSelectedIndex(0);
+        minuteComboBx.setSelectedIndex(0);
+        ampmComboBx.setSelectedIndex(0);
+        sessionComboBx.setSelectedIndex(0);
+        
+        try {
+            loadTable("", "", "", "", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(GradeExamList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_clearButtonActionPerformed
 
     
     public void loadTable(String exam_name, String grade, String date, String time, String session) throws SQLException{

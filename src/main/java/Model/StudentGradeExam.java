@@ -191,4 +191,76 @@ public class StudentGradeExam {
         return return_status;
     }
     
+    public HashMap get_record_list_by_filtering(String student, String exam, String grade){
+        HashMap<Integer, Map<Integer,String>> hm = new HashMap<Integer, Map<Integer,String>>();
+        int cnt = 0;
+        
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        int count = 1;
+        int student_count = 0;
+        int exam_count = 0;
+        int grade_count = 0;
+        
+        String qr_student = "";
+        String qr_exam = "";
+        String qr_grade = "";
+        
+        String query = "select student_grade_exam_id, marks, student_name, grade_in_words, exam_name from student_grade_exam inner join grade_exam on student_grade_exam.grade_exam_id = grade_exam.g_e_id inner join grade on grade_exam.gd_id = grade.grade_id inner join exam on grade_exam.em_id = exam.exam_id inner join student on student_grade_exam.student_id = student.student_id where student_grade_exam_id > ?";
+        
+        if(!student.equals("")){
+            qr_student = " and student_name like ?";
+            count++;
+            student_count = count;
+        }
+        if(!exam.equals("")){
+            qr_exam = " and exam_name like ?";
+            count++;
+            exam_count = count;
+        }
+        if(!grade.equals("")){
+            qr_grade = " and grade_in_words like ?";
+            count++;
+            grade_count = count;
+        }
+        
+        query = query + qr_student + qr_exam + qr_grade;
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, 0);
+            if(!student.equals("")){
+                prep.setString(student_count, "%" + student + "%");
+            }
+            if(!exam.equals("")){
+                prep.setString(exam_count, exam);
+            }
+            if(!grade.equals("")){
+                prep.setString(grade_count, grade);
+            }
+            
+            result = prep.executeQuery();
+            while(result.next()){
+                String id = Integer.toString(result.getInt("student_grade_exam_id"));
+                String stdnt = result.getString("student_name");
+                String grd = result.getString("grade_in_words");
+                String exm = result.getString("exam_name");
+                String mks = result.getString("marks");
+                
+                HashMap<Integer, String> mp = new HashMap<Integer, String>();
+                mp.put(0, id);
+                mp.put(1, stdnt);
+                mp.put(2, grd);
+                mp.put(3, exm);
+                mp.put(4, mks);
+                
+                hm.put(cnt, mp);
+                cnt++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return hm;
+    }
+    
 }
