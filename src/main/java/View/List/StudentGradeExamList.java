@@ -107,6 +107,11 @@ public class StudentGradeExamList extends javax.swing.JPanel {
 
         clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
         viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewButton.setText("View");
@@ -221,6 +226,18 @@ public class StudentGradeExamList extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+        studentNameText.setText("");
+        examText.setText("");
+        gradeComboBx.setSelectedIndex(0);
+        try {
+            this.loadTable("", "", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentGradeExamList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_clearButtonActionPerformed
 
     public void loadTable(String student, String exam, String grade) throws SQLException{
         try{
