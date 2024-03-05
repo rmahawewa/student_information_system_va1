@@ -31,4 +31,9 @@ public class StudentGradeExamController {
         return hm;
     }
     
+    public HashMap get_Info_by__id(int id){
+        HashMap<Integer, Map<Integer,String>> hm = sge.get_student_grade_exam_records_by_id(id);
+        return hm;
+    }
+    
 }

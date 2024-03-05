@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Controller.StudentGradeExamController;
+import View.IndividualView.ViewIndividualGradeExam;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -115,6 +116,11 @@ public class StudentGradeExamList extends javax.swing.JPanel {
 
         viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewButton.setText("View");
+        viewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewButtonActionPerformed(evt);
+            }
+        });
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
@@ -238,6 +244,29 @@ public class StudentGradeExamList extends javax.swing.JPanel {
             Logger.getLogger(StudentGradeExamList.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = studentGradeExamTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) studentGradeExamTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String student = dtm.getValueAt(row, 1).toString();
+            String grade = dtm.getValueAt(row, 2).toString();
+            String exam = dtm.getValueAt(row, 3).toString();
+
+            StudentGradeExamController sgec = new StudentGradeExamController();
+            HashMap<Integer, Map<Integer,String>> hm = sgec.get_Info_by__id(id);
+            
+//            ViewIndividualGradeExam form = new ViewIndividualGradeExam(mv);
+//            form.set_exam_name(exam);
+//            form.set_grade(grade);
+//            form.set_session(session);
+//            form.set_date(datetime[0]);
+//            form.set_time(datetime[1]);
+//            mv.add_new_component(form, "Grade Exam info");
+        }        
+    }//GEN-LAST:event_viewButtonActionPerformed
 
     public void loadTable(String student, String exam, String grade) throws SQLException{
         try{

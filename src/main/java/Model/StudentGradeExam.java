@@ -263,4 +263,35 @@ public class StudentGradeExam {
         return hm;
     }
     
+    public HashMap get_student_grade_exam_records_by_id(int sge_id){
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        int cnt = 0;
+        HashMap<Integer, Map<Integer,String>> hm = new HashMap<Integer, Map<Integer,String>>();
+        
+        String query = "select marks, remarks, description from student_grade_exam where student_grade_exam_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1,sge_id);
+            result = prep.executeQuery();
+            while(result.next()){
+                String remarks = result.getString("remarks");
+                String description = result.getString("description");
+                String marks = result.getString("marks");
+                
+                HashMap<Integer,String> mp = new HashMap<Integer,String>();
+                mp.put(0, marks);
+                mp.put(1, remarks);
+                mp.put(2, description);
+                
+                hm.put(cnt, mp);
+                cnt++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return hm;        
+    }
+    
 }
