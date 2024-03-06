@@ -31,9 +31,19 @@ public class StudentGradeExamController {
         return hm;
     }
     
-    public HashMap get_Info_by__id(int id){
-        HashMap<Integer, Map<Integer,String>> hm = sge.get_student_grade_exam_records_by_id(id);
+    public HashMap get_info_by_id(int id){
+        HashMap<Integer,String> hm = sge.get_student_grade_exam_records_by_id(id);
         return hm;
+    }
+    
+    public int update_record(int sge_id, String marks, String remarks, String description){
+        sge.setStudent_grade_exam_id(sge_id);
+        sge.setMarks(marks);
+        sge.setRemarks(remarks);
+        sge.setDescription(description);
+        
+        int i = sge.update_sge_record();
+        return i;
     }
     
 }

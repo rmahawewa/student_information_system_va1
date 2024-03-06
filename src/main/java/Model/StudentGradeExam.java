@@ -266,9 +266,8 @@ public class StudentGradeExam {
     public HashMap get_student_grade_exam_records_by_id(int sge_id){
         PreparedStatement prep = null;
         ResultSet result = null;
-        
-        int cnt = 0;
-        HashMap<Integer, Map<Integer,String>> hm = new HashMap<Integer, Map<Integer,String>>();
+
+        HashMap<Integer,String> mp = new HashMap<Integer,String>();
         
         String query = "select marks, remarks, description from student_grade_exam where student_grade_exam_id = ?";
         try {
@@ -279,19 +278,37 @@ public class StudentGradeExam {
                 String remarks = result.getString("remarks");
                 String description = result.getString("description");
                 String marks = result.getString("marks");
-                
-                HashMap<Integer,String> mp = new HashMap<Integer,String>();
+                                
                 mp.put(0, marks);
                 mp.put(1, remarks);
                 mp.put(2, description);
-                
-                hm.put(cnt, mp);
-                cnt++;
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentGradeExam.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return hm;        
+        return mp;        
+    }
+    
+    public int update_sge_record(){
+        int i = 0;
+         PreparedStatement prep = null;
+         
+         String query = "update student_grade_exam set marks = ?, remarks = ?, description = ?, record_updated_by = ?, record_updated_at = ? where student_grade_exam_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setString(1, this.getMarks());
+            prep.setString(2, this.getRemarks());
+            prep.setString(3, this.getDescription());
+            prep.setInt(4, this.record_created_or_updated_by);
+            prep.setTimestamp(5, Timestamp.valueOf(record_created_or_updated_at));
+            prep.setInt(6, this.getStudent_grade_exam_id());
+            
+            i = prep.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return i;
     }
     
 }

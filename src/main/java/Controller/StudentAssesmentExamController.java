@@ -30,4 +30,9 @@ public class StudentAssesmentExamController {
         HashMap<Integer, Map<Integer,String>> hm = sae.get_student_assesment_exam_details_by_studentid(student_id);
         return hm;
     }
+    
+    public HashMap get_list_of_sae_details(String student_name, String exam, String assesment){
+        HashMap<Integer, Map<Integer,String>> hm = sae.get_student_exam_assesment_list(student_name, exam, assesment);
+        return hm;
+    }
 }

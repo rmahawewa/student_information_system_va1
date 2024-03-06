@@ -4,17 +4,40 @@
  */
 package View.List;
 
+import Controller.StudentAssesmentExamController;
+import Controller.StudentGradeExamController;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import View.MainView;
+
 /**
  *
  * @author HP
  */
 public class StudentAssesmentExamList extends javax.swing.JPanel {
+    
+    MainView mv;
 
     /**
      * Creates new form StudentGradeExamList
      */
     public StudentAssesmentExamList() {
         initComponents();
+    }
+    
+    public StudentAssesmentExamList(MainView mf) {
+        initComponents();
+        this.mv = mf;
+        try {
+            this.loadTable("", "", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentAssesmentExamList.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -60,9 +83,19 @@ public class StudentAssesmentExamList extends javax.swing.JPanel {
 
         searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
         viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewButton.setText("View");
@@ -161,6 +194,70 @@ public class StudentAssesmentExamList extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // TODO add your handling code here:
+        String student_name = studentNameText.getText();
+        String exam = examText.getText();
+        String assesment = assesmentText.getText();
+        
+        try {
+            this.loadTable(student_name, exam, assesment);
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentAssesmentExamList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+        this.studentNameText.setText("");
+        this.examText.setText("");
+        this.assesmentText.setText("");
+        try {
+            this.loadTable("", "", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentAssesmentExamList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_clearButtonActionPerformed
+
+    public void loadTable(String student_name, String exam, String assesment) throws SQLException{
+        try{
+            this.clearTable(studentAssesmentExamTable);
+            StudentAssesmentExamController saec = new StudentAssesmentExamController();
+            HashMap<Integer, Map<Integer,String>> hm = saec.get_list_of_sae_details(student_name, exam, assesment);
+            this.createTable(hm, studentAssesmentExamTable);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+    }
+    
+    public void clearTable(JTable tbl){
+    
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1;i>=0;i--){
+            dtm.removeRow(i);
+        }
+    
+    }
+    
+    public void createTable(HashMap hm, JTable tbl){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
+                int hlength = hsh.size();
+                String[] tbl_data=new String[hlength];
+                hsh.forEach((k,v) -> {
+                    tbl_data[k] = v;
+                    //System.out.println("The grade value: " + v);
+                });
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel assesmentLabel;

@@ -17,6 +17,8 @@ import Controller.StudentGradeExamController;
 import View.IndividualView.ViewIndividualGradeExam;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import View.IndividualView.ViewStudentGradeExam;
+import View.Edit.EditStudentGradeExam;
 
 /**
  *
@@ -124,6 +126,11 @@ public class StudentGradeExamList extends javax.swing.JPanel {
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         studentGradeExamTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentGradeExamTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -256,17 +263,44 @@ public class StudentGradeExamList extends javax.swing.JPanel {
             String exam = dtm.getValueAt(row, 3).toString();
 
             StudentGradeExamController sgec = new StudentGradeExamController();
-            HashMap<Integer, Map<Integer,String>> hm = sgec.get_Info_by__id(id);
+            HashMap<Integer,String> hm = sgec.get_info_by_id(id);
+            //System.out.println(hm);
             
-//            ViewIndividualGradeExam form = new ViewIndividualGradeExam(mv);
-//            form.set_exam_name(exam);
-//            form.set_grade(grade);
-//            form.set_session(session);
-//            form.set_date(datetime[0]);
-//            form.set_time(datetime[1]);
-//            mv.add_new_component(form, "Grade Exam info");
+            ViewStudentGradeExam form = new ViewStudentGradeExam(mv);
+            form.set_student_name(student);
+            form.set_exam(exam);
+            form.set_grade(grade);
+            form.set_marks(hm.get(0));
+            form.set_remarks(hm.get(1));
+            form.set_description(hm.get(2));
+            mv.add_new_component(form, "Student Grade Exam info");
         }        
     }//GEN-LAST:event_viewButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        int row = studentGradeExamTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) studentGradeExamTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String student = dtm.getValueAt(row, 1).toString();
+            String grade = dtm.getValueAt(row, 2).toString();
+            String exam = dtm.getValueAt(row, 3).toString();
+
+            StudentGradeExamController sgec = new StudentGradeExamController();
+            HashMap<Integer,String> hm = sgec.get_info_by_id(id);
+            //System.out.println(hm);
+            
+            EditStudentGradeExam form = new EditStudentGradeExam(mv,id);
+            form.set_student_name(student);
+            form.set_exam(exam);
+            form.set_grade(grade);
+            form.set_marks(hm.get(0));
+            form.set_remarks(hm.get(1));
+            form.set_description(hm.get(2));
+            mv.add_new_component(form, "Update Student Grade Exam");
+        }        
+    }//GEN-LAST:event_editButtonActionPerformed
 
     public void loadTable(String student, String exam, String grade) throws SQLException{
         try{

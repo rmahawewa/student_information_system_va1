@@ -164,56 +164,22 @@
             <Property name="text" type="java.lang.String" value="Student Performance"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="l2_gradeViseExamStudentPerformance_menu">
+            <MenuItem class="javax.swing.JMenuItem" name="l2_gradeViseExamStudentPerformance_menuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Grade vise Exam"/>
               </Properties>
-              <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="l3_listGVESP_menuItem">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="List"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="l3_listGVESP_menuItemActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="l3_viewGVESP_menuItem">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="View"/>
-                  </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="l3_editGVESP_menuItem">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Edit"/>
-                  </Properties>
-                </MenuItem>
-              </SubComponents>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="l2_studentPerformanceAssesment_menu">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="l2_gradeViseExamStudentPerformance_menuItemActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="l2_studentPerformanceAssesment_menuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Assesment"/>
               </Properties>
-              <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="l3_listSPA_menuItem">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="List"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="l3_listSPA_menuItemActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="l3_viewSPA_menuItem">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="View"/>
-                  </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="l3_editSPA_menuItem">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Edit"/>
-                  </Properties>
-                </MenuItem>
-              </SubComponents>
-            </Menu>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="l2_studentPerformanceAssesment_menuItemActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="l1_school_menu">
