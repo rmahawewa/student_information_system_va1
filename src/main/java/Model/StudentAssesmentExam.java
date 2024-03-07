@@ -218,4 +218,46 @@ public class StudentAssesmentExam {
         }
         return hm;        
     }
+    
+    public HashMap get_unique_record_by_id(int id){
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        HashMap<Integer, String> hm = new HashMap<Integer,String>(); 
+        
+        String query = "select marks, remarks, description from student_assesment_exam where student_assesment_exam_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, id);
+            result = prep.executeQuery();
+            while(result.next()){
+                hm.put(0, result.getString("marks"));
+                hm.put(1, result.getString("remarks"));
+                hm.put(2, result.getString("description"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentAssesmentExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return hm;
+    }
+    
+    public int update_student_assesment_exam(){
+        PreparedStatement prep = null;
+        int i = 0;
+        
+        String query = "update student_assesment_exam set marks = ?, remarks = ?, description = ? where student_assesment_exam_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setString(1, this.getMarks());
+            prep.setString(2, this.getRemarks());
+            prep.setString(3, this.getDescription());
+            prep.setInt(4, this.getStd_asmt_exam_id());
+            
+            i = prep.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentAssesmentExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return i;
+    }
+    
 }

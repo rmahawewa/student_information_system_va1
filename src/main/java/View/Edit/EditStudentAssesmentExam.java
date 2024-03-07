@@ -4,20 +4,53 @@
  */
 package View.Edit;
 
-import View.Add.*;
-import View.*;
+import View.MainView;
+import Controller.StudentAssesmentExamController;
 
 /**
  *
  * @author HP
  */
 public class EditStudentAssesmentExam extends javax.swing.JPanel {
+    
+    MainView mv;
+    int sae_id;
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public EditStudentAssesmentExam() {
         initComponents();
+    }
+    
+    public EditStudentAssesmentExam(MainView mf, int id) {
+        initComponents();
+        this.mv = mf;
+        this.sae_id = id;
+    }
+    
+    public void set_student_name(String student){
+        studentNameValueLabel.setText(student);
+    }
+    
+    public void set_exam(String exam){
+        examNameValueLabel.setText(exam);
+    }
+    
+    public void set_assignment(String assesment){
+        assesmentNameValueLabel.setText(assesment);
+    }
+    
+    public void set_marks(String marks){
+        marksText.setText(marks);
+    }
+    
+    public void set_remarks(String remarks){
+        remarksText.setText(remarks);
+    }
+    
+    public void set_description(String description){
+        descriptionTextArea.setText(description);
     }
 
     /**
@@ -47,7 +80,7 @@ public class EditStudentAssesmentExam extends javax.swing.JPanel {
         studentNameValueLabel = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        topicLabel.setText("Add Student Assesment Performance Details");
+        topicLabel.setText("Edit Student Assesment Performance Details");
 
         examLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         examLabel.setText("Exam:");
@@ -57,9 +90,19 @@ public class EditStudentAssesmentExam extends javax.swing.JPanel {
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cancelButton.setText("Cancel");
+        cancelButton.setText("Close");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         marksLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         marksLabel.setText("Marks:");
@@ -168,6 +211,26 @@ public class EditStudentAssesmentExam extends javax.swing.JPanel {
                 .addContainerGap(48, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        this.mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        String marks = marksText.getText();
+        String remarks = remarksText.getText();
+        String description = descriptionTextArea.getText();
+        
+        StudentAssesmentExamController saec = new StudentAssesmentExamController();
+        int i = saec.update_individual_entry(this.sae_id, marks, remarks, description);
+        if(i > 0){
+            System.out.println("Record successfully updated");
+        }else{
+            System.out.println("Failed to update the record. Please try again");
+        }
+    }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
      * @param args the command line arguments

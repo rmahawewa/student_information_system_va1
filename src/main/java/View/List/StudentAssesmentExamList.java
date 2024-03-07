@@ -14,6 +14,8 @@ import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import View.MainView;
+import View.IndividualView.ViewStudentAssesmentExam;
+import View.Edit.EditStudentAssesmentExam;
 
 /**
  *
@@ -99,9 +101,19 @@ public class StudentAssesmentExamList extends javax.swing.JPanel {
 
         viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewButton.setText("View");
+        viewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewButtonActionPerformed(evt);
+            }
+        });
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         studentAssesmentExamTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentAssesmentExamTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -218,6 +230,56 @@ public class StudentAssesmentExamList extends javax.swing.JPanel {
             Logger.getLogger(StudentAssesmentExamList.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = studentAssesmentExamTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) studentAssesmentExamTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String student = dtm.getValueAt(row, 1).toString();
+            String assesment = dtm.getValueAt(row, 2).toString();
+            String exam = dtm.getValueAt(row, 3).toString();
+
+            StudentAssesmentExamController sgec = new StudentAssesmentExamController();
+            HashMap<Integer,String> hm = sgec.get_info_by_id(id);
+            //System.out.println(hm);
+            
+            ViewStudentAssesmentExam form = new ViewStudentAssesmentExam(mv);
+            form.set_student_name(student);
+            form.set_exam(exam);
+            form.set_assignment(assesment);
+            form.set_marks(hm.get(0));
+            form.set_remarks(hm.get(1));
+            form.set_description(hm.get(2));
+            mv.add_new_component(form, "Student Assesment Exam info");
+        }
+    }//GEN-LAST:event_viewButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        int row = studentAssesmentExamTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) studentAssesmentExamTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String student = dtm.getValueAt(row, 1).toString();
+            String assesment = dtm.getValueAt(row, 2).toString();
+            String exam = dtm.getValueAt(row, 3).toString();
+
+            StudentAssesmentExamController sgec = new StudentAssesmentExamController();
+            HashMap<Integer,String> hm = sgec.get_info_by_id(id);
+            //System.out.println(hm);
+            
+            EditStudentAssesmentExam form = new EditStudentAssesmentExam(mv,id);
+            form.set_student_name(student);
+            form.set_exam(exam);
+            form.set_assignment(assesment);
+            form.set_marks(hm.get(0));
+            form.set_remarks(hm.get(1));
+            form.set_description(hm.get(2));
+            mv.add_new_component(form, "Update Student Assesment Exam");
+        }
+    }//GEN-LAST:event_editButtonActionPerformed
 
     public void loadTable(String student_name, String exam, String assesment) throws SQLException{
         try{
