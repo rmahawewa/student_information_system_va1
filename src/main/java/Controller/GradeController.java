@@ -36,4 +36,9 @@ public class GradeController {
         return gid;
     }
     
+    public String get_grade_in_words(int grade_in_number){
+        String gd = g.get_grade_in_text(grade_in_number);
+        return gd;
+    }
+    
 }

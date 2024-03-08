@@ -4,15 +4,14 @@
  */
 package View.IndividualView;
 
-import View.Edit.*;
-import View.Add.*;
-import View.*;
+import View.MainView;
 
 /**
  *
  * @author HP
  */
 public class ViewStudentGradeExam extends javax.swing.JPanel {
+    MainView mv;
 
     /**
      * Creates new form AddStudentSchoolInfo
@@ -20,6 +19,37 @@ public class ViewStudentGradeExam extends javax.swing.JPanel {
     public ViewStudentGradeExam() {
         initComponents();
     }
+    
+    public ViewStudentGradeExam(MainView mf) {
+        initComponents();
+        this.mv = mf;
+    }
+    
+    public void set_student_name(String student_name){
+        this.studentNameValueLabel.setText(student_name);
+    }
+    
+    public void set_exam(String exam){
+        this.examNameValueLabel.setText(exam);
+    }
+    
+    public void set_grade(String grade){
+        this.gradeValueLabel.setText(grade);
+    }
+    
+    public void set_marks(String marks){
+        this.marksValueLabel.setText(marks);
+    }
+    
+    public void set_remarks(String remarks){
+        this.remarksValueLabel.setText(remarks);
+    }
+    
+    public void set_description(String description){
+        this.descriptionTextArea.setText(description);
+        descriptionTextArea.setEditable(false);
+    }  
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,7 +75,6 @@ public class ViewStudentGradeExam extends javax.swing.JPanel {
         descriptionTextArea = new javax.swing.JTextArea();
         remarksValueLabel = new javax.swing.JLabel();
         marksValueLabel = new javax.swing.JLabel();
-        closeFromTopButton = new javax.swing.JButton();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topicLabel.setText("Student Examination Performance Details");
@@ -58,6 +87,11 @@ public class ViewStudentGradeExam extends javax.swing.JPanel {
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Close");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         marksLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         marksLabel.setText("Marks:");
@@ -90,16 +124,6 @@ public class ViewStudentGradeExam extends javax.swing.JPanel {
         marksValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         marksValueLabel.setText("marks");
 
-        closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
-        closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        closeFromTopButton.setForeground(new java.awt.Color(255, 255, 255));
-        closeFromTopButton.setText("X");
-        closeFromTopButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeFromTopButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,9 +131,7 @@ public class ViewStudentGradeExam extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(topicLabel)
-                .addGap(88, 88, 88)
-                .addComponent(closeFromTopButton)
-                .addContainerGap())
+                .addGap(121, 121, 121))
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,13 +158,8 @@ public class ViewStudentGradeExam extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(topicLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(closeFromTopButton)))
+                .addGap(28, 28, 28)
+                .addComponent(topicLabel)
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(studentNameLabel)
@@ -175,9 +192,10 @@ public class ViewStudentGradeExam extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeFromTopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFromTopButtonActionPerformed
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_closeFromTopButtonActionPerformed
+        this.mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -471,7 +489,6 @@ public class ViewStudentGradeExam extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
-    private javax.swing.JButton closeFromTopButton;
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JTextArea descriptionTextArea;
     private javax.swing.JLabel examLabel;

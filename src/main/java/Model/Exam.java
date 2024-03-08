@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -112,7 +113,7 @@ public class Exam {
         
         String query = "insert into exam(exam_code,year,semester,from_date,to_date,exam_name,details,record_created_by,record_created_at) values (?,?,?,?,?,?,?,?,?)";
         try {
-            prep = con.prepareStatement(query);
+            prep = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             prep.setString(1, this.getExam_code()); 
             prep.setString(2, this.getYear());
             prep.setString(3,this.getSemester());
@@ -126,7 +127,12 @@ public class Exam {
             prep.setTimestamp(9, Timestamp.valueOf(this.created_or_updated_at));
             
             int r = prep.executeUpdate();
-            System.out.println("the r is:"+r);
+            ResultSet rs = prep.getGeneratedKeys();
+            System.out.println("the r is: "+r);
+            while(rs.next()){
+                System.out.println("the key is: "+rs.getInt(1));
+            }            
+            
         } catch (SQLException ex) {
             ret_stts = -1;
             Logger.getLogger(Exam.class.getName()).log(Level.SEVERE, null, ex);

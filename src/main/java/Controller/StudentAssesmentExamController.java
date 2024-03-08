@@ -30,4 +30,23 @@ public class StudentAssesmentExamController {
         HashMap<Integer, Map<Integer,String>> hm = sae.get_student_assesment_exam_details_by_studentid(student_id);
         return hm;
     }
+    
+    public HashMap get_list_of_sae_details(String student_name, String exam, String assesment){
+        HashMap<Integer, Map<Integer,String>> hm = sae.get_student_exam_assesment_list(student_name, exam, assesment);
+        return hm;
+    }
+    
+    public HashMap get_info_by_id(int id){
+        HashMap<Integer,String> hm = sae.get_unique_record_by_id(id);
+        return hm;
+    }
+    
+    public int update_individual_entry(int id, String marks, String remarks, String description){
+        sae.setStd_asmt_exam_id(id);
+        sae.setMarks(marks);
+        sae.setRemarks(remarks);
+        sae.setDescription(description);
+        int i = sae.update_student_assesment_exam();
+        return i;
+    }
 }

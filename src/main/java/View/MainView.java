@@ -65,14 +65,8 @@ public class MainView extends javax.swing.JFrame {
         l1_examForGrades_menu = new javax.swing.JMenu();
         l2_listExamForGrades_menuItem = new javax.swing.JMenuItem();
         l1_studentPerformance_menu = new javax.swing.JMenu();
-        l2_gradeViseExamStudentPerformance_menu = new javax.swing.JMenu();
-        l3_listGVESP_menuItem = new javax.swing.JMenuItem();
-        l3_viewGVESP_menuItem = new javax.swing.JMenuItem();
-        l3_editGVESP_menuItem = new javax.swing.JMenuItem();
-        l2_studentPerformanceAssesment_menu = new javax.swing.JMenu();
-        l3_listSPA_menuItem = new javax.swing.JMenuItem();
-        l3_viewSPA_menuItem = new javax.swing.JMenuItem();
-        l3_editSPA_menuItem = new javax.swing.JMenuItem();
+        l2_gradeViseExamStudentPerformance_menuItem = new javax.swing.JMenuItem();
+        l2_studentPerformanceAssesment_menuItem = new javax.swing.JMenuItem();
         l1_school_menu = new javax.swing.JMenu();
         l2_addSchool_menuItem = new javax.swing.JMenuItem();
         l2_listSchools_menuItem = new javax.swing.JMenuItem();
@@ -226,41 +220,21 @@ public class MainView extends javax.swing.JFrame {
 
         l1_studentPerformance_menu.setText("Student Performance");
 
-        l2_gradeViseExamStudentPerformance_menu.setText("Grade vise Exam");
-
-        l3_listGVESP_menuItem.setText("List");
-        l3_listGVESP_menuItem.addActionListener(new java.awt.event.ActionListener() {
+        l2_gradeViseExamStudentPerformance_menuItem.setText("Grade vise Exam");
+        l2_gradeViseExamStudentPerformance_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                l3_listGVESP_menuItemActionPerformed(evt);
+                l2_gradeViseExamStudentPerformance_menuItemActionPerformed(evt);
             }
         });
-        l2_gradeViseExamStudentPerformance_menu.add(l3_listGVESP_menuItem);
+        l1_studentPerformance_menu.add(l2_gradeViseExamStudentPerformance_menuItem);
 
-        l3_viewGVESP_menuItem.setText("View");
-        l2_gradeViseExamStudentPerformance_menu.add(l3_viewGVESP_menuItem);
-
-        l3_editGVESP_menuItem.setText("Edit");
-        l2_gradeViseExamStudentPerformance_menu.add(l3_editGVESP_menuItem);
-
-        l1_studentPerformance_menu.add(l2_gradeViseExamStudentPerformance_menu);
-
-        l2_studentPerformanceAssesment_menu.setText("Assesment");
-
-        l3_listSPA_menuItem.setText("List");
-        l3_listSPA_menuItem.addActionListener(new java.awt.event.ActionListener() {
+        l2_studentPerformanceAssesment_menuItem.setText("Assesment");
+        l2_studentPerformanceAssesment_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                l3_listSPA_menuItemActionPerformed(evt);
+                l2_studentPerformanceAssesment_menuItemActionPerformed(evt);
             }
         });
-        l2_studentPerformanceAssesment_menu.add(l3_listSPA_menuItem);
-
-        l3_viewSPA_menuItem.setText("View");
-        l2_studentPerformanceAssesment_menu.add(l3_viewSPA_menuItem);
-
-        l3_editSPA_menuItem.setText("Edit");
-        l2_studentPerformanceAssesment_menu.add(l3_editSPA_menuItem);
-
-        l1_studentPerformance_menu.add(l2_studentPerformanceAssesment_menu);
+        l1_studentPerformance_menu.add(l2_studentPerformanceAssesment_menuItem);
 
         menuBar.add(l1_studentPerformance_menu);
 
@@ -356,19 +330,13 @@ public class MainView extends javax.swing.JFrame {
         return this.initialTabbedPane;
     }
     
-    private void l3_listSPA_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_listSPA_menuItemActionPerformed
-        // TODO add your handling code here:
-        StudentAssesmentExamList sae = new StudentAssesmentExamList();
-        this.mainView_ScrollPane.setViewportView(sae);
-    }//GEN-LAST:event_l3_listSPA_menuItemActionPerformed
-
     private void l3_addStudentMedicalRequirement_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_addStudentMedicalRequirement_menuItemActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_l3_addStudentMedicalRequirement_menuItemActionPerformed
 
     private void l2_listExamForGrades_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listExamForGrades_menuItemActionPerformed
         // TODO add your handling code here:
-        GradeExamList gel = new GradeExamList();
+        GradeExamList gel = new GradeExamList(this);
         this.mainView_ScrollPane.setViewportView(gel);
     }//GEN-LAST:event_l2_listExamForGrades_menuItemActionPerformed
 
@@ -442,12 +410,6 @@ public class MainView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_l2_listAssesmentInExam_menuItemActionPerformed
 
-    private void l3_listGVESP_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_listGVESP_menuItemActionPerformed
-        // TODO add your handling code here:
-        StudentGradeExamList sgel = new StudentGradeExamList();
-        this.mainView_ScrollPane.setViewportView(sgel);
-    }//GEN-LAST:event_l3_listGVESP_menuItemActionPerformed
-
     private void l2_listSchools_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listSchools_menuItemActionPerformed
         // TODO add your handling code here:
         SchoolList sl = new SchoolList();
@@ -469,6 +431,18 @@ public class MainView extends javax.swing.JFrame {
     private void initialTabbedPaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_initialTabbedPaneKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_initialTabbedPaneKeyPressed
+
+    private void l2_gradeViseExamStudentPerformance_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_gradeViseExamStudentPerformance_menuItemActionPerformed
+        // TODO add your handling code here:
+        StudentGradeExamList sgel = new StudentGradeExamList(this);
+        this.mainView_ScrollPane.setViewportView(sgel);
+    }//GEN-LAST:event_l2_gradeViseExamStudentPerformance_menuItemActionPerformed
+
+    private void l2_studentPerformanceAssesment_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_studentPerformanceAssesment_menuItemActionPerformed
+        // TODO add your handling code here:
+        StudentAssesmentExamList sae = new StudentAssesmentExamList(this);
+        this.mainView_ScrollPane.setViewportView(sae);
+    }//GEN-LAST:event_l2_studentPerformanceAssesment_menuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -524,7 +498,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JMenuItem l2_addSchool_menuItem;
     private javax.swing.JMenuItem l2_addStudent_menuItem;
     private javax.swing.JMenuItem l2_adminS_menuItem;
-    private javax.swing.JMenu l2_gradeViseExamStudentPerformance_menu;
+    private javax.swing.JMenuItem l2_gradeViseExamStudentPerformance_menuItem;
     private javax.swing.JMenuItem l2_listAssesmentInExam_menuItem;
     private javax.swing.JMenuItem l2_listAssesment_menuItem;
     private javax.swing.JMenuItem l2_listExamForGrades_menuItem;
@@ -534,18 +508,12 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JMenuItem l2_listSchools_menuItem;
     private javax.swing.JMenuItem l2_listStudents_menuItem;
     private javax.swing.JMenu l2_studentMedicalRequirement_menu;
-    private javax.swing.JMenu l2_studentPerformanceAssesment_menu;
+    private javax.swing.JMenuItem l2_studentPerformanceAssesment_menuItem;
     private javax.swing.JMenuItem l2_student_oldStudentList_menuItem;
     private javax.swing.JMenuItem l2_userSettings_menuItem;
     private javax.swing.JMenuItem l2_viewStudent_menuItem;
     private javax.swing.JMenuItem l3_addStudentMedicalRequirement_menuItem;
-    private javax.swing.JMenuItem l3_editGVESP_menuItem;
-    private javax.swing.JMenuItem l3_editSPA_menuItem;
-    private javax.swing.JMenuItem l3_listGVESP_menuItem;
-    private javax.swing.JMenuItem l3_listSPA_menuItem;
     private javax.swing.JMenuItem l3_listStudentsMedicalRequirements_menuItem;
-    private javax.swing.JMenuItem l3_viewGVESP_menuItem;
-    private javax.swing.JMenuItem l3_viewSPA_menuItem;
     private javax.swing.JScrollPane mainView_ScrollPane;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables

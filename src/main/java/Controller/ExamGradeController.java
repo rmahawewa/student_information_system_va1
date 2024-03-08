@@ -37,4 +37,17 @@ public class ExamGradeController {
         return r;
     }
     
+    public HashMap getFilteredRecords(String exam_name, String grade, String date, String time, String session){
+        HashMap<Integer, Map<Integer, String>> hm = ge.get_filtered_examgrade_records(exam_name, grade, date, time, session);
+        return hm;
+    }
+    
+    public int edit_exam_grade_record(int id, int session, String date_time){
+        ge.setG_e_id(id);
+        ge.setSession(session);
+        ge.setDate_time(date_time);
+        int d = ge.update_grade_exam_record();
+        return d;
+    }
+    
 }

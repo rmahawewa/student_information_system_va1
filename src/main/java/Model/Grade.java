@@ -169,4 +169,42 @@ public class Grade {
         return id;
     }
     
+    public String get_grade_in_text(int g){
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        String grade_in_words = "";
+        
+        String query = "select grade_in_words from grade where grade_in_number = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, g);
+            result = prep.executeQuery();
+            while(result.next()){
+                grade_in_words = result.getString("grade_in_words");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Grade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return grade_in_words;
+    }
+    
+    public int get_grade_in_number(int grade_id){
+        int r = -1;
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        String query = "select grade_in_number from grade where grade_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1,grade_id);
+            result = prep.executeQuery();
+            while(result.next()){
+                r = result.getInt("grade_in_number");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Grade.class.getName()).log(Level.SEVERE, null, ex);
+        }                
+        return r;
+    }    
 }
