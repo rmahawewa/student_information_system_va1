@@ -18,3 +18,5 @@
   -Student' general School-
   -Student's Family Member- --
   
+-Project technical dependencies:
+  -MySql Connector for Java - version 8.0.33
