@@ -76,6 +76,11 @@ public class AddSchoolInfo extends javax.swing.JPanel {
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -167,6 +172,14 @@ public class AddSchoolInfo extends javax.swing.JPanel {
             System.out.println("Failed to insert the record. Please try again");
         }
     }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        schoolNameText.setText("");
+        addressText.setText("");
+        contactNumberText.setText("");
+        detailsText.setText("");
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
