@@ -9,8 +9,11 @@ import java.time.LocalDateTime;
 import Model.LoggedInUser;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -93,6 +96,38 @@ public class School {
             Logger.getLogger(School.class.getName()).log(Level.SEVERE, null, ex);
         }
         return i;
+    }
+    
+    public HashMap get_school_infomation(String school){
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        HashMap<Integer, Map<Integer, String>> hm = new HashMap<Integer, Map<Integer,String>>();
+        int count=0;
+        
+        String query = "select school_id, school_name, school_address, school_contact_number from school where school_name like ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setString(1, "%" + school + "%");
+            result = prep.executeQuery();
+            while(result.next()){
+                String id = Integer.toString(result.getInt("school_id"));
+                String school_name = result.getString("school_name");
+                String school_address = result.getString("school_address");
+                String contact_number = result.getString("school_contact_number");
+                
+                HashMap<Integer,String> mp = new HashMap<Integer,String>();
+                mp.put(0, id);
+                mp.put(1, school_name);
+                mp.put(2, school_address);
+                mp.put(3, contact_number);
+                hm.put(count, mp);
+                count++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(School.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return hm;
     }
     
 }

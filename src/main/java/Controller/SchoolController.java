@@ -5,7 +5,9 @@
 package Controller;
 
 import Model.School;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -24,6 +26,11 @@ public class SchoolController {
         int i = scl.add_school_record();
         
         return i;
+    }
+    
+    public HashMap get_school_list(String school){
+        HashMap<Integer, Map<Integer, String>> hm = scl.get_school_infomation(school);
+        return hm;
     }
     
 }
