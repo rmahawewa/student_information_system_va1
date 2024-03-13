@@ -412,7 +412,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void l2_listSchools_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listSchools_menuItemActionPerformed
         // TODO add your handling code here:
-        SchoolList sl = new SchoolList();
+        SchoolList sl = new SchoolList(this);
         this.mainView_ScrollPane.setViewportView(sl);
     }//GEN-LAST:event_l2_listSchools_menuItemActionPerformed
 

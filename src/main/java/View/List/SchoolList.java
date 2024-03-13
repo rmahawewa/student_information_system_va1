@@ -8,20 +8,35 @@ import Controller.SchoolController;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import View.MainView;
 
 /**
  *
  * @author HP
  */
 public class SchoolList extends javax.swing.JPanel {
+    
+    MainView mv;
 
     /**
      * Creates new form ExamList
      */
     public SchoolList() {
         initComponents();
+    }
+    
+    public SchoolList(MainView mf) {
+        initComponents();
+        this.mv = mf;
+        try {
+            this.loadTable("");
+        } catch (SQLException ex) {
+            Logger.getLogger(SchoolList.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -61,6 +76,11 @@ public class SchoolList extends javax.swing.JPanel {
 
         clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
         viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewButton.setText("View");
@@ -156,8 +176,23 @@ public class SchoolList extends javax.swing.JPanel {
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         // TODO add your handling code here:
         String school_name = schoolNameText.getText();
+        try {
+            this.loadTable(school_name);
+        } catch (SQLException ex) {
+            Logger.getLogger(SchoolList.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+        schoolNameText.setText("");
+        try {
+            this.loadTable("");
+        } catch (SQLException ex) {
+            Logger.getLogger(SchoolList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_clearButtonActionPerformed
 
     public void loadTable(String school) throws SQLException{
         try{

@@ -105,10 +105,24 @@ public class School {
         HashMap<Integer, Map<Integer, String>> hm = new HashMap<Integer, Map<Integer,String>>();
         int count=0;
         
-        String query = "select school_id, school_name, school_address, school_contact_number from school where school_name like ?";
+        String qry_school = "";
+        
+        String query = "select school_id, school_name, school_address, school_contact_number from school where school_id > ?";
+        
+        if(!school.equals("")){
+            qry_school = " and school_name like ?";
+        }
+        
+        query = query + qry_school;
+        
         try {
             prep = con.prepareStatement(query);
-            prep.setString(1, "%" + school + "%");
+            prep.setInt(1, 0);
+            
+            if(!school.equals("")){
+                prep.setString(2, "%" +school + "%");
+            }
+            
             result = prep.executeQuery();
             while(result.next()){
                 String id = Integer.toString(result.getInt("school_id"));
