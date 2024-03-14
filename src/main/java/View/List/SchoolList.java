@@ -5,6 +5,8 @@
 package View.List;
 
 import Controller.SchoolController;
+import Controller.StudentGradeExamController;
+import View.IndividualView.ViewStudentGradeExam;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
@@ -171,6 +173,27 @@ public class SchoolList extends javax.swing.JPanel {
 
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
         // TODO add your handling code here:
+        int row = schoolTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) schoolTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String school_name = dtm.getValueAt(row, 1).toString();
+            String address = dtm.getValueAt(row, 2).toString();
+            String contact_number = dtm.getValueAt(row, 3).toString();
+
+            SchoolController sgec = new SchoolController();
+//            HashMap<Integer,String> hm = sgec.get_info_by_id(id);
+//            //System.out.println(hm);
+//            
+//            ViewStudentGradeExam form = new ViewStudentGradeExam(mv);
+//            form.set_student_name(student);
+//            form.set_exam(exam);
+//            form.set_grade(grade);
+//            form.set_marks(hm.get(0));
+//            form.set_remarks(hm.get(1));
+//            form.set_description(hm.get(2));
+//            mv.add_new_component(form, "Student Grade Exam info");
+        }
     }//GEN-LAST:event_viewButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
