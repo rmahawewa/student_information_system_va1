@@ -33,4 +33,18 @@ public class SchoolController {
         return hm;
     }
     
+    public String get_school_info_by_id(int school_id){
+        String school_details = scl.get_individual_school_info_by_id(school_id);
+        return school_details;
+    }
+    
+    public int update_school_info(List sil){
+        scl.setSchool_id(Integer.parseInt(sil.get(0).toString()));
+        scl.setSchool_name(sil.get(1).toString());
+        scl.setSchool_address(sil.get(2).toString());
+        scl.setSchool_contact_number(sil.get(3).toString());
+        scl.setSchool_details(sil.get(4).toString());
+        int value = scl.update_school_info();
+        return value;
+    }
 }

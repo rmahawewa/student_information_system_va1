@@ -6,6 +6,8 @@ package View.List;
 
 import Controller.SchoolController;
 import Controller.StudentGradeExamController;
+import View.Edit.EditSchoolInfo;
+import View.IndividualView.ViewSchoolInfo;
 import View.IndividualView.ViewStudentGradeExam;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -94,6 +96,11 @@ public class SchoolList extends javax.swing.JPanel {
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         schoolTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         schoolTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -181,18 +188,15 @@ public class SchoolList extends javax.swing.JPanel {
             String address = dtm.getValueAt(row, 2).toString();
             String contact_number = dtm.getValueAt(row, 3).toString();
 
-            SchoolController sgec = new SchoolController();
-//            HashMap<Integer,String> hm = sgec.get_info_by_id(id);
-//            //System.out.println(hm);
-//            
-//            ViewStudentGradeExam form = new ViewStudentGradeExam(mv);
-//            form.set_student_name(student);
-//            form.set_exam(exam);
-//            form.set_grade(grade);
-//            form.set_marks(hm.get(0));
-//            form.set_remarks(hm.get(1));
-//            form.set_description(hm.get(2));
-//            mv.add_new_component(form, "Student Grade Exam info");
+            SchoolController sc = new SchoolController();
+            String school_details = sc.get_school_info_by_id(id);
+            
+            ViewSchoolInfo form = new ViewSchoolInfo(mv);
+            form.setSchoolName(school_name);
+            form.setSchoolAddress(address);
+            form.setContactNumber(contact_number);
+            form.setDetails(school_details);
+            mv.add_new_component(form, "School info");
         }
     }//GEN-LAST:event_viewButtonActionPerformed
 
@@ -216,6 +220,28 @@ public class SchoolList extends javax.swing.JPanel {
             Logger.getLogger(SchoolList.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        int row = schoolTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) schoolTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String school_name = dtm.getValueAt(row, 1).toString();
+            String address = dtm.getValueAt(row, 2).toString();
+            String contact_number = dtm.getValueAt(row, 3).toString();
+
+            SchoolController sc = new SchoolController();
+            String school_details = sc.get_school_info_by_id(id);
+            
+            EditSchoolInfo form = new EditSchoolInfo(mv,id);
+            form.setSchoolName(school_name);
+            form.setSchoolAddress(address);
+            form.setContactNumber(contact_number);
+            form.setDetails(school_details);
+            mv.add_new_component(form, "Update School info");
+        }
+    }//GEN-LAST:event_editButtonActionPerformed
 
     public void loadTable(String school) throws SQLException{
         try{

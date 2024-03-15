@@ -4,20 +4,46 @@
  */
 package View.Edit;
 
-import View.Add.*;
-import View.*;
+import Controller.SchoolController;
+import View.MainView;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author HP
  */
 public class EditSchoolInfo extends javax.swing.JPanel {
+    
+    MainView mv;
+    int school_id;
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public EditSchoolInfo() {
         initComponents();
+    }
+    
+    public EditSchoolInfo(MainView mf, int school_id) {
+        initComponents();
+        this.school_id = school_id;        
+    }
+    
+    public void setSchoolName(String school_name){
+        schoolNameText.setText(school_name);
+    }
+    
+    public void setSchoolAddress(String school_address){
+        addressText.setText(school_address);
+    }
+    
+    public void setContactNumber(String contact_number){
+        contactNumberText.setText(contact_number);
+    }
+    
+    public void setDetails(String details){
+        detailsText.setText(details);
     }
 
     /**
@@ -66,6 +92,11 @@ public class EditSchoolInfo extends javax.swing.JPanel {
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Update");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
@@ -133,6 +164,29 @@ public class EditSchoolInfo extends javax.swing.JPanel {
                 .addGap(36, 36, 36))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        String school_name = schoolNameText.getText();
+        String address = addressText.getText();
+        String contact_number = contactNumberText.getText();
+        String details = detailsText.getText();
+        
+        List<String> sil = new ArrayList<String>();
+        sil.add(0, Integer.toString(school_id));
+        sil.add(1, school_name);
+        sil.add(2, address);
+        sil.add(1, contact_number);
+        sil.add(1, details);
+        
+        SchoolController sc = new SchoolController();
+        int value = sc.update_school_info(sil);
+        if(value > 0){
+            System.out.println("School record successfully updated");
+        }else{
+            System.out.println("Couldn't update the record. Please try again");
+        }
+    }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
      * @param args the command line arguments

@@ -12,7 +12,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -142,6 +144,48 @@ public class School {
             Logger.getLogger(School.class.getName()).log(Level.SEVERE, null, ex);
         }
         return hm;
+    }
+    
+    public String get_individual_school_info_by_id(int school_id){
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        String school_details = "";
+        
+        String query = "select details from school where school_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, school_id);
+            result = prep.executeQuery();
+            while(result.next()){
+                school_details = result.getString("details");
+            }            
+        } catch (SQLException ex) {
+            Logger.getLogger(School.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return school_details;
+    }
+    
+    public int update_school_info(){
+        PreparedStatement prep = null;
+        
+        int value = 0;
+        
+        String query = "update school set school_name = ?, school_address = ?, school_contact_number = ?, details = ?, record_updated_by = ?, record_updated_at = ? where school_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setString(0, this.getSchool_name());
+            prep.setString(1, this.getSchool_address());
+            prep.setString(2, this.getSchool_contact_number());
+            prep.setString(3, this.getSchool_details());
+            prep.setInt(4, this.record_created_or_updated_by);
+            prep.setTimestamp(5, Timestamp.valueOf(this.record_created_or_updated_at));
+            prep.setInt(6, this.getSchool_id());
+            value = prep.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(School.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return value;        
     }
     
 }
