@@ -174,13 +174,13 @@ public class School {
         String query = "update school set school_name = ?, school_address = ?, school_contact_number = ?, details = ?, record_updated_by = ?, record_updated_at = ? where school_id = ?";
         try {
             prep = con.prepareStatement(query);
-            prep.setString(0, this.getSchool_name());
-            prep.setString(1, this.getSchool_address());
-            prep.setString(2, this.getSchool_contact_number());
-            prep.setString(3, this.getSchool_details());
-            prep.setInt(4, this.record_created_or_updated_by);
-            prep.setTimestamp(5, Timestamp.valueOf(this.record_created_or_updated_at));
-            prep.setInt(6, this.getSchool_id());
+            prep.setString(1, this.getSchool_name());
+            prep.setString(2, this.getSchool_address());
+            prep.setString(3, this.getSchool_contact_number());
+            prep.setString(4, this.getSchool_details());
+            prep.setInt(5, this.record_created_or_updated_by);
+            prep.setTimestamp(6, Timestamp.valueOf(this.record_created_or_updated_at));
+            prep.setInt(7, this.getSchool_id());
             value = prep.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(School.class.getName()).log(Level.SEVERE, null, ex);
