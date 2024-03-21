@@ -4,7 +4,13 @@
  */
 package View.Add;
 
+import Controller.StudentController;
+import Controller.StudentFamilyMemberController;
 import View.MainView;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,6 +32,7 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
         initComponents();
         this.mv = mf;
         this.student_id = std_id;
+        this.load_table();
     }
     
     public void set_student_name(String name){
@@ -228,6 +235,44 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_submitButtonActionPerformed
 
+    public void load_table(){
+        StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+        HashMap<Integer, Map<Integer,String>> mp = sfmc.getStudentFamilyMembersByStudentId(student_id);
+        System.out.println("The student family list is: " + mp);
+        this.clearTable(familyMembersViewTable);
+        this.createTable(mp, familyMembersViewTable);
+    }
+    
+    public void clearTable(JTable tbl){
+    
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1;i>=0;i--){
+            dtm.removeRow(i);
+        }
+    
+    }
+    
+    public void createTable(HashMap hm, JTable tbl){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
+//                int hlength = hsh.size();
+                String[] tbl_data=new String[2];
+//                hsh.forEach((k,v) -> {
+//                    tbl_data[k] = v;
+//                    //System.out.println("The grade value: " + v);
+//                });
+                tbl_data[0] = hsh.get(1);
+                tbl_data[1] = hsh.get(0);
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
+    } 
+    
     /**
      * @param args the command line arguments
      */
