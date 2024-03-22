@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import UserLibraries.GetTimes;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -233,6 +236,33 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
+        String family_member_name = this.fMemberNameText.getText();
+        String relationship = this.relationshipText.getText();
+        String b_year = this.bdYearCmbBx.getSelectedItem().toString();
+        String b_month = this.bdMonthCmbBx.getSelectedItem().toString();
+        b_month = GetTimes.getMonthNumber(b_month);
+        String b_day = this.bdDayCmbBx.getSelectedItem().toString();
+        String birth_day = b_year + "-" + b_month + "-" + b_day;
+        String nic = this.nicText.getText();
+        String career = this.careerText.getText();
+        
+        List<String> l = new ArrayList<String>();
+        l.add(0, Integer.toString(student_id));
+        l.add(1, family_member_name);
+        l.add(2, relationship);
+        l.add(3, birth_day);
+        l.add(4, nic);
+        l.add(5, career);
+        StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+        int i = sfmc.add_student_family_member_information(l);
+        if(i>0){
+            System.out.println("Student family member record successfully saved");
+            this.load_table();
+        }else{
+            System.out.println("Failed to save the record. Please try again");
+        }
+        
+        
     }//GEN-LAST:event_submitButtonActionPerformed
 
     public void load_table(){

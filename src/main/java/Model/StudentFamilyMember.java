@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +29,7 @@ public class StudentFamilyMember {
     private String family_member_name;
     private String nic;
     private String career;
-    private String age;
+    private String birthday;
     private LocalDateTime record_created_or_updated_at = LocalDateTime.now();
     private int record_created_or_updated_by = LoggedInUser.getLogged_in_user();
     
@@ -87,12 +88,12 @@ public class StudentFamilyMember {
         this.career = career;
     }
 
-    public String getAge() {
-        return age;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
     
     public HashMap get_student_family_member_details(int student_id){
@@ -130,4 +131,26 @@ public class StudentFamilyMember {
         return hm;
     }
     
+    public int add_student_family_member_information(){
+        int i = 0;
+        PreparedStatement prep = null;    
+        
+        String query = "insert into student_family_member (student_id, family_member_name, relationship, birthday, nic, career, record_created_by, record_created_at) values (?,?,?,?,?,?,?,?)";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, this.getStudent_id());
+            prep.setString(2, this.getFamily_member_name());
+            prep.setString(3, this.getRelationship());
+            prep.setString(4, this.getBirthday());
+            prep.setString(5, this.getNic());
+            prep.setString(6, this.getCareer());
+            prep.setInt(7, this.record_created_or_updated_by);
+            prep.setTimestamp(8, Timestamp.valueOf(record_created_or_updated_at));
+            
+            i = prep.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentFamilyMember.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return i;
+    }    
 }

@@ -6,6 +6,7 @@ package Controller;
 
 import Model.StudentFamilyMember;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,6 +20,18 @@ public class StudentFamilyMemberController {
     public HashMap getStudentFamilyMembersByStudentId(int student_id){
         HashMap<Integer, Map<Integer,String>> hm = sfm.get_student_family_member_details(student_id);
         return hm;
+    }
+    
+    public int add_student_family_member_information(List l){
+        sfm.setStudent_id(Integer.parseInt(l.get(0).toString()));
+        sfm.setFamily_member_name(l.get(1).toString());
+        sfm.setRelationship(l.get(2).toString());
+        sfm.setBirthday(l.get(3).toString());
+        sfm.setNic(l.get(4).toString());
+        sfm.setCareer(l.get(5).toString());
+        
+        int i = sfm.add_student_family_member_information();
+        return i;
     }
     
     
