@@ -47,4 +47,9 @@ public class SchoolController {
         int value = scl.update_school_info();
         return value;
     }
+    
+    public HashMap get_school_name_with_id(){
+        HashMap<Integer, String> hm = scl.get_all_school_names_and_ids();
+        return hm;
+    }
 }

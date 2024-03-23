@@ -124,6 +124,11 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         familyMembersViewTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -234,6 +239,17 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void clearForm(){
+        this.fMemberNameText.setText("");
+        this.relationshipText.setText("");
+        this.bdYearCmbBx.setSelectedItem(GetTimes.getCurrentYear());
+        this.bdMonthCmbBx.setSelectedItem(GetTimes.getCurrentMonth());
+        this.bdDayCmbBx.setSelectedItem(GetTimes.getCurrentDay());
+        this.nicText.setText("");
+        this.careerText.setText("");
+        
+    }
+    
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
         String family_member_name = this.fMemberNameText.getText();
@@ -246,24 +262,33 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
         String nic = this.nicText.getText();
         String career = this.careerText.getText();
         
-        List<String> l = new ArrayList<String>();
-        l.add(0, Integer.toString(student_id));
-        l.add(1, family_member_name);
-        l.add(2, relationship);
-        l.add(3, birth_day);
-        l.add(4, nic);
-        l.add(5, career);
-        StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
-        int i = sfmc.add_student_family_member_information(l);
-        if(i>0){
-            System.out.println("Student family member record successfully saved");
-            this.load_table();
+        if(!family_member_name.equals("") && !relationship.equals("") && !nic.equals("") && !career.equals("")){
+            List<String> l = new ArrayList<String>();
+            l.add(0, Integer.toString(student_id));
+            l.add(1, family_member_name);
+            l.add(2, relationship);
+            l.add(3, birth_day);
+            l.add(4, nic);
+            l.add(5, career);
+            StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+            int i = sfmc.add_student_family_member_information(l);
+            if(i>0){
+                System.out.println("Student family member record successfully saved");
+                this.clearForm();
+                this.load_table();
+            }else{
+                System.out.println("Failed to save the record. Please try again");
+            }
         }else{
-            System.out.println("Failed to save the record. Please try again");
-        }
-        
-        
+            System.out.println("Please fill all the fields");
+        }      
     }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+//        this.clearForm();
+        this.mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     public void load_table(){
         StudentFamilyMemberController sfmc = new StudentFamilyMemberController();

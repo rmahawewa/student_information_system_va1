@@ -188,4 +188,25 @@ public class School {
         return value;        
     }
     
+    public HashMap get_all_school_names_and_ids(){
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        HashMap<Integer, String> hm = new HashMap<Integer, String>();
+        
+        String query = "select school_id, school_name from school where school_id > ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, 0);
+            result = prep.executeQuery();
+            while(result.next()){
+                hm.put(result.getInt("school_id"), result.getString("school_name"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(School.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return hm;
+    }
+    
 }
