@@ -6,6 +6,7 @@ package Controller;
 
 import Model.StudentSchool;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,6 +22,18 @@ public class StudentSchoolController {
         return hm;
     }
     
-    
+    public int add_student_school_record(List l){
+        ss.setDate_of_entarance(l.get(1).toString());
+        int current_student = Integer.parseInt(l.get(2).toString());
+        ss.setIs_currently_studing(current_student);
+        if(current_student == 0){
+            ss.setDate_of_leave(l.get(3).toString());
+        }        
+        ss.setSchool_id(Integer.parseInt(l.get(0).toString()));
+        ss.setStudent_id(Integer.parseInt(l.get(4).toString()));
+        
+        int i = ss.save_student_school_info();
+        return i;
+    }
     
 }
