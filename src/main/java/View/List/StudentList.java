@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import View.IndividualView.Student.ViewStudent_fromList;
 import View.Add.AddStudentFamilyInfo;
 import Controller.StudentFamilyMemberController;
+import View.Add.AddOldStudentInfo;
 import View.Add.AddStudentSchoolInfo;
 
 /**
@@ -172,6 +173,11 @@ public class StudentList extends javax.swing.JPanel {
 
         oldStudentButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         oldStudentButton.setText("Old student");
+        oldStudentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oldStudentButtonActionPerformed(evt);
+            }
+        });
 
         addFamilyMemberButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         addFamilyMemberButton.setText("Add family member");
@@ -389,6 +395,21 @@ public class StudentList extends javax.swing.JPanel {
             mv.add_new_component(adssi, "Add Student School Information");
         }
     }//GEN-LAST:event_addSchoolButtonActionPerformed
+
+    private void oldStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oldStudentButtonActionPerformed
+        // TODO add your handling code here:
+        
+        int row = studentInformationTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) studentInformationTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String name = dtm.getValueAt(row, 1).toString();
+            AddOldStudentInfo aosi = new AddOldStudentInfo(mv, id);
+            aosi.set_student_name(name);
+            mv.add_new_component(aosi, "Add old Student Information");
+        }
+        
+    }//GEN-LAST:event_oldStudentButtonActionPerformed
     
     private void clearSearchContent(){
         studentNameText.setText("");

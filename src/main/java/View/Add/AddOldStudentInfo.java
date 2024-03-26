@@ -4,19 +4,47 @@
  */
 package View.Add;
 
-import View.*;
+import Controller.OldStudentController;
+import UserLibraries.GetTimes;
+import View.MainView;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author HP
  */
 public class AddOldStudentInfo extends javax.swing.JPanel {
+    
+    MainView mv;
+    int student_id;
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public AddOldStudentInfo() {
         initComponents();
+    }
+    
+    public AddOldStudentInfo(MainView mf, int student_id) {
+        initComponents();
+        this.mv = mf;
+        this.student_id = student_id;
+        this.set_initial_date();
+    }
+    
+    public void set_student_name(String name){
+        this.oldStudentNameValueLabel.setText(name);
+    }
+    
+    public void set_initial_date(){
+        String year = GetTimes.getCurrentYear();
+        String month = GetTimes.getCurrentMonth();
+        String day = GetTimes.getCurrentDay();
+        
+        this.yearComboBx.setSelectedItem(year);
+        this.monthComboBx.setSelectedItem(month);
+        this.dayComboBx.setSelectedItem(day);
     }
 
     /**
@@ -65,9 +93,19 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cancelButton.setText("Cancel");
+        cancelButton.setText("Close");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         dayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         dayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
@@ -141,16 +179,13 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(transferredDammaSchoolLabel)
                                     .addComponent(transferredSchoolText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(yearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(monthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(yearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(monthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(dayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addComponent(reasonText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(52, 52, 52)))
+                        .addGap(59, 59, 59)
+                        .addComponent(reasonText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
@@ -158,6 +193,42 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
                 .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        this.mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        int i = 0;
+        
+        String std_id = Integer.toString(this.student_id);
+        String lftd_y = this.yearComboBx.getSelectedItem().toString();
+        String lftd_m = this.monthComboBx.getSelectedItem().toString();
+        String lftd_m_n = GetTimes.getMonthNumber(lftd_m);
+        String lftd_d = this.dayComboBx.getSelectedItem().toString();
+        String date_of_leave = lftd_y + "-" + lftd_m_n + "-" + lftd_d;
+        String reason = this.reasonText.getText();
+        String transferred_damma_school = this.transferredSchoolText.getText();
+        
+        if(!reason.equals("")){
+            List<String> l = new ArrayList<String>();
+            l.add(0, std_id);
+            l.add(1, date_of_leave);
+            l.add(2, reason);
+            l.add(3, transferred_damma_school);
+            
+            OldStudentController osc = new OldStudentController();
+            i = osc.add_old_student(l);
+            
+            if(i > 0){
+                System.out.println("Old Student record successfully saved");
+            }else{
+                System.out.println("Failed to save the Old Student record. Please try again");
+            }
+        }
+    }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
      * @param args the command line arguments
