@@ -130,7 +130,7 @@ public class StudentSchool {
         
         PreparedStatement prep = null;
         
-        String query = "insert into student_school(student_id, school_id, date_of_entarance, date_of_leave, is_currently_studing, record_created_at) values (?,?,?,?,?,?)";
+        String query = "insert into student_school(student_id, school_id, date_of_entarance, date_of_leave, is_currently_studing, record_created_by, record_created_at) values (?,?,?,?,?,?,?)";
         try {
             prep = con.prepareStatement(query);
             prep.setInt(1, this.getStudent_id());
@@ -138,8 +138,8 @@ public class StudentSchool {
             prep.setString(3, this.getDate_of_entarance());
             prep.setString(4, this.getDate_of_leave());
             prep.setInt(5, this.getIs_currently_studing());
-            //prep.setInt(6, this.record_created_or_updated_by);
-            prep.setTimestamp(6, Timestamp.valueOf(this.record_created_or_updated_at));
+            prep.setInt(6, this.record_created_or_updated_by);
+            prep.setTimestamp(7, Timestamp.valueOf(this.record_created_or_updated_at));
             
             i = prep.executeUpdate();
         } catch (SQLException ex) {
