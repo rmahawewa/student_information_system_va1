@@ -170,6 +170,11 @@ public class StudentList extends javax.swing.JPanel {
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         oldStudentButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         oldStudentButton.setText("Old student");
@@ -410,6 +415,11 @@ public class StudentList extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_oldStudentButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_editButtonActionPerformed
     
     private void clearSearchContent(){
         studentNameText.setText("");

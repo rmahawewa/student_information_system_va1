@@ -103,9 +103,9 @@ public class StudentSchool {
             result = prep.executeQuery();
             while(result.next()){
                 String school_name = result.getString("school.school_name");
-                String date_of_entarance = new Date(result.getDate("date_of_entarance").getTime()).toString();
+                String date_of_entarance = result.getString("date_of_entarance");
                 String is_currently_studing = Integer.toString(result.getInt("is_currently_studing"));
-                String date_of_leave = new Date(result.getDate("is_currently_studing").getTime()).toString();
+                String date_of_leave = result.getString("is_currently_studing");
                 String student_school_id = Integer.toString(result.getInt("student_school_id"));
                 
                 HashMap<Integer,String> mp = new HashMap<Integer,String>();

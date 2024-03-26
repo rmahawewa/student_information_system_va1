@@ -4,19 +4,37 @@
  */
 package View.Add;
 
-import View.*;
+import Controller.StudentController;
+import Controller.UserController;
+import View.MainView;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 
 /**
  *
  * @author HP
  */
 public class AddStudentMedicalRequirement extends javax.swing.JPanel {
+    
+    MainView mv;
+    int student_id;
+    int medical_requirement_id;
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public AddStudentMedicalRequirement() {
         initComponents();
+    }
+    
+    public AddStudentMedicalRequirement(MainView mf) {
+        initComponents();
+        this.mv = mf;
     }
 
     /**
@@ -69,6 +87,11 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
         detailsLabel.setText("Details:");
 
         studentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                studentNameTextKeyReleased(evt);
+            }
+        });
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Submit");
@@ -85,11 +108,26 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
         fdotMonthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         fdotMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
 
+        studentNamesList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                studentNamesListMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(studentNamesList);
 
         studentNameClearButton.setText("Clear");
+        studentNameClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentNameClearButtonActionPerformed(evt);
+            }
+        });
 
         medicalRequirementText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalRequirementText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                medicalRequirementTextKeyReleased(evt);
+            }
+        });
 
         medicalRequirementLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         medicalRequirementLabel.setText("Medical Requirement:");
@@ -252,6 +290,72 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
     private void detailsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_detailsTextFieldActionPerformed
+
+    DefaultListModel demoList = new DefaultListModel();
+    private void studentNameTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_studentNameTextKeyReleased
+        // TODO add your handling code here:
+        System.out.println("key released");
+        demoList.removeAllElements();
+        
+        String text = studentNameText.getText();
+        StudentController sc = new StudentController();
+        try {
+            List<String> l = sc.getStudentsByText(text);
+            if(!l.isEmpty() && l!=null){
+                for(String t : l){
+                    System.out.println("HashMap: " + l);
+                    demoList.addElement(t);
+                }
+            }else{
+                demoList.addElement("-No results found-");
+            }
+        }catch(Exception ex) {
+            Logger.getLogger(AddStudentMedicalRequirement.class.getName()).log(Level.SEVERE, null, ex);
+            demoList.addElement("-No results found-");
+        }
+
+        studentNamesList.setModel(demoList);
+        jScrollPane1.setVisible(true);
+//        getContentPane().validate();
+//        getContentPane().repaint();
+        
+        
+    }//GEN-LAST:event_studentNameTextKeyReleased
+
+    private void studentNamesListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentNamesListMouseClicked
+        // TODO add your handling code here:
+        JList l = (JList) evt.getSource();
+        if(evt.getClickCount() >= 1){
+            int index = l.locationToIndex(evt.getPoint());
+            System.out.println(index);
+            if(index >= 0){
+                Object o = l.getModel().getElementAt(index);
+                System.out.println("Clicked on " + o.toString());
+                String name = o.toString();
+                studentNameText.setText(name);
+                studentNameText.setEditable(false);
+                DefaultListModel dlm = (DefaultListModel) l.getModel();
+                dlm.removeAllElements();
+//                l.setVisible(false);
+//                jScrollPane1.setVisible(false);
+                String[] student = name.split("-");
+                student_id = Integer.parseInt(student[0]);
+                System.out.println("student id: " + student_id);
+            }
+        }
+    }//GEN-LAST:event_studentNamesListMouseClicked
+
+    private void studentNameClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentNameClearButtonActionPerformed
+        // TODO add your handling code here:
+        studentNameText.setEditable(true);
+        studentNameText.setText("");
+        student_id = 0;
+    }//GEN-LAST:event_studentNameClearButtonActionPerformed
+
+    private void medicalRequirementTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicalRequirementTextKeyReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_medicalRequirementTextKeyReleased
 
     /**
      * @param args the command line arguments

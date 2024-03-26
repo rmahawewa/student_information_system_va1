@@ -332,6 +332,9 @@ public class MainView extends javax.swing.JFrame {
     
     private void l3_addStudentMedicalRequirement_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_addStudentMedicalRequirement_menuItemActionPerformed
         // TODO add your handling code here:
+        AddStudentMedicalRequirement asmr = new AddStudentMedicalRequirement(this);
+        this.mainView_ScrollPane.setViewportView(asmr);
+        
     }//GEN-LAST:event_l3_addStudentMedicalRequirement_menuItemActionPerformed
 
     private void l2_listExamForGrades_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listExamForGrades_menuItemActionPerformed
