@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -28,6 +29,7 @@ public class StudentMedicalRequirements {
     private String first_date_of_diagnose;
     private String first_date_of_getting_treatment;
     private String last_date_of_getting_treatment;
+    private String details;
     private int record_created_or_updated_by = LoggedInUser.getLogged_in_user();
     private LocalDateTime record_created_or_updated_at = LocalDateTime.now();
     
@@ -84,6 +86,15 @@ public class StudentMedicalRequirements {
     public void setLast_date_of_getting_treatment(String last_date_of_getting_treatment) {
         this.last_date_of_getting_treatment = last_date_of_getting_treatment;
     }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+    
     
     public HashMap get_student_medical_requirement_info(int student_id){
         PreparedStatement prep = null;
@@ -119,6 +130,30 @@ public class StudentMedicalRequirements {
             Logger.getLogger(StudentMedicalRequirements.class.getName()).log(Level.SEVERE, null, ex);
         }
         return hm;
+    }
+    
+    
+    public int add_student_medical_requirements_record(){
+        PreparedStatement prep = null;
+        int i = 0;
+        
+        String query = "insert into student_medical_requirements (student_id, medical_requirement_id, first_date_of_diagnose, first_date_of_getting_treatment, last_date_of_getting_treatment, details, record_created_at, record_created_by) values (?,?,?,?,?,?,?,?)";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, this.getStudent_id());
+            prep.setInt(2, this.getMedical_requirement_id());
+            prep.setString(3, this.getFirst_date_of_diagnose());
+            prep.setString(4, this.getFirst_date_of_getting_treatment());
+            prep.setString(5, this.getLast_date_of_getting_treatment());
+            prep.setString(6, this.getDetails());
+            prep.setInt(7, this.record_created_or_updated_by);
+            prep.setTimestamp(8, Timestamp.valueOf(this.record_created_or_updated_at));
+            
+            i = prep.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentMedicalRequirements.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return i;        
     }
     
 }

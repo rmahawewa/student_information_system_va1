@@ -6,6 +6,7 @@ package Controller;
 
 import Model.MedicalRequirements;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,6 +28,12 @@ public class MedicalRequirementController {
     public HashMap get_data_list(){
         HashMap<Integer, Map<Integer, String>> hm = medrq.get_all_medical_requirement_details();
         return hm;
+    }
+    
+    public List get_desease_data(String desease){
+    
+        List<String> l = medrq.get_info_by_text(desease);
+        return l;        
     }
     
 }

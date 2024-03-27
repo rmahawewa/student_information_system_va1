@@ -12,7 +12,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -91,5 +93,29 @@ public class MedicalRequirements {
             Logger.getLogger(MedicalRequirements.class.getName()).log(Level.SEVERE, null, ex);
         }
         return hm;
+    }
+    
+    public List<String> get_info_by_text(String text){
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        List<String> lst = new ArrayList<String>();
+        
+        String query = "select medical_requirement_id, desease_name from medical_requirements where desease_name like ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setString(1,"%"+text+"%");
+            result = prep.executeQuery();
+            int count = 0;
+            while(result.next()){
+                String id = Integer.toString(result.getInt("medical_requirement_id"));
+                String name = result.getString("desease_name");
+                String row = id+"-"+name;
+                lst.add(count, row);
+                count++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lst;
     }
 }

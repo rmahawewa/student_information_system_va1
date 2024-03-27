@@ -357,4 +357,20 @@ public class Student {
         return l;
     }
     
+    public int updade_as_old_student(int student_id){
+        int i = 0;
+        PreparedStatement prep = null;
+        
+        String query = "update student set is_current_student = ? where student_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, 0);
+            prep.setInt(2, student_id);
+            i = prep.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return i;
+    }
+    
 }

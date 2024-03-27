@@ -4,6 +4,7 @@
  */
 package Controller;
 import Model.OldStudent;
+import Model.Student;
 import java.util.List;
 
 /**
@@ -21,7 +22,15 @@ public class OldStudentController {
         String reason = l.get(2).toString();
         String transferred_damma_school = l.get(3).toString();
         
+        os.setStudent_id(Integer.parseInt(student_id));
+        os.setLeft_date(date_of_leave);
+        os.setReason_for_leaving(reason);
+        os.setTransferred_damma_school(transferred_damma_school);
+        
         int i = os.insert_old_student_info();
+        
+        Student stdnt = new Student();
+        int y = stdnt.updade_as_old_student(Integer.parseInt(student_id));
         
         return i;        
     }
