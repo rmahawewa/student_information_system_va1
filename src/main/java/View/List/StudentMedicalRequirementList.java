@@ -3,12 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package View.List;
+import Controller.ExamController;
+import Controller.StudentMedicalInformationController;
+import View.IndividualView.ViewExam;
+import View.IndividualView.ViewStudentMedicalRequirement;
+import View.MainView;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author HP
  */
 public class StudentMedicalRequirementList extends javax.swing.JPanel {
+    
+    MainView mv;
+    
 
     /**
      * Creates new form AssesmentList
@@ -16,7 +31,57 @@ public class StudentMedicalRequirementList extends javax.swing.JPanel {
     public StudentMedicalRequirementList() {
         initComponents();
     }
+    
+    public StudentMedicalRequirementList(MainView mf) {
+        initComponents();
+        this.mv = mf;
+        try {
+            this.loadTable("", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentMedicalRequirementList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
+    public void loadTable(String student_name, String medical_status) throws SQLException{
+        try{
+            this.clearTable(studentMedicalStatusListTable);
+            StudentMedicalInformationController smic = new StudentMedicalInformationController();
+            HashMap<Integer, Map<Integer,String>> hm = smic.get_data_list(student_name, medical_status);
+            this.createTable(hm, studentMedicalStatusListTable);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+    }
+    
+    public void clearTable(JTable tbl){
+    
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1;i>=0;i--){
+            dtm.removeRow(i);
+        }
+    
+    }
+    
+    public void createTable(HashMap hm, JTable tbl){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
+                int hlength = hsh.size();
+                String[] tbl_data=new String[hlength];
+                hsh.forEach((k,v) -> {
+                    tbl_data[k] = v;
+                    //System.out.println("The grade value: " + v);
+                });
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,15 +118,35 @@ public class StudentMedicalRequirementList extends javax.swing.JPanel {
 
         searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
         viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewButton.setText("View");
+        viewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewButtonActionPerformed(evt);
+            }
+        });
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         studentMedicalStatusListTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentMedicalStatusListTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -147,6 +232,89 @@ public class StudentMedicalRequirementList extends javax.swing.JPanel {
                 .addContainerGap(48, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        try {
+            // TODO add your handling code here:
+            String student = studentNameText.getText();
+            String medrq = medicalStatusText.getText();
+            
+            this.loadTable(student, medrq);
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentMedicalRequirementList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        try {
+            // TODO add your handling code here:
+            studentNameText.setText("");
+            medicalStatusText.setText("");
+            this.loadTable("", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentMedicalRequirementList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = studentMedicalStatusListTable.getSelectedRow();
+        System.out.println("selected row: " + row);
+        if(row>-1){
+            try {
+                DefaultTableModel dtm = (DefaultTableModel) studentMedicalStatusListTable.getModel();
+                int id = Integer.parseInt(dtm.getValueAt(row, 5).toString());
+                String student_name = dtm.getValueAt(row, 0).toString();
+                String medical_status = dtm.getValueAt(row, 1).toString();
+                String first_date_of_diagnose = dtm.getValueAt(row, 2).toString();
+                String first_date_of_getting_treatment = dtm.getValueAt(row, 3).toString();
+                String last_date_of_diagnose = dtm.getValueAt(row, 4).toString();
+                StudentMedicalInformationController ec = new StudentMedicalInformationController();
+                String details = "";
+                details = ec.get_std_details_by_id(id);
+                ViewStudentMedicalRequirement vsmr = new ViewStudentMedicalRequirement(mv);
+                vsmr.set_student_name(student_name);
+                vsmr.set_medical_requirement(medical_status);
+                vsmr.set_first_date_of_diagnose(first_date_of_diagnose);
+                vsmr.set_first_date_of_getting_treatment(first_date_of_getting_treatment);
+                vsmr.set_last_date_of_treatment(last_date_of_diagnose);
+                vsmr.set_details(details);
+                mv.add_new_component(vsmr, "Student medical details");
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentMedicalRequirementList.class.getName()).log(Level.SEVERE, null, ex);
+            }           
+        }
+    }//GEN-LAST:event_viewButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        int row = studentMedicalStatusListTable.getSelectedRow();
+        System.out.println("selected row: " + row);
+        if(row>-1){
+            try {
+                DefaultTableModel dtm = (DefaultTableModel) studentMedicalStatusListTable.getModel();
+                int id = Integer.parseInt(dtm.getValueAt(row, 5).toString());
+                String student_name = dtm.getValueAt(row, 0).toString();
+                String medical_status = dtm.getValueAt(row, 1).toString();
+                String first_date_of_diagnose = dtm.getValueAt(row, 2).toString();
+                String first_date_of_getting_treatment = dtm.getValueAt(row, 3).toString();
+                String last_date_of_diagnose = dtm.getValueAt(row, 4).toString();
+                StudentMedicalInformationController ec = new StudentMedicalInformationController();
+                String details = "";
+                details = ec.get_std_details_by_id(id);
+                ViewStudentMedicalRequirement vsmr = new ViewStudentMedicalRequirement(mv);
+                vsmr.set_student_name(student_name);
+                vsmr.set_medical_requirement(medical_status);
+                vsmr.set_first_date_of_diagnose(first_date_of_diagnose);
+                vsmr.set_first_date_of_getting_treatment(first_date_of_getting_treatment);
+                vsmr.set_last_date_of_treatment(last_date_of_diagnose);
+                vsmr.set_details(details);
+                mv.add_new_component(vsmr, "Update student medical details");
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentMedicalRequirementList.class.getName()).log(Level.SEVERE, null, ex);
+            }           
+        }
+    }//GEN-LAST:event_editButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -63,8 +63,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="medicalRequirementLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="studentNameLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="medicalRequirementValueLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="studentNameValueLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -95,12 +95,12 @@
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="studentNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="studentNameLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="studentNameValueLabel" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="medicalRequirementLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="medicalRequirementLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="medicalRequirementValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -597,7 +597,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="detailsTextFieldActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="studentNameLabel1">
+    <Component class="javax.swing.JLabel" name="studentNameValueLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -605,7 +605,7 @@
         <Property name="text" type="java.lang.String" value="student name value"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="medicalRequirementLabel1">
+    <Component class="javax.swing.JLabel" name="medicalRequirementValueLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>

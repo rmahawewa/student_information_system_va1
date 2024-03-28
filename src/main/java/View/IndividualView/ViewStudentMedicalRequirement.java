@@ -4,21 +4,50 @@
  */
 package View.IndividualView;
 
-import View.Edit.*;
-import View.Add.*;
-import View.*;
+import View.MainView;
 
 /**
  *
  * @author HP
  */
 public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
+    
+    MainView mv;
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public ViewStudentMedicalRequirement() {
         initComponents();
+    }
+    
+    public ViewStudentMedicalRequirement(MainView mf) {
+        initComponents();
+        this.mv = mf;
+    }
+    
+    public void set_student_name(String student_name){
+        this.studentNameValueLabel.setText(student_name);
+    }
+    
+    public void set_medical_requirement(String medical_requirement){
+        this.medicalRequirementValueLabel.setText(medical_requirement);
+    }
+    
+    public void set_first_date_of_diagnose(String first_date_of_diagnose){
+        this.firstDateOfDiagnoseValueLabel.setText(first_date_of_diagnose);
+    }
+    
+    public void set_first_date_of_getting_treatment(String first_date_of_treatment){
+        this.firstDateOfTreatmentValueLabel.setText(first_date_of_treatment);
+    }
+    
+    public void set_last_date_of_treatment(String last_date_of_treatment){
+        this.lastDateOfTreatmentValueLabel.setText(last_date_of_treatment);
+    }
+    
+    public void set_details(String details){
+        this.detailsTextField.setText(details);
     }
 
     /**
@@ -39,12 +68,11 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
         firstDateOfDiagnoseLabel = new javax.swing.JLabel();
         lastDateOfTraetementLabel = new javax.swing.JLabel();
         detailsTextField = new javax.swing.JTextField();
-        studentNameLabel1 = new javax.swing.JLabel();
-        medicalRequirementLabel1 = new javax.swing.JLabel();
+        studentNameValueLabel = new javax.swing.JLabel();
+        medicalRequirementValueLabel = new javax.swing.JLabel();
         firstDateOfDiagnoseValueLabel = new javax.swing.JLabel();
         firstDateOfTreatmentValueLabel = new javax.swing.JLabel();
         lastDateOfTreatmentValueLabel = new javax.swing.JLabel();
-        closeFromTopButton = new javax.swing.JButton();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topicLabel.setText("Student Medical Requirement Information");
@@ -60,6 +88,11 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
 
         closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
 
         medicalRequirementLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         medicalRequirementLabel.setText("Medical Requirement:");
@@ -76,11 +109,11 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
             }
         });
 
-        studentNameLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        studentNameLabel1.setText("student name value");
+        studentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameValueLabel.setText("student name value");
 
-        medicalRequirementLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        medicalRequirementLabel1.setText("medical requirement value");
+        medicalRequirementValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalRequirementValueLabel.setText("medical requirement value");
 
         firstDateOfDiagnoseValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         firstDateOfDiagnoseValueLabel.setText("first date of diagnose");
@@ -90,16 +123,6 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
 
         lastDateOfTreatmentValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lastDateOfTreatmentValueLabel.setText("last date of treatment");
-
-        closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
-        closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        closeFromTopButton.setForeground(new java.awt.Color(255, 255, 255));
-        closeFromTopButton.setText("X");
-        closeFromTopButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeFromTopButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -114,8 +137,8 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
                             .addComponent(medicalRequirementLabel))
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(medicalRequirementLabel1)
-                            .addComponent(studentNameLabel1)))
+                            .addComponent(medicalRequirementValueLabel)
+                            .addComponent(studentNameValueLabel)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(detailsLabel)
@@ -137,28 +160,21 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
                         .addGap(269, 269, 269))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(topicLabel)
-                        .addGap(94, 94, 94)
-                        .addComponent(closeFromTopButton)
-                        .addContainerGap())))
+                        .addGap(127, 127, 127))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(topicLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(closeFromTopButton)))
+                .addGap(32, 32, 32)
+                .addComponent(topicLabel)
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(studentNameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(studentNameLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(studentNameValueLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(medicalRequirementLabel)
-                    .addComponent(medicalRequirementLabel1))
+                    .addComponent(medicalRequirementValueLabel))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(firstDateOfDiagnoseLabel)
@@ -185,9 +201,10 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_detailsTextFieldActionPerformed
 
-    private void closeFromTopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFromTopButtonActionPerformed
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_closeFromTopButtonActionPerformed
+        this.mv.close_tab();
+    }//GEN-LAST:event_closeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,7 +258,6 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
-    private javax.swing.JButton closeFromTopButton;
     private javax.swing.JLabel detailsLabel;
     private javax.swing.JTextField detailsTextField;
     private javax.swing.JLabel firstDateOfDiagnoseLabel;
@@ -251,9 +267,9 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
     private javax.swing.JLabel lastDateOfTraetementLabel;
     private javax.swing.JLabel lastDateOfTreatmentValueLabel;
     private javax.swing.JLabel medicalRequirementLabel;
-    private javax.swing.JLabel medicalRequirementLabel1;
+    private javax.swing.JLabel medicalRequirementValueLabel;
     private javax.swing.JLabel studentNameLabel;
-    private javax.swing.JLabel studentNameLabel1;
+    private javax.swing.JLabel studentNameValueLabel;
     private javax.swing.JLabel topicLabel;
     // End of variables declaration//GEN-END:variables
 }

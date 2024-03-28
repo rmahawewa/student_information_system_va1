@@ -6,6 +6,7 @@ package View.Add;
 
 import Controller.MedicalRequirementController;
 import Controller.StudentController;
+import Controller.StudentMedicalInformationController;
 import Controller.UserController;
 import View.MainView;
 import java.sql.SQLException;
@@ -485,9 +486,20 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
         
         List<String> l = new ArrayList<String>();
         l.add(0, stdnt_id);
+        l.add(1, medical_requirement_id);
+        l.add(2, first_day_of_diagnose);
+        l.add(3, first_day_of_treatment);
+        l.add(4, last_day_of_treatment);
+        l.add(5, details);
         
+        StudentMedicalInformationController smic = new StudentMedicalInformationController();
+        int i = smic.insert_student_medical_requirement_record(l);
         
-        
+        if(i > 0){
+            System.out.println("The Student Medical record successfully inserted");
+        }else{
+            System.out.println("Failed to insert the Student Medical record. Please try again");
+        }       
     }//GEN-LAST:event_submitButtonActionPerformed
 
     /**

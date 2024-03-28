@@ -4,20 +4,50 @@
  */
 package View.Edit;
 
-import View.Add.*;
-import View.*;
+import View.MainView;
 
 /**
  *
  * @author HP
  */
 public class EditStudentMedicalRequirement extends javax.swing.JPanel {
+    
+    MainView mv;
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public EditStudentMedicalRequirement() {
         initComponents();
+    }
+    
+    public EditStudentMedicalRequirement(MainView mf) {
+        initComponents();
+        this.mv = mf;
+    }
+    
+    public void set_student_name(String student_name){
+        this.studentNameValueLabel.setText(student_name);
+    }
+    
+    public void set_medical_requirement(String medical_requirement){
+        this.medicalRequirementValueLabel.setText(medical_requirement);
+    }
+    
+    public void set_first_date_of_diagnose(String first_date_of_diagnose){
+        
+    }
+    
+    public void set_first_date_of_getting_treatment(String first_date_of_treatment){
+        
+    }
+    
+    public void set_last_date_of_treatment(String last_date_of_treatment){
+        
+    }
+    
+    public void set_details(String details){
+        this.detailsTextField.setText(details);
     }
 
     /**
@@ -48,8 +78,8 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
         ldotMonthComboBx = new javax.swing.JComboBox<>();
         lastDateOfTraetementLabel = new javax.swing.JLabel();
         detailsTextField = new javax.swing.JTextField();
-        studentNameLabel1 = new javax.swing.JLabel();
-        medicalRequirementLabel1 = new javax.swing.JLabel();
+        studentNameValueLabel = new javax.swing.JLabel();
+        medicalRequirementValueLabel = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topicLabel.setText("Edit Student Medical Requirement Information");
@@ -111,11 +141,11 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
             }
         });
 
-        studentNameLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        studentNameLabel1.setText("student name value");
+        studentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameValueLabel.setText("student name value");
 
-        medicalRequirementLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        medicalRequirementLabel1.setText("medical requirement value");
+        medicalRequirementValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalRequirementValueLabel.setText("medical requirement value");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -158,8 +188,8 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
                             .addComponent(medicalRequirementLabel))
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(medicalRequirementLabel1)
-                            .addComponent(studentNameLabel1))))
+                            .addComponent(medicalRequirementValueLabel)
+                            .addComponent(studentNameValueLabel))))
                 .addContainerGap(32, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -181,11 +211,11 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(studentNameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(studentNameLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(studentNameValueLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(medicalRequirementLabel)
-                    .addComponent(medicalRequirementLabel1))
+                    .addComponent(medicalRequirementValueLabel))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fdodYearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,9 +317,9 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> ldotMonthComboBx;
     private javax.swing.JComboBox<String> ldotYearComboBx;
     private javax.swing.JLabel medicalRequirementLabel;
-    private javax.swing.JLabel medicalRequirementLabel1;
+    private javax.swing.JLabel medicalRequirementValueLabel;
     private javax.swing.JLabel studentNameLabel;
-    private javax.swing.JLabel studentNameLabel1;
+    private javax.swing.JLabel studentNameValueLabel;
     private javax.swing.JButton submitButton;
     private javax.swing.JLabel topicLabel;
     // End of variables declaration//GEN-END:variables

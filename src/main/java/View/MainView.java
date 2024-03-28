@@ -120,6 +120,11 @@ public class MainView extends javax.swing.JFrame {
         l2_studentMedicalRequirement_menu.add(l3_addStudentMedicalRequirement_menuItem);
 
         l3_listStudentsMedicalRequirements_menuItem.setText("List");
+        l3_listStudentsMedicalRequirements_menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                l3_listStudentsMedicalRequirements_menuItemActionPerformed(evt);
+            }
+        });
         l2_studentMedicalRequirement_menu.add(l3_listStudentsMedicalRequirements_menuItem);
 
         l1_student_menu.add(l2_studentMedicalRequirement_menu);
@@ -446,6 +451,12 @@ public class MainView extends javax.swing.JFrame {
         StudentAssesmentExamList sae = new StudentAssesmentExamList(this);
         this.mainView_ScrollPane.setViewportView(sae);
     }//GEN-LAST:event_l2_studentPerformanceAssesment_menuItemActionPerformed
+
+    private void l3_listStudentsMedicalRequirements_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_listStudentsMedicalRequirements_menuItemActionPerformed
+        // TODO add your handling code here:
+        StudentMedicalRequirementList smrl = new StudentMedicalRequirementList(this);
+        this.mainView_ScrollPane.setViewportView(smrl);
+    }//GEN-LAST:event_l3_listStudentsMedicalRequirements_menuItemActionPerformed
 
     /**
      * @param args the command line arguments

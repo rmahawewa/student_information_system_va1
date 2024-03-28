@@ -5,9 +5,14 @@
 package Controller;
 
 import Model.StudentMedicalRequirements;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,7 +28,30 @@ public class StudentMedicalInformationController {
     }
     
     public int insert_student_medical_requirement_record(List l){
-        return 0;
+        
+        smr.setStudent_id(Integer.parseInt(l.get(0).toString()));
+        smr.setMedical_requirement_id(Integer.parseInt(l.get(1).toString()));
+        smr.setFirst_date_of_diagnose(l.get(2).toString());
+        smr.setFirst_date_of_getting_treatment(l.get(3).toString());
+        smr.setLast_date_of_getting_treatment(l.get(4).toString());
+        smr.setDetails(l.get(5).toString());
+        int i = smr.add_student_medical_requirements_record();
+        return i;
+    }
+    
+    public HashMap get_data_list(String std_name, String medical_stts){
+        HashMap<Integer, Map<Integer, String>> hm = new HashMap<Integer, Map<Integer, String>>();
+        try {
+            hm = smr.get_student_medical_info(std_name, medical_stts);
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentMedicalInformationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return hm;
+    }
+    
+    public String get_std_details_by_id(int id) throws SQLException{
+        String details = smr.get_student_medical_info_by_id(id);
+        return details;
     }
     
 }
