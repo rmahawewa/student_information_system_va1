@@ -5,6 +5,7 @@
 package View.List;
 import Controller.ExamController;
 import Controller.StudentMedicalInformationController;
+import View.Edit.EditStudentMedicalRequirement;
 import View.IndividualView.ViewExam;
 import View.IndividualView.ViewStudentMedicalRequirement;
 import View.MainView;
@@ -302,7 +303,7 @@ public class StudentMedicalRequirementList extends javax.swing.JPanel {
                 StudentMedicalInformationController ec = new StudentMedicalInformationController();
                 String details = "";
                 details = ec.get_std_details_by_id(id);
-                ViewStudentMedicalRequirement vsmr = new ViewStudentMedicalRequirement(mv);
+                EditStudentMedicalRequirement vsmr = new EditStudentMedicalRequirement(mv, id);
                 vsmr.set_student_name(student_name);
                 vsmr.set_medical_requirement(medical_status);
                 vsmr.set_first_date_of_diagnose(first_date_of_diagnose);

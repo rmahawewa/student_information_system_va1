@@ -432,7 +432,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void l2_student_oldStudentList_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_student_oldStudentList_menuItemActionPerformed
         // TODO add your handling code here:
-        OldStudentList osl = new OldStudentList();
+        OldStudentList osl = new OldStudentList(this);
         this.mainView_ScrollPane.setViewportView(osl);
     }//GEN-LAST:event_l2_student_oldStudentList_menuItemActionPerformed
 

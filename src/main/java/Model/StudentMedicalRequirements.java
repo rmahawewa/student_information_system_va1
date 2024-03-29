@@ -246,7 +246,7 @@ public class StudentMedicalRequirements {
         
         String details = "";
         
-        String query = "select details from student_medical_requirements where tudent_medical_requirement_id = ?";
+        String query = "select details from student_medical_requirements where student_medical_requirement_id = ?";
         try {
             prep = con.prepareStatement(query);
             prep.setInt(1, id);
@@ -272,6 +272,27 @@ public class StudentMedicalRequirements {
             con.close();  
         }
         return details;
+    }
+    
+    public int update_student_medical_requirement_info(){
+        PreparedStatement prep = null;
+        int i = 0;
+        
+        String query = "update student_medical_requirements set first_date_of_diagnose = ?, first_date_of_getting_treatment = ?, last_date_of_getting_treatment = ?, details = ?, record_updated_by = ?, record_updated_at = ? where student_medical_requirement_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setString(1, this.getFirst_date_of_diagnose());
+            prep.setString(2, this.getFirst_date_of_getting_treatment());
+            prep.setString(3, this.getLast_date_of_getting_treatment());
+            prep.setString(4, this.getDetails());
+            prep.setInt(5, this.record_created_or_updated_by);
+            prep.setTimestamp(6, Timestamp.valueOf(record_created_or_updated_at));
+            prep.setInt(7, this.getStudent_medical_requirement_id());
+            i = prep.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentMedicalRequirements.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return i;
     }
     
 }

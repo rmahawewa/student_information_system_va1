@@ -54,4 +54,16 @@ public class StudentMedicalInformationController {
         return details;
     }
     
+    public int update_info_by_id(List l){
+        int i = 0;
+        
+        smr.setStudent_medical_requirement_id(Integer.parseInt(l.get(0).toString()));
+        smr.setFirst_date_of_diagnose(l.get(1).toString());
+        smr.setFirst_date_of_getting_treatment(l.get(2).toString());
+        smr.setLast_date_of_getting_treatment(l.get(3).toString());
+        smr.setDetails(l.get(4).toString());
+        i = smr.update_student_medical_requirement_info();
+        return i;
+    }
+    
 }

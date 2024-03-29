@@ -212,7 +212,6 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         dateOfEntaranceValueLabel = new javax.swing.JLabel();
         gradeInyearOfEntaranceValueLabel = new javax.swing.JLabel();
         excelExportButton = new javax.swing.JButton();
-        closeFromTopButton = new javax.swing.JButton();
         currentGradeValueLabel = new javax.swing.JLabel();
         currentGradeLabel = new javax.swing.JLabel();
 
@@ -451,11 +450,6 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         excelExportButton.setForeground(new java.awt.Color(255, 255, 255));
         excelExportButton.setText("Excel");
 
-        closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
-        closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        closeFromTopButton.setForeground(new java.awt.Color(255, 255, 255));
-        closeFromTopButton.setText("X");
-
         currentGradeValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         currentGradeValueLabel.setText("current grade");
 
@@ -467,17 +461,9 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(258, 258, 258))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(excelExportButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(closeFromTopButton)
-                        .addContainerGap())))
+                .addContainerGap(264, Short.MAX_VALUE)
+                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(258, 258, 258))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -515,7 +501,9 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
                                     .addComponent(studentNameValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(topicLabel)
-                                .addGap(169, 169, 169))))
+                                .addGap(75, 75, 75)
+                                .addComponent(excelExportButton)
+                                .addGap(22, 22, 22))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 34, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -551,12 +539,10 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(closeFromTopButton)
+                    .addComponent(topicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(excelExportButton))
-                .addGap(9, 9, 9)
-                .addComponent(topicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
@@ -639,6 +625,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
         //System.out.println(nameText.getText());
+        this.mv.close_tab();
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void familyInfoViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_familyInfoViewButtonActionPerformed
@@ -652,7 +639,6 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
     private javax.swing.JLabel birthdayLabel;
     private javax.swing.JLabel birthdayValueLabel;
     private javax.swing.JButton closeButton;
-    private javax.swing.JButton closeFromTopButton;
     private javax.swing.JLabel contactNumberValueLabel;
     private javax.swing.JLabel currentGradeLabel;
     private javax.swing.JLabel currentGradeValueLabel;

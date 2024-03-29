@@ -4,20 +4,52 @@
  */
 package View.Edit;
 
-import View.Add.*;
-import View.*;
+import Controller.OldStudentController;
+import View.MainView;
+import UserLibraries.GetTimes;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author HP
  */
 public class EditOldStudentInfo extends javax.swing.JPanel {
+    
+    MainView mv;
+    int old_student_id;
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public EditOldStudentInfo() {
         initComponents();
+    }
+    
+    public EditOldStudentInfo(MainView mf, int id) {
+        initComponents();
+        this.mv = mf;
+        this.old_student_id = id;
+    }
+    
+    public void set_student_name(String student_name){
+        this.studentNameValueLabel.setText(student_name);
+    }
+    
+    public void set_left_date(String left_date){
+        String[] date = left_date.split("-");
+        String month = GetTimes.getMonthText(date[1]);
+        this.yearComboBx.setSelectedItem(date[0]);
+        this.monthComboBx.setSelectedItem(month);
+        this.dayComboBx.setSelectedItem(date[2]);
+    }
+        
+    public void set_reason(String reason){
+        this.reasonText.setText(reason);
+    }
+            
+    public void set_transferred_damma_school(String transferred_damma_school){
+        this.transferredSchoolText.setText(transferred_damma_school);
     }
 
     /**
@@ -41,7 +73,7 @@ public class EditOldStudentInfo extends javax.swing.JPanel {
         dayComboBx = new javax.swing.JComboBox<>();
         yearComboBx = new javax.swing.JComboBox<>();
         monthComboBx = new javax.swing.JComboBox<>();
-        oldeStudentNameText = new javax.swing.JTextField();
+        studentNameValueLabel = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(595, 462));
 
@@ -66,9 +98,19 @@ public class EditOldStudentInfo extends javax.swing.JPanel {
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Update");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         dayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         dayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
@@ -79,7 +121,8 @@ public class EditOldStudentInfo extends javax.swing.JPanel {
         monthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
 
-        oldeStudentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameValueLabel.setText("Student name value");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -104,29 +147,33 @@ public class EditOldStudentInfo extends javax.swing.JPanel {
                                     .addComponent(transferredDammaSchoolLabel)
                                     .addComponent(leftDateLabel)
                                     .addComponent(studentNameLabel))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(transferredSchoolText)
-                                    .addComponent(reasonText)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(yearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(21, 21, 21)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(transferredSchoolText)
+                                            .addComponent(reasonText)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(yearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(monthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(dayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(monthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(dayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(oldeStudentNameText))))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                                        .addComponent(studentNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(topicLabel)
-                .addGap(40, 40, 40)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(studentNameLabel)
-                    .addComponent(oldeStudentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(studentNameValueLabel))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -153,6 +200,37 @@ public class EditOldStudentInfo extends javax.swing.JPanel {
                 .addContainerGap(110, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        this.mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        String year = this.yearComboBx.getSelectedItem().toString();
+        String month = this.monthComboBx.getSelectedItem().toString();
+        String month_number = GetTimes.getMonthNumber(month);
+        String day = this.dayComboBx.getSelectedItem().toString();
+        String left_date = year + "-" + month_number + "-" + day;
+        String reason = reasonText.getText();
+        String transferred_d_school = this.transferredSchoolText.getText();
+        
+        List<String> l = new ArrayList<String>();
+        l.add(0, Integer.toString(this.old_student_id));
+        l.add(1, left_date);
+        l.add(2, reason);
+        l.add(3, transferred_d_school);
+        
+        OldStudentController osc = new OldStudentController();
+        int i = osc.update_old_student_info(l);
+        if(i > 0){
+            System.out.println("Old student information updated successfully");
+        }else{
+            System.out.println("Failed to update old student information. Pleasr try again");
+        }
+                
+    }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,10 +279,10 @@ public class EditOldStudentInfo extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> dayComboBx;
     private javax.swing.JLabel leftDateLabel;
     private javax.swing.JComboBox<String> monthComboBx;
-    private javax.swing.JTextField oldeStudentNameText;
     private javax.swing.JLabel reasonLabel;
     private javax.swing.JTextField reasonText;
     private javax.swing.JLabel studentNameLabel;
+    private javax.swing.JLabel studentNameValueLabel;
     private javax.swing.JButton submitButton;
     private javax.swing.JLabel topicLabel;
     private javax.swing.JLabel transferredDammaSchoolLabel;
