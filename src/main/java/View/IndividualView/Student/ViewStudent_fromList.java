@@ -4,6 +4,7 @@
  */
 package View.IndividualView.Student;
 
+import Controller.GradeController;
 import Controller.StudentController;
 import Controller.StudentFamilyMemberController;
 import View.Edit.*;
@@ -20,6 +21,10 @@ import Controller.StudentSchoolController;
 import Controller.StudentAssesmentExamController;
 import Controller.StudentGradeExamController;
 import Controller.StudentMedicalInformationController;
+import View.IndividualView.ViewSchoolInfo;
+import View.IndividualView.ViewStudentAssesmentExam;
+import View.IndividualView.ViewStudentFamilyInfo;
+import java.util.List;
 
 /**
  *
@@ -33,6 +38,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
     
     MainView mv;
     int student_id;
+    String student_name = "";
     
     public ViewStudent_fromList() {
         initComponents();
@@ -51,6 +57,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
 
     public void setName(String name){
         this.studentNameValueLabel.setText(name);
+        this.student_name = name;
     }
     
     public void setAddress(String address){
@@ -318,6 +325,11 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
 
         studentSchoolInfoViewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentSchoolInfoViewButton.setText("View information");
+        studentSchoolInfoViewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentSchoolInfoViewButtonActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Student's School Information");
@@ -350,6 +362,11 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
 
         studentAssesmentPerformanceInfoViewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentAssesmentPerformanceInfoViewButton.setText("View information");
+        studentAssesmentPerformanceInfoViewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentAssesmentPerformanceInfoViewButtonActionPerformed(evt);
+            }
+        });
 
         viewStudentForm_examPerformance_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewStudentForm_examPerformance_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -379,6 +396,11 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
 
         examPerformanceInfoViewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         examPerformanceInfoViewButton.setText("View information");
+        examPerformanceInfoViewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                examPerformanceInfoViewButtonActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Student's Exam Performance Information");
@@ -630,7 +652,85 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
 
     private void familyInfoViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_familyInfoViewButtonActionPerformed
         // TODO add your handling code here:
+        int row = viewStudentForm_studentFamily_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) viewStudentForm_studentFamily_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 3).toString());
+            StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+            List<String> l = sfmc.get_family_member_info_by_id(id);
+            ViewStudentFamilyInfo vsfi = new ViewStudentFamilyInfo(mv);
+            vsfi.set_student_name(l.get(0));
+            vsfi.set_family_member_name(l.get(1));
+            vsfi.set_relationship(l.get(2));
+            vsfi.set_nic(l.get(3));
+            vsfi.set_fm_birthday(l.get(4));            
+            vsfi.set_career(l.get(5));
+            
+            mv.add_new_component(vsfi, "Student Family Member");
+        }
     }//GEN-LAST:event_familyInfoViewButtonActionPerformed
+
+    private void studentSchoolInfoViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentSchoolInfoViewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = viewStudent_studentSchoolInformation_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) viewStudent_studentSchoolInformation_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 4).toString());
+            StudentSchoolController ssc = new StudentSchoolController();
+            List<String> l = ssc.get_student_school_information(id);
+            ViewSchoolInfo vsi = new ViewSchoolInfo(mv);
+            vsi.setSchoolName(l.get(0));
+            vsi.setSchoolAddress(l.get(1));
+            vsi.setContactNumber(l.get(2));
+            vsi.setDetails(l.get(3));
+            
+            mv.add_new_component(vsi, "Student School Information");
+        }
+    }//GEN-LAST:event_studentSchoolInfoViewButtonActionPerformed
+
+    private void studentAssesmentPerformanceInfoViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentAssesmentPerformanceInfoViewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = viewStudentTable_assesmentPerformance_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) viewStudentTable_assesmentPerformance_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 3).toString());
+            String exam = dtm.getValueAt(row, 2).toString();
+            String assesment = dtm.getValueAt(row, 1).toString();
+            StudentAssesmentExamController ssc = new StudentAssesmentExamController();
+            HashMap<Integer, String> hm = ssc.get_info_by_id(id);
+            ViewStudentAssesmentExam view = new ViewStudentAssesmentExam(mv);
+            view.set_student_name(this.student_name);
+            view.set_exam(exam);
+            view.set_assignment(assesment);
+            view.set_marks(hm.get(0));
+            view.set_remarks(hm.get(1));
+            view.set_description(hm.get(2));
+            
+            mv.add_new_component(view, "Student Exam Assesment");
+        }
+    }//GEN-LAST:event_studentAssesmentPerformanceInfoViewButtonActionPerformed
+
+    private void examPerformanceInfoViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_examPerformanceInfoViewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = viewStudentTable_assesmentPerformance_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) viewStudentTable_assesmentPerformance_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 3).toString());
+            String exam = dtm.getValueAt(row, 2).toString();
+            String assesment = dtm.getValueAt(row, 1).toString();
+            StudentAssesmentExamController ssc = new StudentAssesmentExamController();
+            HashMap<Integer, String> hm = ssc.get_info_by_id(id);
+            ViewStudentAssesmentExam view = new ViewStudentAssesmentExam(mv);
+            view.set_student_name(this.student_name);
+            view.set_exam(exam);
+            view.set_assignment(assesment);
+            view.set_marks(hm.get(0));
+            view.set_remarks(hm.get(1));
+            view.set_description(hm.get(2));
+            
+            mv.add_new_component(view, "Student Exam Assesment");
+        }
+    }//GEN-LAST:event_examPerformanceInfoViewButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

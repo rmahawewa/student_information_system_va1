@@ -5,6 +5,8 @@
 package Controller;
 
 import Model.StudentSchool;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +36,11 @@ public class StudentSchoolController {
         
         int i = ss.save_student_school_info();
         return i;
+    }
+    
+    public List get_student_school_information(int student_school_id){
+        List<String> l = ss.get_student_school_info(student_school_id);
+        return l;
     }
     
 }

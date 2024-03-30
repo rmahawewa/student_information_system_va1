@@ -4,21 +4,50 @@
  */
 package View.IndividualView;
 
-import View.Edit.*;
-import View.Add.*;
-import View.*;
+import View.MainView;
 
 /**
  *
  * @author HP
  */
 public class ViewStudentFamilyInfo extends javax.swing.JPanel {
+    
+    MainView mv;
 
     /**
      * Creates new form AddStudentFamilyInfo
      */
     public ViewStudentFamilyInfo() {
         initComponents();
+    }
+    
+    public ViewStudentFamilyInfo(MainView mf) {
+        initComponents();
+        this.mv = mf;
+    }
+    
+    public void set_student_name(String student_name){
+        this.studentNameValueLabel.setText(student_name);
+    }
+    
+    public void set_family_member_name(String family_member_name){
+        this.familyMemberNameValueLabel.setText(family_member_name);
+    }
+    
+    public void set_relationship(String relationship){
+        this.relationshipValueLabel.setText(relationship);
+    }
+    
+    public void set_fm_birthday(String fm_birthday){
+        this.birthdayValueLabel.setText(fm_birthday);
+    }
+    
+    public void set_nic(String nic){
+        this.nicValueLabel.setText(nic);
+    }
+    
+    public void set_career(String career){
+        this.careerValueLabel.setText(career);
     }
 
     /**
@@ -44,7 +73,6 @@ public class ViewStudentFamilyInfo extends javax.swing.JPanel {
         birthdayValueLabel = new javax.swing.JLabel();
         nicValueLabel = new javax.swing.JLabel();
         careerValueLabel = new javax.swing.JLabel();
-        closeFromTopButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(595, 731));
 
@@ -74,6 +102,11 @@ public class ViewStudentFamilyInfo extends javax.swing.JPanel {
 
         closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
 
         familyMemberNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         familyMemberNameValueLabel.setText("family member name");
@@ -89,16 +122,6 @@ public class ViewStudentFamilyInfo extends javax.swing.JPanel {
 
         careerValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         careerValueLabel.setText("career");
-
-        closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
-        closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        closeFromTopButton.setForeground(new java.awt.Color(255, 255, 255));
-        closeFromTopButton.setText("X");
-        closeFromTopButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeFromTopButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -127,25 +150,17 @@ public class ViewStudentFamilyInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(176, 176, 176)
-                        .addComponent(topicLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(closeFromTopButton))
+                        .addComponent(topicLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(239, 239, 239)
-                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(topicLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(closeFromTopButton)))
+                .addGap(24, 24, 24)
+                .addComponent(topicLabel)
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(studentNameLabel)
@@ -172,13 +187,14 @@ public class ViewStudentFamilyInfo extends javax.swing.JPanel {
                     .addComponent(careerValueLabel))
                 .addGap(54, 54, 54)
                 .addComponent(closeButton)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(261, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeFromTopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFromTopButtonActionPerformed
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_closeFromTopButtonActionPerformed
+        this.mv.close_tab();
+    }//GEN-LAST:event_closeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,7 +238,6 @@ public class ViewStudentFamilyInfo extends javax.swing.JPanel {
     private javax.swing.JLabel careerLabel;
     private javax.swing.JLabel careerValueLabel;
     private javax.swing.JButton closeButton;
-    private javax.swing.JButton closeFromTopButton;
     private javax.swing.JLabel familyMemberNameValueLabel;
     private javax.swing.JLabel fmemberNameLabel;
     private javax.swing.JLabel nicLabel;

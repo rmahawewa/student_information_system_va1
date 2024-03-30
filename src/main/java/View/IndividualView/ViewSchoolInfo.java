@@ -4,8 +4,6 @@
  */
 package View.IndividualView;
 
-import View.Edit.*;
-import View.Add.*;
 import View.MainView;
 
 /**

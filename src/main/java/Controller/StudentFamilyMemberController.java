@@ -34,5 +34,9 @@ public class StudentFamilyMemberController {
         return i;
     }
     
+    public List get_family_member_info_by_id(int sfm_id){
+        List<String> l = sfm.get_family_member_details_by_id(sfm_id);
+        return l;
+    }
     
 }

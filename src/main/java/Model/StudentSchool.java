@@ -13,7 +13,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -105,13 +107,13 @@ public class StudentSchool {
                 String school_name = result.getString("school.school_name");
                 String date_of_entarance = result.getString("date_of_entarance");
                 String is_currently_studing = Integer.toString(result.getInt("is_currently_studing"));
-                String date_of_leave = result.getString("is_currently_studing");
+                String date_of_leave = result.getString("date_of_leave");
                 String student_school_id = Integer.toString(result.getInt("student_school_id"));
                 
                 HashMap<Integer,String> mp = new HashMap<Integer,String>();
                 mp.put(0, school_name);
                 mp.put(1, date_of_entarance);
-                mp.put(2, is_currently_studing);
+                mp.put(2, is_currently_studing == "1"?"yes":"no");
                 mp.put(3, date_of_leave);
                 mp.put(4, student_school_id);
                 
@@ -147,6 +149,30 @@ public class StudentSchool {
         }
         
         return i;
-    }   
+    }
+    
+    public List get_student_school_info(int student_school_id){
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        List<String> l = new ArrayList<String>();
+        
+        String query = "select student_name, school_name, school_address, school_contact_number, details from student_school inner join school on student_school.school_id = school.school_id inner join student on student_school.student_id = student.student_id where student_school.student_school_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, student_school_id);
+            result = prep.executeQuery();
+            while(result.next()){
+                l.add(0, result.getString("student_name"));
+                l.add(1, result.getString("school_name"));
+                l.add(2, result.getString("school_address"));
+                l.add(3, result.getString("school_contact_number"));
+                l.add(4, result.getString("details"));                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentSchool.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return l;
+    }
     
 }

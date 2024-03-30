@@ -12,7 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -152,5 +154,30 @@ public class StudentFamilyMember {
             Logger.getLogger(StudentFamilyMember.class.getName()).log(Level.SEVERE, null, ex);
         }
         return i;
-    }    
+    }   
+    
+    public List get_family_member_details_by_id(int sfm_id){
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        List<String> l = new ArrayList<String>();
+        
+        String query = "select student_name, family_member_name, relationship, nic, career, birthday from student_family_member inner join student on student_family_member.student_id = student.student_id where sfm_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, sfm_id);
+            result = prep.executeQuery();
+            while(result.next()){
+                l.add(0, result.getString("student_name"));
+                l.add(1, result.getString("family_member_name"));
+                l.add(2, result.getString("relationship"));
+                l.add(3, result.getString("nic"));
+                l.add(4, result.getString("birthday"));
+                l.add(5, result.getString("career"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentFamilyMember.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return l;
+    }
 }
