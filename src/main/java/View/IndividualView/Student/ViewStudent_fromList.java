@@ -24,7 +24,12 @@ import Controller.StudentMedicalInformationController;
 import View.IndividualView.ViewSchoolInfo;
 import View.IndividualView.ViewStudentAssesmentExam;
 import View.IndividualView.ViewStudentFamilyInfo;
+import View.IndividualView.ViewStudentGradeExam;
+import View.IndividualView.ViewStudentMedicalRequirement;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -436,6 +441,11 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
 
         medicalStatusViewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         medicalStatusViewButton.setText("View information");
+        medicalStatusViewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                medicalStatusViewButtonActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Student's Medical Status Information");
@@ -712,25 +722,55 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
 
     private void examPerformanceInfoViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_examPerformanceInfoViewButtonActionPerformed
         // TODO add your handling code here:
-        int row = viewStudentTable_assesmentPerformance_table.getSelectedRow();
+        int row = viewStudentForm_examPerformance_table.getSelectedRow();
         if(row > -1){
-            DefaultTableModel dtm = (DefaultTableModel) viewStudentTable_assesmentPerformance_table.getModel();
-            int id = Integer.parseInt(dtm.getValueAt(row, 3).toString());
+            DefaultTableModel dtm = (DefaultTableModel) viewStudentForm_examPerformance_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 4).toString());
+            String grade = dtm.getValueAt(row, 1).toString();
             String exam = dtm.getValueAt(row, 2).toString();
-            String assesment = dtm.getValueAt(row, 1).toString();
-            StudentAssesmentExamController ssc = new StudentAssesmentExamController();
-            HashMap<Integer, String> hm = ssc.get_info_by_id(id);
-            ViewStudentAssesmentExam view = new ViewStudentAssesmentExam(mv);
+            String marks = dtm.getValueAt(row, 3).toString();
+            StudentGradeExamController sgec = new StudentGradeExamController();
+            HashMap<Integer, String> hm = sgec.get_info_by_id(id);
+            ViewStudentGradeExam view = new ViewStudentGradeExam(mv);
             view.set_student_name(this.student_name);
             view.set_exam(exam);
-            view.set_assignment(assesment);
-            view.set_marks(hm.get(0));
+            view.set_grade(grade);
+            view.set_marks(marks);
             view.set_remarks(hm.get(1));
             view.set_description(hm.get(2));
             
-            mv.add_new_component(view, "Student Exam Assesment");
+            mv.add_new_component(view, "Student Exam performance");
         }
     }//GEN-LAST:event_examPerformanceInfoViewButtonActionPerformed
+
+    private void medicalStatusViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicalStatusViewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = viewStudentForm_medicalStatus_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) viewStudentForm_medicalStatus_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 4).toString());
+            String desease = dtm.getValueAt(row, 0).toString();
+            String fdod = dtm.getValueAt(row, 1).toString();
+            String fdogt = dtm.getValueAt(row, 2).toString();
+            String ldogt = dtm.getValueAt(row, 3).toString();
+            StudentMedicalInformationController smic = new StudentMedicalInformationController();
+            try {
+                String details = smic.get_std_details_by_id(id);
+                ViewStudentMedicalRequirement view = new ViewStudentMedicalRequirement(mv);
+                view.set_student_name(this.student_name);
+                view.set_medical_requirement(desease);
+                view.set_first_date_of_diagnose(fdod);
+                view.set_first_date_of_getting_treatment(fdogt);
+                view.set_last_date_of_treatment(ldogt);
+                view.set_details(details);
+
+                mv.add_new_component(view, "Student Medical Status");
+            } catch (SQLException ex) {
+                Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }//GEN-LAST:event_medicalStatusViewButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -48,6 +48,7 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
     
     public void set_details(String details){
         this.detailsTextField.setText(details);
+        this.detailsTextField.setEditable(false);
     }
 
     /**
