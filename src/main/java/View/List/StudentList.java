@@ -21,6 +21,7 @@ import View.Add.AddStudentFamilyInfo;
 import Controller.StudentFamilyMemberController;
 import View.Add.AddOldStudentInfo;
 import View.Add.AddStudentSchoolInfo;
+import View.Edit.EditStudent;
 
 /**
  *
@@ -44,7 +45,7 @@ public class StudentList extends javax.swing.JPanel {
         this.load_table("","","",0,"");
     }
     
-   public void loadGrades(){
+    public void loadGrades(){
         GradeController gc = new GradeController();
         try {
             gradeComboBx.addItem("Select grade");
@@ -421,24 +422,20 @@ public class StudentList extends javax.swing.JPanel {
         int row = studentInformationTable.getSelectedRow();
         if(row > -1){
             DefaultTableModel dtm = (DefaultTableModel) studentInformationTable.getModel();
-            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
-            int grade = Integer.parseInt(dtm.getValueAt(row, 3).toString());
-            GradeController gc = new GradeController();
-            String grade_in_text = gc.get_grade_in_words(grade);
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());            
             StudentController sc = new StudentController();
             List<String> l = sc.get_student_details_by_id(id);
-            ViewStudent_fromList vsfl = new ViewStudent_fromList(mv, id);
-            vsfl.setName(l.get(0));
-            vsfl.setAddress(l.get(1));
-            vsfl.setBirthday(l.get(2));
-            vsfl.setContactNumber(l.get(3));
-            vsfl.setPhoto(l.get(4));
-            vsfl.setIdentityCode(l.get(5));
-            vsfl.setPassportLabel(l.get(6));
-            vsfl.setDateOfEntarance(l.get(7));
-            vsfl.setGradeInYearOfEntarance(l.get(8));
-            vsfl.setCurrentGrade(grade_in_text);
-            mv.add_new_component(vsfl, "Student Information");
+            EditStudent es = new EditStudent(mv, id);
+            es.setName(l.get(0));
+            es.setAddress(l.get(1));
+            es.setBirthday(l.get(2));
+            es.setContactNumber(l.get(3));
+            es.setPhoto(l.get(4));
+            es.setIdentityCode(l.get(5));
+            es.setPassportLabel(l.get(6));
+            es.setDateOfEntarance(l.get(7));
+            es.setGradeInYearOfEntarance(l.get(8));
+            mv.add_new_component(es, "Update Student Information");
         }
     }//GEN-LAST:event_editButtonActionPerformed
     

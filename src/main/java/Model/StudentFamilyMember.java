@@ -180,4 +180,22 @@ public class StudentFamilyMember {
         }
         return l;
     }
+    
+    public int update_student_family_member(){
+        PreparedStatement prep = null;
+        int i = 0;
+        
+        String query = "update student_family_member set birthday = ?, nic = ?, career = ? where sfm_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setString(1, this.getBirthday());
+            prep.setString(2, this.getNic());
+            prep.setString(3, this.getCareer());
+            prep.setInt(4, this.getSfm_id());
+            i = prep.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentFamilyMember.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return i;
+    }
 }

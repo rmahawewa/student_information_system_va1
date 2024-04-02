@@ -39,4 +39,13 @@ public class StudentFamilyMemberController {
         return l;
     }
     
+    public int edit_student_family_member(List l){
+        sfm.setSfm_id(Integer.parseInt(l.get(0).toString()));
+        sfm.setBirthday(l.get(1).toString());
+        sfm.setNic(l.get(2).toString());
+        sfm.setCareer(l.get(3).toString());
+        int i = sfm.update_student_family_member();
+        return i;
+    }
+    
 }

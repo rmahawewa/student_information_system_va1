@@ -373,4 +373,31 @@ public class Student {
         return i;
     }
     
+    public int update_student(){
+        PreparedStatement prep = null;
+        int i = -1;
+        String query = "update student set student_name = ?, student_address = ?, student_birthday = ?, student_contact_number = ?, student_photo_file_path = ?, student_ic = ?, student_passport_number = ?, date_of_entarance = ?, year_of_entarance = ?, grade_in_year_of_entarance = ?, record_updated_by = ?, record_updated_at = ? where student_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setString(1, this.getStudent_name());
+            prep.setString(2, this.getStudent_address());
+            prep.setString(3, this.getStudent_birthday());
+            prep.setString(4, this.getStudent_contact_number());
+            prep.setString(5, this.getStudent_photo_file_path());
+            prep.setString(6, this.getStudent_identity_code());
+            prep.setString(7, this.student_passport_number);
+            prep.setString(8, this.date_of_entarance);
+            prep.setString(9, this.year_of_entarance);
+            prep.setInt(10, Integer.parseInt(this.grade_in_year_of_entarance));
+            prep.setInt(11, this.record_created_or_updated_by);
+            prep.setTimestamp(12, Timestamp.valueOf(this.created_or_updated_at));
+            prep.setInt(13, this.getStid());
+            
+            i = prep.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return i;
+    }
+    
 }

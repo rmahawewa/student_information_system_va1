@@ -113,7 +113,7 @@ public class StudentSchool {
                 HashMap<Integer,String> mp = new HashMap<Integer,String>();
                 mp.put(0, school_name);
                 mp.put(1, date_of_entarance);
-                mp.put(2, is_currently_studing == "1"?"yes":"no");
+                mp.put(2, is_currently_studing.equals("1")?"yes":"no");
                 mp.put(3, date_of_leave);
                 mp.put(4, student_school_id);
                 
@@ -173,6 +173,24 @@ public class StudentSchool {
             Logger.getLogger(StudentSchool.class.getName()).log(Level.SEVERE, null, ex);
         }
         return l;
+    }
+    
+    public int update_student_school_info(){
+        PreparedStatement prep = null;
+        int i = 0;
+        
+        String query = "update student_school set date_of_entarance = ?, is_currently_studing = ?, date_of_leave = ? where student_school_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setString(1, this.getDate_of_entarance());
+            prep.setInt(2, this.getIs_currently_studing());
+            prep.setString(3, this.getDate_of_leave());
+            prep.setInt(4, this.getStudent_school_id());
+            i = prep.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentSchool.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return i;
     }
     
 }

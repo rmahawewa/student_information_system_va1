@@ -43,4 +43,13 @@ public class StudentSchoolController {
         return l;
     }
     
+    public int edit_student_school_info(List l){
+        ss.setStudent_school_id(Integer.parseInt(l.get(0).toString()));
+        ss.setDate_of_entarance(l.get(1).toString());
+        ss.setIs_currently_studing(Integer.parseInt(l.get(2).toString()));
+        ss.setDate_of_leave(l.get(3).toString());
+        int i = ss.update_student_school_info();
+        return i;
+    }
+    
 }
