@@ -110,4 +110,9 @@ public class StudentController {
         return b;
     }
     
+    public HashMap get_student_info_by_id(int student_id){
+        HashMap<String, String> hm = stnd.get_student_information_by_id(student_id);
+        return hm;
+    }
+    
 }

@@ -374,7 +374,7 @@ public class StudentList extends javax.swing.JPanel {
             mv.add_new_component(vsfl, "Student Information");
         }
     }//GEN-LAST:event_viewButtonActionPerformed
-
+        
     private void addFamilyMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFamilyMemberButtonActionPerformed
         // TODO add your handling code here:
         int row = studentInformationTable.getSelectedRow();

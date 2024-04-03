@@ -400,4 +400,33 @@ public class Student {
         return i;
     }
     
+    public HashMap get_student_information_by_id(int student_id){
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        HashMap<String,String> l = new HashMap<String,String>();
+        
+        String query = "select student_name, student_address, student_birthday, student_contact_number, student_photo_file_path, student_ic, student_passport_number, date_of_entarance, grade_in_year_of_entarance from student where student_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, student_id);
+            result = prep.executeQuery();
+            while(result.next()){
+                l.put("Student name:", result.getString("student_name"));
+                l.put("Student address:", result.getString("student_address"));
+                l.put("Student birthday:", result.getString("student_birthday"));
+                l.put("Student Contact number:", result.getString("student_contact_number"));
+                l.put("Student photo:", result.getString("student_photo_file_path"));
+                l.put("Student identity code:", result.getString("student_ic"));
+                l.put("Student passport number:", result.getString("student_passport_number"));
+                l.put("Date of entarance:", result.getString("date_of_entarance"));
+                l.put("Grade in year of entarance:", result.getString("grade_in_year_of_entarance"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return l;
+    }
+    
 }

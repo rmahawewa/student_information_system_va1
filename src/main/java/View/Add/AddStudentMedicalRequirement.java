@@ -386,13 +386,24 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
                 dlm.removeAllElements();
 //                l.setVisible(false);
 //                jScrollPane1.setVisible(false);
-                String[] student = name.split("-");
-                student_id = Integer.parseInt(student[0]);
+                student_id = this.getIdFromString(name);
                 System.out.println("student id: " + student_id);
             }
         }
     }//GEN-LAST:event_studentNamesListMouseClicked
 
+    private int getIdFromString(String strg){
+        int rtn = -1;
+        if(strg.charAt(0)=='-'){ return rtn; }
+        try{
+            String arr[] = strg.split("-");
+            rtn = Integer.parseInt(arr[0]);
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+        return rtn;        
+    }
+    
     private void studentNameClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentNameClearButtonActionPerformed
         // TODO add your handling code here:
         studentNameText.setEditable(true);
@@ -445,9 +456,8 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
                 dlm.removeAllElements();
 //                l.setVisible(false);
 //                jScrollPane1.setVisible(false);
-                String[] medical_requirement = name.split("-");
-                medical_requirement_id = Integer.parseInt(medical_requirement[0]);
-                System.out.println("medical requirement id: " + medical_requirement_id);
+                medical_requirement_id = this.getIdFromString(name);
+                System.out.println("medical_requirement_id: " + medical_requirement_id);
             }
         }
     }//GEN-LAST:event_medicalRequirementsListMouseClicked

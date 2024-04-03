@@ -4,6 +4,7 @@
  */
 package View.IndividualView.Student;
 
+import Controller.ExcelMaker;
 import Controller.GradeController;
 import Controller.StudentController;
 import Controller.StudentFamilyMemberController;
@@ -26,6 +27,7 @@ import View.IndividualView.ViewStudentAssesmentExam;
 import View.IndividualView.ViewStudentFamilyInfo;
 import View.IndividualView.ViewStudentGradeExam;
 import View.IndividualView.ViewStudentMedicalRequirement;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -138,13 +140,6 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         this.clearTable(viewStudentForm_medicalStatus_table);
         this.createTable(hm, viewStudentForm_medicalStatus_table);
     }
-    
-//        public void load_table(String student_name, String student_code, String medical_status,int grade, String school){
-//        StudentController sc = new StudentController();
-//        HashMap<Integer, Map<Integer,String>> mp = sc.ListStudents();
-//        this.clearTable(studentInformationTable);
-//        this.createTable(mp, studentInformationTable);
-//    }
     
     public void clearTable(JTable tbl){
     
@@ -481,6 +476,11 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         excelExportButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         excelExportButton.setForeground(new java.awt.Color(255, 255, 255));
         excelExportButton.setText("Excel");
+        excelExportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excelExportButtonActionPerformed(evt);
+            }
+        });
 
         currentGradeValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         currentGradeValueLabel.setText("current grade");
@@ -771,6 +771,30 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
             
         }
     }//GEN-LAST:event_medicalStatusViewButtonActionPerformed
+
+    private void excelExportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excelExportButtonActionPerformed
+        // TODO add your handling code here:
+        HashMap<String, String> student_info = new HashMap<String, String>();
+        HashMap<Integer, Map<String, String>> family_member_info = new HashMap<Integer, Map<String, String>>();
+        HashMap<Integer, Map<String, String>> student_school_info = new HashMap<Integer, Map<String, String>>();
+        HashMap<Integer, Map<String, String>> student_assesment_info = new HashMap<Integer, Map<String, String>>();
+        HashMap<Integer, Map<String, String>> student_exam_info = new HashMap<Integer, Map<String, String>>();
+        HashMap<Integer, Map<String, String>> student_medical_info = new HashMap<Integer, Map<String, String>>();
+        
+        StudentController sc = new StudentController();
+        student_info = sc.get_student_info_by_id(student_id);
+        
+        ExcelMaker em = new ExcelMaker();
+        boolean stts = false;
+        try {
+            stts = em.get_student_info(this.student_id,student_info);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        if(stts){System.out.println("Excel document successfully created");}
+        else{System.out.println("Failed to create the Excel file");}
+        
+    }//GEN-LAST:event_excelExportButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
