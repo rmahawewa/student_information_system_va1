@@ -17,6 +17,11 @@ import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import View.IndividualView.Student.ViewStudent_fromList;
+import View.Add.AddStudentFamilyInfo;
+import Controller.StudentFamilyMemberController;
+import View.Add.AddOldStudentInfo;
+import View.Add.AddStudentSchoolInfo;
+import View.Edit.EditStudent;
 
 /**
  *
@@ -40,7 +45,7 @@ public class StudentList extends javax.swing.JPanel {
         this.load_table("","","",0,"");
     }
     
-   public void loadGrades(){
+    public void loadGrades(){
         GradeController gc = new GradeController();
         try {
             gradeComboBx.addItem("Select grade");
@@ -166,15 +171,35 @@ public class StudentList extends javax.swing.JPanel {
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         oldStudentButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         oldStudentButton.setText("Old student");
+        oldStudentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oldStudentButtonActionPerformed(evt);
+            }
+        });
 
         addFamilyMemberButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         addFamilyMemberButton.setText("Add family member");
+        addFamilyMemberButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addFamilyMemberButtonActionPerformed(evt);
+            }
+        });
 
         addSchoolButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         addSchoolButton.setText("Add School");
+        addSchoolButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addSchoolButtonActionPerformed(evt);
+            }
+        });
 
         viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewButton.setText("View");
@@ -349,6 +374,70 @@ public class StudentList extends javax.swing.JPanel {
             mv.add_new_component(vsfl, "Student Information");
         }
     }//GEN-LAST:event_viewButtonActionPerformed
+        
+    private void addFamilyMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFamilyMemberButtonActionPerformed
+        // TODO add your handling code here:
+        int row = studentInformationTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) studentInformationTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String name = dtm.getValueAt(row, 1).toString();
+            AddStudentFamilyInfo adsfi = new AddStudentFamilyInfo(mv, id);
+            adsfi.set_student_name(name);
+            mv.add_new_component(adsfi, "Add Student Family Information");
+        }
+        
+    }//GEN-LAST:event_addFamilyMemberButtonActionPerformed
+
+    private void addSchoolButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSchoolButtonActionPerformed
+        // TODO add your handling code here:
+        int row = studentInformationTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) studentInformationTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String name = dtm.getValueAt(row, 1).toString();
+            AddStudentSchoolInfo adssi = new AddStudentSchoolInfo(mv, id);
+            adssi.set_student_name(name);
+            mv.add_new_component(adssi, "Add Student School Information");
+        }
+    }//GEN-LAST:event_addSchoolButtonActionPerformed
+
+    private void oldStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oldStudentButtonActionPerformed
+        // TODO add your handling code here:
+        
+        int row = studentInformationTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) studentInformationTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String name = dtm.getValueAt(row, 1).toString();
+            AddOldStudentInfo aosi = new AddOldStudentInfo(mv, id);
+            aosi.set_student_name(name);
+            mv.add_new_component(aosi, "Add old Student Information");
+        }
+        
+    }//GEN-LAST:event_oldStudentButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        int row = studentInformationTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) studentInformationTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());            
+            StudentController sc = new StudentController();
+            List<String> l = sc.get_student_details_by_id(id);
+            EditStudent es = new EditStudent(mv, id);
+            es.setName(l.get(0));
+            es.setAddress(l.get(1));
+            es.setBirthday(l.get(2));
+            es.setContactNumber(l.get(3));
+            es.setPhoto(l.get(4));
+            es.setIdentityCode(l.get(5));
+            es.setPassportLabel(l.get(6));
+            es.setDateOfEntarance(l.get(7));
+            es.setGradeInYearOfEntarance(l.get(8));
+            mv.add_new_component(es, "Update Student Information");
+        }
+    }//GEN-LAST:event_editButtonActionPerformed
     
     private void clearSearchContent(){
         studentNameText.setText("");

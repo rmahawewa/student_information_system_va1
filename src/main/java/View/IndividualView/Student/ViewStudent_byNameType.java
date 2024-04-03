@@ -4,20 +4,54 @@
  */
 package View.IndividualView.Student;
 
-import View.Edit.*;
-import View.Add.*;
+import Controller.StudentAssesmentExamController;
+import Controller.StudentController;
+import Controller.StudentFamilyMemberController;
+import Controller.StudentGradeExamController;
+import Controller.StudentMedicalInformationController;
+import Controller.StudentSchoolController;
+import Controller.UserController;
+import View.IndividualView.ViewSchoolInfo;
+import View.IndividualView.ViewStudentAssesmentExam;
+import View.IndividualView.ViewStudentFamilyInfo;
+import View.IndividualView.ViewStudentGradeExam;
+import View.IndividualView.ViewStudentMedicalRequirement;
+import View.MainView;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author HP
  */
 public class ViewStudent_byNameType extends javax.swing.JPanel {
+    
+    MainView mv;
+    int student_id;
+    String student_name = "";
 
     /**
      * Creates new form AddStudent
      */
     public ViewStudent_byNameType() {
         initComponents();
+    }
+    
+    public ViewStudent_byNameType(MainView mf) {
+        initComponents();
+        this.mv = mf;
     }
 
     /**
@@ -39,7 +73,6 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         photoContainerLabel = new javax.swing.JLabel();
         identityCodeLabel = new javax.swing.JLabel();
         passportNumberLabel = new javax.swing.JLabel();
-        closeButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         viewStudentForm_studentFamily_table = new javax.swing.JTable();
@@ -69,7 +102,6 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         dateOfEntaranceValueLabel = new javax.swing.JLabel();
         gradeInyearOfEntaranceValueLabel = new javax.swing.JLabel();
         excelExportButton = new javax.swing.JButton();
-        closeFromTopButton = new javax.swing.JButton();
         studentNameText = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -104,14 +136,6 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
 
         passportNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         passportNumberLabel.setText("Passport number:");
-
-        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        closeButton.setText("Close");
-        closeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeButtonActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Student's Family Information");
@@ -178,6 +202,11 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
 
         studentSchoolInfoViewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentSchoolInfoViewButton.setText("View information");
+        studentSchoolInfoViewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentSchoolInfoViewButtonActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Student's School Information");
@@ -210,6 +239,11 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
 
         studentAssesmentPerformanceInfoViewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentAssesmentPerformanceInfoViewButton.setText("View information");
+        studentAssesmentPerformanceInfoViewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentAssesmentPerformanceInfoViewButtonActionPerformed(evt);
+            }
+        });
 
         viewStudentForm_examPerformance_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewStudentForm_examPerformance_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -239,6 +273,11 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
 
         examPerformanceInfoViewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         examPerformanceInfoViewButton.setText("View information");
+        examPerformanceInfoViewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                examPerformanceInfoViewButtonActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Student's Exam Performance Information");
@@ -274,6 +313,11 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
 
         medicalStatusViewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         medicalStatusViewButton.setText("View information");
+        medicalStatusViewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                medicalStatusViewButtonActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Student's Medical Status Information");
@@ -307,17 +351,27 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         excelExportButton.setForeground(new java.awt.Color(255, 255, 255));
         excelExportButton.setText("Excel");
 
-        closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
-        closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        closeFromTopButton.setForeground(new java.awt.Color(255, 255, 255));
-        closeFromTopButton.setText("X");
-
         studentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                studentNameTextKeyReleased(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setText("clear");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         studentsNamesList.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentsNamesList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                studentsNamesListMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(studentsNamesList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -325,85 +379,77 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(excelExportButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(closeFromTopButton)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(259, 259, 259)
-                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(topicLabel)
-                        .addGap(157, 157, 157))
-                    .addComponent(medicalStatusViewButton)
-                    .addComponent(studentSchoolInfoViewButton)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(nameLabel)
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(studentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(familyInfoViewButton)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(examPerformanceInfoViewButton))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(studentAssesmentPerformanceInfoViewButton))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(medicalStatusViewButton)
+                            .addComponent(studentSchoolInfoViewButton)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(nameLabel)
+                                .addGap(31, 31, 31)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(studentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(familyInfoViewButton)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(examPerformanceInfoViewButton))
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(studentAssesmentPerformanceInfoViewButton))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(birthdayLabel)
-                                                .addComponent(addressLabel)
-                                                .addComponent(familyContactNumberLabel)
-                                                .addComponent(photoLabel)
-                                                .addComponent(identityCodeLabel)
-                                                .addComponent(passportNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(dateOfEnteranceLabel)
-                                                .addComponent(gradeInYearOfEnteranceLabel))
-                                            .addGap(31, 31, 31)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(photoContainerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(contactNumberValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
-                                                    .addComponent(birthdayValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(addressValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addComponent(identityCodeValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(passportNumberValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(dateOfEntaranceValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(gradeInyearOfEntaranceValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                        .addComponent(jLabel5)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(39, 39, 39))
+                                        .addComponent(jLabel2)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel1)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(birthdayLabel)
+                                                        .addComponent(addressLabel)
+                                                        .addComponent(familyContactNumberLabel)
+                                                        .addComponent(photoLabel)
+                                                        .addComponent(identityCodeLabel)
+                                                        .addComponent(passportNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(dateOfEnteranceLabel)
+                                                        .addComponent(gradeInYearOfEnteranceLabel))
+                                                    .addGap(31, 31, 31)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(photoContainerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                            .addComponent(contactNumberValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                                                            .addComponent(birthdayValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                            .addComponent(addressValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                        .addComponent(identityCodeValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(passportNumberValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(dateOfEntaranceValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(gradeInyearOfEntaranceValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                .addComponent(jLabel5)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(39, 39, 39))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(topicLabel)
+                        .addGap(87, 87, 87)
+                        .addComponent(excelExportButton)
+                        .addGap(37, 37, 37))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(closeFromTopButton)
+                    .addComponent(topicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(excelExportButton))
-                .addGap(9, 9, 9)
-                .addComponent(topicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
@@ -475,29 +521,339 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
                     .addComponent(medicalStatusViewButton))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(closeButton)
-                .addGap(57, 57, 57))
+                .addGap(144, 144, 144))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-        // TODO add your handling code here:
-        //System.out.println(nameText.getText());
-    }//GEN-LAST:event_closeButtonActionPerformed
-
     private void familyInfoViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_familyInfoViewButtonActionPerformed
         // TODO add your handling code here:
+        int row = viewStudentForm_studentFamily_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) viewStudentForm_studentFamily_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 3).toString());
+            StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+            List<String> l = sfmc.get_family_member_info_by_id(id);
+            ViewStudentFamilyInfo vsfi = new ViewStudentFamilyInfo(mv);
+            vsfi.set_student_name(l.get(0));
+            vsfi.set_family_member_name(l.get(1));
+            vsfi.set_relationship(l.get(2));
+            vsfi.set_nic(l.get(3));
+            vsfi.set_fm_birthday(l.get(4));            
+            vsfi.set_career(l.get(5));
+            
+            mv.add_new_component(vsfi, "Student Family Member");
+        }
     }//GEN-LAST:event_familyInfoViewButtonActionPerformed
 
+    private void studentsNamesListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentsNamesListMouseClicked
+        // TODO add your handling code here:
+        JList l = (JList) evt.getSource();
+        if(evt.getClickCount() >= 1){
+            int index = l.locationToIndex(evt.getPoint());
+            System.out.println(index);
+            if(index >= 0){
+                Object o = l.getModel().getElementAt(index);
+                System.out.println("Clicked on " + o.toString());
+                String name = o.toString();
+                studentNameText.setText(name);
+                studentNameText.setEditable(false);
+//                l.setVisible(false);
+//                jScrollPane1.setVisible(false);
+                DefaultListModel dlm = (DefaultListModel) studentsNamesList.getModel();
+                dlm.removeAllElements();
+                int std_id = this.getIdFromString(name);
+                if(std_id>0){
+                    this.student_id = std_id;
+                    StudentController sc = new StudentController();
+                    List<String> lst = sc.get_student_details_by_id(student_id);
+                    this.setName(lst.get(0));
+                    this.setAddress(lst.get(1));
+                    this.setBirthday(lst.get(2));
+                    this.setContactNumber(lst.get(3));
+                    this.setPhoto(lst.get(4));
+                    this.setIdentityCode(lst.get(5));
+                    this.setPassportLabel(lst.get(6));
+                    this.setDateOfEntarance(lst.get(7));
+                    this.setGradeInYearOfEntarance(lst.get(8));
+                    this.studentFamilyInformationTable(student_id);
+                    this.studentSchoolInformation(student_id);
+                    this.studentAssesmentPerformance(student_id);
+                    this.studentExamPerformance(student_id);
+                    this.studentMedicalStatusInformation(student_id);
+                }
+            }
+        }
+    }//GEN-LAST:event_studentsNamesListMouseClicked
 
+    DefaultListModel demoList = new DefaultListModel();
+    private void studentNameTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_studentNameTextKeyReleased
+        // TODO add your handling code here:
+        System.out.println("key released");
+        demoList.removeAllElements();
+        
+        String text = studentNameText.getText();
+        StudentController sc = new StudentController();
+        try {
+            List<String> l = sc.getStudentsByText(text);
+            if(!l.isEmpty() && l!=null){
+                for(String t : l){
+                    System.out.println("HashMap: " + l);
+                    demoList.addElement(t);
+                }
+            }else{
+                demoList.addElement("-No results found-");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(ViewStudent_byNameType.class.getName()).log(Level.SEVERE, null, ex);
+            demoList.addElement("-No results found-");
+        }
+
+        studentsNamesList.setModel(demoList);
+        jScrollPane1.setVisible(true);
+//        getContentPane().validate();
+//        getContentPane().repaint();
+//        listUserNamesList.setVisible(true);        
+    }//GEN-LAST:event_studentNameTextKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        studentNameText.setEditable(true);
+        studentNameText.setText("");
+        DefaultListModel dlm = (DefaultListModel) studentsNamesList.getModel();
+        dlm.removeAllElements();
+        this.setName("");
+        this.setAddress("");
+        this.setBirthday("");
+        this.setContactNumber("");
+        photoContainerLabel.setIcon(null);
+        this.setIdentityCode("");
+        this.setPassportLabel("");
+        this.setDateOfEntarance("");
+        this.setGradeInYearOfEntarance("");
+        this.clearTable(viewStudentForm_studentFamily_table);
+        this.clearTable(viewStudent_studentSchoolInformation_table);
+        this.clearTable(viewStudentTable_assesmentPerformance_table);
+        this.clearTable(viewStudentForm_examPerformance_table);
+        this.clearTable(viewStudentForm_medicalStatus_table);
+        this.student_id = 0;
+        this.student_name = "";
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void studentSchoolInfoViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentSchoolInfoViewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = viewStudent_studentSchoolInformation_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) viewStudent_studentSchoolInformation_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 4).toString());
+            StudentSchoolController ssc = new StudentSchoolController();
+            List<String> l = ssc.get_student_school_information(id);
+            ViewSchoolInfo vsi = new ViewSchoolInfo(mv);
+            vsi.setSchoolName(l.get(0));
+            vsi.setSchoolAddress(l.get(1));
+            vsi.setContactNumber(l.get(2));
+            vsi.setDetails(l.get(3));
+            
+            mv.add_new_component(vsi, "Student School Information");
+        }
+    }//GEN-LAST:event_studentSchoolInfoViewButtonActionPerformed
+
+    private void studentAssesmentPerformanceInfoViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentAssesmentPerformanceInfoViewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = viewStudentTable_assesmentPerformance_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) viewStudentTable_assesmentPerformance_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 3).toString());
+            String exam = dtm.getValueAt(row, 2).toString();
+            String assesment = dtm.getValueAt(row, 1).toString();
+            StudentAssesmentExamController ssc = new StudentAssesmentExamController();
+            HashMap<Integer, String> hm = ssc.get_info_by_id(id);
+            ViewStudentAssesmentExam view = new ViewStudentAssesmentExam(mv);
+            view.set_student_name(this.student_name);
+            view.set_exam(exam);
+            view.set_assignment(assesment);
+            view.set_marks(hm.get(0));
+            view.set_remarks(hm.get(1));
+            view.set_description(hm.get(2));
+            
+            mv.add_new_component(view, "Student Exam Assesment");
+        }
+    }//GEN-LAST:event_studentAssesmentPerformanceInfoViewButtonActionPerformed
+
+    private void examPerformanceInfoViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_examPerformanceInfoViewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = viewStudentForm_examPerformance_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) viewStudentForm_examPerformance_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 4).toString());
+            String grade = dtm.getValueAt(row, 1).toString();
+            String exam = dtm.getValueAt(row, 2).toString();
+            String marks = dtm.getValueAt(row, 3).toString();
+            StudentGradeExamController sgec = new StudentGradeExamController();
+            HashMap<Integer, String> hm = sgec.get_info_by_id(id);
+            ViewStudentGradeExam view = new ViewStudentGradeExam(mv);
+            view.set_student_name(this.student_name);
+            view.set_exam(exam);
+            view.set_grade(grade);
+            view.set_marks(marks);
+            view.set_remarks(hm.get(1));
+            view.set_description(hm.get(2));
+            
+            mv.add_new_component(view, "Student Exam performance");
+        }
+    }//GEN-LAST:event_examPerformanceInfoViewButtonActionPerformed
+
+    private void medicalStatusViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicalStatusViewButtonActionPerformed
+        // TODO add your handling code here:
+        int row = viewStudentForm_medicalStatus_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) viewStudentForm_medicalStatus_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 4).toString());
+            String desease = dtm.getValueAt(row, 0).toString();
+            String fdod = dtm.getValueAt(row, 1).toString();
+            String fdogt = dtm.getValueAt(row, 2).toString();
+            String ldogt = dtm.getValueAt(row, 3).toString();
+            StudentMedicalInformationController smic = new StudentMedicalInformationController();
+            try {
+                String details = smic.get_std_details_by_id(id);
+                ViewStudentMedicalRequirement view = new ViewStudentMedicalRequirement(mv);
+                view.set_student_name(this.student_name);
+                view.set_medical_requirement(desease);
+                view.set_first_date_of_diagnose(fdod);
+                view.set_first_date_of_getting_treatment(fdogt);
+                view.set_last_date_of_treatment(ldogt);
+                view.set_details(details);
+
+                mv.add_new_component(view, "Student Medical Status");
+            } catch (SQLException ex) {
+                Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }//GEN-LAST:event_medicalStatusViewButtonActionPerformed
+  
+    private int getIdFromString(String strg){
+        int rtn = -1;
+        if(strg.charAt(0)=='-'){ return rtn; }
+        try{
+            String arr[] = strg.split("-");
+            rtn = Integer.parseInt(arr[0]);
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+        return rtn;        
+    }
+
+    public void setName(String name){
+        this.student_name = name;
+    }
+    
+    public void setAddress(String address){
+        this.addressValueLabel.setText(address);
+    }
+    
+    public void setBirthday(String birthday){
+        this.birthdayValueLabel.setText(birthday);
+    }
+    
+    public void setContactNumber(String contact_number){
+        this.contactNumberValueLabel.setText(contact_number);
+    }
+    
+    public void setPhoto(String photo){
+        Image im = Toolkit.getDefaultToolkit().createImage(photo);
+        im = im.getScaledInstance(105, 135, Image.SCALE_SMOOTH);
+        ImageIcon imicn = new ImageIcon(im);
+        photoContainerLabel.setIcon(imicn);
+    }
+    
+    public void setIdentityCode(String ic){
+        this.identityCodeValueLabel.setText(ic);
+    }
+    
+    public void setPassportLabel(String psptnmb){
+        this.passportNumberValueLabel.setText(psptnmb);
+    }
+    
+    public void setDateOfEntarance(String doe){
+        this.dateOfEntaranceValueLabel.setText(doe);
+    }
+    
+    public void setGradeInYearOfEntarance(String grade){
+        this.gradeInyearOfEntaranceValueLabel.setText(grade);
+    }
+    
+//    public void setCurrentGrade(String g){
+//        this.gradeInyearOfEntaranceValueLabel1.setText(g);
+//    }
+    
+    public void studentFamilyInformationTable(int student_id){
+        StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+        HashMap<Integer, Map<Integer,String>> hm = sfmc.getStudentFamilyMembersByStudentId(student_id);
+        this.clearTable(viewStudentForm_studentFamily_table);
+        this.createTable(hm, viewStudentForm_studentFamily_table);
+    }
+    
+    public void studentSchoolInformation(int student_id){
+        StudentSchoolController ssc = new StudentSchoolController();
+        HashMap<Integer, Map<Integer,String>> hm = ssc.getStudentSchoolDetailsForStudentId(student_id);
+        this.clearTable(viewStudent_studentSchoolInformation_table);
+        this.createTable(hm, viewStudent_studentSchoolInformation_table);
+    }
+    
+    public void studentAssesmentPerformance(int student_id){
+        StudentAssesmentExamController saec = new StudentAssesmentExamController();
+        HashMap<Integer, Map<Integer,String>> hm = saec.get_student_assesment_exam_details(student_id);
+        this.clearTable(viewStudentTable_assesmentPerformance_table);
+        this.createTable(hm, viewStudentTable_assesmentPerformance_table);
+    }
+    
+    public void studentExamPerformance(int student_id){
+        StudentGradeExamController sgec = new StudentGradeExamController();
+        HashMap<Integer, Map<Integer,String>> hm = sgec.get_Info_by_student_id(student_id);
+        this.clearTable(viewStudentForm_examPerformance_table);
+        this.createTable(hm, viewStudentForm_examPerformance_table);
+    }
+    
+    public void studentMedicalStatusInformation(int student_id){
+        StudentMedicalInformationController c = new StudentMedicalInformationController();
+        HashMap<Integer, Map<Integer,String>> hm = c.get_student_medical_requirement_info(student_id);
+        this.clearTable(viewStudentForm_medicalStatus_table);
+        this.createTable(hm, viewStudentForm_medicalStatus_table);
+    }
+    
+    public void clearTable(JTable tbl){
+    
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1;i>=0;i--){
+            dtm.removeRow(i);
+        }
+    
+    }
+    
+    public void createTable(HashMap hm, JTable tbl){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
+                int hlength = hsh.size();
+                String[] tbl_data=new String[hlength];
+                hsh.forEach((k,v) -> {
+                    tbl_data[k] = v;
+                    //System.out.println("The grade value: " + v);
+                });
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;
     private javax.swing.JLabel addressValueLabel;
     private javax.swing.JLabel birthdayLabel;
     private javax.swing.JLabel birthdayValueLabel;
-    private javax.swing.JButton closeButton;
-    private javax.swing.JButton closeFromTopButton;
     private javax.swing.JLabel contactNumberValueLabel;
     private javax.swing.JLabel dateOfEntaranceValueLabel;
     private javax.swing.JLabel dateOfEnteranceLabel;

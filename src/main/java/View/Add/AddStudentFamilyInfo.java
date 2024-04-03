@@ -4,19 +4,42 @@
  */
 package View.Add;
 
-import View.*;
+import Controller.StudentController;
+import Controller.StudentFamilyMemberController;
+import View.MainView;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import UserLibraries.GetTimes;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author HP
  */
 public class AddStudentFamilyInfo extends javax.swing.JPanel {
+    
+    MainView mv;
+    int student_id;
 
     /**
      * Creates new form AddStudentFamilyInfo
      */
     public AddStudentFamilyInfo() {
         initComponents();
+    }
+    
+    public AddStudentFamilyInfo(MainView mf, int std_id) {
+        initComponents();
+        this.mv = mf;
+        this.student_id = std_id;
+        this.load_table();
+    }
+    
+    public void set_student_name(String name){
+        this.studentNameValueLabel.setText(name);
     }
 
     /**
@@ -93,9 +116,19 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         familyMembersViewTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -206,6 +239,95 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void clearForm(){
+        this.fMemberNameText.setText("");
+        this.relationshipText.setText("");
+        this.bdYearCmbBx.setSelectedItem(GetTimes.getCurrentYear());
+        this.bdMonthCmbBx.setSelectedItem(GetTimes.getCurrentMonth());
+        this.bdDayCmbBx.setSelectedItem(GetTimes.getCurrentDay());
+        this.nicText.setText("");
+        this.careerText.setText("");
+        
+    }
+    
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        String family_member_name = this.fMemberNameText.getText();
+        String relationship = this.relationshipText.getText();
+        String b_year = this.bdYearCmbBx.getSelectedItem().toString();
+        String b_month = this.bdMonthCmbBx.getSelectedItem().toString();
+        b_month = GetTimes.getMonthNumber(b_month);
+        String b_day = this.bdDayCmbBx.getSelectedItem().toString();
+        String birth_day = b_year + "-" + b_month + "-" + b_day;
+        String nic = this.nicText.getText();
+        String career = this.careerText.getText();
+        
+        if(!family_member_name.equals("") && !relationship.equals("") && !nic.equals("") && !career.equals("")){
+            List<String> l = new ArrayList<String>();
+            l.add(0, Integer.toString(student_id));
+            l.add(1, family_member_name);
+            l.add(2, relationship);
+            l.add(3, birth_day);
+            l.add(4, nic);
+            l.add(5, career);
+            StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+            int i = sfmc.add_student_family_member_information(l);
+            if(i>0){
+                System.out.println("Student family member record successfully saved");
+                this.clearForm();
+                this.load_table();
+            }else{
+                System.out.println("Failed to save the record. Please try again");
+            }
+        }else{
+            System.out.println("Please fill all the fields");
+        }      
+    }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+//        this.clearForm();
+        this.mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    public void load_table(){
+        StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+        HashMap<Integer, Map<Integer,String>> mp = sfmc.getStudentFamilyMembersByStudentId(student_id);
+        System.out.println("The student family list is: " + mp);
+        this.clearTable(familyMembersViewTable);
+        this.createTable(mp, familyMembersViewTable);
+    }
+    
+    public void clearTable(JTable tbl){
+    
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1;i>=0;i--){
+            dtm.removeRow(i);
+        }
+    
+    }
+    
+    public void createTable(HashMap hm, JTable tbl){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
+//                int hlength = hsh.size();
+                String[] tbl_data=new String[2];
+//                hsh.forEach((k,v) -> {
+//                    tbl_data[k] = v;
+//                    //System.out.println("The grade value: " + v);
+//                });
+                tbl_data[0] = hsh.get(1);
+                tbl_data[1] = hsh.get(0);
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
+    } 
+    
     /**
      * @param args the command line arguments
      */

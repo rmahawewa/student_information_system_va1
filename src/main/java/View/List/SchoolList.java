@@ -4,17 +4,43 @@
  */
 package View.List;
 
+import Controller.SchoolController;
+import Controller.StudentGradeExamController;
+import View.Edit.EditSchoolInfo;
+import View.IndividualView.ViewSchoolInfo;
+import View.IndividualView.ViewStudentGradeExam;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import View.MainView;
+
 /**
  *
  * @author HP
  */
 public class SchoolList extends javax.swing.JPanel {
+    
+    MainView mv;
 
     /**
      * Creates new form ExamList
      */
     public SchoolList() {
         initComponents();
+    }
+    
+    public SchoolList(MainView mf) {
+        initComponents();
+        this.mv = mf;
+        try {
+            this.loadTable("");
+        } catch (SQLException ex) {
+            Logger.getLogger(SchoolList.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -46,9 +72,19 @@ public class SchoolList extends javax.swing.JPanel {
 
         searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
         viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewButton.setText("View");
@@ -60,6 +96,11 @@ public class SchoolList extends javax.swing.JPanel {
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         schoolTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         schoolTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -139,8 +180,108 @@ public class SchoolList extends javax.swing.JPanel {
 
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
         // TODO add your handling code here:
+        int row = schoolTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) schoolTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String school_name = dtm.getValueAt(row, 1).toString();
+            String address = dtm.getValueAt(row, 2).toString();
+            String contact_number = dtm.getValueAt(row, 3).toString();
+
+            SchoolController sc = new SchoolController();
+            String school_details = sc.get_school_info_by_id(id);
+            
+            ViewSchoolInfo form = new ViewSchoolInfo(mv);
+            form.setSchoolName(school_name);
+            form.setSchoolAddress(address);
+            form.setContactNumber(contact_number);
+            form.setDetails(school_details);
+            mv.add_new_component(form, "School info");
+        }
     }//GEN-LAST:event_viewButtonActionPerformed
 
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // TODO add your handling code here:
+        String school_name = schoolNameText.getText();
+        try {
+            this.loadTable(school_name);
+        } catch (SQLException ex) {
+            Logger.getLogger(SchoolList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+        schoolNameText.setText("");
+        try {
+            this.loadTable("");
+        } catch (SQLException ex) {
+            Logger.getLogger(SchoolList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        int row = schoolTable.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) schoolTable.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 0).toString());
+            String school_name = dtm.getValueAt(row, 1).toString();
+            String address = dtm.getValueAt(row, 2).toString();
+            String contact_number = dtm.getValueAt(row, 3).toString();
+
+            SchoolController sc = new SchoolController();
+            String school_details = sc.get_school_info_by_id(id);
+            
+            EditSchoolInfo form = new EditSchoolInfo(mv,id);
+            form.setSchoolName(school_name);
+            form.setSchoolAddress(address);
+            form.setContactNumber(contact_number);
+            form.setDetails(school_details);
+            mv.add_new_component(form, "Update School info");
+        }
+    }//GEN-LAST:event_editButtonActionPerformed
+
+    public void loadTable(String school) throws SQLException{
+        try{
+            this.clearTable(schoolTable);
+            SchoolController schl = new SchoolController();
+            HashMap<Integer, Map<Integer, String>> hm = schl.get_school_list(school);
+            this.createTable(hm, schoolTable);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+    }
+    
+    public void clearTable(JTable tbl){
+    
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1;i>=0;i--){
+            dtm.removeRow(i);
+        }
+    
+    }
+    
+    public void createTable(HashMap hm, JTable tbl){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
+                int hlength = hsh.size();
+                String[] tbl_data=new String[hlength];
+                hsh.forEach((k,v) -> {
+                    tbl_data[k] = v;
+                    //System.out.println("The grade value: " + v);
+                });
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearButton;

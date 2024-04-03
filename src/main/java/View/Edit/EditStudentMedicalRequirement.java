@@ -4,20 +4,68 @@
  */
 package View.Edit;
 
-import View.Add.*;
-import View.*;
+import View.MainView;
+import UserLibraries.GetTimes;
+import java.util.ArrayList;
+import java.util.List;
+import Controller.StudentMedicalInformationController;
 
 /**
  *
  * @author HP
  */
 public class EditStudentMedicalRequirement extends javax.swing.JPanel {
+    
+    MainView mv;
+    int stdnt_med_req_id;
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public EditStudentMedicalRequirement() {
         initComponents();
+    }
+    
+    public EditStudentMedicalRequirement(MainView mf, int id) {
+        initComponents();
+        this.mv = mf;
+        this.stdnt_med_req_id = id;
+    }
+    
+    public void set_student_name(String student_name){
+        this.studentNameValueLabel.setText(student_name);
+    }
+    
+    public void set_medical_requirement(String medical_requirement){
+        this.medicalRequirementValueLabel.setText(medical_requirement);
+    }
+    
+    public void set_first_date_of_diagnose(String first_date_of_diagnose){
+        String[] d = first_date_of_diagnose.split("-");
+        String month = GetTimes.getMonthText(d[1]);
+        this.fdodYearComboBx.setSelectedItem(d[0]);
+        this.fdodMonthComboBx.setSelectedItem(month);
+        this.fdodDayComboBx.setSelectedItem(d[2]);
+    }
+    
+    public void set_first_date_of_getting_treatment(String first_date_of_treatment){
+        String[] d = first_date_of_treatment.split("-");
+        String month = GetTimes.getMonthText(d[1]);
+        this.fdotYearComboBx.setSelectedItem(d[0]);
+        this.fdotMonthComboBx.setSelectedItem(month);
+        this.fdotDayComboBx.setSelectedItem(d[2]);
+    }
+    
+    public void set_last_date_of_treatment(String last_date_of_treatment){
+        String[] d = last_date_of_treatment.split("-");
+        String month = GetTimes.getMonthText(d[1]);
+        this.ldotYearComboBx.setSelectedItem(d[0]);
+        this.ldotMonthComboBx.setSelectedItem(month);
+        this.ldotDayComboBx.setSelectedItem(d[2]);
+    }
+    
+    public void set_details(String details){
+        this.detailsTextField.setText(details);
     }
 
     /**
@@ -39,7 +87,7 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
         fdotYearComboBx = new javax.swing.JComboBox<>();
         fdotMonthComboBx = new javax.swing.JComboBox<>();
         medicalRequirementLabel = new javax.swing.JLabel();
-        fdofDayComboBx = new javax.swing.JComboBox<>();
+        fdodDayComboBx = new javax.swing.JComboBox<>();
         fdodYearComboBx = new javax.swing.JComboBox<>();
         fdodMonthComboBx = new javax.swing.JComboBox<>();
         firstDateOfDiagnoseLabel = new javax.swing.JLabel();
@@ -48,8 +96,8 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
         ldotMonthComboBx = new javax.swing.JComboBox<>();
         lastDateOfTraetementLabel = new javax.swing.JLabel();
         detailsTextField = new javax.swing.JTextField();
-        studentNameLabel1 = new javax.swing.JLabel();
-        medicalRequirementLabel1 = new javax.swing.JLabel();
+        studentNameValueLabel = new javax.swing.JLabel();
+        medicalRequirementValueLabel = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topicLabel.setText("Edit Student Medical Requirement Information");
@@ -65,9 +113,19 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Update");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cancelButton.setText("Cancel");
+        cancelButton.setText("Close");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         fdotDayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         fdotDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
@@ -81,8 +139,8 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
         medicalRequirementLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         medicalRequirementLabel.setText("Medical Requirement:");
 
-        fdofDayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        fdofDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        fdodDayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fdodDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         fdodYearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         fdodYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
@@ -111,11 +169,11 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
             }
         });
 
-        studentNameLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        studentNameLabel1.setText("student name value");
+        studentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameValueLabel.setText("student name value");
 
-        medicalRequirementLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        medicalRequirementLabel1.setText("medical requirement value");
+        medicalRequirementValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalRequirementValueLabel.setText("medical requirement value");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -146,7 +204,7 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
                                     .addComponent(fdotMonthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(20, 20, 20)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(fdofDayComboBx, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(fdodDayComboBx, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(fdotDayComboBx, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(ldotMonthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -158,8 +216,8 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
                             .addComponent(medicalRequirementLabel))
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(medicalRequirementLabel1)
-                            .addComponent(studentNameLabel1))))
+                            .addComponent(medicalRequirementValueLabel)
+                            .addComponent(studentNameValueLabel))))
                 .addContainerGap(32, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -181,16 +239,16 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(studentNameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(studentNameLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(studentNameValueLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(medicalRequirementLabel)
-                    .addComponent(medicalRequirementLabel1))
+                    .addComponent(medicalRequirementValueLabel))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fdodYearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fdodMonthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fdofDayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fdodDayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(firstDateOfDiagnoseLabel))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -219,6 +277,48 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
     private void detailsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_detailsTextFieldActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        this.mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        String y_fdod = this.fdodYearComboBx.getSelectedItem().toString();
+        String m_fdod = this.fdodMonthComboBx.getSelectedItem().toString();
+        String m_fdod_i = GetTimes.getMonthNumber(m_fdod);
+        String d_fdod = this.fdodDayComboBx.getSelectedItem().toString();
+        String y_fdgt = this.fdotYearComboBx.getSelectedItem().toString();
+        String m_fdgt = this.fdotMonthComboBx.getSelectedItem().toString();
+        String m_fdgt_i = GetTimes.getMonthNumber(m_fdgt);
+        String d_fdgt = this.fdotDayComboBx.getSelectedItem().toString();
+        String y_ldgt = this.ldotYearComboBx.getSelectedItem().toString();
+        String m_ldgt = this.ldotMonthComboBx.getSelectedItem().toString();
+        String m_ldgt_i = GetTimes.getMonthNumber(m_ldgt);
+        String d_ldgt = this.ldotDayComboBx.getSelectedItem().toString();
+        String fdod = y_fdod + "-" + m_fdod_i + "-" + d_fdod;
+        String fdgt = y_fdgt + "-" + m_fdgt_i + "-" + d_fdgt;
+        String ldgt = y_ldgt + "-" + m_ldgt_i + "-" + d_ldgt;
+        String details = this.detailsTextField.getText();
+        
+        List<String> l = new ArrayList<String>();
+        l.add(0, Integer.toString(this.stdnt_med_req_id));
+        l.add(1, fdod);
+        l.add(2, fdgt);
+        l.add(3, ldgt);
+        l.add(4, details);
+        
+        StudentMedicalInformationController smic = new StudentMedicalInformationController();
+        int i = smic.update_info_by_id(l);
+        
+        if(i > 0){
+            System.out.println("Student medical status record successfully updated");
+        }else{
+            System.out.println("Failed to update the Student medical status record. Please try again");
+        }
+        
+    }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,9 +374,9 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel detailsLabel;
     private javax.swing.JTextField detailsTextField;
+    private javax.swing.JComboBox<String> fdodDayComboBx;
     private javax.swing.JComboBox<String> fdodMonthComboBx;
     private javax.swing.JComboBox<String> fdodYearComboBx;
-    private javax.swing.JComboBox<String> fdofDayComboBx;
     private javax.swing.JComboBox<String> fdotDayComboBx;
     private javax.swing.JComboBox<String> fdotMonthComboBx;
     private javax.swing.JComboBox<String> fdotYearComboBx;
@@ -287,9 +387,9 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> ldotMonthComboBx;
     private javax.swing.JComboBox<String> ldotYearComboBx;
     private javax.swing.JLabel medicalRequirementLabel;
-    private javax.swing.JLabel medicalRequirementLabel1;
+    private javax.swing.JLabel medicalRequirementValueLabel;
     private javax.swing.JLabel studentNameLabel;
-    private javax.swing.JLabel studentNameLabel1;
+    private javax.swing.JLabel studentNameValueLabel;
     private javax.swing.JButton submitButton;
     private javax.swing.JLabel topicLabel;
     // End of variables declaration//GEN-END:variables

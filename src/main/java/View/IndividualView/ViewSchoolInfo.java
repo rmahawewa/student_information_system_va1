@@ -4,21 +4,42 @@
  */
 package View.IndividualView;
 
-import View.Edit.*;
-import View.Add.*;
-import View.*;
+import View.MainView;
 
 /**
  *
  * @author HP
  */
 public class ViewSchoolInfo extends javax.swing.JPanel {
+    
+    MainView mv;
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public ViewSchoolInfo() {
         initComponents();
+    }
+    
+    public ViewSchoolInfo(MainView mf) {
+        initComponents();
+        this.mv = mf;
+    }
+    
+    public void setSchoolName(String school_name){
+        schoolNameValueLabel.setText(school_name);
+    }
+    
+    public void setSchoolAddress(String school_address){
+        addressValueLabel.setText(school_address);
+    }
+    
+    public void setContactNumber(String contact_number){
+        contactNumberValueLabel.setText(contact_number);
+    }
+    
+    public void setDetails(String details){
+        detailsValueLabel.setText(details);
     }
 
     /**
@@ -40,7 +61,6 @@ public class ViewSchoolInfo extends javax.swing.JPanel {
         addressValueLabel = new javax.swing.JLabel();
         detailsValueLabel = new javax.swing.JLabel();
         contactNumberValueLabel = new javax.swing.JLabel();
-        closeFromTopButton = new javax.swing.JButton();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topicLabel.setText("School Information");
@@ -59,6 +79,11 @@ public class ViewSchoolInfo extends javax.swing.JPanel {
 
         closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
 
         schoolNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         schoolNameValueLabel.setText("school name");
@@ -71,16 +96,6 @@ public class ViewSchoolInfo extends javax.swing.JPanel {
 
         contactNumberValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         contactNumberValueLabel.setText("contact number");
-
-        closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
-        closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        closeFromTopButton.setForeground(new java.awt.Color(255, 255, 255));
-        closeFromTopButton.setText("X");
-        closeFromTopButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeFromTopButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -95,18 +110,12 @@ public class ViewSchoolInfo extends javax.swing.JPanel {
                     .addComponent(detailsLabel))
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(topicLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(closeFromTopButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addressValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(schoolNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(detailsValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(contactNumberValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 50, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(topicLabel)
+                    .addComponent(addressValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(schoolNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(detailsValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contactNumberValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(56, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -115,13 +124,8 @@ public class ViewSchoolInfo extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(closeFromTopButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(topicLabel)))
+                .addGap(28, 28, 28)
+                .addComponent(topicLabel)
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(schoolNameLabel)
@@ -146,9 +150,10 @@ public class ViewSchoolInfo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeFromTopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFromTopButtonActionPerformed
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_closeFromTopButtonActionPerformed
+        mv.close_tab();
+    }//GEN-LAST:event_closeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,7 +197,6 @@ public class ViewSchoolInfo extends javax.swing.JPanel {
     private javax.swing.JLabel addressLabel;
     private javax.swing.JLabel addressValueLabel;
     private javax.swing.JButton closeButton;
-    private javax.swing.JButton closeFromTopButton;
     private javax.swing.JLabel contactNumberLabel;
     private javax.swing.JLabel contactNumberValueLabel;
     private javax.swing.JLabel detailsLabel;

@@ -4,22 +4,58 @@
  */
 package View.Edit;
 
-import View.Add.*;
-import View.*;
+import Controller.StudentFamilyMemberController;
+import UserLibraries.GetTimes;
+import View.MainView;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author HP
  */
 public class EditStudentFamilyInfo extends javax.swing.JPanel {
+    
+    MainView mv;
+    int student_family_member_id;
 
     /**
      * Creates new form AddStudentFamilyInfo
      */
-    public EditStudentFamilyInfo() {
+    public EditStudentFamilyInfo(MainView mf, int sfmid) {
         initComponents();
+        this.mv = mf;
+        this.student_family_member_id = sfmid;
     }
 
+    public void set_student_name(String student_name){
+        this.studentNameValueLabel.setText(student_name);
+    }
+    
+    public void set_family_member_name(String family_member_name){
+        this.familyMemberNameValueLabel.setText(family_member_name);
+    }
+    
+    public void set_relationship(String relationship){
+        this.relationshipValueLabel.setText(relationship);
+    }
+    
+    public void set_fm_birthday(String fm_birthday){
+        String[] bd = fm_birthday.split("-");
+        String month = GetTimes.getMonthText(bd[1]);
+        this.bdYearCmbBx.setSelectedItem(bd[0]);
+        this.bdMonthCmbBx.setSelectedItem(month);
+        this.bdDayCmbBx.setSelectedItem(bd[2]);
+    }
+    
+    public void set_nic(String nic){
+        this.nicText.setText(nic);
+    }
+    
+    public void set_career(String career){
+        this.careerText.setText(career);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -88,9 +124,19 @@ public class EditStudentFamilyInfo extends javax.swing.JPanel {
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         familyMemberNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         familyMemberNameValueLabel.setText("family member name");
@@ -174,6 +220,35 @@ public class EditStudentFamilyInfo extends javax.swing.JPanel {
                 .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        String bd_year = this.bdYearCmbBx.getSelectedItem().toString();
+        String bd_m = this.bdMonthCmbBx.getSelectedItem().toString();
+        String bd_month = GetTimes.getMonthNumber(bd_m);
+        String bd_day = this.bdDayCmbBx.getSelectedItem().toString();
+        String birthday = bd_year + "-" + bd_month + "-" + bd_day;
+        String nic = this.nicText.getText();
+        String career = this.careerText.getText();
+        List<String> l = new ArrayList<String>();
+        l.add(0, Integer.toString(this.student_family_member_id));
+        l.add(1, birthday);
+        l.add(2, nic);
+        l.add(3, career);
+        StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+        int i = sfmc.edit_student_family_member(l);
+        if(i > 0){
+            System.out.println("Student family member record successfully updated");
+        }else{
+            System.out.println("Failed to update the student family member record. Please try again");
+        }
+        
+    }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        this.mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments

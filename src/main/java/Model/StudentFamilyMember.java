@@ -10,8 +10,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,7 +31,7 @@ public class StudentFamilyMember {
     private String family_member_name;
     private String nic;
     private String career;
-    private String age;
+    private String birthday;
     private LocalDateTime record_created_or_updated_at = LocalDateTime.now();
     private int record_created_or_updated_by = LoggedInUser.getLogged_in_user();
     
@@ -87,12 +90,12 @@ public class StudentFamilyMember {
         this.career = career;
     }
 
-    public String getAge() {
-        return age;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
     
     public HashMap get_student_family_member_details(int student_id){
@@ -130,4 +133,69 @@ public class StudentFamilyMember {
         return hm;
     }
     
+    public int add_student_family_member_information(){
+        int i = 0;
+        PreparedStatement prep = null;    
+        
+        String query = "insert into student_family_member (student_id, family_member_name, relationship, birthday, nic, career, record_created_by, record_created_at) values (?,?,?,?,?,?,?,?)";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, this.getStudent_id());
+            prep.setString(2, this.getFamily_member_name());
+            prep.setString(3, this.getRelationship());
+            prep.setString(4, this.getBirthday());
+            prep.setString(5, this.getNic());
+            prep.setString(6, this.getCareer());
+            prep.setInt(7, this.record_created_or_updated_by);
+            prep.setTimestamp(8, Timestamp.valueOf(record_created_or_updated_at));
+            
+            i = prep.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentFamilyMember.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return i;
+    }   
+    
+    public List get_family_member_details_by_id(int sfm_id){
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        List<String> l = new ArrayList<String>();
+        
+        String query = "select student_name, family_member_name, relationship, nic, career, birthday from student_family_member inner join student on student_family_member.student_id = student.student_id where sfm_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, sfm_id);
+            result = prep.executeQuery();
+            while(result.next()){
+                l.add(0, result.getString("student_name"));
+                l.add(1, result.getString("family_member_name"));
+                l.add(2, result.getString("relationship"));
+                l.add(3, result.getString("nic"));
+                l.add(4, result.getString("birthday"));
+                l.add(5, result.getString("career"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentFamilyMember.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return l;
+    }
+    
+    public int update_student_family_member(){
+        PreparedStatement prep = null;
+        int i = 0;
+        
+        String query = "update student_family_member set birthday = ?, nic = ?, career = ? where sfm_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setString(1, this.getBirthday());
+            prep.setString(2, this.getNic());
+            prep.setString(3, this.getCareer());
+            prep.setInt(4, this.getSfm_id());
+            i = prep.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentFamilyMember.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return i;
+    }
 }

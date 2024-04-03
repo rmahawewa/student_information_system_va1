@@ -4,7 +4,10 @@
  */
 package View.Add;
 
-import View.*;
+//import View.MainView;
+import java.util.ArrayList;
+import java.util.List;
+import Controller.SchoolController;
 
 /**
  *
@@ -65,9 +68,19 @@ public class AddSchoolInfo extends javax.swing.JPanel {
 
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -133,6 +146,40 @@ public class AddSchoolInfo extends javax.swing.JPanel {
                 .addGap(36, 36, 36))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        String school = schoolNameText.getText();
+        String address = addressText.getText();
+        String contact_number = contactNumberText.getText();
+        String details = detailsText.getText();
+        
+        List<String> school_details = new ArrayList<String>();
+        school_details.add(0, school);
+        school_details.add(1, address);
+        school_details.add(2, contact_number);
+        school_details.add(3, details);
+        
+        SchoolController sc = new SchoolController();
+        int i = sc.insert_school_record(school_details);
+        if(i > 0){
+            System.out.println("Record successfully inserted");
+            schoolNameText.setText("");
+            addressText.setText("");
+            contactNumberText.setText("");
+            detailsText.setText("");
+        }else{
+            System.out.println("Failed to insert the record. Please try again");
+        }
+    }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        schoolNameText.setText("");
+        addressText.setText("");
+        contactNumberText.setText("");
+        detailsText.setText("");
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments

@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import UserLibraries.CloseActionHandler;
+import View.IndividualView.Student.ViewStudent_byNameType;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -107,6 +108,11 @@ public class MainView extends javax.swing.JFrame {
         l1_student_menu.add(l2_listStudents_menuItem);
 
         l2_viewStudent_menuItem.setText("View");
+        l2_viewStudent_menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                l2_viewStudent_menuItemActionPerformed(evt);
+            }
+        });
         l1_student_menu.add(l2_viewStudent_menuItem);
 
         l2_studentMedicalRequirement_menu.setText("Medical Requirements");
@@ -120,6 +126,11 @@ public class MainView extends javax.swing.JFrame {
         l2_studentMedicalRequirement_menu.add(l3_addStudentMedicalRequirement_menuItem);
 
         l3_listStudentsMedicalRequirements_menuItem.setText("List");
+        l3_listStudentsMedicalRequirements_menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                l3_listStudentsMedicalRequirements_menuItemActionPerformed(evt);
+            }
+        });
         l2_studentMedicalRequirement_menu.add(l3_listStudentsMedicalRequirements_menuItem);
 
         l1_student_menu.add(l2_studentMedicalRequirement_menu);
@@ -332,6 +343,9 @@ public class MainView extends javax.swing.JFrame {
     
     private void l3_addStudentMedicalRequirement_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_addStudentMedicalRequirement_menuItemActionPerformed
         // TODO add your handling code here:
+        AddStudentMedicalRequirement asmr = new AddStudentMedicalRequirement(this);
+        this.mainView_ScrollPane.setViewportView(asmr);
+        
     }//GEN-LAST:event_l3_addStudentMedicalRequirement_menuItemActionPerformed
 
     private void l2_listExamForGrades_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listExamForGrades_menuItemActionPerformed
@@ -372,7 +386,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void l2_addMedicalRequirement_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_addMedicalRequirement_menuItemActionPerformed
         // TODO add your handling code here:
-        AddMedicalRequirements amrs = new AddMedicalRequirements();
+        AddMedicalRequirements amrs = new AddMedicalRequirements(this);
         this.mainView_ScrollPane.setViewportView(amrs);
     }//GEN-LAST:event_l2_addMedicalRequirement_menuItemActionPerformed
 
@@ -412,7 +426,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void l2_listSchools_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_listSchools_menuItemActionPerformed
         // TODO add your handling code here:
-        SchoolList sl = new SchoolList();
+        SchoolList sl = new SchoolList(this);
         this.mainView_ScrollPane.setViewportView(sl);
     }//GEN-LAST:event_l2_listSchools_menuItemActionPerformed
 
@@ -424,7 +438,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void l2_student_oldStudentList_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_student_oldStudentList_menuItemActionPerformed
         // TODO add your handling code here:
-        OldStudentList osl = new OldStudentList();
+        OldStudentList osl = new OldStudentList(this);
         this.mainView_ScrollPane.setViewportView(osl);
     }//GEN-LAST:event_l2_student_oldStudentList_menuItemActionPerformed
 
@@ -443,6 +457,18 @@ public class MainView extends javax.swing.JFrame {
         StudentAssesmentExamList sae = new StudentAssesmentExamList(this);
         this.mainView_ScrollPane.setViewportView(sae);
     }//GEN-LAST:event_l2_studentPerformanceAssesment_menuItemActionPerformed
+
+    private void l3_listStudentsMedicalRequirements_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l3_listStudentsMedicalRequirements_menuItemActionPerformed
+        // TODO add your handling code here:
+        StudentMedicalRequirementList smrl = new StudentMedicalRequirementList(this);
+        this.mainView_ScrollPane.setViewportView(smrl);
+    }//GEN-LAST:event_l3_listStudentsMedicalRequirements_menuItemActionPerformed
+
+    private void l2_viewStudent_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_viewStudent_menuItemActionPerformed
+        // TODO add your handling code here:
+        ViewStudent_byNameType vsbnt = new ViewStudent_byNameType(this);
+        this.mainView_ScrollPane.setViewportView(vsbnt);
+    }//GEN-LAST:event_l2_viewStudent_menuItemActionPerformed
 
     /**
      * @param args the command line arguments

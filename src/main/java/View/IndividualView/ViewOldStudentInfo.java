@@ -4,21 +4,42 @@
  */
 package View.IndividualView;
 
-import View.Edit.*;
-import View.Add.*;
-import View.*;
+import View.MainView;
 
 /**
  *
  * @author HP
  */
 public class ViewOldStudentInfo extends javax.swing.JPanel {
+    
+    MainView mv;
 
     /**
      * Creates new form AddStudentSchoolInfo
      */
     public ViewOldStudentInfo() {
         initComponents();
+    }
+    
+    public ViewOldStudentInfo(MainView mf) {
+        initComponents();
+        this.mv = mf;
+    }
+    
+    public void set_student_name(String student_name){
+        this.student_name_value_label.setText(student_name);
+    }
+    
+    public void set_left_date(String left_date){
+        this.left_date_value_label.setText(left_date);
+    }
+        
+    public void set_reason(String reason){
+        this.reason_value_label.setText(reason);
+    }
+            
+    public void set_transferred_damma_school(String transferred_damma_school){
+        this.transferred_damma_school_value_label.setText(transferred_damma_school);
     }
 
     /**
@@ -36,11 +57,10 @@ public class ViewOldStudentInfo extends javax.swing.JPanel {
         reasonLabel = new javax.swing.JLabel();
         transferredDammaSchoolLabel = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        closeFromTopButton = new javax.swing.JButton();
+        transferred_damma_school_value_label = new javax.swing.JLabel();
+        reason_value_label = new javax.swing.JLabel();
+        left_date_value_label = new javax.swing.JLabel();
+        student_name_value_label = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(595, 462));
 
@@ -61,55 +81,47 @@ public class ViewOldStudentInfo extends javax.swing.JPanel {
 
         closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         closeButton.setText("Close");
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("transferred damma school");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("reason");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("left date");
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("student name");
-
-        closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
-        closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        closeFromTopButton.setForeground(new java.awt.Color(255, 255, 255));
-        closeFromTopButton.setText("X");
-        closeFromTopButton.addActionListener(new java.awt.event.ActionListener() {
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeFromTopButtonActionPerformed(evt);
+                closeButtonActionPerformed(evt);
             }
         });
+
+        transferred_damma_school_value_label.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        transferred_damma_school_value_label.setText("transferred damma school");
+
+        reason_value_label.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        reason_value_label.setText("reason");
+
+        left_date_value_label.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        left_date_value_label.setText("left date");
+
+        student_name_value_label.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        student_name_value_label.setText("student name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(191, Short.MAX_VALUE)
-                        .addComponent(topicLabel)
-                        .addGap(159, 159, 159)
-                        .addComponent(closeFromTopButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(reasonLabel)
-                            .addComponent(transferredDammaSchoolLabel)
-                            .addComponent(leftDateLabel)
-                            .addComponent(studentNameLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap(191, Short.MAX_VALUE)
+                    .addComponent(topicLabel)
+                    .addGap(192, 192, 192))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(31, 31, 31)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(reasonLabel)
+                        .addComponent(transferredDammaSchoolLabel)
+                        .addComponent(leftDateLabel)
+                        .addComponent(studentNameLabel))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(reason_value_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(left_date_value_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(student_name_value_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(transferred_damma_school_value_label, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createSequentialGroup()
                 .addGap(243, 243, 243)
                 .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -118,40 +130,36 @@ public class ViewOldStudentInfo extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(closeFromTopButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(topicLabel)))
+                .addGap(23, 23, 23)
+                .addComponent(topicLabel)
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(studentNameLabel)
-                    .addComponent(jLabel4))
+                    .addComponent(student_name_value_label))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(leftDateLabel)
-                    .addComponent(jLabel3))
+                    .addComponent(left_date_value_label))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(reasonLabel)
-                        .addComponent(jLabel2))
+                        .addComponent(reason_value_label))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(transferredDammaSchoolLabel)
-                            .addComponent(jLabel1))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                            .addComponent(transferred_damma_school_value_label))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(closeButton)
                 .addGap(56, 56, 56))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeFromTopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFromTopButtonActionPerformed
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_closeFromTopButtonActionPerformed
+        this.mv.close_tab();
+    }//GEN-LAST:event_closeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,15 +205,14 @@ public class ViewOldStudentInfo extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
-    private javax.swing.JButton closeFromTopButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel leftDateLabel;
+    private javax.swing.JLabel left_date_value_label;
     private javax.swing.JLabel reasonLabel;
+    private javax.swing.JLabel reason_value_label;
     private javax.swing.JLabel studentNameLabel;
+    private javax.swing.JLabel student_name_value_label;
     private javax.swing.JLabel topicLabel;
     private javax.swing.JLabel transferredDammaSchoolLabel;
+    private javax.swing.JLabel transferred_damma_school_value_label;
     // End of variables declaration//GEN-END:variables
 }

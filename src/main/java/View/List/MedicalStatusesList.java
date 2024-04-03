@@ -4,6 +4,12 @@
  */
 package View.List;
 
+import Controller.MedicalRequirementController;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author HP
@@ -15,6 +21,26 @@ public class MedicalStatusesList extends javax.swing.JPanel {
      */
     public MedicalStatusesList() {
         initComponents();
+        this.load_table(medicalStatusesTable);
+    }
+    
+    private void load_table(JTable table){
+        MedicalRequirementController medrc = new MedicalRequirementController();
+        HashMap<Integer, Map<Integer,String>> hm = medrc.get_data_list();
+        this.create_table(table, hm);
+    }
+    
+    private void create_table(JTable tbl, HashMap hm){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> mp = (HashMap<Integer,String>) value;
+                String id = mp.get(0);
+                String desease_name = mp.get(1);
+                String[] row = {id, desease_name};
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(row);
+            });
+        }
     }
 
     /**

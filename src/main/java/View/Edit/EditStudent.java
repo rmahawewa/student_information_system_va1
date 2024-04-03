@@ -4,19 +4,203 @@
  */
 package View.Edit;
 
-import View.Add.*;
+import Controller.StudentAssesmentExamController;
+import Controller.StudentFamilyMemberController;
+import Controller.StudentGradeExamController;
+import Controller.StudentMedicalInformationController;
+import Controller.StudentSchoolController;
+import View.MainView;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.ImageIcon;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import UserLibraries.GetTimes;
+import Controller.GradeController;
+import Controller.StudentController;
+import View.Add.AddGradeExam;
+import View.Add.AddStudent;
+import View.IndividualView.Student.ViewStudent_fromList;
+import View.IndividualView.ViewSchoolInfo;
+import View.IndividualView.ViewStudentAssesmentExam;
+import View.IndividualView.ViewStudentFamilyInfo;
+import View.IndividualView.ViewStudentGradeExam;
+import View.IndividualView.ViewStudentMedicalRequirement;
+import View.List.StudentList;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author HP
  */
 public class EditStudent extends javax.swing.JPanel {
+    
+    MainView mv;
+    int student_id;
+    String student_name;
+    private File file = null;
 
     /**
      * Creates new form AddStudent
      */
     public EditStudent() {
         initComponents();
+    }
+    
+    public EditStudent(MainView mf, int sid) {
+        initComponents();
+        this.mv = mf;
+        this.student_id = sid;
+        this.loadGrades();
+        this.studentFamilyInformationTable(student_id);
+        this.studentSchoolInformation(student_id);
+        this.studentAssesmentPerformance(student_id);
+        this.studentExamPerformance(student_id);
+        this.studentMedicalStatusInformation(student_id);
+    }
+    
+    public void loadGrades(){
+        GradeController gc = new GradeController();
+        try {
+            gradeInYEComboBx.addItem("Select grade");
+            HashMap<Integer, Map<Integer,String>> hm = gc.getAllGrades();
+            if(!hm.isEmpty()){
+                hm.forEach((key,value) -> {
+                    gradeInYEComboBx.addItem(value.get(1));
+                });
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentList.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
+    
+    public void setName(String name){
+        this.nameText.setText(name);
+        this.student_name = name;
+    }
+    
+    public void setAddress(String address){
+        this.addressText.setText(address);
+    }
+    
+    public void setBirthday(String birthday){
+        String[] bd = birthday.split("-");
+        String bd_month = GetTimes.getMonthText(bd[1]);
+        
+        this.bdYComboBx.setSelectedItem(bd[0]);
+        this.bdMComboBx.setSelectedItem(bd_month);
+        this.bdDComboBx.setSelectedItem(bd[2]);
+    }
+    
+    public void setContactNumber(String contact_number){
+        this.editFamilyContactNumberText.setText(contact_number);
+    }
+    
+    public void setPhoto(String photo){
+        Image im = Toolkit.getDefaultToolkit().createImage(photo);
+        im = im.getScaledInstance(105, 135, Image.SCALE_SMOOTH);
+        ImageIcon imicn = new ImageIcon(im);
+        photoContainerLabel.setIcon(imicn);
+    }
+    
+    public void setIdentityCode(String ic){
+        this.identityCodeText.setText(ic);
+    }
+    
+    public void setPassportLabel(String psptnmb){
+        this.passportNumberText.setText(psptnmb);
+    }
+    
+    public void setDateOfEntarance(String doe){
+        String[] date_oe = doe.split("-");
+        String doe_month = GetTimes.getMonthText(date_oe[1]);
+        doeYComboBx.setSelectedItem(date_oe[0]);
+        doeMComboBx.setSelectedItem(doe_month);
+        doeDComboBx.setSelectedItem(date_oe[2]);
+    }
+    
+    public void setGradeInYearOfEntarance(String grade){
+        GradeController gc = new GradeController();
+        String grade_text = gc.get_grade_in_words(Integer.parseInt(grade));
+        this.gradeInYEComboBx.setSelectedItem(grade_text);
+    }
+    
+    public void clearTable(JTable tbl){
+    
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        int row_count = dtm.getRowCount();
+        
+        for(int i = row_count-1;i>=0;i--){
+            dtm.removeRow(i);
+        }
+    
+    }
+    
+    public void createTable(HashMap hm, JTable tbl){
+        if(!hm.isEmpty()){
+            hm.forEach((key,value) -> {
+                HashMap<Integer,String> hsh = (HashMap) value;
+                //System.out.println("hashmap: "+hsh);
+                int hlength = hsh.size();
+                String[] tbl_data=new String[hlength];
+                hsh.forEach((k,v) -> {
+                    tbl_data[k] = v;
+                    //System.out.println("The grade value: " + v);
+                });
+                DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+                dtm.addRow(tbl_data);
+            });
+        }
+    }
+    
+    public void studentFamilyInformationTable(int student_id){
+        StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+        HashMap<Integer, Map<Integer,String>> hm = sfmc.getStudentFamilyMembersByStudentId(student_id);
+        this.clearTable(editStudentForm_studentFamily_table);
+        this.createTable(hm, editStudentForm_studentFamily_table);
+    }
+    
+    public void studentSchoolInformation(int student_id){
+        StudentSchoolController ssc = new StudentSchoolController();
+        HashMap<Integer, Map<Integer,String>> hm = ssc.getStudentSchoolDetailsForStudentId(student_id);
+        this.clearTable(editStudent_studentSchoolInformation_table);
+        this.createTable(hm, editStudent_studentSchoolInformation_table);
+    }
+    
+    public void studentAssesmentPerformance(int student_id){
+        StudentAssesmentExamController saec = new StudentAssesmentExamController();
+        HashMap<Integer, Map<Integer,String>> hm = saec.get_student_assesment_exam_details(student_id);
+        this.clearTable(editStudentTable_assesmentPerformance_table);
+        this.createTable(hm, editStudentTable_assesmentPerformance_table);
+    }
+    
+    public void studentExamPerformance(int student_id){
+        StudentGradeExamController sgec = new StudentGradeExamController();
+        HashMap<Integer, Map<Integer,String>> hm = sgec.get_Info_by_student_id(student_id);
+        this.clearTable(editStudentForm_examPerformance_table);
+        this.createTable(hm, editStudentForm_examPerformance_table);
+    }
+    
+    public void studentMedicalStatusInformation(int student_id){
+        StudentMedicalInformationController c = new StudentMedicalInformationController();
+        HashMap<Integer, Map<Integer,String>> hm = c.get_student_medical_requirement_info(student_id);
+        this.clearTable(editStudentForm_medicalStatus_table);
+        this.createTable(hm, editStudentForm_medicalStatus_table);
     }
 
     /**
@@ -157,6 +341,11 @@ public class EditStudent extends javax.swing.JPanel {
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Student's Family Information");
@@ -223,6 +412,11 @@ public class EditStudent extends javax.swing.JPanel {
 
         studentSchoolInfoEditButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentSchoolInfoEditButton.setText("Edit information");
+        studentSchoolInfoEditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentSchoolInfoEditButtonActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Student's School Information");
@@ -255,6 +449,11 @@ public class EditStudent extends javax.swing.JPanel {
 
         studentAssesmentPerformanceInfoEditButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentAssesmentPerformanceInfoEditButton.setText("Edit information");
+        studentAssesmentPerformanceInfoEditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentAssesmentPerformanceInfoEditButtonActionPerformed(evt);
+            }
+        });
 
         editStudentForm_examPerformance_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editStudentForm_examPerformance_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -284,6 +483,11 @@ public class EditStudent extends javax.swing.JPanel {
 
         examPerformanceInfoEditButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         examPerformanceInfoEditButton.setText("Edit information");
+        examPerformanceInfoEditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                examPerformanceInfoEditButtonActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Student's Exam Performance Information");
@@ -319,6 +523,11 @@ public class EditStudent extends javax.swing.JPanel {
 
         medicalStatusEditButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         medicalStatusEditButton.setText("Edit information");
+        medicalStatusEditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                medicalStatusEditButtonActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Student's Medical Status Information");
@@ -486,15 +695,15 @@ public class EditStudent extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(64, 64, 64)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(familyInfoEditButton))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(familyInfoEditButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(studentSchoolInfoEditButton))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(studentSchoolInfoEditButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(79, 79, 79))
@@ -503,18 +712,17 @@ public class EditStudent extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(studentAssesmentPerformanceInfoEditButton)
                             .addComponent(jLabel4))))
-                .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(examPerformanceInfoEditButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(examPerformanceInfoEditButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(medicalStatusEditButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(medicalStatusEditButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
@@ -530,11 +738,94 @@ public class EditStudent extends javax.swing.JPanel {
 
     private void addPhotoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPhotoButtonActionPerformed
         // TODO add your handling code here:
+        FileFilter filter = new FileNameExtensionFilter("JPEG or PNG file", "jpg", "jpeg", "png");
+            final JFileChooser fc = new JFileChooser();
+            fc.addChoosableFileFilter(filter);
+            fc.setAcceptAllFileFilterUsed(false);
+            int returnValue = fc.showOpenDialog(EditStudent.this); 
+            
+            if(returnValue == JFileChooser.APPROVE_OPTION){
+                
+                file = fc.getSelectedFile();
+                System.out.println("Opening: " + file.getName());
+                String path = file.getAbsolutePath();
+                //System.out.println(path);
+                
+                Image im = Toolkit.getDefaultToolkit().createImage(path);
+                im = im.getScaledInstance(photoContainerLabel.getWidth(), photoContainerLabel.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon imicn = new ImageIcon(im);
+                photoContainerLabel.setIcon(imicn);               
+                
+            }else{
+                System.out.println("Open command cancelled by user");
+            }
     }//GEN-LAST:event_addPhotoButtonActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
         System.out.println(nameText.getText());
+        String stdnt_name = nameText.getText();
+        String address = addressText.getText();
+        String bYear = bdYComboBx.getSelectedItem().toString();
+        String bMonth = bdMComboBx.getSelectedItem().toString();
+        String bMonthNumber = GetTimes.getMonthNumber(bMonth);
+        String bDay = bdDComboBx.getSelectedItem().toString();
+        String birthday = bYear + "-" + bMonthNumber + "- " + bDay;
+        String contactNumber = editFamilyContactNumberText.getText();
+        String identityCode = identityCodeText.getText();
+        String passportNumber = passportNumberText.getText();
+        String doeYear = doeYComboBx.getSelectedItem().toString();
+        String doeMonth = doeMComboBx.getSelectedItem().toString();
+        String doeMonthNumber = GetTimes.getMonthNumber(doeMonth);
+        String doeDay = doeDComboBx.getSelectedItem().toString();
+        String dateOfEnterance = doeYear + "-" + doeMonthNumber + "-" + doeDay;
+        String grade = gradeInYEComboBx.getSelectedItem().toString();
+        GradeController gc = new GradeController();
+        int grade_id = 0;
+        try {
+            grade_id = gc.getGradeId(grade);
+        } catch (SQLException ex) {
+            Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        LocalDateTime timenow = LocalDateTime.now();
+        Timestamp ts = Timestamp.valueOf(timenow);
+        Long ms = ts.getTime();
+        String img_newname = student_name + "_" + ms + ".jpg";
+        File directory = new File("./img/.");
+        String path = directory.getAbsolutePath();
+        String file_location = path.substring(0, path.length()-1) + img_newname;
+        
+        List<String> l = new ArrayList<String>();
+        l.add(0, stdnt_name);
+        l.add(1, address);
+        l.add(2, birthday);
+        l.add(3, contactNumber);
+        l.add(4, identityCode);
+        l.add(5, passportNumber);
+        l.add(6, dateOfEnterance);
+        l.add(7, Integer.toString(grade_id));
+        l.add(8, file_location);
+        l.add(9, doeYear+"-01-01");
+        l.add(10, Integer.toString(student_id));
+        
+        StudentController sc = new StudentController();
+        boolean b = sc.updateStudentRecord(l);
+        
+        if(b){
+            BufferedImage bi;
+            try {
+                bi = ImageIO.read(file);
+                File outputfile = new File(file_location);
+                ImageIO.write(bi, "png", outputfile);
+            } catch (IOException ex) {
+                Logger.getLogger(AddStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println("The Student record successfully updated");
+            
+        }else{
+            System.out.println("Failed to update the Student record. Please try again");
+        }
+        
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void doeMComboBxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doeMComboBxActionPerformed
@@ -543,7 +834,123 @@ public class EditStudent extends javax.swing.JPanel {
 
     private void familyInfoEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_familyInfoEditButtonActionPerformed
         // TODO add your handling code here:
+        int row = editStudentForm_studentFamily_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) editStudentForm_studentFamily_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 3).toString());
+            StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+            List<String> l = sfmc.get_family_member_info_by_id(id);
+            EditStudentFamilyInfo esfi = new EditStudentFamilyInfo(mv, id);
+            esfi.set_student_name(l.get(0));
+            esfi.set_family_member_name(l.get(1));
+            esfi.set_relationship(l.get(2));
+            esfi.set_nic(l.get(3));
+            esfi.set_fm_birthday(l.get(4));            
+            esfi.set_career(l.get(5));
+            
+            mv.add_new_component(esfi, "Update Student Family Member");
+        }
     }//GEN-LAST:event_familyInfoEditButtonActionPerformed
+
+    private void studentSchoolInfoEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentSchoolInfoEditButtonActionPerformed
+        // TODO add your handling code here:
+        int row = editStudent_studentSchoolInformation_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) editStudent_studentSchoolInformation_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 4).toString());
+            String school_name = dtm.getValueAt(row, 0).toString();
+            String doe = dtm.getValueAt(row, 1).toString();
+            String is_current_student = dtm.getValueAt(row, 2).toString();
+            String dol = dtm.getValueAt(row, 3).toString();
+            EditStudentSchoolInfo essi = new EditStudentSchoolInfo(mv, id);
+            essi.set_student_name(this.student_name);
+            essi.set_school_name(school_name);
+            essi.set_date_of_entarance(doe);
+            essi.set_is_currently_studing(is_current_student);
+            essi.set_date_of_leave(dol);
+            
+            mv.add_new_component(essi, "Update Student School Information");
+        }
+    }//GEN-LAST:event_studentSchoolInfoEditButtonActionPerformed
+
+    private void studentAssesmentPerformanceInfoEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentAssesmentPerformanceInfoEditButtonActionPerformed
+        // TODO add your handling code here:
+        int row = editStudentTable_assesmentPerformance_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) editStudentTable_assesmentPerformance_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 3).toString());
+            String exam = dtm.getValueAt(row, 2).toString();
+            String assesment = dtm.getValueAt(row, 1).toString();
+            StudentAssesmentExamController ssc = new StudentAssesmentExamController();
+            HashMap<Integer, String> hm = ssc.get_info_by_id(id);
+            EditStudentAssesmentExam view = new EditStudentAssesmentExam(mv, id);
+            view.set_student_name(this.student_name);
+            view.set_exam(exam);
+            view.set_assignment(assesment);
+            view.set_marks(hm.get(0));
+            view.set_remarks(hm.get(1));
+            view.set_description(hm.get(2));
+            
+            mv.add_new_component(view, "Update Student Exam Assesment");
+        }
+    }//GEN-LAST:event_studentAssesmentPerformanceInfoEditButtonActionPerformed
+
+    private void examPerformanceInfoEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_examPerformanceInfoEditButtonActionPerformed
+        // TODO add your handling code here:
+        int row = editStudentForm_examPerformance_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) editStudentForm_examPerformance_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 4).toString());
+            String grade = dtm.getValueAt(row, 1).toString();
+            String exam = dtm.getValueAt(row, 2).toString();
+            String marks = dtm.getValueAt(row, 3).toString();
+            StudentGradeExamController sgec = new StudentGradeExamController();
+            HashMap<Integer, String> hm = sgec.get_info_by_id(id);
+            EditStudentGradeExam view = new EditStudentGradeExam(mv, id);
+            view.set_student_name(this.student_name);
+            view.set_exam(exam);
+            view.set_grade(grade);
+            view.set_marks(marks);
+            view.set_remarks(hm.get(1));
+            view.set_description(hm.get(2));
+            
+            mv.add_new_component(view, "Edit Student Exam performance");
+        }
+    }//GEN-LAST:event_examPerformanceInfoEditButtonActionPerformed
+
+    private void medicalStatusEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicalStatusEditButtonActionPerformed
+        // TODO add your handling code here:
+        int row = editStudentForm_medicalStatus_table.getSelectedRow();
+        if(row > -1){
+            DefaultTableModel dtm = (DefaultTableModel) editStudentForm_medicalStatus_table.getModel();
+            int id = Integer.parseInt(dtm.getValueAt(row, 4).toString());
+            String desease = dtm.getValueAt(row, 0).toString();
+            String fdod = dtm.getValueAt(row, 1).toString();
+            String fdogt = dtm.getValueAt(row, 2).toString();
+            String ldogt = dtm.getValueAt(row, 3).toString();
+            StudentMedicalInformationController smic = new StudentMedicalInformationController();
+            try {
+                String details = smic.get_std_details_by_id(id);
+                EditStudentMedicalRequirement view = new EditStudentMedicalRequirement(mv, id);
+                view.set_student_name(this.student_name);
+                view.set_medical_requirement(desease);
+                view.set_first_date_of_diagnose(fdod);
+                view.set_first_date_of_getting_treatment(fdogt);
+                view.set_last_date_of_treatment(ldogt);
+                view.set_details(details);
+
+                mv.add_new_component(view, "Update Student Medical Status");
+            } catch (SQLException ex) {
+                Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }//GEN-LAST:event_medicalStatusEditButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        this.mv.close_tab();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
