@@ -242,8 +242,13 @@ public class StudentAssesmentExamList extends javax.swing.JPanel {
             String exam = dtm.getValueAt(row, 3).toString();
 
             StudentAssesmentExamController sgec = new StudentAssesmentExamController();
-            HashMap<Integer,String> hm = sgec.get_info_by_id(id);
-            //System.out.println(hm);
+            HashMap<Integer,String> hm = new HashMap<Integer,String>();
+            try {
+                hm = sgec.get_info_by_id(id);
+                //System.out.println(hm);
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentAssesmentExamList.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             ViewStudentAssesmentExam form = new ViewStudentAssesmentExam(mv);
             form.set_student_name(student);
@@ -267,8 +272,13 @@ public class StudentAssesmentExamList extends javax.swing.JPanel {
             String exam = dtm.getValueAt(row, 3).toString();
 
             StudentAssesmentExamController sgec = new StudentAssesmentExamController();
-            HashMap<Integer,String> hm = sgec.get_info_by_id(id);
-            //System.out.println(hm);
+            HashMap<Integer,String> hm = new HashMap<Integer,String>();
+            try {
+                hm = sgec.get_info_by_id(id);
+                //System.out.println(hm);
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentAssesmentExamList.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             EditStudentAssesmentExam form = new EditStudentAssesmentExam(mv,id);
             form.set_student_name(student);

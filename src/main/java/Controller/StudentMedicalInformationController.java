@@ -66,4 +66,10 @@ public class StudentMedicalInformationController {
         return i;
     }
     
+    public HashMap get_student_medical_requirement_data(int student_id) throws SQLException{
+        HashMap<Integer, Map<String, String>> hm = new HashMap<Integer, Map<String, String>>();
+        hm = smr.select_student_medical_requirement_data(student_id);
+        return hm;
+    }
+    
 }

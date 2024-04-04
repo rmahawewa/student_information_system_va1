@@ -12,8 +12,11 @@ import java.util.Map;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import UserLibraries.GetTimes;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,7 +34,7 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
         initComponents();
     }
     
-    public AddStudentFamilyInfo(MainView mf, int std_id) {
+    public AddStudentFamilyInfo(MainView mf, int std_id) throws SQLException {
         initComponents();
         this.mv = mf;
         this.student_id = std_id;
@@ -275,7 +278,11 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
             if(i>0){
                 System.out.println("Student family member record successfully saved");
                 this.clearForm();
-                this.load_table();
+                try {
+                    this.load_table();
+                } catch (SQLException ex) {
+                    Logger.getLogger(AddStudentFamilyInfo.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }else{
                 System.out.println("Failed to save the record. Please try again");
             }
@@ -290,7 +297,7 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
         this.mv.close_tab();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
-    public void load_table(){
+    public void load_table() throws SQLException{
         StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
         HashMap<Integer, Map<Integer,String>> mp = sfmc.getStudentFamilyMembersByStudentId(student_id);
         System.out.println("The student family list is: " + mp);

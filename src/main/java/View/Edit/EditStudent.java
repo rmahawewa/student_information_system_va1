@@ -62,7 +62,7 @@ public class EditStudent extends javax.swing.JPanel {
         initComponents();
     }
     
-    public EditStudent(MainView mf, int sid) {
+    public EditStudent(MainView mf, int sid) throws SQLException {
         initComponents();
         this.mv = mf;
         this.student_id = sid;
@@ -168,28 +168,28 @@ public class EditStudent extends javax.swing.JPanel {
         }
     }
     
-    public void studentFamilyInformationTable(int student_id){
+    public void studentFamilyInformationTable(int student_id) throws SQLException{
         StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
         HashMap<Integer, Map<Integer,String>> hm = sfmc.getStudentFamilyMembersByStudentId(student_id);
         this.clearTable(editStudentForm_studentFamily_table);
         this.createTable(hm, editStudentForm_studentFamily_table);
     }
     
-    public void studentSchoolInformation(int student_id){
+    public void studentSchoolInformation(int student_id) throws SQLException{
         StudentSchoolController ssc = new StudentSchoolController();
         HashMap<Integer, Map<Integer,String>> hm = ssc.getStudentSchoolDetailsForStudentId(student_id);
         this.clearTable(editStudent_studentSchoolInformation_table);
         this.createTable(hm, editStudent_studentSchoolInformation_table);
     }
     
-    public void studentAssesmentPerformance(int student_id){
+    public void studentAssesmentPerformance(int student_id) throws SQLException{
         StudentAssesmentExamController saec = new StudentAssesmentExamController();
         HashMap<Integer, Map<Integer,String>> hm = saec.get_student_assesment_exam_details(student_id);
         this.clearTable(editStudentTable_assesmentPerformance_table);
         this.createTable(hm, editStudentTable_assesmentPerformance_table);
     }
     
-    public void studentExamPerformance(int student_id){
+    public void studentExamPerformance(int student_id) throws SQLException{
         StudentGradeExamController sgec = new StudentGradeExamController();
         HashMap<Integer, Map<Integer,String>> hm = sgec.get_Info_by_student_id(student_id);
         this.clearTable(editStudentForm_examPerformance_table);
@@ -839,7 +839,12 @@ public class EditStudent extends javax.swing.JPanel {
             DefaultTableModel dtm = (DefaultTableModel) editStudentForm_studentFamily_table.getModel();
             int id = Integer.parseInt(dtm.getValueAt(row, 3).toString());
             StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
-            List<String> l = sfmc.get_family_member_info_by_id(id);
+            List<String> l = new ArrayList<String>();
+            try {
+                l = sfmc.get_family_member_info_by_id(id);
+            } catch (SQLException ex) {
+                Logger.getLogger(EditStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
             EditStudentFamilyInfo esfi = new EditStudentFamilyInfo(mv, id);
             esfi.set_student_name(l.get(0));
             esfi.set_family_member_name(l.get(1));
@@ -882,7 +887,12 @@ public class EditStudent extends javax.swing.JPanel {
             String exam = dtm.getValueAt(row, 2).toString();
             String assesment = dtm.getValueAt(row, 1).toString();
             StudentAssesmentExamController ssc = new StudentAssesmentExamController();
-            HashMap<Integer, String> hm = ssc.get_info_by_id(id);
+            HashMap<Integer, String> hm = new HashMap<Integer, String>();
+            try {
+                hm = ssc.get_info_by_id(id);
+            } catch (SQLException ex) {
+                Logger.getLogger(EditStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
             EditStudentAssesmentExam view = new EditStudentAssesmentExam(mv, id);
             view.set_student_name(this.student_name);
             view.set_exam(exam);

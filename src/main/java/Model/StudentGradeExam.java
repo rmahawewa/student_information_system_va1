@@ -92,7 +92,7 @@ public class StudentGradeExam {
         this.description = description;
     }
     
-    public HashMap get_student_exam_records_by_student_id(int student_id){
+    public HashMap get_student_exam_records_by_student_id(int student_id) throws SQLException{
         PreparedStatement prep = null;
         ResultSet result = null;
         
@@ -123,6 +123,21 @@ public class StudentGradeExam {
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException e){}
+                result=null;
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){}
+                prep.close();
+            }
+            con.close();        
         }
         return hm;        
     }
@@ -309,6 +324,57 @@ public class StudentGradeExam {
             Logger.getLogger(StudentGradeExam.class.getName()).log(Level.SEVERE, null, ex);
         }
         return i;
+    }
+    
+    public HashMap get_student_grade_exam_info(int student_id) throws SQLException{
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        HashMap<Integer, Map<String, String>> hm = new HashMap<Integer, Map<String, String>>();
+        int count = 0;
+        
+        String query = "select grade.grade_in_words, exam.exam_name, exam.year, exam.semester, exam.details, grade_exam.session, grade_exam.date_and_time, student_grade_exam.marks, student_grade_exam.remarks, student_grade_exam.description from student_grade_exam inner join grade_exam on student_grade_exam.grade_exam_id = grade_exam.g_e_id inner join grade on grade_exam.gd_id = grade.grade_id inner join exam on grade_exam.em_id = exam.exam_id where student_grade_exam.student_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, student_id);
+            result = prep.executeQuery();
+            
+            while(result.next()){
+                HashMap<String, String> mp = new HashMap<String, String>();
+                mp.put("Grade:", result.getString("grade.grade_in_words"));
+                mp.put("Exam name:", result.getString("exam.exam_name"));
+                mp.put("Year:", result.getString("exam.year"));
+                mp.put("Semester:", result.getString("exam.semester"));
+                mp.put("Exam details:", result.getString("exam.details"));
+                mp.put("Session:", Integer.toString(result.getInt("grade_exam.session")));
+                mp.put("Date and time:", result.getString("grade_exam.date_and_time"));
+                mp.put("Marks:", result.getString("student_grade_exam.marks"));
+                mp.put("Remarks:", result.getString("student_grade_exam.remarks"));
+                mp.put("Student's exam performance review:", result.getString("student_grade_exam.description"));
+                
+                hm.put(count, mp);
+                count++;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException e){}
+                result=null;
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){}
+                prep.close();
+            }
+            con.close();        
+        }
+        return hm;
     }
     
 }

@@ -295,4 +295,49 @@ public class StudentMedicalRequirements {
         return i;
     }
     
+    public HashMap select_student_medical_requirement_data(int student_id) throws SQLException{
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        HashMap<Integer, Map<String, String>> hm = new HashMap<Integer, Map<String, String>>();
+        int count = 0;
+        
+        String query = "select desease_name, first_date_of_diagnose, first_date_of_getting_treatment, last_date_of_getting_treatment, details from student_medical_requirements inner join medical_requirements on student_medical_requirements.medical_requirement_id = medical_requirements.medical_requirement_id where student_medical_requirements.student_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, student_id);
+            result = prep.executeQuery();
+            while(result.next()){
+                
+                HashMap<String, String> mp = new HashMap<String, String>();
+                mp.put("Desease:", result.getString("desease_name"));
+                mp.put("First date of diagnose:", result.getString("first_date_of_diagnose"));
+                mp.put("First treatment date:", result.getString("first_date_of_getting_treatment"));
+                mp.put("Last treatment date:", result.getString("last_date_of_getting_treatment"));
+                mp.put("Details:", result.getString("details"));
+                
+                hm.put(count, mp);
+                count++;
+            }            
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentMedicalRequirements.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException e){}
+                result=null;
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){}
+                prep.close();
+            }
+            con.close();        
+        }  
+        return hm;
+    }
+    
 }

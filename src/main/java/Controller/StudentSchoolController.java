@@ -7,6 +7,7 @@ package Controller;
 import Model.StudentSchool;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,7 @@ public class StudentSchoolController {
     
     StudentSchool ss = new StudentSchool();
     
-    public HashMap getStudentSchoolDetailsForStudentId(int student_id){
+    public HashMap getStudentSchoolDetailsForStudentId(int student_id) throws SQLException{
         HashMap<Integer, Map<Integer,String>> hm = ss.get_student_school_information(student_id);
         return hm;
     }
@@ -52,4 +53,9 @@ public class StudentSchoolController {
         return i;
     }
     
+    public HashMap get_student_school_details(int student_id){
+        HashMap<Integer, Map<String,String>> hm = new HashMap<Integer, Map<String, String>>();
+        hm = ss.get_student_school_details(student_id);
+        return hm;
+    }
 }
