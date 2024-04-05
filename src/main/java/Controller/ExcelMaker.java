@@ -29,6 +29,9 @@ public class ExcelMaker {
     static int count = 2;
     static int count_fm = 2;
     static int count_scl = 2;
+    static int count_asmt = 2;
+    static int count_exam = 2;
+    static int count_md = 2;
     
     public int return_count(){
     /***    for method - get_student_info   ***/
@@ -43,6 +46,21 @@ public class ExcelMaker {
     public int return_count_scl(){
     /***    for method - get_student_info   ***/
         return count_scl++;
+    }
+    
+    public int return_count_asmt(){
+    /***    for method - get_student_info   ***/
+        return count_asmt++;
+    }
+    
+    public int return_count_exam(){
+    /***    for method - get_student_info   ***/
+        return count_exam++;
+    }
+        
+    public int return_count_md(){
+    /***    for method - get_student_info   ***/
+        return count_md++;
     }
     
     
@@ -107,10 +125,10 @@ public class ExcelMaker {
         CellStyle header_style_fm = workbook.createCellStyle();
 
         XSSFFont font_fm = workbook.createFont();
-        font.setFontName("Arial");
-        font.setFontHeightInPoints((short) 14);
-        font.setBold(true);
-        header_style.setFont(font);
+        font_fm.setFontName("Arial");
+        font_fm.setFontHeightInPoints((short) 14);
+        font_fm.setBold(true);
+        header_style_fm.setFont(font_fm);
 
         XSSFCell headercell_fm = header_fm.createCell(0);
         headercell_fm.setCellValue("Student Family Information");
@@ -165,10 +183,10 @@ public class ExcelMaker {
         CellStyle header_style_scl = workbook.createCellStyle();
 
         XSSFFont font_scl = workbook.createFont();
-        font.setFontName("Arial");
-        font.setFontHeightInPoints((short) 14);
-        font.setBold(true);
-        header_style.setFont(font);
+        font_scl.setFontName("Arial");
+        font_scl.setFontHeightInPoints((short) 14);
+        font_scl.setBold(true);
+        header_style_scl.setFont(font_scl);
 
         XSSFCell headercell_scl = header_scl.createCell(0);
         headercell_scl.setCellValue("Student School Information");
@@ -209,6 +227,180 @@ public class ExcelMaker {
                 return_count_scl();
                 return_count_scl();
                 return_count_scl();
+            }
+
+        });
+        
+        
+        XSSFSheet sheet_assesment = workbook.createSheet("StudentAssesmentPerformance");
+        sheet_assesment.setColumnWidth(0, 5000);
+        sheet_assesment.setColumnWidth(1, 6000);
+
+        XSSFRow header_asmt = sheet_assesment.createRow(0);
+
+        CellStyle header_style_asmt = workbook.createCellStyle();
+
+        XSSFFont font_asmt = workbook.createFont();
+        font_asmt.setFontName("Arial");
+        font_asmt.setFontHeightInPoints((short) 14);
+        font_asmt.setBold(true);
+        header_style_asmt.setFont(font_asmt);
+
+        XSSFCell headercell_asmt = header_asmt.createCell(0);
+        headercell_asmt.setCellValue("Student Assesment Performance");
+        headercell_asmt.setCellStyle(header_style_asmt);
+
+        CellStyle cellstyle_asmt = workbook.createCellStyle();
+        cellstyle_asmt.setWrapText(true);
+
+        XSSFRow row_asmt = sheet_assesment.createRow(1);
+        XSSFCell cell_asmt = row_asmt.createCell(0);
+
+        student_assesment_info.forEach(new BiConsumer<Integer, Map<String,String>>() {
+
+            @Override
+            public void accept(Integer t, Map<String, String> u) {
+                //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                //HashMap<String, String> hm = (HashMap<String, String>) u;
+                u.forEach(new BiConsumer<String, String>(){
+                    @Override
+                    public void accept(String t, String u) {
+                        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                        
+                        XSSFRow row;
+                        int c = return_count_asmt();
+                        row = sheet_assesment.createRow(c);
+
+                        XSSFCell cell = row.createCell(0);
+                        cell.setCellValue(t);
+                        cell.setCellStyle(cellstyle_asmt);
+
+                        cell=row.createCell(1);
+                        cell.setCellValue(u);
+                        cell.setCellStyle(cellstyle_asmt);
+                        
+                    }
+                
+                });
+                return_count_asmt();
+                return_count_asmt();
+                return_count_asmt();
+            }
+
+        });
+        
+        
+        XSSFSheet sheet_exam = workbook.createSheet("StudentExamPerformance");
+        sheet_assesment.setColumnWidth(0, 5000);
+        sheet_assesment.setColumnWidth(1, 6000);
+
+        XSSFRow header_exam = sheet_exam.createRow(0);
+
+        CellStyle header_style_exam = workbook.createCellStyle();
+
+        XSSFFont font_exam = workbook.createFont();
+        font_exam.setFontName("Arial");
+        font_exam.setFontHeightInPoints((short) 14);
+        font_exam.setBold(true);
+        header_style_exam.setFont(font_exam);
+
+        XSSFCell headercell_exam = header_exam.createCell(0);
+        headercell_exam.setCellValue("Student Exam Performance");
+        headercell_exam.setCellStyle(header_style_exam);
+
+        CellStyle cellstyle_exam = workbook.createCellStyle();
+        cellstyle_exam.setWrapText(true);
+
+        XSSFRow row_exam = sheet_exam.createRow(1);
+        XSSFCell cell_exam = row_exam.createCell(0);
+
+        student_exam_info.forEach(new BiConsumer<Integer, Map<String,String>>() {
+
+            @Override
+            public void accept(Integer t, Map<String, String> u) {
+                //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                //HashMap<String, String> hm = (HashMap<String, String>) u;
+                u.forEach(new BiConsumer<String, String>(){
+                    @Override
+                    public void accept(String t, String u) {
+                        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                        
+                        XSSFRow row;
+                        int c = return_count_exam();
+                        row = sheet_exam.createRow(c);
+
+                        XSSFCell cell = row.createCell(0);
+                        cell.setCellValue(t);
+                        cell.setCellStyle(cellstyle_exam);
+
+                        cell=row.createCell(1);
+                        cell.setCellValue(u);
+                        cell.setCellStyle(cellstyle_exam);
+                        
+                    }
+                
+                });
+                return_count_exam();
+                return_count_exam();
+                return_count_exam();
+            }
+
+        });
+        
+        
+        XSSFSheet sheet_md = workbook.createSheet("StudentMedicalInfo");
+        sheet_md.setColumnWidth(0, 5000);
+        sheet_md.setColumnWidth(1, 6000);
+
+        XSSFRow header_md = sheet_md.createRow(0);
+
+        CellStyle header_style_md = workbook.createCellStyle();
+
+        XSSFFont font_md = workbook.createFont();
+        font_md.setFontName("Arial");
+        font_md.setFontHeightInPoints((short) 14);
+        font_md.setBold(true);
+        header_style_md.setFont(font_md);
+
+        XSSFCell headercell_md = header_md.createCell(0);
+        headercell_md.setCellValue("Student Medical Information");
+        headercell_md.setCellStyle(header_style_md);
+
+        CellStyle cellstyle_md = workbook.createCellStyle();
+        cellstyle_md.setWrapText(true);
+
+        XSSFRow row_md = sheet_md.createRow(1);
+        XSSFCell cell_md = row_md.createCell(0);
+
+        student_medical_info.forEach(new BiConsumer<Integer, Map<String,String>>() {
+
+            @Override
+            public void accept(Integer t, Map<String, String> u) {
+                //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                //HashMap<String, String> hm = (HashMap<String, String>) u;
+                u.forEach(new BiConsumer<String, String>(){
+                    @Override
+                    public void accept(String t, String u) {
+                        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                        
+                        XSSFRow row;
+                        int c = return_count_md();
+                        row = sheet_md.createRow(c);
+
+                        XSSFCell cell = row.createCell(0);
+                        cell.setCellValue(t);
+                        cell.setCellStyle(cellstyle_md);
+
+                        cell=row.createCell(1);
+                        cell.setCellValue(u);
+                        cell.setCellStyle(cellstyle_md);
+                        
+                    }
+                
+                });
+                return_count_md();
+                return_count_md();
+                return_count_md();
             }
 
         });

@@ -102,7 +102,7 @@ public class Assesment {
         return l;
     }
     
-    public int add_assesment(){
+    public int add_assesment() throws SQLException{
         int stts = -1;
         PreparedStatement prep = null;
         
@@ -122,6 +122,14 @@ public class Assesment {
             System.out.println("new assesment insert status is: "+ stts);
         } catch (SQLException ex) {
             Logger.getLogger(Assesment.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+                prep = null;
+            }
+            con.close();
         }
         return stts;       
         
@@ -181,6 +189,24 @@ public class Assesment {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Assesment.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+                result = null;
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+                prep = null;
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Assesment.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return (HashMap) hm;
     }
@@ -203,6 +229,18 @@ public class Assesment {
         } catch (SQLException ex) {
             Logger.getLogger(Assesment.class.getName()).log(Level.SEVERE, null, ex);
             b = false;
+        } finally{
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+                prep = null;
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Assesment.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return b;
     }

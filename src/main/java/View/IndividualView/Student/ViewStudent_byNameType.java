@@ -4,6 +4,7 @@
  */
 package View.IndividualView.Student;
 
+import Controller.ExcelMaker;
 import Controller.StudentAssesmentExamController;
 import Controller.StudentController;
 import Controller.StudentFamilyMemberController;
@@ -19,6 +20,7 @@ import View.IndividualView.ViewStudentMedicalRequirement;
 import View.MainView;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -350,6 +352,11 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         excelExportButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         excelExportButton.setForeground(new java.awt.Color(255, 255, 255));
         excelExportButton.setText("Excel");
+        excelExportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excelExportButtonActionPerformed(evt);
+            }
+        });
 
         studentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentNameText.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -756,6 +763,61 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
             
         }
     }//GEN-LAST:event_medicalStatusViewButtonActionPerformed
+
+    private void excelExportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excelExportButtonActionPerformed
+        // TODO add your handling code here:
+        HashMap<String, String> student_info = new HashMap<String, String>();
+        HashMap<Integer, Map<String, String>> family_member_info = new HashMap<Integer, Map<String, String>>();
+        HashMap<Integer, Map<String, String>> student_school_info = new HashMap<Integer, Map<String, String>>();
+        HashMap<Integer, Map<String, String>> student_assesment_info = new HashMap<Integer, Map<String, String>>();
+        HashMap<Integer, Map<String, String>> student_exam_info = new HashMap<Integer, Map<String, String>>();
+        HashMap<Integer, Map<String, String>> student_medical_info = new HashMap<Integer, Map<String, String>>();
+        
+        StudentController sc = new StudentController();
+        student_info = sc.get_student_info_by_id(student_id);
+        
+        StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+        try {
+            family_member_info = sfmc.get_student_family_info(student_id);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        StudentSchoolController ssc = new StudentSchoolController();
+        student_school_info = ssc.get_student_school_details(student_id);
+        
+        StudentAssesmentExamController saec = new StudentAssesmentExamController();
+        try {
+            student_assesment_info = saec.get_student_exam_assesment_info(student_id);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        StudentGradeExamController sgec = new StudentGradeExamController();
+        try {
+            student_exam_info = sgec.get_student_grade_exam_info(student_id);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        StudentMedicalInformationController smic = new StudentMedicalInformationController();
+        try {
+            student_medical_info = smic.get_student_medical_requirement_data(student_id);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        ExcelMaker em = new ExcelMaker();
+        boolean stts = false;
+        try {
+            stts = em.get_student_info(this.student_id,student_info,family_member_info,student_school_info,student_assesment_info,student_exam_info,student_medical_info);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        if(stts){System.out.println("Excel document successfully created");}
+        else{System.out.println("Failed to create the Excel file");}
+        
+    }//GEN-LAST:event_excelExportButtonActionPerformed
   
     private int getIdFromString(String strg){
         int rtn = -1;
