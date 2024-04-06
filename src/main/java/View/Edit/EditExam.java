@@ -10,6 +10,7 @@ import UserLibraries.GetTimes;
 import java.util.ArrayList;
 import java.util.List;
 import Controller.ExamController;
+import View.MessageBox.FormValidation;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -322,25 +323,31 @@ public class EditExam extends javax.swing.JPanel{
         String to_date = to_year + "-" + to_month + "-" + to_day;
         String details = detailsTextField.getText();
         
-        List<String> ed = new ArrayList<String>();
-        ed.add(0, Integer.toString(exam_id));
-        ed.add(1, exam_name);
-        ed.add(2, exam_code);
-        ed.add(3, year);
-        ed.add(4, semester);
-        ed.add(5, from_date);
-        ed.add(6, to_date);
-        ed.add(7, details);
-        
-        ExamController ec = new ExamController();
-        try {
-            int stts = ec.updateExamInfo(ed);
-            if(stts >= 0){
-                System.out.println("Record successfully updated");
+        if(!exam_name.equals("")){
+            List<String> ed = new ArrayList<String>();
+            ed.add(0, Integer.toString(exam_id));
+            ed.add(1, exam_name);
+            ed.add(2, exam_code);
+            ed.add(3, year);
+            ed.add(4, semester);
+            ed.add(5, from_date);
+            ed.add(6, to_date);
+            ed.add(7, details);
+
+            ExamController ec = new ExamController();
+            try {
+                int stts = ec.updateExamInfo(ed);
+                if(stts >= 0){
+                    System.out.println("Record successfully updated");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(EditExam.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(EditExam.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }else{
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
+        }    
         
     }//GEN-LAST:event_updateButtonActionPerformed
 

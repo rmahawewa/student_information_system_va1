@@ -98,7 +98,7 @@ public class StudentFamilyMember {
         this.birthday = birthday;
     }
     
-    public HashMap get_student_family_member_details(int student_id){
+    public HashMap get_student_family_member_details(int student_id) throws SQLException{
         PreparedStatement prep = null;
         ResultSet result = null;
         
@@ -129,6 +129,21 @@ public class StudentFamilyMember {
             
         } catch (SQLException ex) {
             Logger.getLogger(StudentFamilyMember.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException e){}
+                result=null;
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){}
+                prep.close();
+            }
+            con.close();        
         }
         return hm;
     }
@@ -152,11 +167,22 @@ public class StudentFamilyMember {
             i = prep.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(StudentFamilyMember.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return i;
     }   
     
-    public List get_family_member_details_by_id(int sfm_id){
+    public List get_family_member_details_by_id(int sfm_id) throws SQLException{
         PreparedStatement prep = null;
         ResultSet result = null;
         
@@ -177,6 +203,21 @@ public class StudentFamilyMember {
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentFamilyMember.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException e){}
+                result=null;
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){}
+                prep.close();
+            }
+            con.close();        
         }
         return l;
     }
@@ -195,7 +236,70 @@ public class StudentFamilyMember {
             i = prep.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(StudentFamilyMember.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return i;
+    }
+    
+    public HashMap get_student_family_details(int student_id) throws SQLException{
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        int cnt = 0;
+        HashMap<Integer, Map<String,String>> hm = new HashMap<Integer, Map<String,String>>();
+        
+        String query = "select family_member_name, relationship, nic, birthday, career from student_family_member where student_id = ?";
+        
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, student_id);
+            result = prep.executeQuery();
+            
+            while(result.next()){
+                String nic = result.getString("nic");
+                String family_member_name = result.getString("family_member_name");
+                String relationship = result.getString("relationship");
+                String birthday = result.getString("birthday");
+                String career = result.getString("career");
+                
+                Map<String,String> mp = new HashMap<String,String>();                
+                mp.put("Family member name:", family_member_name);
+                mp.put("Relationship:", relationship);
+                mp.put("NIC:", nic);
+                mp.put("Birthday:", birthday);
+                mp.put("Career:", career);
+                hm.put(cnt, mp);
+                cnt++;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentFamilyMember.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException e){}
+                result=null;
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){}
+                prep.close();
+            }
+            con.close();        
+        }
+        return hm;
     }
 }

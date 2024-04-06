@@ -91,7 +91,7 @@ public class StudentSchool {
     
     
     
-    public HashMap get_student_school_information(int student_id){
+    public HashMap get_student_school_information(int student_id) throws SQLException{
         PreparedStatement prep = null;
         ResultSet result = null;
         
@@ -123,6 +123,21 @@ public class StudentSchool {
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentSchool.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException e){}
+                result=null;
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){}
+                prep.close();
+            }
+            con.close();        
         }
         return hm;
     }
@@ -146,6 +161,17 @@ public class StudentSchool {
             i = prep.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(StudentSchool.class.getName()).log(Level.SEVERE, null, ex);
+        }  finally{
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
         return i;
@@ -171,6 +197,22 @@ public class StudentSchool {
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentSchool.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }            
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return l;
     }
@@ -189,8 +231,81 @@ public class StudentSchool {
             i = prep.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(StudentSchool.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return i;
     }
+    
+    public HashMap get_student_school_details(int student_id){
+        PreparedStatement prep = null;
+        ResultSet result = null;
+        
+        HashMap<Integer, Map<String,String>> hm = new HashMap<Integer, Map<String,String>>();
+        int count = 0;
+        
+        String query = "select school_name, school_address, school_contact_number, details, date_of_entarance, is_currently_studing, date_of_leave from student_school inner join school on student_school.school_id = school.school_id where student_school.student_id = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setInt(1, student_id);
+            result = prep.executeQuery();
+            while(result.next()){
+                HashMap<String,String> mp = new HashMap<String,String>();
+                String school_name = result.getString("school_name");
+                String school_address = result.getString("school_address");
+                String school_contact_number = result.getString("school_contact_number");
+                String details = result.getString("details");
+                String date_of_entarance = result.getString("date_of_entarance");
+                int is_currently_studing_num = result.getInt("is_currently_studing");
+                String is_currently_studing = "";
+                String date_of_leave = result.getString("date_of_leave");
+                if(is_currently_studing_num == 1){
+                    is_currently_studing = "yes";
+                    date_of_leave = "-";
+                }else{
+                    is_currently_studing = "no";
+                }
+                mp.put("School name:", school_name);
+                mp.put("School adddress:", school_address);
+                mp.put("School contact number:", school_contact_number);
+                mp.put("Details:", details);
+                mp.put("Date of entarance:", date_of_entarance);
+                mp.put("Is currently studing:", is_currently_studing);
+                mp.put("Date of leave:", date_of_leave);
+                
+                hm.put(count, mp);
+                count++;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentSchool.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }            
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return hm;
+    }   
     
 }

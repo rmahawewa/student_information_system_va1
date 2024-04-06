@@ -6,6 +6,7 @@ package View.Add;
 
 import View.MainView;
 import Controller.MedicalRequirementController;
+import View.MessageBox.FormValidation;
 
 /**
  *
@@ -94,13 +95,20 @@ public class AddMedicalRequirements extends javax.swing.JPanel {
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
         String desease_name = deseaseNameText.getText();
-        MedicalRequirementController mrc = new MedicalRequirementController();
-        int i = mrc.insert_med_req_data(desease_name);
-        if(i > 0){
-            System.out.println("Medical requirement data successfully inserted");
+        if(!desease_name.equals("")){
+            MedicalRequirementController mrc = new MedicalRequirementController();
+            int i = mrc.insert_med_req_data(desease_name);
+            if(i > 0){
+                System.out.println("Medical requirement data successfully inserted");
+            }else{
+                System.out.println("Failed to insert medical requirement data. Please try again");
+            }
         }else{
-            System.out.println("Failed to insert medical requirement data. Please try again");
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
         }
+        
     }//GEN-LAST:event_submitButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

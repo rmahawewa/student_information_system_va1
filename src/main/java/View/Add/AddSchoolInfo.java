@@ -8,6 +8,7 @@ package View.Add;
 import java.util.ArrayList;
 import java.util.List;
 import Controller.SchoolController;
+import View.MessageBox.FormValidation;
 
 /**
  *
@@ -154,23 +155,30 @@ public class AddSchoolInfo extends javax.swing.JPanel {
         String contact_number = contactNumberText.getText();
         String details = detailsText.getText();
         
-        List<String> school_details = new ArrayList<String>();
-        school_details.add(0, school);
-        school_details.add(1, address);
-        school_details.add(2, contact_number);
-        school_details.add(3, details);
-        
-        SchoolController sc = new SchoolController();
-        int i = sc.insert_school_record(school_details);
-        if(i > 0){
-            System.out.println("Record successfully inserted");
-            schoolNameText.setText("");
-            addressText.setText("");
-            contactNumberText.setText("");
-            detailsText.setText("");
+        if(!school.equals("") && !address.equals("")){
+            List<String> school_details = new ArrayList<String>();
+            school_details.add(0, school);
+            school_details.add(1, address);
+            school_details.add(2, contact_number);
+            school_details.add(3, details);
+
+            SchoolController sc = new SchoolController();
+            int i = sc.insert_school_record(school_details);
+            if(i > 0){
+                System.out.println("Record successfully inserted");
+                schoolNameText.setText("");
+                addressText.setText("");
+                contactNumberText.setText("");
+                detailsText.setText("");
+            }else{
+                System.out.println("Failed to insert the record. Please try again");
+            }
         }else{
-            System.out.println("Failed to insert the record. Please try again");
-        }
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
+        }  
+        
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed

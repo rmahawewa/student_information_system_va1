@@ -21,6 +21,7 @@ import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import UserLibraries.GetTimes;
+import View.MessageBox.FormValidation;
 import java.util.ArrayList;
 
 /**
@@ -465,7 +466,7 @@ public class AddExamAssesment extends javax.swing.JPanel {
         }
         String date_time = year+"-"+month+"-"+day+" "+hour+":"+minute+":00";
         
-        if(assesment_id > 0){
+        if(assesment_id > 0 && grade_id > 0){
             try {
                 ExamAssesmentController eac = new ExamAssesmentController();
                 List<String> lst = new ArrayList<String>();
@@ -479,6 +480,10 @@ public class AddExamAssesment extends javax.swing.JPanel {
             } catch (SQLException ex) {
                 Logger.getLogger(AddExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else{
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
         }
         if(stts >= 0){
             System.out.println("Exam-Assesment record successfully added.");

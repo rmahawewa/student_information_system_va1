@@ -5,6 +5,7 @@
 package Controller;
 
 import Model.StudentGradeExam;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,7 +17,7 @@ public class StudentGradeExamController {
     
     StudentGradeExam sge = new StudentGradeExam();
     
-    public HashMap get_Info_by_student_id(int student_id){
+    public HashMap get_Info_by_student_id(int student_id) throws SQLException{
         HashMap<Integer, Map<Integer,String>> hm = sge.get_student_exam_records_by_student_id(student_id);
         return hm;
     }
@@ -44,6 +45,14 @@ public class StudentGradeExamController {
         
         int i = sge.update_sge_record();
         return i;
+    }
+    
+    public HashMap get_student_grade_exam_info(int student_id) throws SQLException{
+    
+        HashMap<Integer, Map<String, String>> hm = new HashMap<Integer, Map<String, String>>();
+        hm = sge.get_student_grade_exam_info(student_id);
+        return hm;
+        
     }
     
 }

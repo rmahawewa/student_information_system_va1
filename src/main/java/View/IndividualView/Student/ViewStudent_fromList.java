@@ -8,8 +8,6 @@ import Controller.ExcelMaker;
 import Controller.GradeController;
 import Controller.StudentController;
 import Controller.StudentFamilyMemberController;
-import View.Edit.*;
-import View.Add.*;
 import View.MainView;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -29,6 +27,7 @@ import View.IndividualView.ViewStudentGradeExam;
 import View.IndividualView.ViewStudentMedicalRequirement;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,7 +50,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         initComponents();
     }
     
-    public ViewStudent_fromList(MainView mf, int student_id) {
+    public ViewStudent_fromList(MainView mf, int student_id) throws SQLException {
         initComponents();
         this.mv = mf;
         this.student_id = student_id;
@@ -106,28 +105,28 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         this.currentGradeValueLabel.setText(g);
     }
     
-    public void studentFamilyInformationTable(int student_id){
+    public void studentFamilyInformationTable(int student_id) throws SQLException{
         StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
         HashMap<Integer, Map<Integer,String>> hm = sfmc.getStudentFamilyMembersByStudentId(student_id);
         this.clearTable(viewStudentForm_studentFamily_table);
         this.createTable(hm, viewStudentForm_studentFamily_table);
     }
     
-    public void studentSchoolInformation(int student_id){
+    public void studentSchoolInformation(int student_id) throws SQLException{
         StudentSchoolController ssc = new StudentSchoolController();
         HashMap<Integer, Map<Integer,String>> hm = ssc.getStudentSchoolDetailsForStudentId(student_id);
         this.clearTable(viewStudent_studentSchoolInformation_table);
         this.createTable(hm, viewStudent_studentSchoolInformation_table);
     }
     
-    public void studentAssesmentPerformance(int student_id){
+    public void studentAssesmentPerformance(int student_id) throws SQLException{
         StudentAssesmentExamController saec = new StudentAssesmentExamController();
         HashMap<Integer, Map<Integer,String>> hm = saec.get_student_assesment_exam_details(student_id);
         this.clearTable(viewStudentTable_assesmentPerformance_table);
         this.createTable(hm, viewStudentTable_assesmentPerformance_table);
     }
     
-    public void studentExamPerformance(int student_id){
+    public void studentExamPerformance(int student_id) throws SQLException{
         StudentGradeExamController sgec = new StudentGradeExamController();
         HashMap<Integer, Map<Integer,String>> hm = sgec.get_Info_by_student_id(student_id);
         this.clearTable(viewStudentForm_examPerformance_table);
@@ -667,7 +666,12 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
             DefaultTableModel dtm = (DefaultTableModel) viewStudentForm_studentFamily_table.getModel();
             int id = Integer.parseInt(dtm.getValueAt(row, 3).toString());
             StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
-            List<String> l = sfmc.get_family_member_info_by_id(id);
+            List<String> l = new ArrayList<String>();
+            try {
+                l = sfmc.get_family_member_info_by_id(id);
+            } catch (SQLException ex) {
+                Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
+            }
             ViewStudentFamilyInfo vsfi = new ViewStudentFamilyInfo(mv);
             vsfi.set_student_name(l.get(0));
             vsfi.set_family_member_name(l.get(1));
@@ -707,7 +711,12 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
             String exam = dtm.getValueAt(row, 2).toString();
             String assesment = dtm.getValueAt(row, 1).toString();
             StudentAssesmentExamController ssc = new StudentAssesmentExamController();
-            HashMap<Integer, String> hm = ssc.get_info_by_id(id);
+            HashMap<Integer, String> hm = new HashMap<Integer, String>();
+            try {
+                hm = ssc.get_info_by_id(id);
+            } catch (SQLException ex) {
+                Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
+            }
             ViewStudentAssesmentExam view = new ViewStudentAssesmentExam(mv);
             view.set_student_name(this.student_name);
             view.set_exam(exam);
@@ -784,10 +793,41 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         StudentController sc = new StudentController();
         student_info = sc.get_student_info_by_id(student_id);
         
+        StudentFamilyMemberController sfmc = new StudentFamilyMemberController();
+        try {
+            family_member_info = sfmc.get_student_family_info(student_id);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        StudentSchoolController ssc = new StudentSchoolController();
+        student_school_info = ssc.get_student_school_details(student_id);
+        
+        StudentAssesmentExamController saec = new StudentAssesmentExamController();
+        try {
+            student_assesment_info = saec.get_student_exam_assesment_info(student_id);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        StudentGradeExamController sgec = new StudentGradeExamController();
+        try {
+            student_exam_info = sgec.get_student_grade_exam_info(student_id);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        StudentMedicalInformationController smic = new StudentMedicalInformationController();
+        try {
+            student_medical_info = smic.get_student_medical_requirement_data(student_id);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         ExcelMaker em = new ExcelMaker();
         boolean stts = false;
         try {
-            stts = em.get_student_info(this.student_id,student_info);
+            stts = em.get_student_info(this.student_id,student_info,family_member_info,student_school_info,student_assesment_info,student_exam_info,student_medical_info);
         } catch (IOException ex) {
             System.out.println(ex);
         }

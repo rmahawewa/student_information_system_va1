@@ -8,6 +8,7 @@ import View.*;
 import java.util.ArrayList;
 import java.util.List;
 import Controller.GradeController;
+import View.MessageBox.FormValidation;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -135,6 +136,9 @@ public class AddGradeInfo extends javax.swing.JPanel {
             }else{
                 // Message Box
                 System.out.println("message box - required fields"); 
+                FormValidation fv = new FormValidation();
+                fv.set_error_message("Please fill all the required fields before proceed");
+                fv.setVisible(true);
            }           
             
         } catch (SQLException ex) {

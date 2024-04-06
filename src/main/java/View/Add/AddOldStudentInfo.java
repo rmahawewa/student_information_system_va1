@@ -7,6 +7,7 @@ package View.Add;
 import Controller.OldStudentController;
 import UserLibraries.GetTimes;
 import View.MainView;
+import View.MessageBox.FormValidation;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -227,6 +228,10 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
             }else{
                 System.out.println("Failed to save the Old Student record. Please try again");
             }
+        }else{
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 
