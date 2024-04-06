@@ -9,6 +9,7 @@ package View.Edit;
 import View.Add.*;
 import View.MainView;
 import Controller.AssesmentController;
+import View.MessageBox.FormValidation;
 import java.util.ArrayList;
 import java.util.List;
 //import View.*;
@@ -171,6 +172,10 @@ public class EditAssesment extends javax.swing.JPanel {
             }else{
                 System.out.println("Failed to update the assesment record");
             }
+        }else{
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 

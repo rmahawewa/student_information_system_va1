@@ -9,6 +9,7 @@ package View.Add;
 import java.util.ArrayList;
 import java.util.List;
 import Controller.AssesmentController;
+import View.MessageBox.*;
 
 
 /**
@@ -144,6 +145,9 @@ public class AddAssesment extends javax.swing.JPanel {
             stts = ac.addAssesment(lst);
         }else{
             System.out.println("Please provide values for all the fields before proceed");
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
         }
         
         if(stts >= 0){

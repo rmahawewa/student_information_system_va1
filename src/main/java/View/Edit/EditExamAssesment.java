@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import Controller.ExamAssesmentController;
+import View.MessageBox.FormValidation;
 
 /**
  *
@@ -307,7 +308,7 @@ public class EditExamAssesment extends javax.swing.JPanel {
         int e_a_id = this.examAssesmentId;
         String grade = this.gradeComboBx.getSelectedItem().toString();
         GradeController gc = new GradeController();
-        int grade_id=1;
+        int grade_id=0;
         try {
             grade_id = gc.getGradeId(grade);
         } catch (SQLException ex) {
@@ -327,24 +328,31 @@ public class EditExamAssesment extends javax.swing.JPanel {
         hour = Integer.toString(hour_i);
         String date_time = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":00";
         
-        List<String> lst = new ArrayList<String>();
-        lst.add(0, Integer.toString(e_a_id));
-        lst.add(1, Integer.toString(grade_id));
-        lst.add(2, level);
-        lst.add(3, session_id);
-        lst.add(4, date_time);
-        ExamAssesmentController eac = new ExamAssesmentController();
-        boolean stts = false;
-        try {
-            stts = eac.updateExamAssesment(lst);
-        } catch (SQLException ex) {
-            Logger.getLogger(EditExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if(stts){
-            System.out.println("Record updated successfully");
+        if(grade_id > 0){
+            List<String> lst = new ArrayList<String>();
+            lst.add(0, Integer.toString(e_a_id));
+            lst.add(1, Integer.toString(grade_id));
+            lst.add(2, level);
+            lst.add(3, session_id);
+            lst.add(4, date_time);
+            ExamAssesmentController eac = new ExamAssesmentController();
+            boolean stts = false;
+            try {
+                stts = eac.updateExamAssesment(lst);
+            } catch (SQLException ex) {
+                Logger.getLogger(EditExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(stts){
+                System.out.println("Record updated successfully");
+            }else{
+                System.out.println("Failed to update the record");
+            }
         }else{
-            System.out.println("Failed to update the record");
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
         }
+        
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed

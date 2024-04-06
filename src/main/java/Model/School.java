@@ -96,6 +96,17 @@ public class School {
             i = prep.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(School.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return i;
     }
@@ -142,6 +153,22 @@ public class School {
             }
         } catch (SQLException ex) {
             Logger.getLogger(School.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }            
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return hm;
     }
@@ -162,6 +189,22 @@ public class School {
             }            
         } catch (SQLException ex) {
             Logger.getLogger(School.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }            
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return school_details;
     }
@@ -184,6 +227,17 @@ public class School {
             value = prep.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(School.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return value;        
     }
@@ -205,6 +259,22 @@ public class School {
             
         } catch (SQLException ex) {
             Logger.getLogger(School.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }            
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return hm;
     }

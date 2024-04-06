@@ -6,6 +6,7 @@ package View.Edit;
 
 import View.MainView;
 import Controller.StudentGradeExamController;
+import View.MessageBox.FormValidation;
 
 /**
  *
@@ -216,13 +217,20 @@ public class EditStudentGradeExam extends javax.swing.JPanel {
         String remarks = this.remarksText.getText();
         String description = this.descriptionTextArea.getText();
         
-        StudentGradeExamController sgec = new StudentGradeExamController();
-        int i = sgec.update_record(sge_id, marks, remarks, description);
-        if(i > 0){
-            System.out.println("Record successfully updated");
+        if(!marks.equals("")){
+            StudentGradeExamController sgec = new StudentGradeExamController();
+            int i = sgec.update_record(sge_id, marks, remarks, description);
+            if(i > 0){
+                System.out.println("Record successfully updated");
+            }else{
+                System.out.println("Failed to update the record. Please try again");
+            }
         }else{
-            System.out.println("Failed to update the record. Please try again");
-        }
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
+        }        
+        
     }//GEN-LAST:event_submitButtonActionPerformed
 
     /**

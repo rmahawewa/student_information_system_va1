@@ -167,6 +167,17 @@ public class StudentFamilyMember {
             i = prep.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(StudentFamilyMember.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return i;
     }   
@@ -225,6 +236,17 @@ public class StudentFamilyMember {
             i = prep.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(StudentFamilyMember.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return i;
     }

@@ -328,25 +328,25 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         familyContactNumberLabel.setText("Family contact number:");
 
         addressValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        addressValueLabel.setText("student address value");
+        addressValueLabel.setText("-");
 
         birthdayValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        birthdayValueLabel.setText("student birthday value");
+        birthdayValueLabel.setText("-");
 
         contactNumberValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        contactNumberValueLabel.setText("student contact number value");
+        contactNumberValueLabel.setText("-");
 
         identityCodeValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        identityCodeValueLabel.setText("identity code value");
+        identityCodeValueLabel.setText("-");
 
         passportNumberValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        passportNumberValueLabel.setText("passport nuber value");
+        passportNumberValueLabel.setText("-");
 
         dateOfEntaranceValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dateOfEntaranceValueLabel.setText("date of entarance value");
+        dateOfEntaranceValueLabel.setText("-");
 
         gradeInyearOfEntaranceValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        gradeInyearOfEntaranceValueLabel.setText("grade in year of entarance value");
+        gradeInyearOfEntaranceValueLabel.setText("-");
 
         excelExportButton.setBackground(new java.awt.Color(0, 153, 51));
         excelExportButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

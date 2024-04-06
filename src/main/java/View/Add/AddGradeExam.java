@@ -13,6 +13,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import Controller.GradeController;
 import Controller.StudentGradeExamController;
+import View.MessageBox.FormValidation;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -348,33 +349,39 @@ public class AddGradeExam extends javax.swing.JPanel {
         }
         String date_time = d_year + "-" + d_month + "-" + d_day + " " + hour + ":" + minute + ":00";
         
-        List<String> egr = new ArrayList<String>();
-        egr.add(0, Integer.toString(exam_id));
-        egr.add(1, Integer.toString(grade_id));
-        egr.add(2, Integer.toString(session));
-        egr.add(3, date_time);
-        
-        ExamGradeController egc = new ExamGradeController();
-        try {
-            int stts = egc.addGradeExam(egr);
-            System.out.println("the grade exam status is: " + stts);
-            if(stts > -1){
-                System.out.println("Grade - Exam record successfully created");
-                clearForm();
-                loadTable();
-                StudentGradeExamController sgec = new StudentGradeExamController();
-                try{
-                    sgec.add_students_to_exam_grade(stts, grade_id, d_year);
-                }catch(Exception e){
-                    System.out.println(e.getMessage());
+        if(grade_id > 0){
+            List<String> egr = new ArrayList<String>();
+            egr.add(0, Integer.toString(exam_id));
+            egr.add(1, Integer.toString(grade_id));
+            egr.add(2, Integer.toString(session));
+            egr.add(3, date_time);
+
+            ExamGradeController egc = new ExamGradeController();
+            try {
+                int stts = egc.addGradeExam(egr);
+                System.out.println("the grade exam status is: " + stts);
+                if(stts > -1){
+                    System.out.println("Grade - Exam record successfully created");
+                    clearForm();
+                    loadTable();
+                    StudentGradeExamController sgec = new StudentGradeExamController();
+                    try{
+                        sgec.add_students_to_exam_grade(stts, grade_id, d_year);
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                }else{
+                    System.out.println("Faild to create the record");
                 }
-            }else{
+            } catch (SQLException ex) {
+                Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("Faild to create the record");
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Faild to create the record");
-        }
+        }else{
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
+        }      
         
     }//GEN-LAST:event_submitButtonActionPerformed
 

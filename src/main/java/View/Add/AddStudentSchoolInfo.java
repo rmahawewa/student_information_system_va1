@@ -10,6 +10,7 @@ import Controller.StudentSchoolController;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import UserLibraries.GetTimes;
+import View.MessageBox.FormValidation;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -297,9 +298,11 @@ public class AddStudentSchoolInfo extends javax.swing.JPanel {
             }else{
                 System.out.println("Failed to insert the record. Please try again");
             }
-        }
-        
-        
+        }else{
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
+        }        
         
     }//GEN-LAST:event_submit_buttonActionPerformed
 

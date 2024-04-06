@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,14 +26,18 @@ public class AssesmentController {
     }
     
     public int addAssesment(List<String> lst){
-        int stts;
+        int stts = -1;
         String asmt_name = lst.get(0);
         String asmt_code = lst.get(1);
         
         asmt.setAssesment_name(asmt_name);
         asmt.setAssesment_code(asmt_code);
         
-        stts = asmt.add_assesment();
+        try {
+            stts = asmt.add_assesment();
+        } catch (SQLException ex) {
+            Logger.getLogger(AssesmentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         return stts;
     }

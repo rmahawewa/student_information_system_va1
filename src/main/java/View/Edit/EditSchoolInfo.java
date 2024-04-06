@@ -6,6 +6,7 @@ package View.Edit;
 
 import Controller.SchoolController;
 import View.MainView;
+import View.MessageBox.FormValidation;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -177,20 +178,27 @@ public class EditSchoolInfo extends javax.swing.JPanel {
         String contact_number = contactNumberText.getText();
         String details = detailsText.getText();
         
-        List<String> sil = new ArrayList<String>();
-        sil.add(0, Integer.toString(school_id));
-        sil.add(1, school_name);
-        sil.add(2, address);
-        sil.add(1, contact_number);
-        sil.add(1, details);
-        
-        SchoolController sc = new SchoolController();
-        int value = sc.update_school_info(sil);
-        if(value > 0){
-            System.out.println("School record successfully updated");
+        if(!school_name.equals("") && !address.equals("")){
+            List<String> sil = new ArrayList<String>();
+            sil.add(0, Integer.toString(school_id));
+            sil.add(1, school_name);
+            sil.add(2, address);
+            sil.add(1, contact_number);
+            sil.add(1, details);
+
+            SchoolController sc = new SchoolController();
+            int value = sc.update_school_info(sil);
+            if(value > 0){
+                System.out.println("School record successfully updated");
+            }else{
+                System.out.println("Couldn't update the record. Please try again");
+            }
         }else{
-            System.out.println("Couldn't update the record. Please try again");
-        }
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
+        }        
+        
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed

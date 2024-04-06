@@ -274,6 +274,22 @@ public class StudentGradeExam {
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }            
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return hm;
     }
@@ -301,6 +317,22 @@ public class StudentGradeExam {
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }            
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return mp;        
     }
@@ -322,6 +354,17 @@ public class StudentGradeExam {
             i = prep.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(StudentGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+            }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OldStudent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return i;
     }

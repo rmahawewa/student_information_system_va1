@@ -12,6 +12,7 @@ import java.util.Map;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import UserLibraries.GetTimes;
+import View.MessageBox.FormValidation;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -288,6 +289,9 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
             }
         }else{
             System.out.println("Please fill all the fields");
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
         }      
     }//GEN-LAST:event_submitButtonActionPerformed
 

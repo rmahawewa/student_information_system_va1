@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import UserLibraries.GetTimes;
+import View.MessageBox.FormValidation;
 import java.util.ArrayList;
 
 /**
@@ -26,8 +27,8 @@ import java.util.ArrayList;
 public class AddStudentMedicalRequirement extends javax.swing.JPanel {
     
     MainView mv;
-    int student_id;
-    int medical_requirement_id;
+    int student_id = 0;
+    int medical_requirement_id = 0;
     String current_year = GetTimes.getCurrentYear();
     String current_month = GetTimes.getCurrentMonth();
     String current_day = GetTimes.getCurrentDay();
@@ -494,22 +495,29 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
         
         String details = detailsTextField.getText();
         
-        List<String> l = new ArrayList<String>();
-        l.add(0, stdnt_id);
-        l.add(1, medical_requirement_id);
-        l.add(2, first_day_of_diagnose);
-        l.add(3, first_day_of_treatment);
-        l.add(4, last_day_of_treatment);
-        l.add(5, details);
-        
-        StudentMedicalInformationController smic = new StudentMedicalInformationController();
-        int i = smic.insert_student_medical_requirement_record(l);
-        
-        if(i > 0){
-            System.out.println("The Student Medical record successfully inserted");
+        if(!stdnt_id.equals("0") && !medical_requirement_id.equals("0")){
+            List<String> l = new ArrayList<String>();
+            l.add(0, stdnt_id);
+            l.add(1, medical_requirement_id);
+            l.add(2, first_day_of_diagnose);
+            l.add(3, first_day_of_treatment);
+            l.add(4, last_day_of_treatment);
+            l.add(5, details);
+
+            StudentMedicalInformationController smic = new StudentMedicalInformationController();
+            int i = smic.insert_student_medical_requirement_record(l);
+
+            if(i > 0){
+                System.out.println("The Student Medical record successfully inserted");
+            }else{
+                System.out.println("Failed to insert the Student Medical record. Please try again");
+            }
         }else{
-            System.out.println("Failed to insert the Student Medical record. Please try again");
-        }       
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
+        }        
+               
     }//GEN-LAST:event_submitButtonActionPerformed
 
     /**

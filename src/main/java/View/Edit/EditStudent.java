@@ -29,6 +29,7 @@ import View.IndividualView.ViewStudentFamilyInfo;
 import View.IndividualView.ViewStudentGradeExam;
 import View.IndividualView.ViewStudentMedicalRequirement;
 import View.List.StudentList;
+import View.MessageBox.FormValidation;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -795,36 +796,42 @@ public class EditStudent extends javax.swing.JPanel {
         String path = directory.getAbsolutePath();
         String file_location = path.substring(0, path.length()-1) + img_newname;
         
-        List<String> l = new ArrayList<String>();
-        l.add(0, stdnt_name);
-        l.add(1, address);
-        l.add(2, birthday);
-        l.add(3, contactNumber);
-        l.add(4, identityCode);
-        l.add(5, passportNumber);
-        l.add(6, dateOfEnterance);
-        l.add(7, Integer.toString(grade_id));
-        l.add(8, file_location);
-        l.add(9, doeYear+"-01-01");
-        l.add(10, Integer.toString(student_id));
-        
-        StudentController sc = new StudentController();
-        boolean b = sc.updateStudentRecord(l);
-        
-        if(b){
-            BufferedImage bi;
-            try {
-                bi = ImageIO.read(file);
-                File outputfile = new File(file_location);
-                ImageIO.write(bi, "png", outputfile);
-            } catch (IOException ex) {
-                Logger.getLogger(AddStudent.class.getName()).log(Level.SEVERE, null, ex);
+        if(!stdnt_name.equals("") && !address.equals("") && grade_id > 0){
+            List<String> l = new ArrayList<String>();
+            l.add(0, stdnt_name);
+            l.add(1, address);
+            l.add(2, birthday);
+            l.add(3, contactNumber);
+            l.add(4, identityCode);
+            l.add(5, passportNumber);
+            l.add(6, dateOfEnterance);
+            l.add(7, Integer.toString(grade_id));
+            l.add(8, file_location);
+            l.add(9, doeYear+"-01-01");
+            l.add(10, Integer.toString(student_id));
+
+            StudentController sc = new StudentController();
+            boolean b = sc.updateStudentRecord(l);
+
+            if(b){
+                BufferedImage bi;
+                try {
+                    bi = ImageIO.read(file);
+                    File outputfile = new File(file_location);
+                    ImageIO.write(bi, "png", outputfile);
+                } catch (IOException ex) {
+                    Logger.getLogger(AddStudent.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                System.out.println("The Student record successfully updated");
+
+            }else{
+                System.out.println("Failed to update the Student record. Please try again");
             }
-            System.out.println("The Student record successfully updated");
-            
         }else{
-            System.out.println("Failed to update the Student record. Please try again");
-        }
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
+        }     
         
     }//GEN-LAST:event_submitButtonActionPerformed
 

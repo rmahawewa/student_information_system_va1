@@ -12,6 +12,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.table.DefaultTableModel;
 import Controller.StudentAssesmentExamController;
+import View.MessageBox.FormValidation;
 
 /**
  *
@@ -308,6 +309,10 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
             StudentAssesmentExamController c = new StudentAssesmentExamController();
             int r = c.addStudentAssesmentExam(l);
             responce = r>0?"Record successfully inserted":"Failed to insert the record";
+        }else{
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
         }
         System.out.println(responce);
     }//GEN-LAST:event_submitButtonActionPerformed

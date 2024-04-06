@@ -15,6 +15,7 @@ import UserLibraries.GetTimes;
 import java.util.HashMap;
 import java.util.Map;
 import UserLibraries.InputValidation;
+import View.MessageBox.FormValidation;
 
 /**
  *
@@ -297,6 +298,9 @@ public class AddExam extends javax.swing.JPanel{
             }
         }else{
             System.out.println("Please fill all the fields correctly before proceed");
+            FormValidation fv = new FormValidation();
+            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.setVisible(true);
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 
