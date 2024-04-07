@@ -7,6 +7,8 @@ package View.Add;
 import View.MainView;
 import Controller.MedicalRequirementController;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 
 /**
  *
@@ -100,8 +102,14 @@ public class AddMedicalRequirements extends javax.swing.JPanel {
             int i = mrc.insert_med_req_data(desease_name);
             if(i > 0){
                 System.out.println("Medical requirement data successfully inserted");
+                Result_SuccessMessage rsm = new Result_SuccessMessage();
+                rsm.setMessage("Medical requirement data successfully inserted.");
+                rsm.setVisible(true);
             }else{
                 System.out.println("Failed to insert medical requirement data. Please try again");
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("Failed to insert medical requirement data. Please try again.");
+                rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();

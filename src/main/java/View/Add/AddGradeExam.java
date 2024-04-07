@@ -14,6 +14,8 @@ import javax.swing.table.DefaultTableModel;
 import Controller.GradeController;
 import Controller.StudentGradeExamController;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -362,6 +364,9 @@ public class AddGradeExam extends javax.swing.JPanel {
                 System.out.println("the grade exam status is: " + stts);
                 if(stts > -1){
                     System.out.println("Grade - Exam record successfully created");
+                    Result_SuccessMessage rsm = new Result_SuccessMessage();
+                    rsm.setMessage("Grade - Exam record successfully created.");
+                    rsm.setVisible(true);
                     clearForm();
                     loadTable();
                     StudentGradeExamController sgec = new StudentGradeExamController();
@@ -371,11 +376,17 @@ public class AddGradeExam extends javax.swing.JPanel {
                         System.out.println(e.getMessage());
                     }
                 }else{
-                    System.out.println("Faild to create the record");
+                    System.out.println("Faild to create the record.");
+                    Result_ErrorMessage rem = new Result_ErrorMessage();
+                    rem.setMessage("Faild to create the record. Please try again.");
+                    rem.setVisible(true);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("Faild to create the record");
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("Faild to create the record. Please try again.");
+                rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();

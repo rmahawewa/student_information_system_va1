@@ -13,6 +13,8 @@ import javax.swing.JList;
 import javax.swing.table.DefaultTableModel;
 import Controller.StudentAssesmentExamController;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 
 /**
  *
@@ -308,13 +310,22 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
             
             StudentAssesmentExamController c = new StudentAssesmentExamController();
             int r = c.addStudentAssesmentExam(l);
-            responce = r>0?"Record successfully inserted":"Failed to insert the record";
+            //responce = r>0?"Record successfully inserted":"Failed to insert the record";
+            if(r>0){
+                Result_SuccessMessage rsm = new Result_SuccessMessage();
+                rsm.setMessage("Record successfully inserted.");
+                rsm.setVisible(true);
+            }else{
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("Failed to insert the record. Please try again.");
+                rem.setVisible(true);
+            }
         }else{
             FormValidation fv = new FormValidation();
             fv.set_error_message("Please fill all the required fields before proceed");
             fv.setVisible(true);
         }
-        System.out.println(responce);
+        //System.out.println(responce);
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed

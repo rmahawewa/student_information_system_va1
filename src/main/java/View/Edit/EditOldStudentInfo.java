@@ -7,6 +7,8 @@ package View.Edit;
 import Controller.OldStudentController;
 import View.MainView;
 import UserLibraries.GetTimes;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -226,8 +228,14 @@ public class EditOldStudentInfo extends javax.swing.JPanel {
         int i = osc.update_old_student_info(l);
         if(i > 0){
             System.out.println("Old student information updated successfully");
+            Result_SuccessMessage rsm = new Result_SuccessMessage();
+            rsm.setMessage("Old student information updated successfully.");
+            rsm.setVisible(true);
         }else{
             System.out.println("Failed to update old student information. Pleasr try again");
+            Result_ErrorMessage rem = new Result_ErrorMessage();
+            rem.setMessage("Failed to update old student information. Pleasr try again.");
+            rem.setVisible(true);
         }
                 
     }//GEN-LAST:event_submitButtonActionPerformed

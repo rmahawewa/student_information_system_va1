@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import Controller.GradeController;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -132,6 +134,13 @@ public class AddGradeInfo extends javax.swing.JPanel {
                     System.out.println("Grade info successfully added");
                     gradeInNumberText.setText("");
                     gradeInWordsText.setText("");
+                    Result_SuccessMessage rsm = new Result_SuccessMessage();
+                    rsm.setMessage("Grade info successfully added.");
+                    rsm.setVisible(true);
+                }else{
+                    Result_ErrorMessage rem = new Result_ErrorMessage();
+                    rem.setMessage("Failed to add Grade information. Please try again.");
+                    rem.setVisible(true);
                 }
             }else{
                 // Message Box

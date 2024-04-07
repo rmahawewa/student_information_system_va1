@@ -30,6 +30,8 @@ import View.IndividualView.ViewStudentGradeExam;
 import View.IndividualView.ViewStudentMedicalRequirement;
 import View.List.StudentList;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -823,9 +825,14 @@ public class EditStudent extends javax.swing.JPanel {
                     Logger.getLogger(AddStudent.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 System.out.println("The Student record successfully updated");
-
+                Result_SuccessMessage rsm = new Result_SuccessMessage();
+                rsm.setMessage("The Student record successfully updated.");
+                rsm.setVisible(true);
             }else{
                 System.out.println("Failed to update the Student record. Please try again");
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("Failed to update the Student record. Please try again.");
+                rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();

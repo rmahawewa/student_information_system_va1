@@ -17,6 +17,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import Controller.ExamAssesmentController;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 
 /**
  *
@@ -344,8 +346,14 @@ public class EditExamAssesment extends javax.swing.JPanel {
             }
             if(stts){
                 System.out.println("Record updated successfully");
+                Result_SuccessMessage rsm = new Result_SuccessMessage();
+                rsm.setMessage("Exam-Assesment record successfully updated.");
+                rsm.setVisible(true);
             }else{
                 System.out.println("Failed to update the record");
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("Failed to update the Exam-Assesment record. Please try again.");
+                rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();

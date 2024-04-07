@@ -7,6 +7,8 @@ package View.Edit;
 import Controller.SchoolController;
 import View.MainView;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -190,8 +192,14 @@ public class EditSchoolInfo extends javax.swing.JPanel {
             int value = sc.update_school_info(sil);
             if(value > 0){
                 System.out.println("School record successfully updated");
+                Result_SuccessMessage rsm = new Result_SuccessMessage();
+                rsm.setMessage("School record successfully updated.");
+                rsm.setVisible(true);
             }else{
                 System.out.println("Couldn't update the record. Please try again");
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("Couldn't update the record. Please try again.");
+                rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();

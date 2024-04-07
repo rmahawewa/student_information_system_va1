@@ -34,6 +34,7 @@ public class Result_SuccessMessage extends javax.swing.JFrame {
         msgLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Success");
 
         okBtn.setText("ok");
         okBtn.addActionListener(new java.awt.event.ActionListener() {

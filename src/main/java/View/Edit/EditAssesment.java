@@ -10,6 +10,8 @@ import View.Add.*;
 import View.MainView;
 import Controller.AssesmentController;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 import java.util.ArrayList;
 import java.util.List;
 //import View.*;
@@ -169,8 +171,14 @@ public class EditAssesment extends javax.swing.JPanel {
             boolean b = ac.updateAssesment(lst);
             if(b){
                 System.out.println("Assesment record successfully updated");
+                Result_SuccessMessage rsm = new Result_SuccessMessage();
+                rsm.setMessage("Assesment record successfully updated.");
+                rsm.setVisible(true);
             }else{
                 System.out.println("Failed to update the assesment record");
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("Failed to update the assesment record. Please try again.");
+                rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();

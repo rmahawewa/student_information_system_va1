@@ -7,6 +7,8 @@ package View.Edit;
 import Controller.ExamGradeController;
 import View.MainView;
 import UserLibraries.GetTimes;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 
 /**
  *
@@ -247,8 +249,14 @@ public class EditGradeExam extends javax.swing.JPanel {
         int d = egc.edit_exam_grade_record(id, session, date_time);
         if(d>0){
             System.out.println("Grade Exam record successfully edited");
+            Result_SuccessMessage rsm = new Result_SuccessMessage();
+            rsm.setMessage("Grade Exam record successfully edited.");
+            rsm.setVisible(true);
         }else{
             System.out.println("Failed to edit the Grade Exam record");
+            Result_ErrorMessage rem = new Result_ErrorMessage();
+            rem.setMessage("Failed to edit the Grade Exam record.");
+            rem.setVisible(true);
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 
