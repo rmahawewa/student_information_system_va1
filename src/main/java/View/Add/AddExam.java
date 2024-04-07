@@ -16,6 +16,8 @@ import java.util.HashMap;
 import java.util.Map;
 import UserLibraries.InputValidation;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 
 /**
  *
@@ -292,9 +294,15 @@ public class AddExam extends javax.swing.JPanel{
             
             if(i == 0){
                 System.out.println("Exam record successfully created");
+                Result_SuccessMessage rsm = new Result_SuccessMessage();
+                rsm.setMessage("Exam record successfully created.");
+                rsm.setVisible(true);
                 this.clearForm();
             }else{
                 System.out.println("Failed to create the exam record");
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("Failed to create the exam record. Please try again.");
+                rem.setVisible(true);
             }
         }else{
             System.out.println("Please fill all the fields correctly before proceed");

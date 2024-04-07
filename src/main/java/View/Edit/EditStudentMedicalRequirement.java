@@ -9,6 +9,8 @@ import UserLibraries.GetTimes;
 import java.util.ArrayList;
 import java.util.List;
 import Controller.StudentMedicalInformationController;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 
 /**
  *
@@ -314,8 +316,14 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
         
         if(i > 0){
             System.out.println("Student medical status record successfully updated");
+            Result_SuccessMessage rsm = new Result_SuccessMessage();
+            rsm.setMessage("Student medical status record successfully updated.");
+            rsm.setVisible(true);
         }else{
             System.out.println("Failed to update the Student medical status record. Please try again");
+            Result_ErrorMessage rem = new Result_ErrorMessage();
+            rem.setMessage("Failed to update the Student medical status record. Please try again.");
+            rem.setVisible(true);
         }
         
     }//GEN-LAST:event_submitButtonActionPerformed

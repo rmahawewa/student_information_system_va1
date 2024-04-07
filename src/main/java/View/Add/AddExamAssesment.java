@@ -22,6 +22,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import UserLibraries.GetTimes;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 import java.util.ArrayList;
 
 /**
@@ -492,8 +494,14 @@ public class AddExamAssesment extends javax.swing.JPanel {
             } catch (SQLException ex) {
                 Logger.getLogger(AddExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
             }
+            Result_SuccessMessage rsm = new Result_SuccessMessage();
+            rsm.setMessage("Exam-Assesment record successfully added.");
+            rsm.setVisible(true);
         }else{
             System.out.println("Failed to add Exam-Assesment record");
+            Result_ErrorMessage rem = new Result_ErrorMessage();
+            rem.setMessage("Failed to add Exam-Assesment record. Please try again.");
+            rem.setVisible(true);
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 

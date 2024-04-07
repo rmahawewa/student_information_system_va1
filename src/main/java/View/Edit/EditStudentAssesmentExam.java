@@ -7,6 +7,8 @@ package View.Edit;
 import View.MainView;
 import Controller.StudentAssesmentExamController;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 
 /**
  *
@@ -229,8 +231,14 @@ public class EditStudentAssesmentExam extends javax.swing.JPanel {
             int i = saec.update_individual_entry(this.sae_id, marks, remarks, description);
             if(i > 0){
                 System.out.println("Record successfully updated");
+                Result_SuccessMessage rsm = new Result_SuccessMessage();
+                rsm.setMessage("Record successfully updated.");
+                rsm.setVisible(true);
             }else{
                 System.out.println("Failed to update the record. Please try again");
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("Failed to update the record. Please try again.");
+                rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();

@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 import UserLibraries.GetTimes;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -295,8 +297,14 @@ public class AddStudentSchoolInfo extends javax.swing.JPanel {
             int i = ssc.add_student_school_record(l);
             if(i > 0){
                 System.out.println("Record successfully inserted");
+                Result_SuccessMessage rsm = new Result_SuccessMessage();
+                rsm.setMessage("Record successfully inserted.");
+                rsm.setVisible(true);
             }else{
                 System.out.println("Failed to insert the record. Please try again");
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("Failed to insert the record. Please try again.");
+                rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();

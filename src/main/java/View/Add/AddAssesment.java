@@ -41,6 +41,8 @@ public class AddAssesment extends javax.swing.JPanel {
         assesmentCodeText = new javax.swing.JTextField();
         submitButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topicLabel.setText("Add Assesment");
@@ -76,6 +78,14 @@ public class AddAssesment extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel1.setText("*");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel2.setText("*");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,7 +99,11 @@ public class AddAssesment extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(assesmentCodeText, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(assesmentNameText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
             .addGroup(layout.createSequentialGroup()
                 .addGap(165, 165, 165)
                 .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -113,9 +127,13 @@ public class AddAssesment extends javax.swing.JPanel {
                         .addGap(31, 31, 31)
                         .addComponent(assesmentCodeLabel))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(assesmentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(assesmentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
                         .addGap(25, 25, 25)
-                        .addComponent(assesmentCodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(assesmentCodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))))
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
@@ -151,9 +169,15 @@ public class AddAssesment extends javax.swing.JPanel {
         }
         
         if(stts >= 0){
-            System.out.println("Assesment record successfully created");
+            System.out.println("Assesment record successfully created.");
+            Result_SuccessMessage rsm = new Result_SuccessMessage();
+            rsm.setMessage("Assesment record successfully created.");
+            rsm.setVisible(true);
         }else{
-            System.out.println("Failed to create the Assesment record");
+            System.out.println("Failed to create the Assesment record. Please try again.");
+            Result_ErrorMessage rem = new Result_ErrorMessage();
+            rem.setMessage("Failed to create the Assesment record. Please try again.");
+            rem.setVisible(true);
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 
@@ -223,6 +247,8 @@ public class AddAssesment extends javax.swing.JPanel {
     private javax.swing.JLabel assesmentNameLabel;
     private javax.swing.JTextField assesmentNameText;
     private javax.swing.JButton cancelButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton submitButton;
     private javax.swing.JLabel topicLabel;
     // End of variables declaration//GEN-END:variables

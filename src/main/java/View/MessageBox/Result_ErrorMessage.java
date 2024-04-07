@@ -34,6 +34,7 @@ public class Result_ErrorMessage extends javax.swing.JFrame {
         msgLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Retry");
 
         okButton.setText("ok");
         okButton.addActionListener(new java.awt.event.ActionListener() {

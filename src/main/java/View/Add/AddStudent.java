@@ -16,6 +16,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Controller.StudentController;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
@@ -415,9 +417,15 @@ public class AddStudent extends javax.swing.JPanel {
                     Logger.getLogger(AddStudent.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 System.out.println("The Student record successfully created");
+                Result_SuccessMessage rsm = new Result_SuccessMessage();
+                rsm.setMessage("The Student record successfully created.");
+                rsm.setVisible(true);
                 this.clear_form();
             }else{
                 System.out.println("Failed to create the Student record");
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("Failed to create the Student record. Please try again.");
+                rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();

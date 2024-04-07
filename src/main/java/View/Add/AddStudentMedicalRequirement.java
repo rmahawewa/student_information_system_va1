@@ -18,6 +18,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import UserLibraries.GetTimes;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 import java.util.ArrayList;
 
 /**
@@ -509,8 +511,14 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
 
             if(i > 0){
                 System.out.println("The Student Medical record successfully inserted");
+                Result_SuccessMessage rsm = new Result_SuccessMessage();
+                rsm.setMessage("The Student Medical record successfully inserted.");
+                rsm.setVisible(true);
             }else{
                 System.out.println("Failed to insert the Student Medical record. Please try again");
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("Failed to insert the Student Medical record. Please try again.");
+                rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();

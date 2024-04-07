@@ -13,6 +13,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import UserLibraries.GetTimes;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -278,6 +280,9 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
             int i = sfmc.add_student_family_member_information(l);
             if(i>0){
                 System.out.println("Student family member record successfully saved");
+                Result_SuccessMessage rsm = new Result_SuccessMessage();
+                rsm.setMessage("Student family member record successfully saved.");
+                rsm.setVisible(true);
                 this.clearForm();
                 try {
                     this.load_table();
@@ -286,6 +291,9 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
                 }
             }else{
                 System.out.println("Failed to save the record. Please try again");
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("Failed to save the record. Please try again.");
+                rem.setVisible(true);
             }
         }else{
             System.out.println("Please fill all the fields");

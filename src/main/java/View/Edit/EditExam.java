@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import Controller.ExamController;
 import View.MessageBox.FormValidation;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -339,6 +341,13 @@ public class EditExam extends javax.swing.JPanel{
                 int stts = ec.updateExamInfo(ed);
                 if(stts >= 0){
                     System.out.println("Record successfully updated");
+                    Result_SuccessMessage rsm = new Result_SuccessMessage();
+                    rsm.setMessage("Record successfully updated.");
+                    rsm.setVisible(true);
+                } else{
+                    Result_ErrorMessage rem = new Result_ErrorMessage();
+                    rem.setMessage("Failed to update the Exam record. Please try again.");
+                    rem.setVisible(true);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(EditExam.class.getName()).log(Level.SEVERE, null, ex);
