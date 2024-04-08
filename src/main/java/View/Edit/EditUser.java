@@ -225,6 +225,10 @@ public class EditUser extends javax.swing.JPanel {
                 this.userNameText.setText("");
                 this.passwordText.setText("");
                 user_id = 0;
+            }else if(i < 0){
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("User name, Password combination already exist. Please try another combination.");
+                rem.setVisible(true);
             }else{
                 Result_ErrorMessage rem = new Result_ErrorMessage();
                 rem.setMessage("Failed to update the User. Please try again.");
@@ -243,6 +247,7 @@ public class EditUser extends javax.swing.JPanel {
         this.nameText.setText("");
         this.userNameText.setText("");
         this.passwordText.setText("");
+        this.user_id = 0;
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     DefaultListModel demoList = new DefaultListModel();

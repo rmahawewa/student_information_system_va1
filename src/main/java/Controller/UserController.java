@@ -18,12 +18,23 @@ public class UserController {
     
     public int user_login(String usr_name, String pswd){
     
-        User usr = new User();
-        int logged_in_user_id = usr.userLogin();
-        //LoggedInUser lnusr = new LoggedInUser(logged_in_user_id);
-        LoggedInUser.setLogged_in_user(logged_in_user_id);
-        System.out.println(LoggedInUser.getLogged_in_user());
-        return 1;
+//        User usr = new User();
+//        int logged_in_user_id = usr.userLogin();
+//        //LoggedInUser lnusr = new LoggedInUser(logged_in_user_id);
+//        LoggedInUser.setLogged_in_user(logged_in_user_id);
+//        System.out.println(LoggedInUser.getLogged_in_user());
+//        return 1;
+        
+        u.setUser_name(usr_name);
+        u.setPassword(pswd);
+        int user_id = u.userLogin();
+        
+        if(user_id > 0){
+            LoggedInUser liu = new LoggedInUser();
+            liu.setLogged_in_user(user_id);
+            liu.save_logged_in_user_data(user_id);
+        }
+        return user_id;
         
     }    
     

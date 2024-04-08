@@ -173,6 +173,10 @@ public class AddUser extends javax.swing.JPanel {
                 this.nameText.setText("");
                 this.userNameText.setText("");
                 this.passwordText.setText("");
+            }else if(i < 0){
+                Result_ErrorMessage rem = new Result_ErrorMessage();
+                rem.setMessage("User name, Password combination already exist. Please try another combination.");
+                rem.setVisible(true);
             }else{
                 Result_ErrorMessage rem = new Result_ErrorMessage();
                 rem.setMessage("Failed to create the User. Please try again.");

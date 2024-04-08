@@ -67,14 +67,67 @@ public class User {
     
     public int userLogin(){
     
-        int logged_in_user_id = 1;
-        return logged_in_user_id;
-    
+//        int logged_in_user_id = 1;
+//        return logged_in_user_id;
+
+          PreparedStatement prep = null;
+          ResultSet result = null;
+          
+          int user_id = -1;
+          
+          String query = "select iduser from user where user_name = ? and password = ?";
+        try {
+            prep = con.prepareStatement(query);
+            prep.setString(1, this.getUser_name());
+            prep.setString(2, this.getPassword());
+            result = prep.executeQuery();
+            while(result.next()){
+                user_id = result.getInt("iduser");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+                result = null;
+            }
+            if(prep != null){
+                try{
+                    prep.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+                prep = null;
+            }
+              try {
+                  con.close();
+              } catch (SQLException ex) {
+                  Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+              }
+        }
+        return user_id;    
     }
     
     public int add_user(){
-        PreparedStatement prep = null;
+        PreparedStatement prp = null;
+        ResultSet result = null;
+        PreparedStatement prep = null;        
         int i = 0;
+        
+        String qry = "select iduser from user where user_name = ? and password = ?";
+        try {
+            prp = con.prepareStatement(qry);
+            prp.setString(1, this.getUser_name());
+            prp.setString(2, this.getPassword());
+            result = prp.executeQuery();
+            
+            while(result.next()){
+                return -1;
+            }
+             
+        } catch (SQLException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         String query = "insert into user (name, user_name, password, created_at) values (?,?,?,?)";
         try {
@@ -87,11 +140,23 @@ public class User {
         } catch (SQLException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         } finally{
+            if(result != null){
+                try{
+                    result.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+                result = null;
+            }
             if(prep != null){
                 try{
                     prep.close();
                 }catch(SQLException ex){ System.out.println(ex.getMessage()); }
                 prep = null;
+            }
+            if(prp != null){
+                try{
+                    prp.close();
+                }catch(SQLException ex){ System.out.println(ex.getMessage()); }
+                prp = null;
             }
             try {
                 con.close();
@@ -103,9 +168,25 @@ public class User {
     }
     
     public int update_user(){
-        PreparedStatement prep = null;
-        
+        PreparedStatement prp = null;
+        ResultSet result = null;
+        PreparedStatement prep = null;        
         int i = 0;
+        
+        String qry = "select iduser from user where user_name = ? and password = ?";
+        try {
+            prp = con.prepareStatement(qry);
+            prp.setString(1, this.getUser_name());
+            prp.setString(2, this.getPassword());
+            result = prp.executeQuery();
+            
+            while(result.next()){
+                return -1;
+            }
+             
+        } catch (SQLException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         String query = "update user set name = ?, user_name = ?, password = ?, updated_at = ? where iduser = ?";
         try {
