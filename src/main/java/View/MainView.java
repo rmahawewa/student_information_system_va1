@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import UserLibraries.CloseActionHandler;
+import View.Edit.EditUser;
 import View.IndividualView.Student.ViewStudent_byNameType;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -291,10 +292,20 @@ public class MainView extends javax.swing.JFrame {
 
         l1_settings_menu.setText("Settings");
 
-        l2_userSettings_menuItem.setText("User");
+        l2_userSettings_menuItem.setText("Add user");
+        l2_userSettings_menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                l2_userSettings_menuItemActionPerformed(evt);
+            }
+        });
         l1_settings_menu.add(l2_userSettings_menuItem);
 
-        l2_adminS_menuItem.setText("Admin");
+        l2_adminS_menuItem.setText("Edit user");
+        l2_adminS_menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                l2_adminS_menuItemActionPerformed(evt);
+            }
+        });
         l1_settings_menu.add(l2_adminS_menuItem);
 
         menuBar.add(l1_settings_menu);
@@ -469,6 +480,18 @@ public class MainView extends javax.swing.JFrame {
         ViewStudent_byNameType vsbnt = new ViewStudent_byNameType(this);
         this.mainView_ScrollPane.setViewportView(vsbnt);
     }//GEN-LAST:event_l2_viewStudent_menuItemActionPerformed
+
+    private void l2_userSettings_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_userSettings_menuItemActionPerformed
+        // TODO add your handling code here:
+        AddUser au = new AddUser(this);
+        this.mainView_ScrollPane.setViewportView(au);
+    }//GEN-LAST:event_l2_userSettings_menuItemActionPerformed
+
+    private void l2_adminS_menuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_l2_adminS_menuItemActionPerformed
+        // TODO add your handling code here:
+        EditUser eu = new EditUser(this);
+        this.mainView_ScrollPane.setViewportView(eu);
+    }//GEN-LAST:event_l2_adminS_menuItemActionPerformed
 
     /**
      * @param args the command line arguments
