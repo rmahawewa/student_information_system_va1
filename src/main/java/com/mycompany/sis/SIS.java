@@ -8,6 +8,7 @@ import View.MainView;
 import Controller.UserController;
 import Model.LoggedInUser;
 import UserLibraries.GetTimes;
+import View.UserLogin;
 
 /**
  *
@@ -26,8 +27,11 @@ public class SIS {
         uc.user_login("test", "test");
 //        System.out.println("---------------------------------------");
 //        System.out.println(LoggedInUser.getLogged_in_user());
-        MainView mv = new MainView();
-        mv.setVisible(true);
+//        MainView mv = new MainView();
+//        mv.setVisible(true);
+          
+          UserLogin ul = new UserLogin();
+          ul.setVisible(true);
         
     }
 }
