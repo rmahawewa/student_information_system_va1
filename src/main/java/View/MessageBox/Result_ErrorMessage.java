@@ -15,6 +15,7 @@ public class Result_ErrorMessage extends javax.swing.JFrame {
      */
     public Result_ErrorMessage() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     public void setMessage(String msg){

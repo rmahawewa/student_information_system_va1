@@ -81,6 +81,7 @@ public class EditStudentGradeExam extends javax.swing.JPanel {
         descriptionLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         descriptionTextArea = new javax.swing.JTextArea();
+        jLabel22 = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topicLabel.setText("Edit Student Examination Performance Details");
@@ -136,6 +137,10 @@ public class EditStudentGradeExam extends javax.swing.JPanel {
         descriptionTextArea.setRows(5);
         jScrollPane1.setViewportView(descriptionTextArea);
 
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel22.setText("*");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -161,7 +166,9 @@ public class EditStudentGradeExam extends javax.swing.JPanel {
                     .addComponent(jScrollPane1)
                     .addComponent(marksText)
                     .addComponent(remarksText, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
             .addGroup(layout.createSequentialGroup()
                 .addGap(162, 162, 162)
                 .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,7 +196,8 @@ public class EditStudentGradeExam extends javax.swing.JPanel {
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(marksLabel)
-                    .addComponent(marksText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(marksText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(remarksLabel)
@@ -539,6 +547,7 @@ public class EditStudentGradeExam extends javax.swing.JPanel {
     private javax.swing.JLabel examNameValueLabel;
     private javax.swing.JLabel gradeLabel;
     private javax.swing.JLabel gradeValueLabel;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel marksLabel;
     private javax.swing.JTextField marksText;

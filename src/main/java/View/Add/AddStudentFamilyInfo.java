@@ -76,6 +76,8 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
         cancelButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         familyMembersViewTable = new javax.swing.JTable();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(595, 731));
 
@@ -161,6 +163,14 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(familyMembersViewTable);
 
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel17.setText("*");
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel18.setText("*");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -187,7 +197,11 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
                     .addComponent(careerText, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(studentNameValueLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(fMemberNameText, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(38, 38, 38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(topicLabel)
@@ -216,11 +230,13 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fmemberNameLabel)
-                    .addComponent(fMemberNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fMemberNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(relationshipLabel)
-                    .addComponent(relationshipText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(relationshipText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(birthdayLabel)
@@ -235,7 +251,7 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(careerLabel)
                     .addComponent(careerText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(cancelButton))
@@ -268,7 +284,7 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
         String nic = this.nicText.getText();
         String career = this.careerText.getText();
         
-        if(!family_member_name.equals("") && !relationship.equals("") && !nic.equals("") && !career.equals("")){
+        if(!family_member_name.equals("") && !relationship.equals("")){
             List<String> l = new ArrayList<String>();
             l.add(0, Integer.toString(student_id));
             l.add(1, family_member_name);
@@ -394,6 +410,8 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
     private javax.swing.JTextField fMemberNameText;
     private javax.swing.JTable familyMembersViewTable;
     private javax.swing.JLabel fmemberNameLabel;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nicLabel;
     private javax.swing.JTextField nicText;

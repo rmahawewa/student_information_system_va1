@@ -15,6 +15,7 @@ public class Result_SuccessMessage extends javax.swing.JFrame {
      */
     public Result_SuccessMessage() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     
     public void setMessage(String msg){

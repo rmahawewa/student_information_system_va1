@@ -241,13 +241,19 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="l2_userSettings_menuItem">
               <Properties>
-                <Property name="text" type="java.lang.String" value="User"/>
+                <Property name="text" type="java.lang.String" value="Add user"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="l2_userSettings_menuItemActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="l2_adminS_menuItem">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Admin"/>
+                <Property name="text" type="java.lang.String" value="Edit user"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="l2_adminS_menuItemActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

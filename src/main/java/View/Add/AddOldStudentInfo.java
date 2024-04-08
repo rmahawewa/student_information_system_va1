@@ -72,6 +72,7 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
         yearComboBx = new javax.swing.JComboBox<>();
         monthComboBx = new javax.swing.JComboBox<>();
         oldStudentNameValueLabel = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(595, 462));
 
@@ -122,6 +123,10 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
         oldStudentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         oldStudentNameValueLabel.setText("Old student name");
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel12.setText("*");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -153,12 +158,14 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
                                         .addGap(18, 18, 18)
                                         .addComponent(monthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(dayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(dayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(studentNameLabel)
                                 .addGap(102, 102, 102)
                                 .addComponent(oldStudentNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,12 +195,14 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
                         .addComponent(dayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(reasonText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(reasonText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(cancelButton))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -288,6 +297,7 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
     private javax.swing.JComboBox<String> dayComboBx;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel leftDateLabel;
     private javax.swing.JComboBox<String> monthComboBx;
     private javax.swing.JLabel oldStudentNameValueLabel;

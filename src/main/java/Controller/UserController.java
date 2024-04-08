@@ -6,12 +6,15 @@ package Controller;
 
 import Model.User;
 import Model.LoggedInUser;
+import java.util.List;
 
 /**
  *
  * @author HP
  */
 public class UserController {
+    
+    User u = new User();
     
     public int user_login(String usr_name, String pswd){
     
@@ -24,4 +27,32 @@ public class UserController {
         
     }    
     
+    public int save_user(List l){
+        u.setName(l.get(0).toString());
+        u.setUser_name(l.get(1).toString());
+        u.setPassword(l.get(2).toString());
+        
+        int i = u.add_user();
+        
+        return i;
+    }
+    
+    public List user_list(String text){
+        List<String> l = u.get_user_list(text);
+        return l;
+    }
+    
+    public List getUserById(int id){
+        List<String> l = u.get_user(id);
+        return l;
+    }
+    
+    public int update_user(List l){
+        u.setId(Integer.parseInt(l.get(0).toString()));
+        u.setName(l.get(1).toString());
+        u.setUser_name(l.get(2).toString());
+        u.setPassword(l.get(3).toString());
+        int i = u.update_user();
+        return i;
+    }
 }
