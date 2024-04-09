@@ -209,6 +209,7 @@ public class StudentList extends javax.swing.JPanel {
             }
         });
 
+        studentInformationTable.setFont(new java.awt.Font("Iskoola Pota", 0, 12)); // NOI18N
         studentInformationTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

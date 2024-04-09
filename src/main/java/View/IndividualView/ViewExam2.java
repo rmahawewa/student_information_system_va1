@@ -69,7 +69,6 @@ public class ViewExam2 extends javax.swing.JFrame{
         semesterValueLabel = new javax.swing.JLabel();
         fromDateValueLabel = new javax.swing.JLabel();
         toDateValueLabel = new javax.swing.JLabel();
-        closeFromTopButton = new javax.swing.JButton();
 
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topicLabel.setText("Exam Information");
@@ -123,16 +122,6 @@ public class ViewExam2 extends javax.swing.JFrame{
         toDateValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         toDateValueLabel.setText("exam to date label");
 
-        closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
-        closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        closeFromTopButton.setForeground(new java.awt.Color(255, 255, 255));
-        closeFromTopButton.setText("X");
-        closeFromTopButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeFromTopButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -173,25 +162,17 @@ public class ViewExam2 extends javax.swing.JFrame{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(243, 243, 243)
-                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(222, 222, 222)
-                        .addComponent(topicLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(closeFromTopButton)))
-                .addContainerGap())
+                        .addComponent(topicLabel)))
+                .addContainerGap(231, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(topicLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(closeFromTopButton)))
+                .addGap(29, 29, 29)
+                .addComponent(topicLabel)
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(examNameLabel)
@@ -229,10 +210,6 @@ public class ViewExam2 extends javax.swing.JFrame{
     private void detailsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_detailsTextFieldActionPerformed
-
-    private void closeFromTopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFromTopButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_closeFromTopButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,7 +249,6 @@ public class ViewExam2 extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
-    private javax.swing.JButton closeFromTopButton;
     private javax.swing.JLabel detailsLabel;
     private javax.swing.JTextField detailsTextField;
     private javax.swing.JLabel examCodeLabel;

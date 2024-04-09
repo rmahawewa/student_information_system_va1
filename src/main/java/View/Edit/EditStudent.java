@@ -356,7 +356,7 @@ public class EditStudent extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Student's Family Information");
 
-        editStudentForm_studentFamily_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editStudentForm_studentFamily_table.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         editStudentForm_studentFamily_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -390,7 +390,7 @@ public class EditStudent extends javax.swing.JPanel {
             }
         });
 
-        editStudent_studentSchoolInformation_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editStudent_studentSchoolInformation_table.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         editStudent_studentSchoolInformation_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -427,7 +427,7 @@ public class EditStudent extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Student's School Information");
 
-        editStudentTable_assesmentPerformance_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editStudentTable_assesmentPerformance_table.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         editStudentTable_assesmentPerformance_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -461,7 +461,7 @@ public class EditStudent extends javax.swing.JPanel {
             }
         });
 
-        editStudentForm_examPerformance_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editStudentForm_examPerformance_table.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         editStudentForm_examPerformance_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -501,7 +501,7 @@ public class EditStudent extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Student's Assesment Performance");
 
-        editStudentForm_medicalStatus_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editStudentForm_medicalStatus_table.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         editStudentForm_medicalStatus_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

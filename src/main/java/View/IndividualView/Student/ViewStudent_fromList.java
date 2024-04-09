@@ -262,7 +262,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Student's Family Information");
 
-        viewStudentForm_studentFamily_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        viewStudentForm_studentFamily_table.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         viewStudentForm_studentFamily_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -296,7 +296,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
             }
         });
 
-        viewStudent_studentSchoolInformation_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        viewStudent_studentSchoolInformation_table.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         viewStudent_studentSchoolInformation_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -333,7 +333,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Student's School Information");
 
-        viewStudentTable_assesmentPerformance_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        viewStudentTable_assesmentPerformance_table.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         viewStudentTable_assesmentPerformance_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -367,7 +367,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
             }
         });
 
-        viewStudentForm_examPerformance_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        viewStudentForm_examPerformance_table.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         viewStudentForm_examPerformance_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -407,7 +407,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Student's Assesment Performance");
 
-        viewStudentForm_medicalStatus_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        viewStudentForm_medicalStatus_table.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         viewStudentForm_medicalStatus_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -693,10 +693,10 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
             StudentSchoolController ssc = new StudentSchoolController();
             List<String> l = ssc.get_student_school_information(id);
             ViewSchoolInfo vsi = new ViewSchoolInfo(mv);
-            vsi.setSchoolName(l.get(0));
-            vsi.setSchoolAddress(l.get(1));
-            vsi.setContactNumber(l.get(2));
-            vsi.setDetails(l.get(3));
+            vsi.setSchoolName(l.get(1));
+            vsi.setSchoolAddress(l.get(2));
+            vsi.setContactNumber(l.get(3));
+            vsi.setDetails(l.get(4));
             
             mv.add_new_component(vsi, "Student School Information");
         }

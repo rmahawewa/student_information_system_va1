@@ -149,7 +149,7 @@ public class StudentMedicalRequirementList extends javax.swing.JPanel {
             }
         });
 
-        studentMedicalStatusListTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentMedicalStatusListTable.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentMedicalStatusListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

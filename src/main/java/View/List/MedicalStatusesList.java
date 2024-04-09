@@ -59,7 +59,7 @@ public class MedicalStatusesList extends javax.swing.JPanel {
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topicLabel.setText("Medical Statuses");
 
-        medicalStatusesTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalStatusesTable.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         medicalStatusesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

@@ -70,26 +70,26 @@ public class AddExam extends javax.swing.JPanel{
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Add Exam Information");
 
-        examNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examNameLabel.setText("Exam name:");
 
-        toDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        toDateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         toDateLabel.setText("To date:");
 
-        detailsLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        detailsLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         detailsLabel.setText("Details:");
 
-        examNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 examNameTextActionPerformed(evt);
             }
         });
 
-        submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         submitButton.setText("Submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,51 +97,52 @@ public class AddExam extends javax.swing.JPanel{
             }
         });
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
 
-        tdDayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tdDayComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         tdDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        tdYearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tdYearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         tdYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
-        tdMonthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tdMonthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         tdMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
 
-        examCodeText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examCodeText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        examCodeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examCodeLabel.setText("Exam code:");
 
-        fdDayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fdDayComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         fdDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        fdYearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fdYearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         fdYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
-        fdMonthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fdMonthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         fdMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
 
-        fromDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fromDateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         fromDateLabel.setText("From date:");
 
-        yearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        yearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         yearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
+        detailsTextField.setFont(new java.awt.Font("Iskoola Pota", 0, 12)); // NOI18N
         detailsTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 detailsTextFieldActionPerformed(evt);
             }
         });
 
-        yearLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        yearLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         yearLabel.setText("Year:");
 
-        semesterLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        semesterLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         semesterLabel.setText("Semester:");
 
-        semesterComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        semesterComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         semesterComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Semester", "Second Semester", "Third Semester", "Forth Semester", " " }));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -231,7 +232,7 @@ public class AddExam extends javax.swing.JPanel{
                     .addGroup(layout.createSequentialGroup()
                         .addGap(206, 206, 206)
                         .addComponent(topicLabel)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,7 +265,7 @@ public class AddExam extends javax.swing.JPanel{
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(semesterComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fdYearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fdMonthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

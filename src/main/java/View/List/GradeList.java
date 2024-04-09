@@ -95,7 +95,7 @@ public class GradeList extends javax.swing.JPanel {
         topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topicLabel.setText("Grades");
 
-        gradesTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradesTable.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

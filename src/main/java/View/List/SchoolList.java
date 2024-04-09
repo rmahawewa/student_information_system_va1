@@ -102,7 +102,7 @@ public class SchoolList extends javax.swing.JPanel {
             }
         });
 
-        schoolTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolTable.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         schoolTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

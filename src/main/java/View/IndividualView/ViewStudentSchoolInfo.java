@@ -42,7 +42,6 @@ public class ViewStudentSchoolInfo extends javax.swing.JPanel {
         dateOfEntaranceValueLabel = new javax.swing.JLabel();
         isCurrentlyStudingValueLabel = new javax.swing.JLabel();
         dateOfLeaveValueLabel = new javax.swing.JLabel();
-        closeFromTopButton = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(595, 2147483647));
         setPreferredSize(new java.awt.Dimension(595, 758));
@@ -67,6 +66,11 @@ public class ViewStudentSchoolInfo extends javax.swing.JPanel {
 
         closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
 
         studentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         studentNameValueLabel.setText("student name");
@@ -82,16 +86,6 @@ public class ViewStudentSchoolInfo extends javax.swing.JPanel {
 
         dateOfLeaveValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         dateOfLeaveValueLabel.setText("date of leave");
-
-        closeFromTopButton.setBackground(new java.awt.Color(102, 0, 102));
-        closeFromTopButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        closeFromTopButton.setForeground(new java.awt.Color(255, 255, 255));
-        closeFromTopButton.setText("X");
-        closeFromTopButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeFromTopButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -125,17 +119,12 @@ public class ViewStudentSchoolInfo extends javax.swing.JPanel {
                         .addGap(240, 240, 240))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(topicLabel)
-                        .addGap(166, 166, 166))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(closeFromTopButton)
-                        .addContainerGap())))
+                        .addGap(166, 166, 166))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(closeFromTopButton)
-                .addGap(14, 14, 14)
+                .addGap(47, 47, 47)
                 .addComponent(topicLabel)
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -157,15 +146,15 @@ public class ViewStudentSchoolInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dateOfLeaveLabel)
                     .addComponent(dateOfLeaveValueLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, Short.MAX_VALUE)
                 .addComponent(closeButton)
                 .addGap(36, 36, 36))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeFromTopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFromTopButtonActionPerformed
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_closeFromTopButtonActionPerformed
+    }//GEN-LAST:event_closeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,7 +196,6 @@ public class ViewStudentSchoolInfo extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
-    private javax.swing.JButton closeFromTopButton;
     private javax.swing.JLabel dateOfEntaranceLabel;
     private javax.swing.JLabel dateOfEntaranceValueLabel;
     private javax.swing.JLabel dateOfLeaveLabel;

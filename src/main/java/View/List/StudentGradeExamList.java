@@ -132,7 +132,7 @@ public class StudentGradeExamList extends javax.swing.JPanel {
             }
         });
 
-        studentGradeExamTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentGradeExamTable.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentGradeExamTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

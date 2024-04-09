@@ -146,7 +146,7 @@ public class GradeExamList extends javax.swing.JPanel {
 
         examNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        examsForGradesTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examsForGradesTable.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examsForGradesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

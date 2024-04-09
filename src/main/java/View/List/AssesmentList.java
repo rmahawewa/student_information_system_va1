@@ -131,7 +131,7 @@ public class AssesmentList extends javax.swing.JPanel {
             }
         });
 
-        assesmentListTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentListTable.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

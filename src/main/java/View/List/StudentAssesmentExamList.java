@@ -115,7 +115,7 @@ public class StudentAssesmentExamList extends javax.swing.JPanel {
             }
         });
 
-        studentAssesmentExamTable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentAssesmentExamTable.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentAssesmentExamTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

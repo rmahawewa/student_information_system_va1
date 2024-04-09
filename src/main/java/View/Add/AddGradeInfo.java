@@ -47,20 +47,20 @@ public class AddGradeInfo extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Add Grade Information");
 
-        gradeInNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeInNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradeInNumberLabel.setText("Grade in number:");
 
-        gradeInWordsLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeInWordsLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradeInWordsLabel.setText("Grade in words:");
 
-        gradeInNumberText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeInNumberText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        gradeInWordsText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeInWordsText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         submitButton.setText("Submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,7 +68,7 @@ public class AddGradeInfo extends javax.swing.JPanel {
             }
         });
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -88,7 +88,7 @@ public class AddGradeInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(gradeInNumberLabel)
                     .addComponent(gradeInWordsLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(gradeInNumberText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(gradeInWordsText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -129,7 +129,7 @@ public class AddGradeInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(cancelButton))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
