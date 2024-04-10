@@ -72,16 +72,16 @@ public class ViewIndividualGradeExam extends javax.swing.JPanel {
         dateValueLabel = new javax.swing.JLabel();
         timeValueLabel = new javax.swing.JLabel();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Exam Grade Information");
 
-        examLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examLabel.setText("Exam:");
 
-        timeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        timeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         timeLabel.setText("Time:");
 
-        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,28 +89,28 @@ public class ViewIndividualGradeExam extends javax.swing.JPanel {
             }
         });
 
-        dateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateLabel.setText("Date:");
 
-        gradeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradeLabel.setText("Grade:");
 
-        examNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examNameValueLabel.setText("exam name      ");
 
-        sessionLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sessionLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         sessionLabel.setText("Session:");
 
-        gradeValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradeValueLabel.setText("grade");
 
-        sessionValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sessionValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         sessionValueLabel.setText("session");
 
-        dateValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateValueLabel.setText("date");
 
-        timeValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        timeValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         timeValueLabel.setText("time");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -148,7 +148,7 @@ public class ViewIndividualGradeExam extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(191, 191, 191)
                         .addComponent(topicLabel)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -181,7 +181,7 @@ public class ViewIndividualGradeExam extends javax.swing.JPanel {
                     .addComponent(timeValueLabel))
                 .addGap(51, 51, 51)
                 .addComponent(closeButton)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

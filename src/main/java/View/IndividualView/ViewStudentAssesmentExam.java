@@ -74,16 +74,16 @@ public class ViewStudentAssesmentExam extends javax.swing.JPanel {
         remarksValueLabel = new javax.swing.JLabel();
         descriptionValueLabel = new javax.swing.JLabel();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Student Assesment Performance Details");
 
-        examLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examLabel.setText("Exam:");
 
-        remarksLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        remarksLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         remarksLabel.setText("Remarks:");
 
-        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,34 +91,34 @@ public class ViewStudentAssesmentExam extends javax.swing.JPanel {
             }
         });
 
-        marksLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        marksLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         marksLabel.setText("Marks:");
 
-        assesmentLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentLabel.setText("Assesment:");
 
-        examNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examNameValueLabel.setText("exam name");
 
-        gradeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradeLabel.setText("Student name:");
 
-        assesmentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentNameValueLabel.setText("assesment name");
 
-        descriptionLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        descriptionLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         descriptionLabel.setText("Description:");
 
-        studentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameValueLabel.setText("student name");
 
-        marksValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        marksValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         marksValueLabel.setText("marks");
 
-        remarksValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        remarksValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         remarksValueLabel.setText("remarks");
 
-        descriptionValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        descriptionValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         descriptionValueLabel.setText("description");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -144,15 +144,14 @@ public class ViewStudentAssesmentExam extends javax.swing.JPanel {
                         .addComponent(marksValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(remarksValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(36, 36, 36))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap(127, Short.MAX_VALUE)
-                    .addComponent(topicLabel)
-                    .addGap(126, 126, 126))
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(242, 242, 242)
-                    .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(139, Short.MAX_VALUE)
+                .addComponent(topicLabel)
+                .addGap(126, 126, 126))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(242, 242, 242)
+                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +182,7 @@ public class ViewStudentAssesmentExam extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(descriptionLabel)
                     .addComponent(descriptionValueLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(closeButton)
                 .addGap(53, 53, 53))
         );

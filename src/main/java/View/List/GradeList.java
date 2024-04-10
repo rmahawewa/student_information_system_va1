@@ -92,8 +92,8 @@ public class GradeList extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         gradesTable = new javax.swing.JTable();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        topicLabel.setText("Grades");
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
+        topicLabel.setText("වසර");
 
         gradesTable.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradesTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -101,7 +101,7 @@ public class GradeList extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Grade in number", "Grade in words"
+                "වසර ඉලක්කමෙන්", "වසර අකුරින්"
             }
         ) {
             Class[] types = new Class [] {
@@ -141,7 +141,7 @@ public class GradeList extends javax.swing.JPanel {
                 .addComponent(topicLabel)
                 .addGap(44, 44, 44)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -33,7 +33,7 @@
                   <Component id="isCurrentlyStudingLabel" min="-2" max="-2" attributes="0"/>
                   <Component id="schoolNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="schoolNameValueLabel" max="32767" attributes="0"/>
@@ -43,7 +43,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="dateOfLeaveValueLabel" max="32767" attributes="0"/>
                           <Component id="studentNameValueLabel" alignment="0" min="-2" pref="346" max="-2" attributes="0"/>
-                          <Component id="isCurrentlyStudingValueLabel" alignment="0" pref="368" max="32767" attributes="0"/>
+                          <Component id="isCurrentlyStudingValueLabel" alignment="0" pref="373" max="32767" attributes="0"/>
                           <Component id="dateOfEntaranceValueLabel" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
@@ -95,7 +95,7 @@
                   <Component id="dateOfLeaveLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="dateOfLeaveValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="349" max="32767" attributes="0"/>
+              <EmptySpace pref="370" max="32767" attributes="0"/>
               <Component id="closeButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
           </Group>
@@ -106,7 +106,7 @@
     <Component class="javax.swing.JLabel" name="topicLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="1"/>
+          <Font name="Iskoola Pota" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Student&apos;s School Information"/>
       </Properties>
@@ -114,7 +114,7 @@
     <Component class="javax.swing.JLabel" name="studentNameLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Student&apos;s name:"/>
       </Properties>
@@ -122,7 +122,7 @@
     <Component class="javax.swing.JLabel" name="schoolNameLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="School name:"/>
       </Properties>
@@ -130,7 +130,7 @@
     <Component class="javax.swing.JLabel" name="dateOfEntaranceLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Date of enterance:"/>
       </Properties>
@@ -138,7 +138,7 @@
     <Component class="javax.swing.JLabel" name="isCurrentlyStudingLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Is currently studing:"/>
       </Properties>
@@ -146,7 +146,7 @@
     <Component class="javax.swing.JLabel" name="dateOfLeaveLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Date of leave:"/>
       </Properties>
@@ -154,7 +154,7 @@
     <Component class="javax.swing.JButton" name="closeButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
+          <Font name="Iskoola Pota" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Close"/>
       </Properties>
@@ -165,7 +165,7 @@
     <Component class="javax.swing.JLabel" name="studentNameValueLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="student name"/>
       </Properties>
@@ -173,7 +173,7 @@
     <Component class="javax.swing.JLabel" name="schoolNameValueLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="school name"/>
       </Properties>
@@ -181,7 +181,7 @@
     <Component class="javax.swing.JLabel" name="dateOfEntaranceValueLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="date of entarance"/>
       </Properties>
@@ -189,7 +189,7 @@
     <Component class="javax.swing.JLabel" name="isCurrentlyStudingValueLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="is currently studing"/>
       </Properties>
@@ -197,7 +197,7 @@
     <Component class="javax.swing.JLabel" name="dateOfLeaveValueLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="date of leave"/>
       </Properties>

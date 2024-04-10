@@ -128,16 +128,16 @@ public class EditExamAssesment extends javax.swing.JPanel {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Edit Assesment in Exam Information");
 
-        examLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examLabel.setText("Exam:");
 
-        timeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        timeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         timeLabel.setText("Time:");
 
-        submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         submitButton.setText("Update");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +145,7 @@ public class EditExamAssesment extends javax.swing.JPanel {
             }
         });
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,10 +153,10 @@ public class EditExamAssesment extends javax.swing.JPanel {
             }
         });
 
-        ampmComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ampmComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM", " " }));
 
-        hoursComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        hoursComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         hoursComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", " " }));
         hoursComboBx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,46 +164,46 @@ public class EditExamAssesment extends javax.swing.JPanel {
             }
         });
 
-        minutesComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        minutesComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         minutesComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", " " }));
 
-        assesmentLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentLabel.setText("Assesment:");
 
-        dayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dayComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        yearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        yearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         yearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
-        monthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        monthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
 
-        dateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateLabel.setText("Date:");
 
-        gradeComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradeComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Grade 01", "Grade 02", "Grade 03", "Grade 04", "Grade 05", "Grade 06", "Grade 07", "Grade 08", "Grade 09", "Grade 10", "Grade 11" }));
 
-        gradeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradeLabel.setText("Grade:");
 
-        levelLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        levelLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         levelLabel.setText("Level:");
 
-        levelComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        levelComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         levelComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Regional Level", "District Level", "Provincial Level", "Whole Island Level", "International Level", " " }));
 
-        examNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examNameValueLabel.setText("exam name");
 
-        sessionLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sessionLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         sessionLabel.setText("Session:");
 
-        sessionComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sessionComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Session", "Second Session", "Third Session", "Forth Session", " " }));
 
-        assesmentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentNameValueLabel.setText("assesment name");
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -268,7 +268,7 @@ public class EditExamAssesment extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(examNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(assesmentNameValueLabel))))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,7 +313,7 @@ public class EditExamAssesment extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(cancelButton))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

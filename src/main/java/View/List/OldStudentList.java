@@ -63,15 +63,15 @@ public class OldStudentList extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         oldStudentTable = new javax.swing.JTable();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("All Old Students");
 
-        oldStudentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        oldStudentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         oldStudentNameLabel.setText("Old student name:");
 
-        olsStudentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        olsStudentNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +79,7 @@ public class OldStudentList extends javax.swing.JPanel {
             }
         });
 
-        clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clearButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         clearButton.setText("Clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +87,7 @@ public class OldStudentList extends javax.swing.JPanel {
             }
         });
 
-        viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        viewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         viewButton.setText("View");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +95,7 @@ public class OldStudentList extends javax.swing.JPanel {
             }
         });
 
-        editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         editButton.setText("Edit");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +109,7 @@ public class OldStudentList extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Student name", "Date of leaving", "Contact number"
+                "පද්ධති කේතය", "ආදි සිසු/සිසුවියගේ නම", "දහම් පාසලේ සිටි අවසන් දිනය", "දුරකතන අංකය"
             }
         ) {
             Class[] types = new Class [] {
@@ -174,7 +174,7 @@ public class OldStudentList extends javax.swing.JPanel {
                     .addComponent(viewButton))
                 .addGap(45, 45, 45)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

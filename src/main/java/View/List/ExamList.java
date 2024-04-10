@@ -124,26 +124,26 @@ public class ExamList extends javax.swing.JPanel {
         yearComboBx = new javax.swing.JComboBox<>();
         semesterComboBx = new javax.swing.JComboBox<>();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("All Exams Information");
 
-        examNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examNameLabel.setText("Exam name:");
 
-        examCodeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examCodeLabel.setText("Exam code:");
 
-        yearLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        yearLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         yearLabel.setText("Year");
 
-        semesterLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        semesterLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         semesterLabel.setText("Semester:");
 
-        examNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        examCodeText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examCodeText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +151,7 @@ public class ExamList extends javax.swing.JPanel {
             }
         });
 
-        clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clearButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         clearButton.setText("Clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,7 +159,7 @@ public class ExamList extends javax.swing.JPanel {
             }
         });
 
-        viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        viewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         viewButton.setText("View");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,7 +167,7 @@ public class ExamList extends javax.swing.JPanel {
             }
         });
 
-        editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         editButton.setText("Edit");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +175,7 @@ public class ExamList extends javax.swing.JPanel {
             }
         });
 
-        addGradeButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addGradeButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         addGradeButton.setText("Add Grade");
         addGradeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +183,7 @@ public class ExamList extends javax.swing.JPanel {
             }
         });
 
-        addAssesmentButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addAssesmentButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         addAssesmentButton.setText("Add Assesment");
         addAssesmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,7 +197,7 @@ public class ExamList extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Exam name", "Semester", "Start date", "End date"
+                "පද්ධති කේතය", "විභාගය", "වාරය", "විභාගය පටන් ගන්නා දිනය", "විභාගය අවසන් වන දිනය"
             }
         ) {
             Class[] types = new Class [] {
@@ -217,10 +217,10 @@ public class ExamList extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(examTable);
 
-        yearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        yearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         yearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select year", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
-        semesterComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        semesterComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         semesterComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select semester", "First Semester", "Second Semester", "Third Semester", "Forth Semester", " " }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -234,7 +234,6 @@ public class ExamList extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(viewButton, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -258,7 +257,8 @@ public class ExamList extends javax.swing.JPanel {
                             .addComponent(examCodeText, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(examNameText)
                             .addComponent(yearComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(semesterComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(semesterComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
@@ -294,7 +294,7 @@ public class ExamList extends javax.swing.JPanel {
                     .addComponent(viewButton))
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

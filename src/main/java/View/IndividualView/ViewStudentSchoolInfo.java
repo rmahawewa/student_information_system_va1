@@ -46,25 +46,25 @@ public class ViewStudentSchoolInfo extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(595, 2147483647));
         setPreferredSize(new java.awt.Dimension(595, 758));
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Student's School Information");
 
-        studentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameLabel.setText("Student's name:");
 
-        schoolNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         schoolNameLabel.setText("School name:");
 
-        dateOfEntaranceLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateOfEntaranceLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateOfEntaranceLabel.setText("Date of enterance:");
 
-        isCurrentlyStudingLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        isCurrentlyStudingLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         isCurrentlyStudingLabel.setText("Is currently studing:");
 
-        dateOfLeaveLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateOfLeaveLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateOfLeaveLabel.setText("Date of leave:");
 
-        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,19 +72,19 @@ public class ViewStudentSchoolInfo extends javax.swing.JPanel {
             }
         });
 
-        studentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameValueLabel.setText("student name");
 
-        schoolNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         schoolNameValueLabel.setText("school name");
 
-        dateOfEntaranceValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateOfEntaranceValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateOfEntaranceValueLabel.setText("date of entarance");
 
-        isCurrentlyStudingValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        isCurrentlyStudingValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         isCurrentlyStudingValueLabel.setText("is currently studing");
 
-        dateOfLeaveValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateOfLeaveValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateOfLeaveValueLabel.setText("date of leave");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -99,7 +99,7 @@ public class ViewStudentSchoolInfo extends javax.swing.JPanel {
                     .addComponent(dateOfLeaveLabel)
                     .addComponent(isCurrentlyStudingLabel)
                     .addComponent(schoolNameLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(schoolNameValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -108,7 +108,7 @@ public class ViewStudentSchoolInfo extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(dateOfLeaveValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(studentNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(isCurrentlyStudingValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
+                            .addComponent(isCurrentlyStudingValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
                             .addComponent(dateOfEntaranceValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(39, 39, 39))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -146,7 +146,7 @@ public class ViewStudentSchoolInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dateOfLeaveLabel)
                     .addComponent(dateOfLeaveValueLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 370, Short.MAX_VALUE)
                 .addComponent(closeButton)
                 .addGap(36, 36, 36))
         );

@@ -84,7 +84,7 @@
               </Group>
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="446" max="-2" attributes="0"/>
-              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <EmptySpace pref="63" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -93,7 +93,7 @@
     <Component class="javax.swing.JLabel" name="topicLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="1"/>
+          <Font name="Iskoola Pota" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="All Assesment Information"/>
       </Properties>
@@ -101,7 +101,7 @@
     <Component class="javax.swing.JLabel" name="assesmentNameLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Assesment name:"/>
       </Properties>
@@ -109,7 +109,7 @@
     <Component class="javax.swing.JLabel" name="assesmentCodeLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Assesment code:"/>
       </Properties>
@@ -117,21 +117,21 @@
     <Component class="javax.swing.JTextField" name="assesmentNameText">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="assesmentCodeText">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="searchButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
@@ -142,7 +142,7 @@
     <Component class="javax.swing.JButton" name="clearButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Clear"/>
       </Properties>
@@ -153,7 +153,7 @@
     <Component class="javax.swing.JButton" name="viewButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="View"/>
       </Properties>
@@ -164,7 +164,7 @@
     <Component class="javax.swing.JButton" name="editButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Edit"/>
       </Properties>
@@ -186,9 +186,9 @@
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="3" rowCount="0">
-                <Column editable="true" title="ID" type="java.lang.Integer"/>
-                <Column editable="false" title="Assesment name" type="java.lang.String"/>
-                <Column editable="false" title="Assesment code" type="java.lang.String"/>
+                <Column editable="true" title="&#xdb4;&#xdaf;&#xdca;&#xdb0;&#xdad;&#xdd2; &#xd9a;&#xdda;&#xdad;&#xdba;" type="java.lang.Integer"/>
+                <Column editable="false" title="&#xdad;&#xdbb;&#xd9c;&#xdba;&#xdda; &#xdb1;&#xdb8;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdad;&#xdbb;&#xd9c; &#xd9a;&#xdda;&#xdad;&#xdba;" type="java.lang.String"/>
               </Table>
             </Property>
           </Properties>

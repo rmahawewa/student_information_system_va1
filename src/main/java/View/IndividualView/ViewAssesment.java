@@ -56,16 +56,16 @@ public class ViewAssesment extends javax.swing.JPanel {
         assesmentNameValueLabel = new javax.swing.JLabel();
         assesmentCodeValueLabel = new javax.swing.JLabel();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Assesment Information");
 
-        assesmentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentNameLabel.setText("Assesment name:");
 
-        assesmentCodeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentCodeLabel.setText("Assesment code:");
 
-        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,10 +73,10 @@ public class ViewAssesment extends javax.swing.JPanel {
             }
         });
 
-        assesmentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentNameValueLabel.setText("assesment name value");
 
-        assesmentCodeValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentCodeValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentCodeValueLabel.setText("assesment code value");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -92,7 +92,7 @@ public class ViewAssesment extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(assesmentCodeValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(assesmentNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +118,7 @@ public class ViewAssesment extends javax.swing.JPanel {
                     .addComponent(assesmentCodeValueLabel))
                 .addGap(48, 48, 48)
                 .addComponent(closeButton)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

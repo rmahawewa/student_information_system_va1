@@ -61,7 +61,7 @@ public class EditUser extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
 
-        okButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        okButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         okButton.setText("ok");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,7 +69,7 @@ public class EditUser extends javax.swing.JPanel {
             }
         });
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         cancelButton.setText("cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,30 +77,30 @@ public class EditUser extends javax.swing.JPanel {
             }
         });
 
-        nameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         nameText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 nameTextKeyReleased(evt);
             }
         });
 
-        userNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        passwordText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        passwordText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         jLabel2.setText("Name:");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         jLabel3.setText("User name:");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         jLabel4.setText("Password:");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         jLabel1.setText("Edit User");
 
-        clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clearButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         clearButton.setText("clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +108,7 @@ public class EditUser extends javax.swing.JPanel {
             }
         });
 
-        userList.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userList.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         userList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userListMouseClicked(evt);
@@ -203,12 +203,12 @@ public class EditUser extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(okButton)
                     .addComponent(cancelButton))
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addContainerGap(218, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(115, 115, 115)
                     .addComponent(jLabel2)
-                    .addContainerGap(457, Short.MAX_VALUE)))
+                    .addContainerGap(460, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 

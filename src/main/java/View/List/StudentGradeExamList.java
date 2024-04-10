@@ -84,23 +84,23 @@ public class StudentGradeExamList extends javax.swing.JPanel {
         studentGradeExamTable = new javax.swing.JTable();
         gradeComboBx = new javax.swing.JComboBox<>();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Students in Exams");
 
-        studentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameLabel.setText("Student Name:");
 
-        examLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examLabel.setText("Exam:");
 
-        gradeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradeLabel.setText("Grade:");
 
-        studentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        examText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +108,7 @@ public class StudentGradeExamList extends javax.swing.JPanel {
             }
         });
 
-        clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clearButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         clearButton.setText("Clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +116,7 @@ public class StudentGradeExamList extends javax.swing.JPanel {
             }
         });
 
-        viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        viewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         viewButton.setText("View");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +124,7 @@ public class StudentGradeExamList extends javax.swing.JPanel {
             }
         });
 
-        editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         editButton.setText("Edit");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +138,7 @@ public class StudentGradeExamList extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Student", "Grade", "Exam", "Marks"
+                "පද්ධති කේතය", "සිසුවාගේ/සිසුවියගේ නම", "වසර", "විභාගය", "ලකුණු"
             }
         ) {
             Class[] types = new Class [] {
@@ -158,7 +158,7 @@ public class StudentGradeExamList extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(studentGradeExamTable);
 
-        gradeComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -220,7 +220,7 @@ public class StudentGradeExamList extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewButton)
                     .addComponent(editButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );

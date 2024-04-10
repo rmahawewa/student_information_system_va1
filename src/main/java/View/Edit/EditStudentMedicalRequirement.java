@@ -101,19 +101,19 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
         studentNameValueLabel = new javax.swing.JLabel();
         medicalRequirementValueLabel = new javax.swing.JLabel();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Edit Student Medical Requirement Information");
 
-        studentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameLabel.setText("Student name:");
 
-        firstDateOfTreatmentLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        firstDateOfTreatmentLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         firstDateOfTreatmentLabel.setText("First date of treatement:");
 
-        detailsLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        detailsLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         detailsLabel.setText("Details:");
 
-        submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         submitButton.setText("Update");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +121,7 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
             }
         });
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         cancelButton.setText("Close");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,52 +129,53 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
             }
         });
 
-        fdotDayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fdotDayComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         fdotDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        fdotYearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fdotYearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         fdotYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
-        fdotMonthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fdotMonthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         fdotMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
 
-        medicalRequirementLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalRequirementLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         medicalRequirementLabel.setText("Medical Requirement:");
 
-        fdodDayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fdodDayComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         fdodDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        fdodYearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fdodYearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         fdodYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
-        fdodMonthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fdodMonthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         fdodMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
 
-        firstDateOfDiagnoseLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        firstDateOfDiagnoseLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         firstDateOfDiagnoseLabel.setText("First date of diagnose:");
 
-        ldotDayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ldotDayComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         ldotDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        ldotYearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ldotYearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         ldotYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
-        ldotMonthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ldotMonthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         ldotMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
 
-        lastDateOfTraetementLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lastDateOfTraetementLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         lastDateOfTraetementLabel.setText("Last date of treatement:");
 
+        detailsTextField.setFont(new java.awt.Font("Iskoola Pota", 0, 12)); // NOI18N
         detailsTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 detailsTextFieldActionPerformed(evt);
             }
         });
 
-        studentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameValueLabel.setText("student name value");
 
-        medicalRequirementValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalRequirementValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         medicalRequirementValueLabel.setText("medical requirement value");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -220,7 +221,7 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(medicalRequirementValueLabel)
                             .addComponent(studentNameValueLabel))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,7 +273,7 @@ public class EditStudentMedicalRequirement extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(cancelButton))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

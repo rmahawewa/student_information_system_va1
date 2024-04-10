@@ -64,22 +64,22 @@ public class ViewOldStudentInfo extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(595, 462));
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Old Student Information");
 
-        studentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameLabel.setText("Student name:");
 
-        leftDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        leftDateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         leftDateLabel.setText("Left date:");
 
-        reasonLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        reasonLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         reasonLabel.setText("Reason:");
 
-        transferredDammaSchoolLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        transferredDammaSchoolLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         transferredDammaSchoolLabel.setText("Transferred Damma School:");
 
-        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,44 +87,44 @@ public class ViewOldStudentInfo extends javax.swing.JPanel {
             }
         });
 
-        transferred_damma_school_value_label.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        transferred_damma_school_value_label.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         transferred_damma_school_value_label.setText("transferred damma school");
 
-        reason_value_label.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        reason_value_label.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         reason_value_label.setText("reason");
 
-        left_date_value_label.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        left_date_value_label.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         left_date_value_label.setText("left date");
 
-        student_name_value_label.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        student_name_value_label.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         student_name_value_label.setText("student name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap(191, Short.MAX_VALUE)
-                    .addComponent(topicLabel)
-                    .addGap(192, 192, 192))
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(31, 31, 31)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(reasonLabel)
-                        .addComponent(transferredDammaSchoolLabel)
-                        .addComponent(leftDateLabel)
-                        .addComponent(studentNameLabel))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(reason_value_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(left_date_value_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(student_name_value_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(transferred_damma_school_value_label, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createSequentialGroup()
-                .addGap(243, 243, 243)
-                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(199, Short.MAX_VALUE)
+                .addComponent(topicLabel)
+                .addGap(192, 192, 192))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(reasonLabel)
+                            .addComponent(transferredDammaSchoolLabel)
+                            .addComponent(leftDateLabel)
+                            .addComponent(studentNameLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(reason_value_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(left_date_value_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(student_name_value_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(transferred_damma_school_value_label, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(243, 243, 243)
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -150,7 +150,7 @@ public class ViewOldStudentInfo extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(transferredDammaSchoolLabel)
                             .addComponent(transferred_damma_school_value_label))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                 .addComponent(closeButton)
                 .addGap(56, 56, 56))
         );

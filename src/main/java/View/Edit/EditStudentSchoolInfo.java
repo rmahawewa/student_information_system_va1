@@ -95,43 +95,43 @@ public class EditStudentSchoolInfo extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(595, 2147483647));
         setPreferredSize(new java.awt.Dimension(595, 758));
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Edit Student's School Information");
 
-        studentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameLabel.setText("Student's name:");
 
-        schoolNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         schoolNameLabel.setText("School name:");
 
-        dateOfEntaranceLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateOfEntaranceLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateOfEntaranceLabel.setText("Date of enterance:");
 
-        isCurrentlyStudingLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        isCurrentlyStudingLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         isCurrentlyStudingLabel.setText("Is currently studing:");
 
-        dateOfLeaveLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateOfLeaveLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateOfLeaveLabel.setText("Date of leave:");
 
-        doeYearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        doeYearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         doeYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050", " " }));
 
-        doeMonthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        doeMonthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         doeMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
 
-        doeDateComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        doeDateComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         doeDateComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
 
-        isCurrentlyStudingComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        isCurrentlyStudingComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         isCurrentlyStudingComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "yes", "no" }));
 
-        dolYearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dolYearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dolYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
-        dolDayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dolDayComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dolDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        updateButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        updateButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +139,7 @@ public class EditStudentSchoolInfo extends javax.swing.JPanel {
             }
         });
 
-        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,13 +147,13 @@ public class EditStudentSchoolInfo extends javax.swing.JPanel {
             }
         });
 
-        dolMonthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dolMonthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dolMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
 
-        studentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameValueLabel.setText("student name");
 
-        schoolNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         schoolNameValueLabel.setText("school name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -179,7 +179,7 @@ public class EditStudentSchoolInfo extends javax.swing.JPanel {
                             .addComponent(studentNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(schoolNameLabel)
                             .addComponent(dateOfEntaranceLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(isCurrentlyStudingComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -238,7 +238,7 @@ public class EditStudentSchoolInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateButton)
                     .addComponent(closeButton))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(354, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

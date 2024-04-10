@@ -84,19 +84,19 @@ public class ViewExam extends javax.swing.JPanel{
         fromDateValueLabel = new javax.swing.JLabel();
         toDateValueLabel = new javax.swing.JLabel();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Exam Information");
 
-        examNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examNameLabel.setText("Exam name:");
 
-        toDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        toDateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         toDateLabel.setText("To date:");
 
-        detailsLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        detailsLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         detailsLabel.setText("Details:");
 
-        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,41 +104,42 @@ public class ViewExam extends javax.swing.JPanel{
             }
         });
 
-        examCodeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examCodeLabel.setText("Exam code:");
 
-        fromDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fromDateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         fromDateLabel.setText("From date:");
 
         detailsTextField.setEditable(false);
+        detailsTextField.setFont(new java.awt.Font("Iskoola Pota", 0, 12)); // NOI18N
         detailsTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 detailsTextFieldActionPerformed(evt);
             }
         });
 
-        yearLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        yearLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         yearLabel.setText("Year:");
 
-        semesterLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        semesterLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         semesterLabel.setText("Semester:");
 
-        examNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examNameValueLabel.setText("exam name label");
 
-        examCodeValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examCodeValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examCodeValueLabel.setText("exam code label");
 
-        yearValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        yearValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         yearValueLabel.setText("exam year label");
 
-        semesterValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        semesterValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         semesterValueLabel.setText("exam semester label");
 
-        fromDateValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fromDateValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         fromDateValueLabel.setText("exam from date label");
 
-        toDateValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        toDateValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         toDateValueLabel.setText("exam to date label");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -155,7 +156,7 @@ public class ViewExam extends javax.swing.JPanel{
                         .addComponent(examNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 60, Short.MAX_VALUE)
+                        .addGap(0, 65, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(detailsLabel)
                             .addComponent(toDateLabel)
@@ -185,7 +186,7 @@ public class ViewExam extends javax.swing.JPanel{
                     .addGroup(layout.createSequentialGroup()
                         .addGap(222, 222, 222)
                         .addComponent(topicLabel)))
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addContainerGap(233, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,7 +209,7 @@ public class ViewExam extends javax.swing.JPanel{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(semesterLabel)
                     .addComponent(semesterValueLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fromDateLabel)
                     .addComponent(fromDateValueLabel))

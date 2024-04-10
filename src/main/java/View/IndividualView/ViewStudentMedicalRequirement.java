@@ -75,19 +75,19 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
         firstDateOfTreatmentValueLabel = new javax.swing.JLabel();
         lastDateOfTreatmentValueLabel = new javax.swing.JLabel();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Student Medical Requirement Information");
 
-        studentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameLabel.setText("Student name:");
 
-        firstDateOfTreatmentLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        firstDateOfTreatmentLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         firstDateOfTreatmentLabel.setText("First date of treatement:");
 
-        detailsLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        detailsLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         detailsLabel.setText("Details:");
 
-        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,34 +95,35 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
             }
         });
 
-        medicalRequirementLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalRequirementLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         medicalRequirementLabel.setText("Medical Requirement:");
 
-        firstDateOfDiagnoseLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        firstDateOfDiagnoseLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         firstDateOfDiagnoseLabel.setText("First date of diagnose:");
 
-        lastDateOfTraetementLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lastDateOfTraetementLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         lastDateOfTraetementLabel.setText("Last date of treatment:");
 
+        detailsTextField.setFont(new java.awt.Font("Iskoola Pota", 0, 12)); // NOI18N
         detailsTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 detailsTextFieldActionPerformed(evt);
             }
         });
 
-        studentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameValueLabel.setText("student name value");
 
-        medicalRequirementValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalRequirementValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         medicalRequirementValueLabel.setText("medical requirement value");
 
-        firstDateOfDiagnoseValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        firstDateOfDiagnoseValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         firstDateOfDiagnoseValueLabel.setText("first date of diagnose");
 
-        firstDateOfTreatmentValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        firstDateOfTreatmentValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         firstDateOfTreatmentValueLabel.setText("first date of treatment");
 
-        lastDateOfTreatmentValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lastDateOfTreatmentValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         lastDateOfTreatmentValueLabel.setText("last date of treatment");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -152,7 +153,7 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
                             .addComponent(detailsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(firstDateOfTreatmentValueLabel)
                             .addComponent(firstDateOfDiagnoseValueLabel))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,7 +195,7 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
                     .addComponent(detailsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addComponent(closeButton)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

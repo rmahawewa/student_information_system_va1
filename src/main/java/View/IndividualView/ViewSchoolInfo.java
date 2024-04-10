@@ -62,22 +62,22 @@ public class ViewSchoolInfo extends javax.swing.JPanel {
         detailsValueLabel = new javax.swing.JLabel();
         contactNumberValueLabel = new javax.swing.JLabel();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("School Information");
 
-        schoolNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         schoolNameLabel.setText("School name:");
 
-        addressLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addressLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         addressLabel.setText("Address:");
 
-        contactNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        contactNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         contactNumberLabel.setText("Contact number:");
 
-        detailsLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        detailsLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         detailsLabel.setText("Details:");
 
-        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        closeButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,16 +85,16 @@ public class ViewSchoolInfo extends javax.swing.JPanel {
             }
         });
 
-        schoolNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         schoolNameValueLabel.setText("school name");
 
-        addressValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addressValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         addressValueLabel.setText("address");
 
-        detailsValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        detailsValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         detailsValueLabel.setText("details");
 
-        contactNumberValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        contactNumberValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         contactNumberValueLabel.setText("contact number");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -115,7 +115,7 @@ public class ViewSchoolInfo extends javax.swing.JPanel {
                     .addComponent(schoolNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(detailsValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(contactNumberValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,7 +144,7 @@ public class ViewSchoolInfo extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(detailsLabel)
                             .addComponent(detailsValueLabel))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(closeButton)
                 .addGap(45, 45, 45))
         );

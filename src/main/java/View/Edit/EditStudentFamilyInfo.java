@@ -87,44 +87,44 @@ public class EditStudentFamilyInfo extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(595, 731));
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Edit Family Member Information");
 
-        studentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameLabel.setText("Student name:");
 
-        fmemberNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fmemberNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         fmemberNameLabel.setText("Family member name:");
 
-        relationshipLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        relationshipLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         relationshipLabel.setText("Relationship:");
 
-        birthdayLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        birthdayLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         birthdayLabel.setText("Birthday:");
 
-        nicLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nicLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         nicLabel.setText("NIC:");
 
-        careerLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        careerLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         careerLabel.setText("Career:");
 
-        studentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameValueLabel.setText("studentNameValueLabel");
 
-        bdYearCmbBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bdYearCmbBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         bdYearCmbBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050", " ", " " }));
 
-        bdMonthCmbBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bdMonthCmbBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         bdMonthCmbBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
 
-        bdDayCmbBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bdDayCmbBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         bdDayCmbBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " ", " " }));
 
-        nicText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nicText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        careerText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        careerText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         submitButton.setText("Submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +132,7 @@ public class EditStudentFamilyInfo extends javax.swing.JPanel {
             }
         });
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,10 +140,10 @@ public class EditStudentFamilyInfo extends javax.swing.JPanel {
             }
         });
 
-        familyMemberNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        familyMemberNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         familyMemberNameValueLabel.setText("family member name");
 
-        relationshipValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        relationshipValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         relationshipValueLabel.setText("relationship");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -159,7 +159,7 @@ public class EditStudentFamilyInfo extends javax.swing.JPanel {
                     .addComponent(birthdayLabel)
                     .addComponent(nicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(careerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(bdYearCmbBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,7 +219,7 @@ public class EditStudentFamilyInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(cancelButton))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(290, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

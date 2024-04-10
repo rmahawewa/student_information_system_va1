@@ -94,25 +94,25 @@ public class GradeExamList extends javax.swing.JPanel {
         gradeComboBx = new javax.swing.JComboBox<>();
         sessionComboBx = new javax.swing.JComboBox<>();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Exams for Grades");
 
-        examNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examNameLabel.setText("Exam name:");
 
-        assesmentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentNameLabel.setText("Grade:");
 
-        dateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateLabel.setText("Date:");
 
-        timeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        timeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         timeLabel.setText("Time:");
 
-        level_label.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        level_label.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         level_label.setText("Session:");
 
-        searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +120,7 @@ public class GradeExamList extends javax.swing.JPanel {
             }
         });
 
-        clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clearButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         clearButton.setText("Clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +128,7 @@ public class GradeExamList extends javax.swing.JPanel {
             }
         });
 
-        viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        viewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         viewButton.setText("View");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +136,7 @@ public class GradeExamList extends javax.swing.JPanel {
             }
         });
 
-        editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         editButton.setText("Edit");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +144,7 @@ public class GradeExamList extends javax.swing.JPanel {
             }
         });
 
-        examNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         examsForGradesTable.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examsForGradesTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -152,7 +152,7 @@ public class GradeExamList extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Exam", "Grade", "Session", "Date Time"
+                "පද්ධති කේතය", "විභාගය", "වසර", "අදියර", "දිනය සහ වේලාව"
             }
         ) {
             Class[] types = new Class [] {
@@ -172,27 +172,27 @@ public class GradeExamList extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(examsForGradesTable);
 
-        yearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        yearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         yearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
-        monthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        monthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
 
-        dateComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        hourComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        hourComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         hourComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hour", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
-        minuteComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        minuteComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         minuteComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Minute", "00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55" }));
 
-        ampmComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ampmComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
 
-        gradeComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        sessionComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sessionComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Session", "First Session", "Second Session", "Third Session", "Forth Session" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -242,13 +242,9 @@ public class GradeExamList extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(viewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
+                                        .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(sessionComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(36, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(167, Short.MAX_VALUE)
-                    .addComponent(sessionComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(116, 116, 116)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,8 +272,10 @@ public class GradeExamList extends javax.swing.JPanel {
                     .addComponent(minuteComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ampmComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(level_label)
-                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(level_label)
+                    .addComponent(sessionComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchButton)
                     .addComponent(clearButton))
@@ -285,14 +283,9 @@ public class GradeExamList extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewButton)
                     .addComponent(editButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(272, 272, 272)
-                    .addComponent(sessionComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(667, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -127,16 +127,16 @@ public class StudentList extends javax.swing.JPanel {
         studentInformationTable = new javax.swing.JTable();
         gradeComboBx = new javax.swing.JComboBox<>();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("All Student's Information");
 
-        studentCodeText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentCodeText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        medicalStatusText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalStatusText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        schoolText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,24 +144,24 @@ public class StudentList extends javax.swing.JPanel {
             }
         });
 
-        studentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameLabel.setText("Student name:");
 
-        studentCodeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentCodeLabel.setText("Student code:");
 
-        schoolLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         schoolLabel.setText("School:");
 
-        medicalStatusLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalStatusLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         medicalStatusLabel.setText("Medical status:");
 
-        gradeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradeLabel.setText("Grade:");
 
-        studentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clearButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         clearButton.setText("Clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,7 +169,7 @@ public class StudentList extends javax.swing.JPanel {
             }
         });
 
-        editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         editButton.setText("Edit");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,7 +177,7 @@ public class StudentList extends javax.swing.JPanel {
             }
         });
 
-        oldStudentButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        oldStudentButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         oldStudentButton.setText("Old student");
         oldStudentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,7 +185,7 @@ public class StudentList extends javax.swing.JPanel {
             }
         });
 
-        addFamilyMemberButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addFamilyMemberButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         addFamilyMemberButton.setText("Add family member");
         addFamilyMemberButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,7 +193,7 @@ public class StudentList extends javax.swing.JPanel {
             }
         });
 
-        addSchoolButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addSchoolButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         addSchoolButton.setText("Add School");
         addSchoolButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,7 +201,7 @@ public class StudentList extends javax.swing.JPanel {
             }
         });
 
-        viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        viewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         viewButton.setText("View");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,7 +215,7 @@ public class StudentList extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Name", "Date of Birth", "Grade"
+                "පද්ධති කේතය", "සිසුවාගේ/සිසුවියගේ නම", "උපන් දිනය", "වසර"
             }
         ) {
             Class[] types = new Class [] {
@@ -235,7 +235,7 @@ public class StudentList extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(studentInformationTable);
 
-        gradeComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -320,7 +320,7 @@ public class StudentList extends javax.swing.JPanel {
                     .addComponent(viewButton))
                 .addGap(42, 42, 42)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

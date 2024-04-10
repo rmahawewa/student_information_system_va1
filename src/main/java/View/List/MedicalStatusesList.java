@@ -56,7 +56,7 @@ public class MedicalStatusesList extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         medicalStatusesTable = new javax.swing.JTable();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Medical Statuses");
 
         medicalStatusesTable.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
@@ -65,7 +65,7 @@ public class MedicalStatusesList extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Medical Status"
+                "පද්ධති කේතය", "විශේෂ සෞඛ්‍ය තොරතුරු"
             }
         ) {
             Class[] types = new Class [] {
@@ -105,7 +105,7 @@ public class MedicalStatusesList extends javax.swing.JPanel {
                 .addComponent(topicLabel)
                 .addGap(50, 50, 50)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

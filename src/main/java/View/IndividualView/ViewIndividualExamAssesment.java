@@ -94,16 +94,16 @@ public class ViewIndividualExamAssesment extends javax.swing.JPanel {
             }
         });
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Assesment in Exam Information");
 
-        examLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examLabel.setText("Exam:");
 
-        timeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        timeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         timeLabel.setText("Time:");
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         cancelButton.setText("Close");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,40 +111,40 @@ public class ViewIndividualExamAssesment extends javax.swing.JPanel {
             }
         });
 
-        assesmentLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentLabel.setText("Assesment:");
 
-        dateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateLabel.setText("Date:");
 
-        gradeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradeLabel.setText("Grade:");
 
-        levelLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        levelLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         levelLabel.setText("Level:");
 
-        examNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        examNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examNameValueLabel.setText("exam name");
 
-        sessionLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sessionLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         sessionLabel.setText("Session:");
 
-        assesmentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentNameValueLabel.setText("assesment name");
 
-        gradeValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradeValueLabel.setText("grade value");
 
-        levelValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        levelValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         levelValueLabel.setText("level value");
 
-        sessionValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sessionValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         sessionValueLabel.setText("session value");
 
-        dateValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateValueLabel.setText("date value");
 
-        timeValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        timeValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         timeValueLabel.setText("time value");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -175,7 +175,7 @@ public class ViewIndividualExamAssesment extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
                         .addComponent(topicLabel)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,7 +216,7 @@ public class ViewIndividualExamAssesment extends javax.swing.JPanel {
                     .addComponent(timeValueLabel))
                 .addGap(55, 55, 55)
                 .addComponent(cancelButton)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

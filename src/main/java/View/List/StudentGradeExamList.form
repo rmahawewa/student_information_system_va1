@@ -89,7 +89,7 @@
                   <Component id="viewButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="editButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="45" max="32767" attributes="0"/>
+              <EmptySpace pref="63" max="32767" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="446" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
           </Group>
@@ -100,7 +100,7 @@
     <Component class="javax.swing.JLabel" name="topicLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="1"/>
+          <Font name="Iskoola Pota" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Students in Exams"/>
       </Properties>
@@ -108,7 +108,7 @@
     <Component class="javax.swing.JLabel" name="studentNameLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Student Name:"/>
       </Properties>
@@ -116,7 +116,7 @@
     <Component class="javax.swing.JLabel" name="examLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Exam:"/>
       </Properties>
@@ -124,7 +124,7 @@
     <Component class="javax.swing.JLabel" name="gradeLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Grade:"/>
       </Properties>
@@ -132,21 +132,21 @@
     <Component class="javax.swing.JTextField" name="studentNameText">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="examText">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="searchButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
@@ -157,7 +157,7 @@
     <Component class="javax.swing.JButton" name="clearButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Clear"/>
       </Properties>
@@ -168,7 +168,7 @@
     <Component class="javax.swing.JButton" name="viewButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="View"/>
       </Properties>
@@ -179,7 +179,7 @@
     <Component class="javax.swing.JButton" name="editButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Edit"/>
       </Properties>
@@ -201,11 +201,11 @@
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="5" rowCount="0">
-                <Column editable="false" title="ID" type="java.lang.Integer"/>
-                <Column editable="false" title="Student" type="java.lang.String"/>
-                <Column editable="false" title="Grade" type="java.lang.String"/>
-                <Column editable="false" title="Exam" type="java.lang.String"/>
-                <Column editable="false" title="Marks" type="java.lang.String"/>
+                <Column editable="false" title="&#xdb4;&#xdaf;&#xdca;&#xdb0;&#xdad;&#xdd2; &#xd9a;&#xdda;&#xdad;&#xdba;" type="java.lang.Integer"/>
+                <Column editable="false" title="&#xdc3;&#xdd2;&#xdc3;&#xdd4;&#xdc0;&#xdcf;&#xd9c;&#xdda;/&#xdc3;&#xdd2;&#xdc3;&#xdd4;&#xdc0;&#xdd2;&#xdba;&#xd9c;&#xdda; &#xdb1;&#xdb8;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdc0;&#xdc3;&#xdbb;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdc0;&#xdd2;&#xdb7;&#xdcf;&#xd9c;&#xdba;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdbd;&#xd9a;&#xdd4;&#xdab;&#xdd4;" type="java.lang.String"/>
               </Table>
             </Property>
           </Properties>
@@ -215,7 +215,7 @@
     <Component class="javax.swing.JComboBox" name="gradeComboBx">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>

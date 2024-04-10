@@ -79,26 +79,26 @@ public class EditOldStudentInfo extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(595, 462));
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Edit Old Student Information");
 
-        studentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameLabel.setText("Student name:");
 
-        leftDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        leftDateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         leftDateLabel.setText("Left date:");
 
-        reasonLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        reasonLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         reasonLabel.setText("Reason:");
 
-        transferredDammaSchoolLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        transferredDammaSchoolLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         transferredDammaSchoolLabel.setText("Transferred Damma School:");
 
-        reasonText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        reasonText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        transferredSchoolText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        transferredSchoolText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         submitButton.setText("Update");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +106,7 @@ public class EditOldStudentInfo extends javax.swing.JPanel {
             }
         });
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,16 +114,16 @@ public class EditOldStudentInfo extends javax.swing.JPanel {
             }
         });
 
-        dayComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dayComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        yearComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        yearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         yearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
-        monthComboBx.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        monthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
 
-        studentNameValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameValueLabel.setText("Student name value");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -164,7 +164,7 @@ public class EditOldStudentInfo extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addComponent(studentNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,7 +199,7 @@ public class EditOldStudentInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(cancelButton))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

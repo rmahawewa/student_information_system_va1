@@ -104,20 +104,20 @@ public class StudentMedicalRequirementList extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         studentMedicalStatusListTable = new javax.swing.JTable();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Student's Medical Status Information");
 
-        assesmentNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentNameLabel.setText("Student name:");
 
-        assesmentCodeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        assesmentCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentCodeLabel.setText("Medical status:");
 
-        studentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        medicalStatusText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        medicalStatusText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        searchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +125,7 @@ public class StudentMedicalRequirementList extends javax.swing.JPanel {
             }
         });
 
-        clearButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clearButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         clearButton.setText("Clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +133,7 @@ public class StudentMedicalRequirementList extends javax.swing.JPanel {
             }
         });
 
-        viewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        viewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         viewButton.setText("View");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +141,7 @@ public class StudentMedicalRequirementList extends javax.swing.JPanel {
             }
         });
 
-        editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         editButton.setText("Edit");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +155,7 @@ public class StudentMedicalRequirementList extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Student name", "Medical Status", "First date of Diagnose", "First date of getting treatments", "Last date of getting treatments", "ID"
+                "සිසුවාගේ/සිසුවියගේ නම", "රෝගී තත්වය", "රෝගය හදුනාගත් දිනය", "ප්‍රතිකාර ලබාගත් පලමු දිනය", "ප්‍රතිකාර ලබාගත් අවසන් දිනය", "පද්ධති කේතය"
             }
         ) {
             Class[] types = new Class [] {
@@ -230,7 +230,7 @@ public class StudentMedicalRequirementList extends javax.swing.JPanel {
                     .addComponent(viewButton))
                 .addGap(52, 52, 52)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

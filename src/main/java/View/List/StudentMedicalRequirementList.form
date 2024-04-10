@@ -83,7 +83,7 @@
               </Group>
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="446" max="-2" attributes="0"/>
-              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <EmptySpace pref="63" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -92,7 +92,7 @@
     <Component class="javax.swing.JLabel" name="topicLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="1"/>
+          <Font name="Iskoola Pota" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Student&apos;s Medical Status Information"/>
       </Properties>
@@ -100,7 +100,7 @@
     <Component class="javax.swing.JLabel" name="assesmentNameLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Student name:"/>
       </Properties>
@@ -108,7 +108,7 @@
     <Component class="javax.swing.JLabel" name="assesmentCodeLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Medical status:"/>
       </Properties>
@@ -116,21 +116,21 @@
     <Component class="javax.swing.JTextField" name="studentNameText">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="medicalStatusText">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="searchButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
@@ -141,7 +141,7 @@
     <Component class="javax.swing.JButton" name="clearButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Clear"/>
       </Properties>
@@ -152,7 +152,7 @@
     <Component class="javax.swing.JButton" name="viewButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="View"/>
       </Properties>
@@ -163,7 +163,7 @@
     <Component class="javax.swing.JButton" name="editButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Edit"/>
       </Properties>
@@ -185,12 +185,12 @@
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="6" rowCount="0">
-                <Column editable="false" title="Student name" type="java.lang.String"/>
-                <Column editable="false" title="Medical Status" type="java.lang.String"/>
-                <Column editable="false" title="First date of Diagnose" type="java.lang.String"/>
-                <Column editable="false" title="First date of getting treatments" type="java.lang.String"/>
-                <Column editable="false" title="Last date of getting treatments" type="java.lang.String"/>
-                <Column editable="false" title="ID" type="java.lang.Integer"/>
+                <Column editable="false" title="&#xdc3;&#xdd2;&#xdc3;&#xdd4;&#xdc0;&#xdcf;&#xd9c;&#xdda;/&#xdc3;&#xdd2;&#xdc3;&#xdd4;&#xdc0;&#xdd2;&#xdba;&#xd9c;&#xdda; &#xdb1;&#xdb8;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdbb;&#xddd;&#xd9c;&#xdd3; &#xdad;&#xdad;&#xdca;&#xdc0;&#xdba;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdbb;&#xddd;&#xd9c;&#xdba; &#xdc4;&#xdaf;&#xdd4;&#xdb1;&#xdcf;&#xd9c;&#xdad;&#xdca; &#xdaf;&#xdd2;&#xdb1;&#xdba;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdb4;&#xdca;&#x200d;&#xdbb;&#xdad;&#xdd2;&#xd9a;&#xdcf;&#xdbb; &#xdbd;&#xdb6;&#xdcf;&#xd9c;&#xdad;&#xdca; &#xdb4;&#xdbd;&#xdb8;&#xdd4; &#xdaf;&#xdd2;&#xdb1;&#xdba;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdb4;&#xdca;&#x200d;&#xdbb;&#xdad;&#xdd2;&#xd9a;&#xdcf;&#xdbb; &#xdbd;&#xdb6;&#xdcf;&#xd9c;&#xdad;&#xdca; &#xd85;&#xdc0;&#xdc3;&#xdb1;&#xdca; &#xdaf;&#xdd2;&#xdb1;&#xdba;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdb4;&#xdaf;&#xdca;&#xdb0;&#xdad;&#xdd2; &#xd9a;&#xdda;&#xdad;&#xdba;" type="java.lang.Integer"/>
               </Table>
             </Property>
           </Properties>

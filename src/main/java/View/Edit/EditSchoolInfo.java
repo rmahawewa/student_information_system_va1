@@ -72,30 +72,30 @@ public class EditSchoolInfo extends javax.swing.JPanel {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("Edit School Information");
 
-        schoolNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         schoolNameLabel.setText("School name:");
 
-        addressLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addressLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         addressLabel.setText("Address:");
 
-        contactNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        contactNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         contactNumberLabel.setText("Contact number:");
 
-        detailsLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        detailsLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         detailsLabel.setText("Details:");
 
-        schoolNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        schoolNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        addressText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addressText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        contactNumberText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        contactNumberText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        detailsText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        detailsText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
-        submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         submitButton.setText("Update");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +103,7 @@ public class EditSchoolInfo extends javax.swing.JPanel {
             }
         });
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         cancelButton.setText("Close");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +136,7 @@ public class EditSchoolInfo extends javax.swing.JPanel {
                     .addComponent(addressLabel)
                     .addComponent(contactNumberLabel)
                     .addComponent(detailsLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(contactNumberText, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addressText, javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +183,7 @@ public class EditSchoolInfo extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(52, 52, 52)
                                 .addComponent(detailsText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(cancelButton))

@@ -109,38 +109,38 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         jScrollPane6 = new javax.swing.JScrollPane();
         studentsNamesList = new javax.swing.JList<>();
 
-        dateOfEnteranceLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateOfEnteranceLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateOfEnteranceLabel.setText("Date of entarance:");
 
-        gradeInYearOfEnteranceLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeInYearOfEnteranceLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradeInYearOfEnteranceLabel.setText("Grade in year of entarance:");
 
-        topicLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("View Student Information");
 
-        nameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         nameLabel.setText("Name:");
 
-        addressLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addressLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         addressLabel.setText("Address:");
 
-        birthdayLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        birthdayLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         birthdayLabel.setText("Birthday:");
 
-        photoLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        photoLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         photoLabel.setText("Photo:");
 
         photoContainerLabel.setBackground(new java.awt.Color(255, 204, 153));
         photoContainerLabel.setForeground(new java.awt.Color(255, 204, 153));
 
-        identityCodeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        identityCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         identityCodeLabel.setText("Identity code:");
 
-        passportNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        passportNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         passportNumberLabel.setText("Passport number:");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Student's Family Information");
+        jLabel1.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
+        jLabel1.setText("පවුලේ විස්තර");
 
         viewStudentForm_studentFamily_table.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         viewStudentForm_studentFamily_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -148,7 +148,7 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Relationship", "Name", "NIC", "ID"
+                "නෑකම", "නම", "ජාතික හැඳුනුම්පත් අංකය", "පද්ධති කේතය"
             }
         ) {
             Class[] types = new Class [] {
@@ -168,8 +168,8 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(viewStudentForm_studentFamily_table);
 
-        familyInfoViewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        familyInfoViewButton.setText("View information");
+        familyInfoViewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        familyInfoViewButton.setText("වැඩිදුර විමසීම");
         familyInfoViewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 familyInfoViewButtonActionPerformed(evt);
@@ -182,7 +182,7 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
 
             },
             new String [] {
-                "School name", "Date of entarance", "Is currently studing", "Date of leave", "ID"
+                "පාසලේ නම", "ඇතුලත් වීමේ දිනය", "වර්තමානයේ මෙම පාසලෙහි ඉගෙනුම ලබනවාද යන වග", "පාසලෙන් ඉවත් වූ දිනය", "පද්ධති කේතය"
             }
         ) {
             Class[] types = new Class [] {
@@ -202,16 +202,16 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(viewStudent_studentSchoolInformation_table);
 
-        studentSchoolInfoViewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        studentSchoolInfoViewButton.setText("View information");
+        studentSchoolInfoViewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        studentSchoolInfoViewButton.setText("වැඩිදුර විමසීම");
         studentSchoolInfoViewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 studentSchoolInfoViewButtonActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Student's School Information");
+        jLabel2.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
+        jLabel2.setText("පාසල් තොරතුරු");
 
         viewStudentTable_assesmentPerformance_table.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         viewStudentTable_assesmentPerformance_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -219,7 +219,7 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Date and Time", "Assesment", "Exam", "ID"
+                "දිනය සහ වේලාව", "තරඟය", "තරඟාවලිය", "පද්ධති කේතය"
             }
         ) {
             Class[] types = new Class [] {
@@ -239,8 +239,8 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(viewStudentTable_assesmentPerformance_table);
 
-        studentAssesmentPerformanceInfoViewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        studentAssesmentPerformanceInfoViewButton.setText("View information");
+        studentAssesmentPerformanceInfoViewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        studentAssesmentPerformanceInfoViewButton.setText("වැඩිදුර විමසීම");
         studentAssesmentPerformanceInfoViewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 studentAssesmentPerformanceInfoViewButtonActionPerformed(evt);
@@ -253,7 +253,7 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Date and Time", "Grade", "Exam", "Marks", "ID"
+                "දිනය සහ වේලාව", "වසර", "විභාගය", "ලකුනු", "පද්ධති කේතය"
             }
         ) {
             Class[] types = new Class [] {
@@ -273,19 +273,19 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(viewStudentForm_examPerformance_table);
 
-        examPerformanceInfoViewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        examPerformanceInfoViewButton.setText("View information");
+        examPerformanceInfoViewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        examPerformanceInfoViewButton.setText("වැඩිදුර විමසීම");
         examPerformanceInfoViewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 examPerformanceInfoViewButtonActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Student's Exam Performance Information");
+        jLabel3.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
+        jLabel3.setText("විභාග තොරතුරු");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Student's Assesment Performance");
+        jLabel4.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
+        jLabel4.setText("සහභාගී වූ තරඟ පිලිබඳ තොරතුරු");
 
         viewStudentForm_medicalStatus_table.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         viewStudentForm_medicalStatus_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -293,7 +293,7 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Desease", "First date of diagnose", "First treatement day", "Last treatement day", "ID"
+                "රෝගය", "හදුනාගත් පලමු දිනය", "ප්‍රතිකාර ලබාගත් පලමු දිනය", "ප්‍රතිකාර ලබාගත් අවසන් දිනය", "පද්ධති කේතය"
             }
         ) {
             Class[] types = new Class [] {
@@ -313,39 +313,39 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(viewStudentForm_medicalStatus_table);
 
-        medicalStatusViewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        medicalStatusViewButton.setText("View information");
+        medicalStatusViewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        medicalStatusViewButton.setText("වැඩිදුර විමසීම");
         medicalStatusViewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 medicalStatusViewButtonActionPerformed(evt);
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("Student's Medical Status Information");
+        jLabel5.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
+        jLabel5.setText("විශේෂ සෞඛ්‍ය තොරතුරු");
 
-        familyContactNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        familyContactNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         familyContactNumberLabel.setText("Family contact number:");
 
-        addressValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addressValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         addressValueLabel.setText("-");
 
-        birthdayValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        birthdayValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         birthdayValueLabel.setText("-");
 
-        contactNumberValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        contactNumberValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         contactNumberValueLabel.setText("-");
 
-        identityCodeValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        identityCodeValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         identityCodeValueLabel.setText("-");
 
-        passportNumberValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        passportNumberValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         passportNumberValueLabel.setText("-");
 
-        dateOfEntaranceValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateOfEntaranceValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dateOfEntaranceValueLabel.setText("-");
 
-        gradeInyearOfEntaranceValueLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gradeInyearOfEntaranceValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradeInyearOfEntaranceValueLabel.setText("-");
 
         excelExportButton.setBackground(new java.awt.Color(0, 153, 51));
@@ -358,14 +358,14 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
             }
         });
 
-        studentNameText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 studentNameTextKeyReleased(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         jButton1.setText("clear");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -373,7 +373,7 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
             }
         });
 
-        studentsNamesList.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        studentsNamesList.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentsNamesList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 studentsNamesListMouseClicked(evt);
@@ -462,9 +462,9 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
                     .addComponent(nameLabel)
                     .addComponent(studentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addressLabel)
                     .addComponent(addressValueLabel))
