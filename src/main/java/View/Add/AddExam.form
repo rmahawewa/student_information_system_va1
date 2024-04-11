@@ -19,12 +19,6 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
-                      <Component id="submitButton" min="-2" pref="86" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                      <Component id="cancelButton" min="-2" pref="86" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -36,7 +30,7 @@
                                   <Component id="semesterLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="examCodeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="examNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="yearLabel" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                                  <Component id="yearLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -81,7 +75,6 @@
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" min="-2" pref="14" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" pref="14" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" pref="14" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" pref="14" max="-2" attributes="0"/>
@@ -90,8 +83,15 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
-                      <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="submitButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                              <Component id="cancelButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace pref="23" max="32767" attributes="0"/>
@@ -101,9 +101,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="examNameLabel" min="-2" max="-2" attributes="0"/>
@@ -120,10 +120,7 @@
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="examCodeText" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="examCodeText" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="yearComboBx" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -173,7 +170,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Add Exam Information"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdb7;&#xdcf;&#xd9c;/&#xdad;&#xdbb;&#xd9c;&#xdcf;&#xdc0;&#xdbd;&#xdd2; &#xdad;&#xddc;&#xdbb;&#xdad;&#xdd4;&#xdbb;&#xdd4; &#xd87;&#xdad;&#xdd4;&#xdbd;&#xdad;&#xdca; &#xd9a;&#xdd2;&#xdbb;&#xdd3;&#xdb8; "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="examNameLabel">
@@ -181,7 +178,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Exam name:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdb7;&#xdcf;&#xd9c;&#xdba;&#xdda;/&#xdad;&#xdbb;&#xd9c;&#xdcf;&#xdc0;&#xdbd;&#xdd2;&#xdba;&#xdda; &#xdb1;&#xdb8;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="toDateLabel">
@@ -189,7 +186,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="To date:"/>
+        <Property name="text" type="java.lang.String" value="&#xd85;&#xdc0;&#xdc3;&#xdb1;&#xdca; &#xdc0;&#xdb1; &#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="detailsLabel">
@@ -197,7 +194,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Details:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdc3;&#xdca;&#xdad;&#xdbb;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="examNameText">
@@ -215,7 +212,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Submit"/>
+        <Property name="text" type="java.lang.String" value="&#xdba;&#xddc;&#xdb8;&#xdd4; &#xd9a;&#xdbb;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitButtonActionPerformed"/>
@@ -226,7 +223,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="text" type="java.lang.String" value="&#xd85;&#xdc0;&#xdbd;&#xd82;&#xd9c;&#xdd4; &#xd9a;&#xdbb;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="tdDayComboBx">
@@ -323,18 +320,18 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="13">
-            <StringItem index="0" value="January"/>
-            <StringItem index="1" value="February"/>
-            <StringItem index="2" value="March"/>
-            <StringItem index="3" value="April"/>
-            <StringItem index="4" value="May"/>
-            <StringItem index="5" value="June"/>
-            <StringItem index="6" value="July"/>
-            <StringItem index="7" value="August"/>
-            <StringItem index="8" value="September"/>
-            <StringItem index="9" value="October"/>
-            <StringItem index="10" value="November"/>
-            <StringItem index="11" value="December"/>
+            <StringItem index="0" value="&#xdaf;&#xdd4;&#xdbb;&#xdd4;&#xdad;&#xdd4;"/>
+            <StringItem index="1" value="&#xdb1;&#xdc0;&#xdb8;&#xdca;"/>
+            <StringItem index="2" value="&#xdb8;&#xdd0;&#xdaf;&#xdd2;&#xdb1;&#xdca;"/>
+            <StringItem index="3" value="&#xdb6;&#xd9a;&#xdca;"/>
+            <StringItem index="4" value="&#xdc0;&#xdd9;&#xdc3;&#xd9a;&#xdca;"/>
+            <StringItem index="5" value="&#xdb4;&#xddc;&#xdc3;&#xddc;&#xdb1;&#xdca;"/>
+            <StringItem index="6" value="&#xd87;&#xdc3;&#xdbd;"/>
+            <StringItem index="7" value="&#xdb1;&#xdd2;&#xd9a;&#xdd2;&#xdb1;&#xdd2;"/>
+            <StringItem index="8" value="&#xdb6;&#xdd2;&#xdb1;&#xdbb;"/>
+            <StringItem index="9" value="&#xdc0;&#xdb4;&#xdca;"/>
+            <StringItem index="10" value="&#xd89;&#xdbd;&#xdca;"/>
+            <StringItem index="11" value="&#xd8b;&#xdaf;&#xdd4;&#xdc0;&#xdb4;&#xdca;"/>
             <StringItem index="12" value=" "/>
           </StringArray>
         </Property>
@@ -355,7 +352,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Exam code:"/>
+        <Property name="text" type="java.lang.String" value="&#xd9a;&#xdda;&#xdad;&#xdcf;&#xd82;&#xd9a;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="fdDayComboBx">
@@ -452,18 +449,18 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="12">
-            <StringItem index="0" value="January"/>
-            <StringItem index="1" value="February"/>
-            <StringItem index="2" value="March"/>
-            <StringItem index="3" value="April"/>
-            <StringItem index="4" value="May"/>
-            <StringItem index="5" value="June"/>
-            <StringItem index="6" value="July"/>
-            <StringItem index="7" value="August"/>
-            <StringItem index="8" value="September"/>
-            <StringItem index="9" value="October"/>
-            <StringItem index="10" value="November"/>
-            <StringItem index="11" value="December"/>
+            <StringItem index="0" value="&#xdaf;&#xdd4;&#xdbb;&#xdd4;&#xdad;&#xdd4;"/>
+            <StringItem index="1" value="&#xdb1;&#xdc0;&#xdb8;&#xdca;"/>
+            <StringItem index="2" value="&#xdb8;&#xdd0;&#xdaf;&#xdd2;&#xdb1;&#xdca;"/>
+            <StringItem index="3" value="&#xdb6;&#xd9a;&#xdca;"/>
+            <StringItem index="4" value="&#xdc0;&#xdd9;&#xdc3;&#xd9a;&#xdca;"/>
+            <StringItem index="5" value="&#xdb4;&#xddc;&#xdc3;&#xddc;&#xdb1;&#xdca;"/>
+            <StringItem index="6" value="&#xd87;&#xdc3;&#xdbd;"/>
+            <StringItem index="7" value="&#xdb1;&#xdd2;&#xd9a;&#xdd2;&#xdb1;&#xdd2;"/>
+            <StringItem index="8" value="&#xdb6;&#xdd2;&#xdb1;&#xdbb;"/>
+            <StringItem index="9" value="&#xdc0;&#xdb4;&#xdca;"/>
+            <StringItem index="10" value="&#xd89;&#xdbd;&#xdca;"/>
+            <StringItem index="11" value="&#xd8b;&#xdaf;&#xdd4;&#xdc0;&#xdb4;&#xdca;"/>
           </StringArray>
         </Property>
       </Properties>
@@ -476,7 +473,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="From date:"/>
+        <Property name="text" type="java.lang.String" value="&#xd86;&#xdbb;&#xdb8;&#xdca;&#xdb7; &#xdc0;&#xdb1; &#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="yearComboBx">
@@ -536,7 +533,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Year:"/>
+        <Property name="text" type="java.lang.String" value="&#xdb4;&#xdd0;&#xdc0;&#xdd0;&#xdad;&#xdca;&#xdc0;&#xdd9;&#xdb1; &#xdc0;&#xdbb;&#xdca;&#xdc2;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="semesterLabel">
@@ -544,7 +541,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Semester:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdcf;&#xdbb;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="semesterComboBx">
@@ -554,10 +551,10 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
-            <StringItem index="0" value="First Semester"/>
-            <StringItem index="1" value="Second Semester"/>
-            <StringItem index="2" value="Third Semester"/>
-            <StringItem index="3" value="Forth Semester"/>
+            <StringItem index="0" value="&#xdb4;&#xdc5;&#xdb8;&#xdd4; &#xdc0;&#xdcf;&#xdbb;&#xdba;"/>
+            <StringItem index="1" value="&#xdaf;&#xdd9;&#xdc0;&#xdb1; &#xdc0;&#xdcf;&#xdbb;&#xdba;"/>
+            <StringItem index="2" value="&#xdad;&#xdd9;&#xdc0;&#xdb1; &#xdc0;&#xdcf;&#xdbb;&#xdba;"/>
+            <StringItem index="3" value="&#xdc3;&#xdd2;&#xdc0;&#xdd4;&#xdc0;&#xdb1; &#xdc0;&#xdcf;&#xdbb;&#xdba;"/>
             <StringItem index="4" value=" "/>
           </StringArray>
         </Property>
@@ -567,17 +564,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="33" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="*"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>

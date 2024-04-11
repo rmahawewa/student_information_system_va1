@@ -21,7 +21,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="gradeLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="81" max="32767" attributes="0"/>
+                      <EmptySpace pref="50" max="32767" attributes="0"/>
                       <Component id="jLabel19" min="-2" pref="15" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -43,7 +43,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="examNameValueLabel" alignment="0" max="32767" attributes="0"/>
                   <Component id="assesmentNameValueLabel" alignment="0" max="32767" attributes="0"/>
-                  <Component id="descriptionScrollPane" alignment="0" pref="343" max="32767" attributes="0"/>
+                  <Component id="descriptionScrollPane" alignment="0" pref="347" max="32767" attributes="0"/>
                   <Component id="remarksText" alignment="0" max="32767" attributes="0"/>
                   <Component id="marksText" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
@@ -60,10 +60,10 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
-                      <Component id="submitButton" min="-2" pref="86" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+                      <Component id="submitButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                      <Component id="cancelButton" min="-2" pref="86" max="-2" attributes="0"/>
+                      <Component id="cancelButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
@@ -133,7 +133,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Add Student Assesment Performance Details"/>
+        <Property name="text" type="java.lang.String" value="&#xdc3;&#xdd2;&#xdc3;&#xdd4;&#xdb1;&#xdca;&#xd9c;&#xdda; &#xdad;&#xdbb;&#xd9c; &#xd9a;&#xdd4;&#xdc3;&#xdbd;&#xdad;&#xdcf; &#xdb4;&#xdd2;&#xdbd;&#xdd2;&#xdb6;&#xdaf; &#xdc0;&#xdd2;&#xdc3;&#xdca;&#xdad;&#xdbb; &#xd87;&#xdad;&#xdd4;&#xdbd;&#xdad;&#xdca; &#xd9a;&#xdd2;&#xdbb;&#xdd3;&#xdb8;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="examLabel">
@@ -141,7 +141,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Exam:"/>
+        <Property name="text" type="java.lang.String" value="&#xdad;&#xdbb;&#xd9c;&#xdcf;&#xdc0;&#xdbd;&#xdd2;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="remarksLabel">
@@ -149,7 +149,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Remarks:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdc1;&#xdda;&#xdc2; &#xdc3;&#xda7;&#xdc4;&#xdb1;&#xdca;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="submitButton">
@@ -157,7 +157,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Submit"/>
+        <Property name="text" type="java.lang.String" value="&#xdba;&#xddc;&#xdb8;&#xdd4; &#xd9a;&#xdbb;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitButtonActionPerformed"/>
@@ -168,7 +168,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="text" type="java.lang.String" value="&#xd85;&#xdc0;&#xdbd;&#xd82;&#xd9c;&#xdd4; &#xd9a;&#xdbb;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelButtonActionPerformed"/>
@@ -179,7 +179,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Marks:"/>
+        <Property name="text" type="java.lang.String" value="&#xdbd;&#xd9a;&#xdd4;&#xdab;&#xdd4;/ &#xdc3;&#xdca;&#xdae;&#xdcf;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="assesmentLabel">
@@ -187,7 +187,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Assesment:"/>
+        <Property name="text" type="java.lang.String" value="&#xdad;&#xdbb;&#xd9c;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="examNameValueLabel">
@@ -203,7 +203,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Student name:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc3;&#xdd2;&#xdc3;&#xdd4;/&#xdc3;&#xdd2;&#xdc3;&#xdd4;&#xdc0;&#xdd2;&#xdba;&#xd9c;&#xdda; &#xdb1;&#xdb8;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="assesmentNameValueLabel">
@@ -233,7 +233,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Description:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd0;&#xda9;&#xdd2;&#xdaf;&#xdd4;&#xdbb; &#xdc0;&#xdd2;&#xdc3;&#xdca;&#xdad;&#xdbb;:"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="descriptionScrollPane">
@@ -269,7 +269,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Clear"/>
+        <Property name="text" type="java.lang.String" value="&#xdb8;&#xd9a;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButtonActionPerformed"/>

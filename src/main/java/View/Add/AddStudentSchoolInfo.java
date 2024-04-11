@@ -89,22 +89,22 @@ public class AddStudentSchoolInfo extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(595, 758));
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("Add Student's School Information");
+        topicLabel.setText("ශිෂ්‍ය පාසල් තොරතුරු ඇතුලත් කිරීම");
 
         studentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        studentNameLabel.setText("Student's name:");
+        studentNameLabel.setText("ශිෂ්‍යයාගේ නම:");
 
         schoolNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        schoolNameLabel.setText("School name:");
+        schoolNameLabel.setText("පාසලේ නම:");
 
         dateOfEntaranceLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        dateOfEntaranceLabel.setText("Date of enterance:");
+        dateOfEntaranceLabel.setText("ඇතුලත් වූ දිනය:");
 
         isCurrentlyStudingLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        isCurrentlyStudingLabel.setText("Is currently studing:");
+        isCurrentlyStudingLabel.setText("වර්තමානයේ ඉගෙනුම ලබනවාද යන වග:");
 
         dateOfLeaveLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        dateOfLeaveLabel.setText("Date of leave:");
+        dateOfLeaveLabel.setText("පාසලෙන් ඉවත් වූ දිනය (ඇත්නම්):");
 
         schoolNameComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
@@ -112,13 +112,13 @@ public class AddStudentSchoolInfo extends javax.swing.JPanel {
         doeYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050", " " }));
 
         doeMonthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        doeMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
+        doeMonthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "දුරුතු", "නවම්", "මැදින්", "බක්", "වෙසක්", "පොසොන්", "ඇසල", "නිකිනි", "බිනර", "වප්", "ඉල්", "උදුවප්" }));
 
         doeDateComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         doeDateComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
 
         isCurrentlyStudingComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        isCurrentlyStudingComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "yes", "no" }));
+        isCurrentlyStudingComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ඔව්", "නැහැ" }));
 
         dolYearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dolYearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
@@ -169,7 +169,7 @@ public class AddStudentSchoolInfo extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         dolMonthComboBx1.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        dolMonthComboBx1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
+        dolMonthComboBx1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "දුරුතු", "නවම්", "මැදින්", "බක්", "වෙසක්", "පොසොන්", "ඇසල", "නිකිනි", "බිනර", "වප්", "ඉල්", "උදුවප්" }));
 
         studentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameValueLabel.setText("student name");
@@ -195,45 +195,43 @@ public class AddStudentSchoolInfo extends javax.swing.JPanel {
                             .addComponent(dateOfLeaveLabel)
                             .addComponent(dateOfEntaranceLabel)
                             .addComponent(isCurrentlyStudingLabel))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(isCurrentlyStudingComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(topicLabel)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(isCurrentlyStudingComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(doeYearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(doeMonthComboBx, 0, 149, Short.MAX_VALUE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(doeDateComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(schoolNameComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(studentNameValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(dolYearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(dolMonthComboBx1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(dolDayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18))))))
+                                .addComponent(doeYearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(doeMonthComboBx, 0, 149, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(doeDateComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(schoolNameComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(studentNameValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(dolYearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(dolMonthComboBx1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(dolDayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(155, 155, 155)
                 .addComponent(submit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(114, 114, 114)
                 .addComponent(close_button, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(topicLabel)
+                .addGap(167, 167, 167))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(25, 25, 25)
                 .addComponent(topicLabel)
-                .addGap(39, 39, 39)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -286,7 +284,7 @@ public class AddStudentSchoolInfo extends javax.swing.JPanel {
         String doe_day = this.doeDateComboBx.getSelectedItem().toString();
         String doe = doe_year + "-" + doe_month_number + "-" + doe_day;
         String current_student = this.isCurrentlyStudingComboBx.getSelectedItem().toString();
-        int crnt_std = current_student.equals("yes")?1:0;
+        int crnt_std = current_student.equals("ඔව්")?1:0;
         String date_of_leave_year = this.dolYearComboBx.getSelectedItem().toString();
         String date_of_leave_month = this.dolMonthComboBx1.getSelectedItem().toString();
         String date_of_leave_month_number = GetTimes.getMonthNumber(date_of_leave_month);

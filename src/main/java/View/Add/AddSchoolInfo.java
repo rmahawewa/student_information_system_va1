@@ -49,19 +49,19 @@ public class AddSchoolInfo extends javax.swing.JPanel {
         jLabel13 = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("Add School Information");
+        topicLabel.setText("පාසල් විස්තර ඇතුලත් කිරීම");
 
         schoolNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        schoolNameLabel.setText("School name:");
+        schoolNameLabel.setText("පාසලේ නම:");
 
         addressLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        addressLabel.setText("Address:");
+        addressLabel.setText("ලිපිනය:");
 
         contactNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        contactNumberLabel.setText("Contact number:");
+        contactNumberLabel.setText("දුරකතන අංකය:");
 
         detailsLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        detailsLabel.setText("Details:");
+        detailsLabel.setText("විස්තර:");
 
         schoolNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
@@ -72,7 +72,7 @@ public class AddSchoolInfo extends javax.swing.JPanel {
         detailsText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        submitButton.setText("Submit");
+        submitButton.setText("යොමු කරන්න");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
@@ -80,7 +80,7 @@ public class AddSchoolInfo extends javax.swing.JPanel {
         });
 
         cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        cancelButton.setText("Cancel");
+        cancelButton.setText("අවලංගු කරන්න");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
@@ -106,7 +106,7 @@ public class AddSchoolInfo extends javax.swing.JPanel {
                     .addComponent(addressLabel)
                     .addComponent(contactNumberLabel)
                     .addComponent(detailsLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(contactNumberText, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addressText, javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,14 +120,14 @@ public class AddSchoolInfo extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(118, 118, 118)
+                        .addComponent(submitButton)
                         .addGap(92, 92, 92)
-                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cancelButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(194, 194, 194)
                         .addComponent(topicLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

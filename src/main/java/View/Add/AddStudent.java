@@ -102,12 +102,12 @@ public class AddStudent extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
 
         dateOfEnteranceLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        dateOfEnteranceLabel.setText("Date of entarance:  ");
+        dateOfEnteranceLabel.setText("ඇතුලත් වීමේ දිනය:");
 
         addressText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         gradeInYearOfEnteranceLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        gradeInYearOfEnteranceLabel.setText("Grade in year of entarance:   ");
+        gradeInYearOfEnteranceLabel.setText("සිසුවා ඇතුලත් වූ වර්ෂයේදී සිටී වසර:");
 
         nameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
@@ -117,7 +117,7 @@ public class AddStudent extends javax.swing.JPanel {
         doeYComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050", "2051", " " }));
 
         doeMComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        doeMComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        doeMComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "දුරුතු", "නවම්", "මැදින්", "බක්", "වෙසක්", "පොසොන්", "ඇසල", "නිකිනි", "බිනර", "වප්", "ඉල්", "උදුවප්" }));
         doeMComboBx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 doeMComboBxActionPerformed(evt);
@@ -135,25 +135,25 @@ public class AddStudent extends javax.swing.JPanel {
         bdYComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", " " }));
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("Add Student Information");
+        topicLabel.setText("ශිෂ්‍ය විස්තර ඇතුලත් කිරීම");
 
         nameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        nameLabel.setText("Name:  ");
+        nameLabel.setText("නම:");
 
         addressLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        addressLabel.setText("Address:");
+        addressLabel.setText("ලිපිනය:");
 
         birthdayLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        birthdayLabel.setText("Birthday:  ");
+        birthdayLabel.setText("උපන් දිනය:");
 
         photoLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        photoLabel.setText("Photo:");
+        photoLabel.setText("ඡායාරූපය:");
 
         photoContainerLabel.setBackground(new java.awt.Color(255, 204, 153));
         photoContainerLabel.setForeground(new java.awt.Color(255, 204, 153));
 
         addPhotoButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        addPhotoButton.setText("Add photo");
+        addPhotoButton.setText("ඡායා රූපය තෝරන්න");
         addPhotoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addPhotoButtonActionPerformed(evt);
@@ -161,19 +161,19 @@ public class AddStudent extends javax.swing.JPanel {
         });
 
         identityCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        identityCodeLabel.setText("Identity code:");
+        identityCodeLabel.setText("ඇතුලත් වීමේ අංකය:");
 
         bdMComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        bdMComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        bdMComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "දුරුතු", "නවම්", "මැදින්", "බක්", "වෙසක්", "පොසොන්", "ඇසල", "නිකිනි", "බිනර", "වප්", "ඉල්", "උදුවප්" }));
 
         passportNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        passportNumberLabel.setText("Passport number:");
+        passportNumberLabel.setText("විදේශ ගමන් බලපත්‍ර අංකය:");
 
         bdDComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         bdDComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
 
         submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        submitButton.setText("Submit");
+        submitButton.setText("යොමු කරන්න");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
@@ -181,7 +181,7 @@ public class AddStudent extends javax.swing.JPanel {
         });
 
         clearButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        clearButton.setText("Clear");
+        clearButton.setText("මකා දමන්න");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButtonActionPerformed(evt);
@@ -191,7 +191,7 @@ public class AddStudent extends javax.swing.JPanel {
         contactNumberText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         addressLabel1.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        addressLabel1.setText("Family contact number:");
+        addressLabel1.setText("පවුලේ දුරකතන අංකය:");
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 51, 51));
@@ -218,6 +218,12 @@ public class AddStudent extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(139, 139, 139)
+                .addComponent(submitButton)
+                .addGap(87, 87, 87)
+                .addComponent(clearButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -235,6 +241,7 @@ public class AddStudent extends javax.swing.JPanel {
                             .addComponent(addressLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(topicLabel)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(gradeInYEComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -271,17 +278,6 @@ public class AddStudent extends javax.swing.JPanel {
                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
-                .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(194, 205, Short.MAX_VALUE)
-                    .addComponent(topicLabel)
-                    .addGap(184, 184, 184)))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addressText, identityCodeText, nameText, passportNumberText});
@@ -289,7 +285,9 @@ public class AddStudent extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(112, 112, 112)
+                .addGap(37, 37, 37)
+                .addComponent(topicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nameLabel)
@@ -341,11 +339,6 @@ public class AddStudent extends javax.swing.JPanel {
                     .addComponent(submitButton)
                     .addComponent(clearButton))
                 .addGap(45, 45, 45))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(38, 38, 38)
-                    .addComponent(topicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(760, Short.MAX_VALUE)))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bdDComboBx, bdMComboBx, bdYComboBx});

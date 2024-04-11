@@ -40,59 +40,66 @@ public class UserLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Login");
+        jLabel1.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
+        jLabel1.setText("පද්ධතිගත වීම");
 
-        jLabel2.setText("User name:");
+        jLabel2.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        jLabel2.setText("භාවිත නාමය:");
 
-        jLabel3.setText("Password:");
+        jLabel3.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        jLabel3.setText("පුද්ගලික කේතය:");
 
-        submitButton.setText("submit");
+        userNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+
+        submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
+        submitButton.setText("යොමු කරන්න‍");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
             }
         });
 
-        cancelButton.setText("cancel");
+        cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
+        cancelButton.setText("අවලංගු කරන්න");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
             }
         });
 
+        passwordText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(174, 174, 174))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(submitButton)
-                        .addGap(38, 38, 38)
-                        .addComponent(cancelButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addGap(30, 30, 30)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(submitButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(userNameText, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(passwordText))))
-                .addContainerGap(49, Short.MAX_VALUE))
+                            .addComponent(passwordText)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(cancelButton)
+                                .addGap(36, 36, 36)))))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
-                .addGap(43, 43, 43)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(userNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

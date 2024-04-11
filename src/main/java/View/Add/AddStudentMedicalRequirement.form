@@ -17,100 +17,108 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
-              <Component id="submitButton" min="-2" pref="86" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-              <Component id="cancelButton" min="-2" pref="86" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="firstDateOfTreatmentLabel" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="detailsLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="lastDateOfTraetementLabel" min="-2" max="-2" attributes="0"/>
-                      </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                      <Component id="submitButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                      <Component id="cancelButton" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-                          <Component id="medicalRequirementLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel20" min="-2" pref="15" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="studentNameLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel19" min="-2" pref="15" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="fdodYearComboBx" min="-2" pref="89" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="fdodMonthComboBx" min="-2" pref="145" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jScrollPane1" min="-2" pref="266" max="-2" attributes="0"/>
-                                  <Component id="medicalRequirementText" min="-2" pref="266" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="studentNameText" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="fdodDayComboBx" min="-2" pref="75" max="-2" attributes="0"/>
-                          <Component id="studentNameClearButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="medicalRequirementClearButton" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jScrollPane2" alignment="0" min="-2" pref="266" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="detailsTextField" alignment="0" min="-2" pref="345" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="fdotYearComboBx" min="-2" pref="89" max="-2" attributes="0"/>
-                                  <Component id="ldotYearComboBx" min="-2" pref="89" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="firstDateOfTreatmentLabel" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="ldotMonthComboBx" max="32767" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="ldotDayComboBx" min="-2" pref="75" max="-2" attributes="0"/>
+                                      <Component id="detailsLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" alignment="1" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="medicalRequirementLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel20" min="-2" pref="15" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="fdotMonthComboBx" min="-2" pref="145" max="-2" attributes="0"/>
+                                      <Component id="studentNameLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jLabel19" min="-2" pref="15" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Component id="lastDateOfTraetementLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="fdodYearComboBx" min="-2" pref="89" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="fdotDayComboBx" min="-2" pref="75" max="-2" attributes="0"/>
+                                      <Component id="fdodMonthComboBx" min="-2" pref="145" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jScrollPane1" min="-2" pref="266" max="-2" attributes="0"/>
+                                          <Component id="medicalRequirementText" min="-2" pref="266" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="studentNameText" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="fdodDayComboBx" min="-2" pref="75" max="-2" attributes="0"/>
+                                  <Component id="studentNameClearButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medicalRequirementClearButton" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jScrollPane2" alignment="0" min="-2" pref="266" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="detailsTextField" alignment="0" min="-2" pref="345" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="fdotYearComboBx" min="-2" pref="89" max="-2" attributes="0"/>
+                                          <Component id="ldotYearComboBx" min="-2" pref="89" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="ldotMonthComboBx" max="32767" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="ldotDayComboBx" min="-2" pref="75" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="fdotMonthComboBx" min="-2" pref="145" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="fdotDayComboBx" min="-2" pref="75" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="125" max="32767" attributes="0"/>
-              <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+              <EmptySpace pref="56" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="firstDateOfDiagnoseLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="453" max="32767" attributes="0"/>
+                  <EmptySpace pref="457" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -118,9 +126,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="studentNameText" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="studentNameClearButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -186,7 +194,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Add Student Medical Requirement Information"/>
+        <Property name="text" type="java.lang.String" value="&#xdc1;&#xdd2;&#xdc2;&#xdca;&#x200d;&#xdba; &#xdc0;&#xdd2;&#xdc1;&#xdda;&#xdc2; &#xdc3;&#xdde;&#xd9b;&#xdca;&#x200d;&#xdba; &#xd85;&#xdc0;&#xdc1;&#xdca;&#x200d;&#xdba;&#xdad;&#xdcf; &#xd87;&#xdad;&#xdd4;&#xdbd;&#xdad;&#xdca; &#xd9a;&#xdd2;&#xdbb;&#xdd3;&#xdb8;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="studentNameLabel">
@@ -194,7 +202,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Student name:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc3;&#xdd2;&#xdc3;&#xdd4;/&#xdc3;&#xdd2;&#xdc3;&#xdd4;&#xdc0;&#xdd2;&#xdba;&#xd9c;&#xdda; &#xdb1;&#xdb8;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="firstDateOfTreatmentLabel">
@@ -202,7 +210,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="First date of treatement:"/>
+        <Property name="text" type="java.lang.String" value="&#xdb4;&#xdbd;&#xdb8;&#xdd4;&#xdc0;&#xdd9;&#xdb1;&#xdca; &#xdb4;&#xdca;&#x200d;&#xdbb;&#xdad;&#xdd2;&#xd9a;&#xdcf;&#xdbb; &#xdbd;&#xdaf; &#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="detailsLabel">
@@ -210,7 +218,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Details:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdc3;&#xdca;&#xdad;&#xdbb;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="studentNameText">
@@ -228,7 +236,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Submit"/>
+        <Property name="text" type="java.lang.String" value="&#xdba;&#xddc;&#xdb8;&#xdd4; &#xd9a;&#xdbb;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitButtonActionPerformed"/>
@@ -239,7 +247,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="text" type="java.lang.String" value="&#xd85;&#xdc0;&#xdbd;&#xd82;&#xd9c;&#xdd4; &#xd9a;&#xdbb;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="fdotDayComboBx">
@@ -348,20 +356,19 @@
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="13">
-            <StringItem index="0" value="January"/>
-            <StringItem index="1" value="February"/>
-            <StringItem index="2" value="March"/>
-            <StringItem index="3" value="April"/>
-            <StringItem index="4" value="May"/>
-            <StringItem index="5" value="June"/>
-            <StringItem index="6" value="July"/>
-            <StringItem index="7" value="August"/>
-            <StringItem index="8" value="September"/>
-            <StringItem index="9" value="October"/>
-            <StringItem index="10" value="November"/>
-            <StringItem index="11" value="December"/>
-            <StringItem index="12" value=" "/>
+          <StringArray count="12">
+            <StringItem index="0" value="&#xdaf;&#xdd4;&#xdbb;&#xdd4;&#xdad;&#xdd4;"/>
+            <StringItem index="1" value="&#xdb1;&#xdc0;&#xdb8;&#xdca;"/>
+            <StringItem index="2" value="&#xdb8;&#xdd0;&#xdaf;&#xdd2;&#xdb1;&#xdca;"/>
+            <StringItem index="3" value="&#xdb6;&#xd9a;&#xdca;"/>
+            <StringItem index="4" value="&#xdc0;&#xdd9;&#xdc3;&#xd9a;&#xdca;"/>
+            <StringItem index="5" value="&#xdb4;&#xddc;&#xdc3;&#xddc;&#xdb1;&#xdca;"/>
+            <StringItem index="6" value="&#xd87;&#xdc3;&#xdbd;"/>
+            <StringItem index="7" value="&#xdb1;&#xdd2;&#xd9a;&#xdd2;&#xdb1;&#xdd2;"/>
+            <StringItem index="8" value="&#xdb6;&#xdd2;&#xdb1;&#xdbb;"/>
+            <StringItem index="9" value="&#xdc0;&#xdb4;&#xdca;"/>
+            <StringItem index="10" value="&#xd89;&#xdbd;&#xdca;"/>
+            <StringItem index="11" value="&#xd8b;&#xdaf;&#xdd4;&#xdc0;&#xdb4;&#xdca;"/>
           </StringArray>
         </Property>
       </Properties>
@@ -399,7 +406,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="12" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Clear"/>
+        <Property name="text" type="java.lang.String" value="&#xdb8;&#xd9a;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="studentNameClearButtonActionPerformed"/>
@@ -420,7 +427,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Medical Requirement:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdc1;&#xdda;&#xdc2; &#xdc3;&#xdde;&#xd9b;&#xdca;&#x200d;&#xdba; &#xdad;&#xdad;&#xdca;&#xdc0;&#xdba;:"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -453,7 +460,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="12" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Clear"/>
+        <Property name="text" type="java.lang.String" value="&#xdb8;&#xd9a;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="medicalRequirementClearButtonActionPerformed"/>
@@ -565,20 +572,19 @@
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="13">
-            <StringItem index="0" value="January"/>
-            <StringItem index="1" value="February"/>
-            <StringItem index="2" value="March"/>
-            <StringItem index="3" value="April"/>
-            <StringItem index="4" value="May"/>
-            <StringItem index="5" value="June"/>
-            <StringItem index="6" value="July"/>
-            <StringItem index="7" value="August"/>
-            <StringItem index="8" value="September"/>
-            <StringItem index="9" value="October"/>
-            <StringItem index="10" value="November"/>
-            <StringItem index="11" value="December"/>
-            <StringItem index="12" value=" "/>
+          <StringArray count="12">
+            <StringItem index="0" value="&#xdaf;&#xdd4;&#xdbb;&#xdd4;&#xdad;&#xdd4;"/>
+            <StringItem index="1" value="&#xdb1;&#xdc0;&#xdb8;&#xdca;"/>
+            <StringItem index="2" value="&#xdb8;&#xdd0;&#xdaf;&#xdd2;&#xdb1;&#xdca;"/>
+            <StringItem index="3" value="&#xdb6;&#xd9a;&#xdca;"/>
+            <StringItem index="4" value="&#xdc0;&#xdd9;&#xdc3;&#xd9a;&#xdca;"/>
+            <StringItem index="5" value="&#xdb4;&#xddc;&#xdc3;&#xddc;&#xdb1;&#xdca;"/>
+            <StringItem index="6" value="&#xd87;&#xdc3;&#xdbd;"/>
+            <StringItem index="7" value="&#xdb1;&#xdd2;&#xd9a;&#xdd2;&#xdb1;&#xdd2;"/>
+            <StringItem index="8" value="&#xdb6;&#xdd2;&#xdb1;&#xdbb;"/>
+            <StringItem index="9" value="&#xdc0;&#xdb4;&#xdca;"/>
+            <StringItem index="10" value="&#xd89;&#xdbd;&#xdca;"/>
+            <StringItem index="11" value="&#xd8b;&#xdaf;&#xdd4;&#xdc0;&#xdb4;&#xdca;"/>
           </StringArray>
         </Property>
       </Properties>
@@ -591,7 +597,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="First date of diagnose:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc4;&#xdaf;&#xdd4;&#xdb1;&#xdcf;&#xd9c;&#xdad;&#xdca; &#xdb4;&#xdbd;&#xdb8;&#xdd4; &#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="ldotDayComboBx">
@@ -700,20 +706,19 @@
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="13">
-            <StringItem index="0" value="January"/>
-            <StringItem index="1" value="February"/>
-            <StringItem index="2" value="March"/>
-            <StringItem index="3" value="April"/>
-            <StringItem index="4" value="May"/>
-            <StringItem index="5" value="June"/>
-            <StringItem index="6" value="July"/>
-            <StringItem index="7" value="August"/>
-            <StringItem index="8" value="September"/>
-            <StringItem index="9" value="October"/>
-            <StringItem index="10" value="November"/>
-            <StringItem index="11" value="December"/>
-            <StringItem index="12" value=" "/>
+          <StringArray count="12">
+            <StringItem index="0" value="&#xdaf;&#xdd4;&#xdbb;&#xdd4;&#xdad;&#xdd4;"/>
+            <StringItem index="1" value="&#xdb1;&#xdc0;&#xdb8;&#xdca;"/>
+            <StringItem index="2" value="&#xdb8;&#xdd0;&#xdaf;&#xdd2;&#xdb1;&#xdca;"/>
+            <StringItem index="3" value="&#xdb6;&#xd9a;&#xdca;"/>
+            <StringItem index="4" value="&#xdc0;&#xdd9;&#xdc3;&#xd9a;&#xdca;"/>
+            <StringItem index="5" value="&#xdb4;&#xddc;&#xdc3;&#xddc;&#xdb1;&#xdca;"/>
+            <StringItem index="6" value="&#xd87;&#xdc3;&#xdbd;"/>
+            <StringItem index="7" value="&#xdb1;&#xdd2;&#xd9a;&#xdd2;&#xdb1;&#xdd2;"/>
+            <StringItem index="8" value="&#xdb6;&#xdd2;&#xdb1;&#xdbb;"/>
+            <StringItem index="9" value="&#xdc0;&#xdb4;&#xdca;"/>
+            <StringItem index="10" value="&#xd89;&#xdbd;&#xdca;"/>
+            <StringItem index="11" value="&#xd8b;&#xdaf;&#xdd4;&#xdc0;&#xdb4;&#xdca;"/>
           </StringArray>
         </Property>
       </Properties>
@@ -726,7 +731,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Last date of treatement:"/>
+        <Property name="text" type="java.lang.String" value="&#xdb4;&#xdca;&#x200d;&#xdbb;&#xdad;&#xdd2;&#xd9a;&#xdcf;&#xdbb; &#xdbd;&#xdaf; &#xd85;&#xdc0;&#xdc3;&#xdb1;&#xdca; &#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="detailsTextField">

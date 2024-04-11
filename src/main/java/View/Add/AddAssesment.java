@@ -42,16 +42,15 @@ public class AddAssesment extends javax.swing.JPanel {
         submitButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("Add Assesment");
+        topicLabel.setText("තරග තොරතුරු ඇතුලත් කිරීම");
 
         assesmentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        assesmentNameLabel.setText("Assesment name:");
+        assesmentNameLabel.setText("තරගයේ නම:");
 
         assesmentCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        assesmentCodeLabel.setText("Assesment code:");
+        assesmentCodeLabel.setText("කේතාංකය:");
 
         assesmentNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentNameText.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +62,7 @@ public class AddAssesment extends javax.swing.JPanel {
         assesmentCodeText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        submitButton.setText("Submit");
+        submitButton.setText("යොමු කරන්න");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
@@ -71,7 +70,7 @@ public class AddAssesment extends javax.swing.JPanel {
         });
 
         cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        cancelButton.setText("Cancel");
+        cancelButton.setText("අවලංගු කරන්න");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
@@ -82,45 +81,38 @@ public class AddAssesment extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
         jLabel1.setText("*");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel2.setText("*");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(submitButton)
+                .addGap(92, 92, 92)
+                .addComponent(cancelButton)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(assesmentNameLabel)
                     .addComponent(assesmentCodeLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(assesmentCodeText, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(assesmentNameText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
-                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(229, 229, 229)
-                .addComponent(topicLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(topicLabel)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(assesmentCodeText, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(assesmentNameText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(19, 19, 19)
                 .addComponent(topicLabel)
-                .addGap(45, 45, 45)
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(assesmentNameLabel)
@@ -131,9 +123,7 @@ public class AddAssesment extends javax.swing.JPanel {
                             .addComponent(assesmentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(assesmentCodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))))
+                        .addComponent(assesmentCodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
@@ -153,7 +143,7 @@ public class AddAssesment extends javax.swing.JPanel {
         
         int stts = -1;
         
-        if(!asmt_name.equals("") && !asmt_code.equals("")){
+        if(!asmt_name.equals("")){
             List<String> lst = new ArrayList<String>();
             lst.add(0, asmt_name);
             lst.add(1, asmt_code);
@@ -248,7 +238,6 @@ public class AddAssesment extends javax.swing.JPanel {
     private javax.swing.JTextField assesmentNameText;
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton submitButton;
     private javax.swing.JLabel topicLabel;
     // End of variables declaration//GEN-END:variables

@@ -151,16 +151,16 @@ public class AddGradeExam extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("Add Exam Grade Information");
+        topicLabel.setText("විභාගය පැවැත්වෙන වසර විස්තර ඇතුලත් කිරීම");
 
         examLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        examLabel.setText("Exam:");
+        examLabel.setText("විභාගය:");
 
         timeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        timeLabel.setText("Time:");
+        timeLabel.setText("වේලාව:");
 
         submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        submitButton.setText("Submit");
+        submitButton.setText("යොමු කරන්න");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
@@ -168,7 +168,7 @@ public class AddGradeExam extends javax.swing.JPanel {
         });
 
         cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        cancelButton.setText("Cancel");
+        cancelButton.setText("අවලංගු කරන්න");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
@@ -176,7 +176,7 @@ public class AddGradeExam extends javax.swing.JPanel {
         });
 
         ampmComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM", " " }));
+        ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "පෙරවරු", "පස්වරු" }));
 
         hoursComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         hoursComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", " " }));
@@ -191,24 +191,24 @@ public class AddGradeExam extends javax.swing.JPanel {
         yearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
         monthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
+        monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "දුරුතු", "නවම්", "මැදින්", "බක්", "වෙසක්", "පොසොන්", "ඇසල", "නිකිනි", "බිනර", "වප්", "ඉල්", "උදුවප්" }));
 
         dateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        dateLabel.setText("Date:");
+        dateLabel.setText("දිනය:");
 
         gradeComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         gradeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        gradeLabel.setText("Grade:");
+        gradeLabel.setText("වසර:");
 
         examNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examNameValueLabel.setText("exam name      ");
 
         sessionLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        sessionLabel.setText("Session:");
+        sessionLabel.setText("අදියර:");
 
         sessionComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Session", "Second Session", "Third Session", "Forth Session" }));
+        sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "පලමු අදියර", "දෙවන අදියර", "තෙවන අදියර", "සිවුවන අදියර" }));
 
         jTable1.setFont(new java.awt.Font("Iskoola Pota", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -249,60 +249,59 @@ public class AddGradeExam extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(gradeLabel)
-                                .addGap(139, 139, 139)
-                                .addComponent(gradeComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(examLabel)
-                                .addGap(143, 143, 143)
-                                .addComponent(examNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(gradeLabel)
+                        .addGap(139, 139, 139)
+                        .addComponent(gradeComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(examLabel)
+                        .addGap(143, 143, 143)
+                        .addComponent(examNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(sessionLabel)
+                                .addComponent(dateLabel)
+                                .addComponent(timeLabel))
+                            .addGap(129, 129, 129)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(sessionComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(sessionLabel)
-                                        .addComponent(dateLabel)
-                                        .addComponent(timeLabel))
-                                    .addGap(129, 129, 129)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(sessionComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(yearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(monthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(dayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(yearComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(monthComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(dayComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(cancelButton)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(hoursComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
-                                            .addComponent(minutesComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(20, 20, 20)
-                                            .addComponent(ampmComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(130, 130, 130)
-                                    .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(92, 92, 92)
-                                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(topicLabel)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                                            .addComponent(minutesComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(20, 20, 20)
+                                    .addComponent(ampmComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(8, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(submitButton)
+                    .addComponent(topicLabel))
+                .addGap(127, 127, 127))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(30, 30, 30)
                 .addComponent(topicLabel)
-                .addGap(42, 42, 42)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(examLabel)
                     .addComponent(examNameValueLabel))
@@ -361,7 +360,7 @@ public class AddGradeExam extends javax.swing.JPanel {
         String hour = hoursComboBx.getSelectedItem().toString();
         String minute = minutesComboBx.getSelectedItem().toString();
         String ampm = ampmComboBx.getSelectedItem().toString();
-        if(ampm.equals("PM")){
+        if(ampm.equals("පස්වරු")){
             int i_hour = Integer.parseInt(hour);
             i_hour = i_hour + 12;
             hour = Integer.toString(i_hour);

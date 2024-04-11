@@ -174,16 +174,16 @@ public class AddExamAssesment extends javax.swing.JPanel {
         jLabel7.setText("*");
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("Add Assesment in Exam Information");
+        topicLabel.setText("තරගාවලියේ ඇතුලත් තරග තොරතුරු ඇතුලත් කිරීම");
 
         examLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        examLabel.setText("Exam:");
+        examLabel.setText("තරගාවලිය:");
 
         timeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        timeLabel.setText("Time:");
+        timeLabel.setText("වේලාව:");
 
         submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        submitButton.setText("Submit");
+        submitButton.setText("යොමු කරන්න");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
@@ -191,10 +191,10 @@ public class AddExamAssesment extends javax.swing.JPanel {
         });
 
         cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        cancelButton.setText("Cancel");
+        cancelButton.setText("අවලංගු කරන්න");
 
         ampmComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM", " " }));
+        ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "පෙරවරු", "පස්වරු" }));
 
         hoursComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         hoursComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", " " }));
@@ -210,7 +210,7 @@ public class AddExamAssesment extends javax.swing.JPanel {
         });
 
         assesmentLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        assesmentLabel.setText("Assesment:");
+        assesmentLabel.setText("තරගය:");
 
         dayComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         dayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
@@ -219,30 +219,30 @@ public class AddExamAssesment extends javax.swing.JPanel {
         yearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
         monthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
+        monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "දුරුතු", "නවම්", "මැදින්", "බක්", "වෙසක්", "පොසොන්", "ඇසල", "නිකිනි", "බිනර", "වප්", "ඉල්", "උදුවප්", " " }));
 
         dateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        dateLabel.setText("Date:");
+        dateLabel.setText("දිනය:");
 
         gradeComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         gradeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        gradeLabel.setText("Grade:");
+        gradeLabel.setText("වසර:");
 
         levelLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        levelLabel.setText("Level:");
+        levelLabel.setText("මට්ටම:");
 
         levelComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        levelComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Regional Level", "District Level", "Provincial Level", "Whole Island Level", "International Level", " " }));
+        levelComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ප්‍රාදේශීය මට්ටම", "දිස්ත්‍රික් මට්ටම", "පලාත් මට්ටම", "සමස්ත ලංකා මට්ටම", "ජ්‍යාත්‍යන්තර මට්ටම", " " }));
 
         examNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examNameValueLabel.setText("exam name");
 
         sessionLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        sessionLabel.setText("Session:");
+        sessionLabel.setText("අදියර:");
 
         sessionComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Session", "Second Session", "Third Session", "Forth Session" }));
+        sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "පලමු අදියර", "දෙවන අදියර", "තෙවන අදියර", "සිවුවන අදියර" }));
 
         clearButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         clearButton.setText("Clear");
@@ -311,9 +311,6 @@ public class AddExamAssesment extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(topicLabel))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,10 +339,10 @@ public class AddExamAssesment extends javax.swing.JPanel {
                                             .addGap(20, 20, 20)
                                             .addComponent(ampmComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(130, 130, 130)
-                                    .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(92, 92, 92)
-                                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(103, 103, 103)
+                                    .addComponent(submitButton)
+                                    .addGap(94, 94, 94)
+                                    .addComponent(cancelButton))
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,15 +362,18 @@ public class AddExamAssesment extends javax.swing.JPanel {
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(topicLabel)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(29, 29, 29)
                 .addComponent(topicLabel)
-                .addGap(41, 41, 41)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(examLabel)
                     .addComponent(examNameValueLabel))
@@ -498,7 +498,7 @@ public class AddExamAssesment extends javax.swing.JPanel {
         String minute = minutesComboBx.getSelectedItem().toString();
         String ampm = ampmComboBx.getSelectedItem().toString();
         String month_in_number = GetTimes.getMonthNumber(month);
-        if(ampm.equals("PM")){
+        if(ampm.equals("පස්වරු")){
             int i_hour = Integer.parseInt(hour)+12;
             hour = Integer.toString(i_hour);
         }

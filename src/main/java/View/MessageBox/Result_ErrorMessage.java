@@ -35,15 +35,17 @@ public class Result_ErrorMessage extends javax.swing.JFrame {
         msgLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Retry");
+        setTitle("සටහන");
 
-        okButton.setText("ok");
+        okButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        okButton.setText("එකගයි");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okButtonActionPerformed(evt);
             }
         });
 
+        msgLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         msgLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         msgLabel.setText("message");
 
@@ -63,7 +65,7 @@ public class Result_ErrorMessage extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addComponent(msgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addComponent(okButton)

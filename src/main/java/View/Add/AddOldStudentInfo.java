@@ -77,26 +77,26 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(595, 462));
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("Add Old Student Information");
+        topicLabel.setText("ආදි ශිෂ්‍ය විස්තර ඇතුලත් කිරීම");
 
         studentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        studentNameLabel.setText("Student name:");
+        studentNameLabel.setText("ආදිශිෂ්‍යයාගේ නම:");
 
         leftDateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        leftDateLabel.setText("Left date:");
+        leftDateLabel.setText("ඉවත් වී ගිය දිනය:");
 
         reasonLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        reasonLabel.setText("Reason:");
+        reasonLabel.setText("ඉවත් වී යෑමට හේතුව:");
 
         transferredDammaSchoolLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        transferredDammaSchoolLabel.setText("Transferred Damma School:");
+        transferredDammaSchoolLabel.setText("ඇතුලත් වූ නව දහම් පාසල (ඇත්නම්):");
 
         reasonText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         transferredSchoolText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        submitButton.setText("Submit");
+        submitButton.setText("යොමු කරන්න");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
@@ -104,7 +104,7 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
         });
 
         cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        cancelButton.setText("Close");
+        cancelButton.setText("වසා දමන්න");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
@@ -118,7 +118,7 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
         yearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
         monthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
+        monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "දුරුතු", "නවම්", "මැදින්", "බක්", "වෙසක්", "පොසොන්", "ඇසල", "නිකිනි", "බිනර", "වප්", "ඉල්", "උදුවප්" }));
 
         oldStudentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         oldStudentNameValueLabel.setText("Old student name");
@@ -134,16 +134,13 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(topicLabel))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(132, 132, 132)
-                                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(92, 92, 92)
-                                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(submitButton)
+                                .addGap(67, 67, 67)
+                                .addComponent(cancelButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(reasonLabel)
@@ -164,15 +161,18 @@ public class AddOldStudentInfo extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(studentNameLabel)
                                 .addGap(102, 102, 102)
-                                .addComponent(oldStudentNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(oldStudentNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(topicLabel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(26, 26, 26)
                 .addComponent(topicLabel)
-                .addGap(40, 40, 40)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(studentNameLabel)
                     .addComponent(oldStudentNameValueLabel))

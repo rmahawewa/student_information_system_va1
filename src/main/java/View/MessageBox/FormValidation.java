@@ -36,20 +36,23 @@ public class FormValidation extends javax.swing.JFrame {
         cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Alert");
+        setTitle("සටහන");
 
+        errorMessageLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         errorMessageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         errorMessageLabel.setText("message");
         errorMessageLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        okButton.setText("ok");
+        okButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        okButton.setText("පැහැදිලියි");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okButtonActionPerformed(evt);
             }
         });
 
-        cancelButton.setText("cancel");
+        cancelButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        cancelButton.setText("අවලංගුයි");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
@@ -81,7 +84,7 @@ public class FormValidation extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(okButton)
                     .addComponent(cancelButton))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();

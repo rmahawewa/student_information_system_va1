@@ -54,19 +54,19 @@ public class AddUser extends javax.swing.JPanel {
         jLabel24 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        jLabel1.setText("Add User");
+        jLabel1.setText("පද්ධතිය පරිහරණය කරන්නන් ඇතුලත් කිරීම");
 
         jLabel2.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        jLabel2.setText("Name:");
+        jLabel2.setText("සම්පූර්ණ නම:");
 
         jLabel3.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        jLabel3.setText("User name:");
+        jLabel3.setText("පද්ධතිය සඳහා භාවිත කරන නම:");
 
         jLabel4.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        jLabel4.setText("Password:");
+        jLabel4.setText("භාවිතයට නියමිත පුද්ගලික කේතය:");
 
         okButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        okButton.setText("ok");
+        okButton.setText("යොමු කරන්න");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okButtonActionPerformed(evt);
@@ -74,7 +74,7 @@ public class AddUser extends javax.swing.JPanel {
         });
 
         cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        cancelButton.setText("cancel");
+        cancelButton.setText("අවලංගු කරන්න");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
@@ -106,9 +106,6 @@ public class AddUser extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(265, 265, 265)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(175, 175, 175)
@@ -117,11 +114,11 @@ public class AddUser extends javax.swing.JPanel {
                                 .addComponent(cancelButton)
                                 .addGap(95, 95, 95))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(65, 65, 65)
+                                .addGap(40, 40, 40)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(passwordText)
@@ -131,15 +128,18 @@ public class AddUser extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(jLabel1)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addGap(49, 49, 49)
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

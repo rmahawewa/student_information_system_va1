@@ -22,33 +22,32 @@ public class GetTimes {
     private static LocalDateTime current_dt = LocalDateTime.now();
     
     private static Map<String,String> min = Map.ofEntries(
-            entry("January","01"),
-            entry("February","02"),
-            entry("March","03"),
-            entry("April","04"),
-            entry("May","05"),
-            entry("June","06"),
-            entry("July","07"),
-            entry("August","08"),
-            entry("September","09"),
-            entry("October","10"),
-            entry("November","11"),
-            entry("December","12")
-    );
+            entry("දුරුතු","01"),
+            entry("නවම්","02"),
+            entry("මැදින්","03"),
+            entry("බක්","04"),
+            entry("වෙසක්","05"),
+            entry("පොසොන්","06"),
+            entry("ඇසල","07"),
+            entry("නිකිනි","08"),
+            entry("බිනර","09"),
+            entry("වප්","10"),
+            entry("ඉල්","11"),
+            entry("උදුවප්","12"));
     
     private static Map<String,String> mit = Map.ofEntries(
-            entry("01","January"),
-            entry("02","February"),
-            entry("03","March"),
-            entry("04","April"),
-            entry("05","May"),
-            entry("06","June"),
-            entry("07","July"),
-            entry("08","August"),
-            entry("09","September"),
-            entry("10","October"),
-            entry("11","November"),
-            entry("12","December")
+            entry("01","දුරුතු"),
+            entry("02","නවම්"),
+            entry("03","මැදින්"),
+            entry("04","බක්"),
+            entry("05","වෙසක්"),
+            entry("06","පොසොන්"),
+            entry("07","ඇසල"),
+            entry("08","නිකිනි"),
+            entry("09","බිනර"),
+            entry("10","වප්"),
+            entry("11","ඉල්"),
+            entry("12","උදුවප්")
     );
     
     public static String getMonthNumber(String month){
