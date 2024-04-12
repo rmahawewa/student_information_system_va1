@@ -84,16 +84,16 @@ public class EditGradeExam extends javax.swing.JPanel {
         gradeValueLabel = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("Edit Exam Grade Information");
+        topicLabel.setText("වසර සදහා පැවැත්වෙන විභාග තොරතුරු යාවත්කාලීන කිරීම");
 
         examLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        examLabel.setText("Exam:");
+        examLabel.setText("විභාගය:");
 
         timeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        timeLabel.setText("Time:");
+        timeLabel.setText("වේලාව:");
 
         submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        submitButton.setText("Update");
+        submitButton.setText("යාවත්කාලීන කරන්න");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
@@ -101,7 +101,7 @@ public class EditGradeExam extends javax.swing.JPanel {
         });
 
         cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        cancelButton.setText("Cancel");
+        cancelButton.setText("අවලංගු කරන්න");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
@@ -109,7 +109,7 @@ public class EditGradeExam extends javax.swing.JPanel {
         });
 
         ampmComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM", " " }));
+        ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "පෙරවරු", "පස්වරු" }));
 
         hoursComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         hoursComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", " " }));
@@ -124,22 +124,22 @@ public class EditGradeExam extends javax.swing.JPanel {
         yearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
         monthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
+        monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "දුරුතු", "නවම්", "මැදින්", "බක්", "වෙසක්", "පොසොන්", "ඇසල", "නිකිනි", "බිනර", "වප්", "ඉල්", "උදුවප්" }));
 
         dateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        dateLabel.setText("Date:");
+        dateLabel.setText("දිනය:");
 
         gradeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        gradeLabel.setText("Grade:");
+        gradeLabel.setText("වසර:");
 
         examNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examNameValueLabel.setText("exam name      ");
 
         sessionLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        sessionLabel.setText("Session:");
+        sessionLabel.setText("අදියර:");
 
         sessionComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Session", "Second Session", "Third Session", "Forth Session" }));
+        sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "පලමු අදියර", "දෙවන අදියර", "තෙවන අදියර", "සිවුවන අදියර" }));
 
         gradeValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         gradeValueLabel.setText("grade");
@@ -183,14 +183,14 @@ public class EditGradeExam extends javax.swing.JPanel {
                                             .addComponent(ampmComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(gradeValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(130, 130, 130)
-                                    .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(92, 92, 92)
-                                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGap(84, 84, 84)
+                                    .addComponent(submitButton)
+                                    .addGap(73, 73, 73)
+                                    .addComponent(cancelButton)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
+                        .addGap(87, 87, 87)
                         .addComponent(topicLabel)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,7 +242,7 @@ public class EditGradeExam extends javax.swing.JPanel {
         String minute = minutesComboBx.getSelectedItem().toString();
         String ampm = ampmComboBx.getSelectedItem().toString();
         int hour_i = Integer.parseInt(hour);
-        hour_i = ampm.equals("PM")?(hour_i + 12):hour_i;
+        hour_i = ampm.equals("පස්වරු")?(hour_i + 12):hour_i;
         hour = Integer.toString(hour_i);
         String date_time = y + "-" + month + "-" + day + " " +  hour + ":" + minute + ":00";
         ExamGradeController egc = new ExamGradeController();

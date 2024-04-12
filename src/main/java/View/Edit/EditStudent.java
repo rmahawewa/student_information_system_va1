@@ -78,6 +78,7 @@ public class EditStudent extends javax.swing.JPanel {
     }
     
     public void loadGrades(){
+        gradeInYEComboBx.removeAllItems();
         GradeController gc = new GradeController();
         try {
             gradeInYEComboBx.addItem("Select grade");
@@ -266,12 +267,12 @@ public class EditStudent extends javax.swing.JPanel {
         jLabel22 = new javax.swing.JLabel();
 
         dateOfEnteranceLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        dateOfEnteranceLabel.setText("Date of entarance:  ");
+        dateOfEnteranceLabel.setText("ඇතුලත් වීමේ දිනය:");
 
         addressText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         gradeInYearOfEnteranceLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        gradeInYearOfEnteranceLabel.setText("Grade in year of entarance:   ");
+        gradeInYearOfEnteranceLabel.setText("ඇතුලත් වන දිනට සිටි වසර:");
 
         nameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
@@ -282,7 +283,7 @@ public class EditStudent extends javax.swing.JPanel {
         doeYComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050", "2051", " " }));
 
         doeMComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        doeMComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        doeMComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "දුරුතු", "නවම්", "මැදින්", "බක්", "වෙසක්", "පොසොන්", "ඇසල", "නිකිනි", "බිනර", "වප්", "ඉල්", "උදුවප්" }));
         doeMComboBx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 doeMComboBxActionPerformed(evt);
@@ -300,25 +301,25 @@ public class EditStudent extends javax.swing.JPanel {
         bdYComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", " " }));
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("Edit Student Information");
+        topicLabel.setText("ශිෂ්‍ය තොරතුරු යාවත්කාලීන කිරීම");
 
         nameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        nameLabel.setText("Name:  ");
+        nameLabel.setText("සිසු/සිසුවියගේ නම:");
 
         addressLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        addressLabel.setText("Address:");
+        addressLabel.setText("ලිපිනය:");
 
         birthdayLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        birthdayLabel.setText("Birthday:  ");
+        birthdayLabel.setText("උපන් දිනය:");
 
         photoLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        photoLabel.setText("Photo:");
+        photoLabel.setText("ඡායා රූපය:");
 
         photoContainerLabel.setBackground(new java.awt.Color(255, 204, 153));
         photoContainerLabel.setForeground(new java.awt.Color(255, 204, 153));
 
         addPhotoButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        addPhotoButton.setText("Add photo");
+        addPhotoButton.setText("තෝරන්න");
         addPhotoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addPhotoButtonActionPerformed(evt);
@@ -326,13 +327,13 @@ public class EditStudent extends javax.swing.JPanel {
         });
 
         identityCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        identityCodeLabel.setText("Identity code:");
+        identityCodeLabel.setText("ඇතුලත් වීමේ අංකය:");
 
         bdMComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        bdMComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        bdMComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "දුරුතු", "නවම්", "මැදින්", "බක්", "වෙසක්", "පොසොන්", "ඇසල", "නිකිනි", "බිනර", "වප්", "ඉල්", "උදුවප්" }));
 
         passportNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        passportNumberLabel.setText("Passport number:");
+        passportNumberLabel.setText("ජාතික ගමන් බලපත්‍ර අංකය:");
 
         bdDComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         bdDComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
@@ -541,7 +542,7 @@ public class EditStudent extends javax.swing.JPanel {
         editFamilyContactNumberText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         familyContactNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        familyContactNumberLabel.setText("Family contact number:");
+        familyContactNumberLabel.setText("පවුලේ දුරකතන අංකය:");
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 51, 51));
@@ -573,12 +574,13 @@ public class EditStudent extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(146, 146, 146)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(addressLabel)
-                                            .addComponent(birthdayLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(addressLabel))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(160, 160, 160)
-                                        .addComponent(nameLabel)))
+                                        .addComponent(nameLabel))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(141, 141, 141)
+                                        .addComponent(birthdayLabel)))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(nameText)
@@ -622,7 +624,7 @@ public class EditStudent extends javax.swing.JPanel {
                                         .addGroup(layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(identityCodeLabel)
-                                                .addComponent(passportNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(passportNumberLabel))
                                             .addGap(18, 18, 18)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(identityCodeText, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)

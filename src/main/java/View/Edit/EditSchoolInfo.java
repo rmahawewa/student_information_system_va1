@@ -73,19 +73,19 @@ public class EditSchoolInfo extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("Edit School Information");
+        topicLabel.setText("පාසල් පිලිබද තොරතුරු යාවත්කාලීන කිරීම");
 
         schoolNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        schoolNameLabel.setText("School name:");
+        schoolNameLabel.setText("පාසලේ නම:");
 
         addressLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        addressLabel.setText("Address:");
+        addressLabel.setText("ලිපිනය:");
 
         contactNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        contactNumberLabel.setText("Contact number:");
+        contactNumberLabel.setText("දුරකතන අංකය:");
 
         detailsLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        detailsLabel.setText("Details:");
+        detailsLabel.setText("විස්තර:");
 
         schoolNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
@@ -96,7 +96,7 @@ public class EditSchoolInfo extends javax.swing.JPanel {
         detailsText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         submitButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        submitButton.setText("Update");
+        submitButton.setText("යාවත්කාලීන කරන්න");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
@@ -104,7 +104,7 @@ public class EditSchoolInfo extends javax.swing.JPanel {
         });
 
         cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        cancelButton.setText("Close");
+        cancelButton.setText("වසා දමන්න");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
@@ -124,19 +124,13 @@ public class EditSchoolInfo extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
-                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(schoolNameLabel)
                     .addComponent(addressLabel)
                     .addComponent(contactNumberLabel)
                     .addComponent(detailsLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(contactNumberText, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addressText, javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,15 +143,22 @@ public class EditSchoolInfo extends javax.swing.JPanel {
                 .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(topicLabel)
-                .addGap(193, 193, 193))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(submitButton)
+                        .addGap(107, 107, 107)
+                        .addComponent(cancelButton)
+                        .addGap(123, 123, 123))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(topicLabel)
+                        .addGap(139, 139, 139))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(24, 24, 24)
                 .addComponent(topicLabel)
-                .addGap(42, 42, 42)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(schoolNameLabel)
@@ -183,11 +184,11 @@ public class EditSchoolInfo extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(52, 52, 52)
                                 .addComponent(detailsText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitButton)
-                    .addComponent(cancelButton))
-                .addGap(36, 36, 36))
+                    .addComponent(cancelButton)
+                    .addComponent(submitButton))
+                .addGap(50, 50, 50))
         );
     }// </editor-fold>//GEN-END:initComponents
 
