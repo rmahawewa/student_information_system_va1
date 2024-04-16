@@ -26,8 +26,8 @@
                       <Component id="examNameValueLabel" min="-2" pref="333" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="65" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="detailsLabel" min="-2" max="-2" attributes="0"/>
                           <Component id="toDateLabel" min="-2" max="-2" attributes="0"/>
@@ -38,47 +38,42 @@
                       </Group>
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Component id="examCodeValueLabel" min="-2" pref="333" max="-2" attributes="0"/>
-                                      <Component id="yearValueLabel" min="-2" pref="333" max="-2" attributes="0"/>
-                                      <Component id="semesterValueLabel" min="-2" pref="333" max="-2" attributes="0"/>
-                                      <Component id="fromDateValueLabel" min="-2" pref="333" max="-2" attributes="0"/>
+                          <Component id="closeButton" min="-2" pref="105" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Component id="examCodeValueLabel" min="-2" pref="333" max="-2" attributes="0"/>
+                                          <Component id="yearValueLabel" min="-2" pref="333" max="-2" attributes="0"/>
+                                          <Component id="semesterValueLabel" min="-2" pref="333" max="-2" attributes="0"/>
+                                          <Component id="fromDateValueLabel" min="-2" pref="333" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="toDateValueLabel" alignment="1" min="-2" pref="333" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="toDateValueLabel" alignment="1" min="-2" pref="333" max="-2" attributes="0"/>
+                                  <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="detailsTextField" min="-2" pref="344" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="detailsTextField" min="-2" pref="344" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
               </Group>
           </Group>
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
-                      <Component id="closeButton" min="-2" pref="86" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
-                      <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace pref="233" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="examNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="examNameValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -113,9 +108,9 @@
                   <Component id="detailsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="detailsTextField" alignment="3" min="-2" pref="97" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="closeButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -126,7 +121,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Exam Information"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdb7;&#xdcf;&#xd9c;/&#xdad;&#xdbb;&#xd9c;&#xdcf;&#xdc0;&#xdbd;&#xdd2; &#xdb4;&#xdd2;&#xdbd;&#xdd2;&#xdb6;&#xdaf; &#xdad;&#xddc;&#xdbb;&#xdad;&#xdd4;&#xdbb;&#xdd4;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="examNameLabel">
@@ -134,7 +129,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Exam name:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdb7;&#xdcf;&#xd9c;&#xdba;&#xdda;/&#xdad;&#xdbb;&#xd9c;&#xdcf;&#xdc0;&#xdbd;&#xdd2;&#xdba;&#xdda; &#xdb1;&#xdb8;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="toDateLabel">
@@ -142,7 +137,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="To date:"/>
+        <Property name="text" type="java.lang.String" value="&#xd85;&#xdc0;&#xdc3;&#xdb1;&#xdca; &#xdc0;&#xdb1; &#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="detailsLabel">
@@ -150,7 +145,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Details:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdc3;&#xdca;&#xdad;&#xdbb;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="closeButton">
@@ -158,7 +153,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Close"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdc3;&#xdcf; &#xdaf;&#xdb8;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeButtonActionPerformed"/>
@@ -169,7 +164,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Exam code:"/>
+        <Property name="text" type="java.lang.String" value="&#xd9a;&#xdda;&#xdad;&#xdcf;&#xd82;&#xd9a;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="fromDateLabel">
@@ -177,7 +172,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="From date:"/>
+        <Property name="text" type="java.lang.String" value="&#xd86;&#xdbb;&#xdb8;&#xdca;&#xdb7; &#xdc0;&#xdb1; &#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="detailsTextField">
@@ -196,7 +191,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Year:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdbb;&#xdca;&#xdc2;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="semesterLabel">
@@ -204,7 +199,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Semester:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdcf;&#xdbb;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="examNameValueLabel">
