@@ -75,16 +75,16 @@ public class ViewStudentAssesmentExam extends javax.swing.JPanel {
         descriptionValueLabel = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("Student Assesment Performance Details");
+        topicLabel.setText("ශිෂ්‍ය තරග කුසලතා පිලිබද විස්තර");
 
         examLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        examLabel.setText("Exam:");
+        examLabel.setText("තරගාවලිය:");
 
         remarksLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        remarksLabel.setText("Remarks:");
+        remarksLabel.setText("විස්තර:");
 
         closeButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        closeButton.setText("Close");
+        closeButton.setText("වසා දමන්න");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeButtonActionPerformed(evt);
@@ -92,22 +92,22 @@ public class ViewStudentAssesmentExam extends javax.swing.JPanel {
         });
 
         marksLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        marksLabel.setText("Marks:");
+        marksLabel.setText("ලකුණු:");
 
         assesmentLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        assesmentLabel.setText("Assesment:");
+        assesmentLabel.setText("තරගය:");
 
         examNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         examNameValueLabel.setText("exam name");
 
         gradeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        gradeLabel.setText("Student name:");
+        gradeLabel.setText("සිසු/සිසුවියගේ නම:");
 
         assesmentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         assesmentNameValueLabel.setText("assesment name");
 
         descriptionLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        descriptionLabel.setText("Description:");
+        descriptionLabel.setText("වැඩි විස්තර:");
 
         studentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameValueLabel.setText("student name");
@@ -145,20 +145,20 @@ public class ViewStudentAssesmentExam extends javax.swing.JPanel {
                         .addComponent(remarksValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(36, 36, 36))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(139, Short.MAX_VALUE)
+                .addGap(179, 179, 179)
                 .addComponent(topicLabel)
-                .addGap(126, 126, 126))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(closeButton)
+                .addGap(246, 246, 246))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(28, 28, 28)
                 .addComponent(topicLabel)
-                .addGap(42, 42, 42)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(examLabel)
                     .addComponent(examNameValueLabel))
@@ -182,9 +182,9 @@ public class ViewStudentAssesmentExam extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(descriptionLabel)
                     .addComponent(descriptionValueLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(closeButton)
-                .addGap(53, 53, 53))
+                .addGap(52, 52, 52))
         );
     }// </editor-fold>//GEN-END:initComponents
 

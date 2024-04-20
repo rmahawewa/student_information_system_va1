@@ -95,25 +95,25 @@ public class GradeExamList extends javax.swing.JPanel {
         sessionComboBx = new javax.swing.JComboBox<>();
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("Exams for Grades");
+        topicLabel.setText("විභාගය පැවැත්වෙන වසර තොරතුරු සටහන");
 
         examNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        examNameLabel.setText("Exam name:");
+        examNameLabel.setText("විභාගයේ නම:");
 
         assesmentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        assesmentNameLabel.setText("Grade:");
+        assesmentNameLabel.setText("වසර:");
 
         dateLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        dateLabel.setText("Date:");
+        dateLabel.setText("දිනය:");
 
         timeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        timeLabel.setText("Time:");
+        timeLabel.setText("වේලාව:");
 
         level_label.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        level_label.setText("Session:");
+        level_label.setText("අදියර:");
 
         searchButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        searchButton.setText("Search");
+        searchButton.setText("සොයන්න");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchButtonActionPerformed(evt);
@@ -121,7 +121,7 @@ public class GradeExamList extends javax.swing.JPanel {
         });
 
         clearButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        clearButton.setText("Clear");
+        clearButton.setText("මකා දමන්න");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButtonActionPerformed(evt);
@@ -129,7 +129,7 @@ public class GradeExamList extends javax.swing.JPanel {
         });
 
         viewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        viewButton.setText("View");
+        viewButton.setText("තව දුරටත් විස්තර පෙන්වන්න");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewButtonActionPerformed(evt);
@@ -137,7 +137,7 @@ public class GradeExamList extends javax.swing.JPanel {
         });
 
         editButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        editButton.setText("Edit");
+        editButton.setText("අදාල තොරතුරු යාවත්කාලීන කරන්න");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
@@ -173,85 +173,81 @@ public class GradeExamList extends javax.swing.JPanel {
         jScrollPane1.setViewportView(examsForGradesTable);
 
         yearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        yearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
+        yearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "වර්ෂය", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
         monthComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        monthComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "මාසය", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
 
         dateComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        dateComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        dateComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "දිනය", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         hourComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        hourComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hour", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        hourComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "පැය", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
         minuteComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        minuteComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Minute", "00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55" }));
+        minuteComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "මිනිත්තු", "00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55" }));
 
         ampmComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
+        ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "පෙරවරු", "පස්වරු" }));
 
         gradeComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         sessionComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Session", "First Session", "Second Session", "Third Session", "Forth Session" }));
+        sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "අදියර", "පලමු අදියර", "දෙවන අදියර", "තෙවන අදියර", "සිවුවන අදියර" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(229, 229, 229)
-                        .addComponent(topicLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(assesmentNameLabel)
+                            .addComponent(examNameLabel)
+                            .addComponent(dateLabel)
+                            .addComponent(timeLabel)
+                            .addComponent(level_label))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(assesmentNameLabel)
-                                    .addComponent(examNameLabel)
-                                    .addComponent(dateLabel)
-                                    .addComponent(timeLabel)
-                                    .addComponent(level_label))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(hourComboBx, 0, 100, Short.MAX_VALUE)
-                                            .addComponent(yearComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(monthComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(minuteComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE)))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(dateComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(236, 236, 236)
-                                        .addComponent(ampmComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(examNameText)
-                                    .addComponent(gradeComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(viewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(sessionComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                            .addComponent(topicLabel)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(hourComboBx, 0, 100, Short.MAX_VALUE)
+                                        .addComponent(yearComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(monthComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(minuteComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(dateComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(236, 236, 236)
+                                    .addComponent(ampmComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(examNameText)
+                                .addComponent(gradeComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(viewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(sessionComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(28, 28, 28)
                 .addComponent(topicLabel)
-                .addGap(37, 37, 37)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(examNameLabel)
                     .addComponent(examNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -294,25 +290,36 @@ public class GradeExamList extends javax.swing.JPanel {
         String exam_name = examNameText.getText();
         String grade = gradeComboBx.getSelectedItem().toString();
         String year = yearComboBx.getSelectedItem().toString();
+        String year_sinhala_translation = "වර්ෂය";
         String month = monthComboBx.getSelectedItem().toString();
+        String month_sinhala_translation = "මාසය";
         String day = dateComboBx.getSelectedItem().toString();
+        String day_sinhala_translation = "දිනය";
         String hour = hourComboBx.getSelectedItem().toString();
+        String hour_sinhala_translation = "පැය";
         String minute = minuteComboBx.getSelectedItem().toString();
+        String minute_sinhala_translation = "මිනිත්තු";
         String ampm = ampmComboBx.getSelectedItem().toString();
         String session = sessionComboBx.getSelectedItem().toString();
         String month_number = GetTimes.getMonthNumber(month);
         String date = "";
         String time = "";
-        if(!year.equals("Year") && !month.equals("Month") && !day.equals("Day")){
+        if(!year.equals(year_sinhala_translation) && !month.equals(month_sinhala_translation) && !day.equals(day_sinhala_translation)){
             date = year + "-" + month_number + "-" + day;
         }
-        if(!hour.equals("Hour") && !minute.equals("Minute")){
+        if(!hour.equals(hour_sinhala_translation) && !minute.equals(minute_sinhala_translation)){
             int hour_i = Integer.parseInt(hour);
-            hour_i = ampm.equals("AM")?hour_i:(hour_i+12);
+            String am_sinhala_translation = "පෙරවරු";
+            hour_i = ampm.equals(am_sinhala_translation)?hour_i:(hour_i+12);
             hour = Integer.toString(hour_i);        
             time = hour + ":" + minute + ":00";
         }        
-        String sessn  = session.equals("First Session")?"1":(session.equals("Second Session")?"2":(session.equals("Third Session")?"3":(session.equals("Forth Session")?"4":"")));
+        String first_session_sinhala_translation = "පලමු අදියර";
+        String second_session_sinhala_translation = "දෙවන අදියර";
+        String third_session_sinhala_translation = "තෙවන අදියර";
+        String forth_session_sinhala_translation = "සිවුවන අදියර";
+
+        String sessn  = session.equals(first_session_sinhala_translation)?"1":(session.equals(second_session_sinhala_translation)?"2":(session.equals(third_session_sinhala_translation)?"3":(session.equals(forth_session_sinhala_translation)?"4":"")));
         try {
             this.loadTable(exam_name, grade, date, time, sessn);
         } catch (SQLException ex) {

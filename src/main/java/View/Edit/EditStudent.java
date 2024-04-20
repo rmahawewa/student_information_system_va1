@@ -333,7 +333,7 @@ public class EditStudent extends javax.swing.JPanel {
         bdMComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "දුරුතු", "නවම්", "මැදින්", "බක්", "වෙසක්", "පොසොන්", "ඇසල", "නිකිනි", "බිනර", "වප්", "ඉල්", "උදුවප්" }));
 
         passportNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        passportNumberLabel.setText("ජාතික ගමන් බලපත්‍ර අංකය:");
+        passportNumberLabel.setText("විදේශ ගමන් බලපත්‍ර අංකය:");
 
         bdDComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         bdDComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));

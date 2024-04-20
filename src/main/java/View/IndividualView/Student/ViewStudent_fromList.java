@@ -222,37 +222,37 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         currentGradeLabel = new javax.swing.JLabel();
 
         dateOfEnteranceLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        dateOfEnteranceLabel.setText("Date of entarance:  ");
+        dateOfEnteranceLabel.setText("ඇතුලත් වීමේ දිනය:");
 
         gradeInYearOfEnteranceLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        gradeInYearOfEnteranceLabel.setText("Grade in year of entarance:   ");
+        gradeInYearOfEnteranceLabel.setText("ඇතුලත් වන වර්ෂයේදී සිටි වසර:");
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("View Student Information");
+        topicLabel.setText("ශිෂ්‍ය තොරතුරු");
 
         nameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        nameLabel.setText("Name:  ");
+        nameLabel.setText("සිසු/සිසුවියගේ නම:");
 
         addressLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        addressLabel.setText("Address:");
+        addressLabel.setText("ලිපිනය:");
 
         birthdayLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        birthdayLabel.setText("Birthday:  ");
+        birthdayLabel.setText("උපන් දිනය:");
 
         photoLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        photoLabel.setText("Photo:");
+        photoLabel.setText("ඡායා රූපය:");
 
         photoContainerLabel.setBackground(new java.awt.Color(255, 204, 153));
         photoContainerLabel.setForeground(new java.awt.Color(255, 204, 153));
 
         identityCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        identityCodeLabel.setText("Identity code:");
+        identityCodeLabel.setText("ඇතුලත් වීමේ අංකය:");
 
         passportNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        passportNumberLabel.setText("Passport number:");
+        passportNumberLabel.setText("විදේශ ගමන් බලපත්‍ර අංකය:");
 
         closeButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        closeButton.setText("Close");
+        closeButton.setText("වසා දමන්න");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeButtonActionPerformed(evt);
@@ -373,7 +373,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Date and Time", "Grade", "Exam", "Marks", "ID"
+                "දිනය සහ වේලාව", "වසර", "විභාගය", "ලකුණු", "පද්ධති කේතය"
             }
         ) {
             Class[] types = new Class [] {
@@ -413,7 +413,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Desease", "First date of diagnose", "First treatement day", "Last treatement day", "ID"
+                "රෝගය", "රෝගය හදුනාගත් පලමු දිනය", "වෛද්‍යවරයෙකු හමුවූ පලමු දිනය", "වෛද්‍යවරයෙකු හමුවූ අවසාන දිනය", "පද්ධති කේතය"
             }
         ) {
             Class[] types = new Class [] {
@@ -445,7 +445,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         jLabel5.setText("විශේෂ සෞඛ්‍ය තොරතුරු");
 
         familyContactNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        familyContactNumberLabel.setText("Family contact number:");
+        familyContactNumberLabel.setText("පවුලේ දුරකතන අංකය:");
 
         studentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameValueLabel.setText("student name value");
@@ -485,58 +485,16 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         currentGradeValueLabel.setText("current grade");
 
         currentGradeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        currentGradeLabel.setText("                   Current Grade:");
+        currentGradeLabel.setText("                   වර්තමානයේ ඉගෙනුම ලබන වසර:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(264, Short.MAX_VALUE)
-                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(258, 258, 258))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(46, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(gradeInYearOfEnteranceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(dateOfEnteranceLabel)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(identityCodeLabel)
-                                            .addComponent(passportNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(photoLabel)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(addressLabel)
-                                        .addComponent(birthdayLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(nameLabel)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(familyContactNumberLabel)
-                                        .addGap(11, 11, 11))
-                                    .addComponent(currentGradeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(31, 31, 31)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(gradeInyearOfEntaranceValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
-                                    .addComponent(dateOfEntaranceValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(photoContainerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(passportNumberValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(identityCodeValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(contactNumberValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(birthdayValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(addressValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(studentNameValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(topicLabel)
-                                .addGap(75, 75, 75)
-                                .addComponent(excelExportButton)
-                                .addGap(22, 22, 22))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 34, Short.MAX_VALUE)
+                        .addGap(0, 130, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(currentGradeValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -564,8 +522,45 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
                                     .addComponent(medicalStatusViewButton))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(29, Short.MAX_VALUE))
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(identityCodeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(photoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(passportNumberLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(nameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(currentGradeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(gradeInYearOfEnteranceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(dateOfEnteranceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(familyContactNumberLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(birthdayLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(addressLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(gradeInyearOfEntaranceValueLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                                    .addComponent(dateOfEntaranceValueLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(photoContainerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(passportNumberValueLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(identityCodeValueLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(contactNumberValueLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(birthdayValueLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(addressValueLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(studentNameValueLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(topicLabel)
+                                .addGap(175, 175, 175)
+                                .addComponent(excelExportButton)
+                                .addGap(22, 22, 22)))))
+                .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(closeButton)
+                .addGap(296, 296, 296))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -647,9 +642,9 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
                     .addComponent(medicalStatusViewButton))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(39, 39, 39)
                 .addComponent(closeButton)
-                .addGap(44, 44, 44))
+                .addGap(46, 46, 46))
         );
     }// </editor-fold>//GEN-END:initComponents
 

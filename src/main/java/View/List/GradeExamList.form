@@ -16,75 +16,69 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
-                      <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jScrollPane1" alignment="1" min="-2" pref="584" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="assesmentNameLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="examNameLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="dateLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="timeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="level_label" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" min="-2" pref="538" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="assesmentNameLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="examNameLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="dateLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="timeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="level_label" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="searchButton" max="32767" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="clearButton" min="-2" pref="198" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="searchButton" pref="199" max="32767" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="clearButton" min="-2" pref="198" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="hourComboBx" pref="100" max="32767" attributes="0"/>
+                                      <Component id="yearComboBx" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="hourComboBx" pref="100" max="32767" attributes="0"/>
-                                          <Component id="yearComboBx" max="32767" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="monthComboBx" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="minuteComboBx" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="monthComboBx" max="32767" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Component id="minuteComboBx" min="-2" pref="100" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="dateComboBx" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
-                                      <Component id="ampmComboBx" min="-2" pref="89" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="examNameText" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="gradeComboBx" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="viewButton" min="-2" pref="199" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="editButton" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="sessionComboBx" min="-2" pref="325" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="dateComboBx" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
+                                  <Component id="ampmComboBx" min="-2" pref="89" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="examNameText" alignment="0" max="32767" attributes="0"/>
+                              <Component id="gradeComboBx" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="viewButton" min="-2" pref="199" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="editButton" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="sessionComboBx" min="-2" pref="325" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="examNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="examNameText" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -136,7 +130,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Exams for Grades"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdb7;&#xdcf;&#xd9c;&#xdba; &#xdb4;&#xdd0;&#xdc0;&#xdd0;&#xdad;&#xdca;&#xdc0;&#xdd9;&#xdb1; &#xdc0;&#xdc3;&#xdbb; &#xdad;&#xddc;&#xdbb;&#xdad;&#xdd4;&#xdbb;&#xdd4; &#xdc3;&#xda7;&#xdc4;&#xdb1;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="examNameLabel">
@@ -144,7 +138,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Exam name:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdb7;&#xdcf;&#xd9c;&#xdba;&#xdda; &#xdb1;&#xdb8;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="assesmentNameLabel">
@@ -152,7 +146,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Grade:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdc3;&#xdbb;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="dateLabel">
@@ -160,7 +154,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Date:"/>
+        <Property name="text" type="java.lang.String" value="&#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="timeLabel">
@@ -168,7 +162,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Time:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdda;&#xdbd;&#xdcf;&#xdc0;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="level_label">
@@ -176,7 +170,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Session:"/>
+        <Property name="text" type="java.lang.String" value="&#xd85;&#xdaf;&#xdd2;&#xdba;&#xdbb;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="searchButton">
@@ -184,7 +178,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Search"/>
+        <Property name="text" type="java.lang.String" value="&#xdc3;&#xddc;&#xdba;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchButtonActionPerformed"/>
@@ -195,7 +189,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Clear"/>
+        <Property name="text" type="java.lang.String" value="&#xdb8;&#xd9a;&#xdcf; &#xdaf;&#xdb8;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButtonActionPerformed"/>
@@ -206,7 +200,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="View"/>
+        <Property name="text" type="java.lang.String" value="&#xdad;&#xdc0; &#xdaf;&#xdd4;&#xdbb;&#xda7;&#xdad;&#xdca; &#xdc0;&#xdd2;&#xdc3;&#xdca;&#xdad;&#xdbb; &#xdb4;&#xdd9;&#xdb1;&#xdca;&#xdc0;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewButtonActionPerformed"/>
@@ -217,7 +211,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Edit"/>
+        <Property name="text" type="java.lang.String" value="&#xd85;&#xdaf;&#xdcf;&#xdbd; &#xdad;&#xddc;&#xdbb;&#xdad;&#xdd4;&#xdbb;&#xdd4; &#xdba;&#xdcf;&#xdc0;&#xdad;&#xdca;&#xd9a;&#xdcf;&#xdbd;&#xdd3;&#xdb1; &#xd9a;&#xdbb;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editButtonActionPerformed"/>
@@ -262,7 +256,7 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="32">
-            <StringItem index="0" value="Year"/>
+            <StringItem index="0" value="&#xdc0;&#xdbb;&#xdca;&#xdc2;&#xdba;"/>
             <StringItem index="1" value="2020"/>
             <StringItem index="2" value="2021"/>
             <StringItem index="3" value="2022"/>
@@ -308,7 +302,7 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="13">
-            <StringItem index="0" value="Month"/>
+            <StringItem index="0" value="&#xdb8;&#xdcf;&#xdc3;&#xdba;"/>
             <StringItem index="1" value="January"/>
             <StringItem index="2" value="February"/>
             <StringItem index="3" value="March"/>
@@ -335,7 +329,7 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="32">
-            <StringItem index="0" value="Day"/>
+            <StringItem index="0" value="&#xdaf;&#xdd2;&#xdb1;&#xdba;"/>
             <StringItem index="1" value="01"/>
             <StringItem index="2" value="02"/>
             <StringItem index="3" value="03"/>
@@ -381,7 +375,7 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="13">
-            <StringItem index="0" value="Hour"/>
+            <StringItem index="0" value="&#xdb4;&#xdd0;&#xdba;"/>
             <StringItem index="1" value="01"/>
             <StringItem index="2" value="02"/>
             <StringItem index="3" value="03"/>
@@ -408,7 +402,7 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="13">
-            <StringItem index="0" value="Minute"/>
+            <StringItem index="0" value="&#xdb8;&#xdd2;&#xdb1;&#xdd2;&#xdad;&#xdca;&#xdad;&#xdd4;"/>
             <StringItem index="1" value="00"/>
             <StringItem index="2" value="05"/>
             <StringItem index="3" value="10"/>
@@ -435,8 +429,8 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
-            <StringItem index="0" value="AM"/>
-            <StringItem index="1" value="PM"/>
+            <StringItem index="0" value="&#xdb4;&#xdd9;&#xdbb;&#xdc0;&#xdbb;&#xdd4;"/>
+            <StringItem index="1" value="&#xdb4;&#xdc3;&#xdca;&#xdc0;&#xdbb;&#xdd4;"/>
           </StringArray>
         </Property>
       </Properties>
@@ -464,11 +458,11 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
-            <StringItem index="0" value="Session"/>
-            <StringItem index="1" value="First Session"/>
-            <StringItem index="2" value="Second Session"/>
-            <StringItem index="3" value="Third Session"/>
-            <StringItem index="4" value="Forth Session"/>
+            <StringItem index="0" value="&#xd85;&#xdaf;&#xdd2;&#xdba;&#xdbb;"/>
+            <StringItem index="1" value="&#xdb4;&#xdbd;&#xdb8;&#xdd4; &#xd85;&#xdaf;&#xdd2;&#xdba;&#xdbb;"/>
+            <StringItem index="2" value="&#xdaf;&#xdd9;&#xdc0;&#xdb1; &#xd85;&#xdaf;&#xdd2;&#xdba;&#xdbb;"/>
+            <StringItem index="3" value="&#xdad;&#xdd9;&#xdc0;&#xdb1; &#xd85;&#xdaf;&#xdd2;&#xdba;&#xdbb;"/>
+            <StringItem index="4" value="&#xdc3;&#xdd2;&#xdc0;&#xdd4;&#xdc0;&#xdb1; &#xd85;&#xdaf;&#xdd2;&#xdba;&#xdbb;"/>
           </StringArray>
         </Property>
       </Properties>

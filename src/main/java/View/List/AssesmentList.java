@@ -87,20 +87,20 @@ public class AssesmentList extends javax.swing.JPanel {
         assesmentListTable = new javax.swing.JTable();
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("All Assesment Information");
+        topicLabel.setText("තරග පිලිබද තොරතුරු සටහන");
 
         assesmentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        assesmentNameLabel.setText("Assesment name:");
+        assesmentNameLabel.setText("තරගයේ නම:");
 
         assesmentCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        assesmentCodeLabel.setText("Assesment code:");
+        assesmentCodeLabel.setText("කේතාංකය:");
 
         assesmentNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         assesmentCodeText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         searchButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        searchButton.setText("Search");
+        searchButton.setText("සොයන්න");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchButtonActionPerformed(evt);
@@ -108,7 +108,7 @@ public class AssesmentList extends javax.swing.JPanel {
         });
 
         clearButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        clearButton.setText("Clear");
+        clearButton.setText("මකා දමන්න");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButtonActionPerformed(evt);
@@ -116,7 +116,7 @@ public class AssesmentList extends javax.swing.JPanel {
         });
 
         viewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        viewButton.setText("View");
+        viewButton.setText("තව දුරටත් විස්තර පෙන්වන්න");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewButtonActionPerformed(evt);
@@ -124,7 +124,7 @@ public class AssesmentList extends javax.swing.JPanel {
         });
 
         editButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        editButton.setText("Edit");
+        editButton.setText("අදාල තොරතුරු යාවත්කාලීන කරන්න");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);

@@ -76,19 +76,19 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
         lastDateOfTreatmentValueLabel = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("Student Medical Requirement Information");
+        topicLabel.setText("ශිෂ්‍ය විශේෂ සෞඛ්‍ය අවශ්‍යතා පිලිබද විස්තර");
 
         studentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        studentNameLabel.setText("Student name:");
+        studentNameLabel.setText("සිසු/සිසුවියගේ නම:");
 
         firstDateOfTreatmentLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        firstDateOfTreatmentLabel.setText("First date of treatement:");
+        firstDateOfTreatmentLabel.setText("පලමුවෙන් ප්‍රතිකාර ලද දිනය:");
 
         detailsLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        detailsLabel.setText("Details:");
+        detailsLabel.setText("විස්තර:");
 
         closeButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        closeButton.setText("Close");
+        closeButton.setText("වසා දමන්න");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeButtonActionPerformed(evt);
@@ -96,13 +96,13 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
         });
 
         medicalRequirementLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        medicalRequirementLabel.setText("Medical Requirement:");
+        medicalRequirementLabel.setText("විශේෂ සෞඛ්‍ය තත්වය:");
 
         firstDateOfDiagnoseLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        firstDateOfDiagnoseLabel.setText("First date of diagnose:");
+        firstDateOfDiagnoseLabel.setText("හදුනාගත් පලමු දිනය:");
 
         lastDateOfTraetementLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        lastDateOfTraetementLabel.setText("Last date of treatment:");
+        lastDateOfTraetementLabel.setText("ප්‍රතිකාර ලද අවසන් දිනය:");
 
         detailsTextField.setFont(new java.awt.Font("Iskoola Pota", 0, 12)); // NOI18N
         detailsTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -131,48 +131,45 @@ public class ViewStudentMedicalRequirement extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(studentNameLabel)
-                            .addComponent(medicalRequirementLabel))
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(medicalRequirementValueLabel)
-                            .addComponent(studentNameValueLabel)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(studentNameLabel)
+                                    .addComponent(medicalRequirementLabel))
+                                .addGap(66, 66, 66)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(medicalRequirementValueLabel)
+                                    .addComponent(studentNameValueLabel)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(detailsLabel)
+                                    .addComponent(firstDateOfTreatmentLabel)
+                                    .addComponent(firstDateOfDiagnoseLabel)
+                                    .addComponent(lastDateOfTraetementLabel))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lastDateOfTreatmentValueLabel)
+                                    .addComponent(detailsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(firstDateOfTreatmentValueLabel)
+                                    .addComponent(firstDateOfDiagnoseValueLabel)
+                                    .addComponent(closeButton)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(detailsLabel)
-                            .addComponent(firstDateOfTreatmentLabel)
-                            .addComponent(firstDateOfDiagnoseLabel)
-                            .addComponent(lastDateOfTraetementLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lastDateOfTreatmentValueLabel)
-                            .addComponent(detailsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(firstDateOfTreatmentValueLabel)
-                            .addComponent(firstDateOfDiagnoseValueLabel))))
-                .addContainerGap(46, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(269, 269, 269))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(topicLabel)
-                        .addGap(127, 127, 127))))
+                        .addGap(159, 159, 159)
+                        .addComponent(topicLabel)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(34, 34, 34)
                 .addComponent(topicLabel)
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(studentNameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(studentNameValueLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(studentNameLabel)
+                    .addComponent(studentNameValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(medicalRequirementLabel)

@@ -48,7 +48,8 @@ public class StudentList extends javax.swing.JPanel {
     public void loadGrades(){
         GradeController gc = new GradeController();
         try {
-            gradeComboBx.addItem("Select grade");
+            String grade_combo_box_first_item = "වසර තෝරන්න";
+            gradeComboBx.addItem(grade_combo_box_first_item);
             HashMap<Integer, Map<Integer,String>> hm = gc.getAllGrades();
             if(!hm.isEmpty()){
                 hm.forEach((key,value) -> {
@@ -128,7 +129,7 @@ public class StudentList extends javax.swing.JPanel {
         gradeComboBx = new javax.swing.JComboBox<>();
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("All Student's Information");
+        topicLabel.setText("ශිෂ්‍ය තොරතුරු සටහන");
 
         studentCodeText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
@@ -137,7 +138,7 @@ public class StudentList extends javax.swing.JPanel {
         schoolText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         searchButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        searchButton.setText("Search");
+        searchButton.setText("සොයන්න");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchButtonActionPerformed(evt);
@@ -145,24 +146,24 @@ public class StudentList extends javax.swing.JPanel {
         });
 
         studentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        studentNameLabel.setText("Student name:");
+        studentNameLabel.setText("සිසු/සිසුවියගේ නම:");
 
         studentCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        studentCodeLabel.setText("Student code:");
+        studentCodeLabel.setText("ඇතුලත් වීමේ අංකය:");
 
         schoolLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        schoolLabel.setText("School:");
+        schoolLabel.setText("පාසල:");
 
         medicalStatusLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        medicalStatusLabel.setText("Medical status:");
+        medicalStatusLabel.setText("විශේෂ සෞඛ්‍ය අවශ්‍යතාවය:");
 
         gradeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        gradeLabel.setText("Grade:");
+        gradeLabel.setText("වසර:");
 
         studentNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         clearButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        clearButton.setText("Clear");
+        clearButton.setText("මකා දමන්න");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButtonActionPerformed(evt);
@@ -170,7 +171,7 @@ public class StudentList extends javax.swing.JPanel {
         });
 
         editButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        editButton.setText("Edit");
+        editButton.setText("අදාල තොරතුරු යාවත්කාලීන කරන්න");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
@@ -178,7 +179,7 @@ public class StudentList extends javax.swing.JPanel {
         });
 
         oldStudentButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        oldStudentButton.setText("Old student");
+        oldStudentButton.setText("ආදි ශිෂ්‍ය තොරතුරු ඇතුලත් කරන්න");
         oldStudentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 oldStudentButtonActionPerformed(evt);
@@ -186,7 +187,7 @@ public class StudentList extends javax.swing.JPanel {
         });
 
         addFamilyMemberButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        addFamilyMemberButton.setText("Add family member");
+        addFamilyMemberButton.setText("පවුලේ විස්තර ඇතුලත් කරන්න");
         addFamilyMemberButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addFamilyMemberButtonActionPerformed(evt);
@@ -194,7 +195,7 @@ public class StudentList extends javax.swing.JPanel {
         });
 
         addSchoolButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        addSchoolButton.setText("Add School");
+        addSchoolButton.setText("පාසල් තොරතුරු ඇතුලත් තරන්න");
         addSchoolButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addSchoolButtonActionPerformed(evt);
@@ -202,7 +203,7 @@ public class StudentList extends javax.swing.JPanel {
         });
 
         viewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        viewButton.setText("View");
+        viewButton.setText("තව දුරටත් විස්තර පෙන්වන්න");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewButtonActionPerformed(evt);
@@ -246,44 +247,46 @@ public class StudentList extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(viewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(oldStudentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(addFamilyMemberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(addSchoolButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(studentNameLabel)
-                                    .addComponent(studentCodeLabel)
-                                    .addComponent(medicalStatusLabel)
-                                    .addComponent(gradeLabel)
-                                    .addComponent(schoolLabel))
-                                .addGap(33, 33, 33)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(schoolText)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(clearButton, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
-                                    .addComponent(studentCodeText)
-                                    .addComponent(medicalStatusText)
-                                    .addComponent(studentNameText)
-                                    .addComponent(gradeComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(viewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(editButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(oldStudentButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(addFamilyMemberButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(addSchoolButton, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(194, 194, 194)
-                        .addComponent(topicLabel)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                        .addGap(314, 314, 314)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(studentNameLabel)
+                            .addComponent(studentCodeLabel)
+                            .addComponent(medicalStatusLabel)
+                            .addComponent(gradeLabel)
+                            .addComponent(schoolLabel))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(schoolText)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(clearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(studentCodeText)
+                            .addComponent(medicalStatusText)
+                            .addComponent(studentNameText)
+                            .addComponent(gradeComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(43, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(topicLabel)
+                .addGap(511, 511, 511))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(24, 24, 24)
                 .addComponent(topicLabel)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -311,16 +314,16 @@ public class StudentList extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(searchButton)
                             .addComponent(clearButton))))
-                .addGap(41, 41, 41)
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editButton)
                     .addComponent(oldStudentButton)
                     .addComponent(addFamilyMemberButton)
                     .addComponent(addSchoolButton)
                     .addComponent(viewButton))
-                .addGap(42, 42, 42)
+                .addGap(50, 50, 50)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -330,8 +333,10 @@ public class StudentList extends javax.swing.JPanel {
         String student_code = studentCodeText.getText();
         String medical_status = medicalStatusText.getText();
         int grade_id = 0;
-        if(!gradeComboBx.getSelectedItem().equals("Select grade")){
-            String grade = gradeComboBx.getSelectedItem().toString();
+        String grade = gradeComboBx.getSelectedItem().toString();
+        String grade_first_item_sinhala_translation = "වසර තෝරන්න";
+        if(!grade.equals(grade_first_item_sinhala_translation)){
+            
             GradeController gc = new GradeController();
             try {
                 grade_id = gc.getGradeId(grade);

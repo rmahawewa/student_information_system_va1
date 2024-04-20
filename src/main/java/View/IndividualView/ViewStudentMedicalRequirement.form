@@ -16,62 +16,58 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="studentNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="medicalRequirementLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="medicalRequirementValueLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="studentNameValueLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="studentNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medicalRequirementLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="medicalRequirementValueLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="studentNameValueLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="detailsLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="firstDateOfTreatmentLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="firstDateOfDiagnoseLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lastDateOfTraetementLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lastDateOfTreatmentValueLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="detailsTextField" min="-2" pref="347" max="-2" attributes="0"/>
+                                  <Component id="firstDateOfTreatmentValueLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="firstDateOfDiagnoseValueLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="closeButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="detailsLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="firstDateOfTreatmentLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="firstDateOfDiagnoseLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lastDateOfTraetementLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lastDateOfTreatmentValueLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="detailsTextField" min="-2" pref="347" max="-2" attributes="0"/>
-                          <Component id="firstDateOfTreatmentValueLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="firstDateOfDiagnoseValueLabel" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace pref="46" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="closeButton" min="-2" pref="86" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="269" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
                       <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace pref="51" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="studentNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="studentNameValueLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="studentNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="studentNameValueLabel" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -111,7 +107,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Student Medical Requirement Information"/>
+        <Property name="text" type="java.lang.String" value="&#xdc1;&#xdd2;&#xdc2;&#xdca;&#x200d;&#xdba; &#xdc0;&#xdd2;&#xdc1;&#xdda;&#xdc2; &#xdc3;&#xdde;&#xd9b;&#xdca;&#x200d;&#xdba; &#xd85;&#xdc0;&#xdc1;&#xdca;&#x200d;&#xdba;&#xdad;&#xdcf; &#xdb4;&#xdd2;&#xdbd;&#xdd2;&#xdb6;&#xdaf; &#xdc0;&#xdd2;&#xdc3;&#xdca;&#xdad;&#xdbb;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="studentNameLabel">
@@ -119,7 +115,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Student name:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc3;&#xdd2;&#xdc3;&#xdd4;/&#xdc3;&#xdd2;&#xdc3;&#xdd4;&#xdc0;&#xdd2;&#xdba;&#xd9c;&#xdda; &#xdb1;&#xdb8;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="firstDateOfTreatmentLabel">
@@ -127,7 +123,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="First date of treatement:"/>
+        <Property name="text" type="java.lang.String" value="&#xdb4;&#xdbd;&#xdb8;&#xdd4;&#xdc0;&#xdd9;&#xdb1;&#xdca; &#xdb4;&#xdca;&#x200d;&#xdbb;&#xdad;&#xdd2;&#xd9a;&#xdcf;&#xdbb; &#xdbd;&#xdaf; &#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="detailsLabel">
@@ -135,7 +131,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Details:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdc3;&#xdca;&#xdad;&#xdbb;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="closeButton">
@@ -143,7 +139,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Close"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdc3;&#xdcf; &#xdaf;&#xdb8;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeButtonActionPerformed"/>
@@ -154,7 +150,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Medical Requirement:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdc1;&#xdda;&#xdc2; &#xdc3;&#xdde;&#xd9b;&#xdca;&#x200d;&#xdba; &#xdad;&#xdad;&#xdca;&#xdc0;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="firstDateOfDiagnoseLabel">
@@ -162,7 +158,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="First date of diagnose:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc4;&#xdaf;&#xdd4;&#xdb1;&#xdcf;&#xd9c;&#xdad;&#xdca; &#xdb4;&#xdbd;&#xdb8;&#xdd4; &#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lastDateOfTraetementLabel">
@@ -170,7 +166,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Last date of treatment:"/>
+        <Property name="text" type="java.lang.String" value="&#xdb4;&#xdca;&#x200d;&#xdbb;&#xdad;&#xdd2;&#xd9a;&#xdcf;&#xdbb; &#xdbd;&#xdaf; &#xd85;&#xdc0;&#xdc3;&#xdb1;&#xdca; &#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="detailsTextField">

@@ -17,22 +17,12 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace pref="49" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="medicalStatusViewButton" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="studentSchoolInfoViewButton" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jScrollPane6" pref="0" max="32767" attributes="0"/>
-                                  <Component id="studentNameText" min="-2" pref="257" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="70" max="-2" attributes="0"/>
-                          </Group>
                           <Component id="familyInfoViewButton" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane4" alignment="0" min="-2" pref="533" max="-2" attributes="0"/>
@@ -62,9 +52,9 @@
                                                       <Component id="familyContactNumberLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                                                       <Component id="photoLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                                                       <Component id="identityCodeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="passportNumberLabel" alignment="1" min="-2" pref="112" max="-2" attributes="0"/>
                                                       <Component id="dateOfEnteranceLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                                                       <Component id="gradeInYearOfEnteranceLabel" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="passportNumberLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -92,9 +82,20 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
                       <Component id="excelExportButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jScrollPane6" pref="0" max="32767" attributes="0"/>
+                          <Component id="studentNameText" min="-2" pref="257" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -205,7 +206,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Date of entarance:"/>
+        <Property name="text" type="java.lang.String" value="&#xd87;&#xdad;&#xdd4;&#xdbd;&#xdad;&#xdca; &#xdc0;&#xdd3;&#xdb8;&#xdda; &#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="gradeInYearOfEnteranceLabel">
@@ -213,7 +214,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Grade in year of entarance:"/>
+        <Property name="text" type="java.lang.String" value="&#xd87;&#xdad;&#xdd4;&#xdbd;&#xdad;&#xdca; &#xdc0;&#xdb1; &#xdc0;&#xdbb;&#xdca;&#xdc2;&#xdba;&#xdda;&#xdaf;&#xdd3; &#xdc3;&#xdd2;&#xda7;&#xdd2; &#xdc0;&#xdc3;&#xdbb;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="topicLabel">
@@ -221,7 +222,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="View Student Information"/>
+        <Property name="text" type="java.lang.String" value="&#xdc1;&#xdd2;&#xdc2;&#xdca;&#x200d;&#xdba; &#xdad;&#xddc;&#xdbb;&#xdad;&#xdd4;&#xdbb;&#xdd4;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="nameLabel">
@@ -229,7 +230,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Name:"/>
+        <Property name="text" type="java.lang.String" value="&#xdb1;&#xdb8;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="addressLabel">
@@ -237,7 +238,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Address:"/>
+        <Property name="text" type="java.lang.String" value="&#xdbd;&#xdd2;&#xdb4;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="birthdayLabel">
@@ -245,7 +246,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Birthday:"/>
+        <Property name="text" type="java.lang.String" value="&#xd8b;&#xdb4;&#xdb1;&#xdca; &#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="photoLabel">
@@ -253,7 +254,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Photo:"/>
+        <Property name="text" type="java.lang.String" value="&#xda1;&#xdcf;&#xdba;&#xdcf; &#xdbb;&#xdd6;&#xdb4;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="photoContainerLabel">
@@ -271,7 +272,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Identity code:"/>
+        <Property name="text" type="java.lang.String" value="&#xd87;&#xdad;&#xdd4;&#xdbd;&#xdad;&#xdca; &#xdc0;&#xdd3;&#xdb8;&#xdda; &#xd85;&#xd82;&#xd9a;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="passportNumberLabel">
@@ -279,7 +280,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Passport number:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdaf;&#xdda;&#xdc1; &#xd9c;&#xdb8;&#xdb1;&#xdca; &#xdb6;&#xdbd;&#xdb4;&#xdad;&#xdca;&#x200d;&#xdbb; &#xd85;&#xd82;&#xd9a;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -505,7 +506,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Family contact number:"/>
+        <Property name="text" type="java.lang.String" value="&#xdb4;&#xdc0;&#xdd4;&#xdbd;&#xdda; &#xdaf;&#xdd4;&#xdbb;&#xd9a;&#xdad;&#xdb1; &#xd85;&#xd82;&#xd9a;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="addressValueLabel">
@@ -596,7 +597,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="clear"/>
+        <Property name="text" type="java.lang.String" value="&#xdb8;&#xd9a;&#xdcf; &#xdaf;&#xdb8;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>

@@ -609,7 +609,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&#xda2;&#xdcf;&#xdad;&#xdd2;&#xd9a; &#xd9c;&#xdb8;&#xdb1;&#xdca; &#xdb6;&#xdbd;&#xdb4;&#xdad;&#xdca;&#x200d;&#xdbb; &#xd85;&#xd82;&#xd9a;&#xdba;:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdaf;&#xdda;&#xdc1; &#xd9c;&#xdb8;&#xdb1;&#xdca; &#xdb6;&#xdbd;&#xdb4;&#xdad;&#xdca;&#x200d;&#xdbb; &#xd85;&#xd82;&#xd9a;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="bdDComboBx">

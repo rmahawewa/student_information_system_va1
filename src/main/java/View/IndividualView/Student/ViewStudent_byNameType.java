@@ -110,34 +110,34 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         studentsNamesList = new javax.swing.JList<>();
 
         dateOfEnteranceLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        dateOfEnteranceLabel.setText("Date of entarance:");
+        dateOfEnteranceLabel.setText("ඇතුලත් වීමේ දිනය:");
 
         gradeInYearOfEnteranceLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        gradeInYearOfEnteranceLabel.setText("Grade in year of entarance:");
+        gradeInYearOfEnteranceLabel.setText("ඇතුලත් වන වර්ෂයේදී සිටි වසර:");
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("View Student Information");
+        topicLabel.setText("ශිෂ්‍ය තොරතුරු");
 
         nameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        nameLabel.setText("Name:");
+        nameLabel.setText("නම:");
 
         addressLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        addressLabel.setText("Address:");
+        addressLabel.setText("ලිපිනය:");
 
         birthdayLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        birthdayLabel.setText("Birthday:");
+        birthdayLabel.setText("උපන් දිනය:");
 
         photoLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        photoLabel.setText("Photo:");
+        photoLabel.setText("ඡායා රූපය:");
 
         photoContainerLabel.setBackground(new java.awt.Color(255, 204, 153));
         photoContainerLabel.setForeground(new java.awt.Color(255, 204, 153));
 
         identityCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        identityCodeLabel.setText("Identity code:");
+        identityCodeLabel.setText("ඇතුලත් වීමේ අංකය:");
 
         passportNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        passportNumberLabel.setText("Passport number:");
+        passportNumberLabel.setText("විදේශ ගමන් බලපත්‍ර අංකය:");
 
         jLabel1.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         jLabel1.setText("පවුලේ විස්තර");
@@ -325,7 +325,7 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         jLabel5.setText("විශේෂ සෞඛ්‍ය තොරතුරු");
 
         familyContactNumberLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        familyContactNumberLabel.setText("Family contact number:");
+        familyContactNumberLabel.setText("පවුලේ දුරකතන අංකය:");
 
         addressValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         addressValueLabel.setText("-");
@@ -366,7 +366,7 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         });
 
         jButton1.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        jButton1.setText("clear");
+        jButton1.setText("මකා දමන්න");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -386,20 +386,12 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
+                .addContainerGap(49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(medicalStatusViewButton)
                             .addComponent(studentSchoolInfoViewButton)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nameLabel)
-                                .addGap(31, 31, 31)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addComponent(studentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(familyInfoViewButton)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -427,9 +419,9 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
                                                         .addComponent(familyContactNumberLabel)
                                                         .addComponent(photoLabel)
                                                         .addComponent(identityCodeLabel)
-                                                        .addComponent(passportNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(dateOfEnteranceLabel)
-                                                        .addComponent(gradeInYearOfEnteranceLabel))
+                                                        .addComponent(gradeInYearOfEnteranceLabel)
+                                                        .addComponent(passportNumberLabel))
                                                     .addGap(31, 31, 31)
                                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(photoContainerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -446,9 +438,18 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
                         .addGap(39, 39, 39))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(topicLabel)
-                        .addGap(87, 87, 87)
+                        .addGap(145, 145, 145)
                         .addComponent(excelExportButton)
-                        .addGap(37, 37, 37))))
+                        .addGap(37, 37, 37))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(nameLabel)
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(studentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addGap(9, 9, 9))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

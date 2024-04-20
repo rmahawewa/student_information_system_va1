@@ -125,26 +125,26 @@ public class ExamList extends javax.swing.JPanel {
         semesterComboBx = new javax.swing.JComboBox<>();
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("All Exams Information");
+        topicLabel.setText("විභාග සහ තරගාවලි පිලිබද තොරතුරු සටහන");
 
         examNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        examNameLabel.setText("Exam name:");
+        examNameLabel.setText("විභාගයේ හෝ තරගාවලියේ නම:");
 
         examCodeLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        examCodeLabel.setText("Exam code:");
+        examCodeLabel.setText("කේතාංකය:");
 
         yearLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        yearLabel.setText("Year");
+        yearLabel.setText("වර්ෂය:");
 
         semesterLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        semesterLabel.setText("Semester:");
+        semesterLabel.setText("වාරය:");
 
         examNameText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         examCodeText.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
 
         searchButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        searchButton.setText("Search");
+        searchButton.setText("සොයන්න");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchButtonActionPerformed(evt);
@@ -152,7 +152,7 @@ public class ExamList extends javax.swing.JPanel {
         });
 
         clearButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        clearButton.setText("Clear");
+        clearButton.setText("මකා දමන්න");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButtonActionPerformed(evt);
@@ -160,7 +160,7 @@ public class ExamList extends javax.swing.JPanel {
         });
 
         viewButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        viewButton.setText("View");
+        viewButton.setText("තව දුරටත් විස්තර පෙන්වන්න");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewButtonActionPerformed(evt);
@@ -168,7 +168,7 @@ public class ExamList extends javax.swing.JPanel {
         });
 
         editButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        editButton.setText("Edit");
+        editButton.setText("අදාල තොරතුර යාවත්කාලීන කරන්න");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
@@ -176,7 +176,7 @@ public class ExamList extends javax.swing.JPanel {
         });
 
         addGradeButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        addGradeButton.setText("Add Grade");
+        addGradeButton.setText("විභාගය පැවැත්වෙන ශ්‍රේණිය පිලිබද විස්තර ඇතුලත් කරන්න‍");
         addGradeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addGradeButtonActionPerformed(evt);
@@ -184,7 +184,7 @@ public class ExamList extends javax.swing.JPanel {
         });
 
         addAssesmentButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        addAssesmentButton.setText("Add Assesment");
+        addAssesmentButton.setText("තරගාවලියේ අඩංගු තරග විස්තර ඇතුලත් කරන්න");
         addAssesmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addAssesmentButtonActionPerformed(evt);
@@ -218,55 +218,62 @@ public class ExamList extends javax.swing.JPanel {
         jScrollPane1.setViewportView(examTable);
 
         yearComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        yearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select year", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
+        yearComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "වර්ෂය තෝරන්න", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
         semesterComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        semesterComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select semester", "First Semester", "Second Semester", "Third Semester", "Forth Semester", " " }));
+        semesterComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "වාරය තෝරන්න", "First Semester", "Second Semester", "Third Semester", "Forth Semester", " " }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(topicLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1278, Short.MAX_VALUE)
+                .addGap(34, 34, 34))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(viewButton, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addGradeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addAssesmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(examCodeLabel)
                             .addComponent(examNameLabel)
                             .addComponent(yearLabel)
                             .addComponent(semesterLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(examCodeText, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(examNameText)
-                            .addComponent(yearComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(semesterComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(34, 34, 34))
+                                .addGap(9, 9, 9)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(examCodeText, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(examNameText)
+                                    .addComponent(yearComboBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(semesterComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(topicLabel)
+                                .addGap(108, 108, 108)))
+                        .addGap(425, 425, 425))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(viewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(editButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(addGradeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(addAssesmentButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(37, 37, 37)
                 .addComponent(topicLabel)
-                .addGap(35, 35, 35)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(examNameLabel)
                     .addComponent(examNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -286,13 +293,13 @@ public class ExamList extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchButton)
                     .addComponent(clearButton))
-                .addGap(43, 43, 43)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addAssesmentButton)
                     .addComponent(addGradeButton)
                     .addComponent(editButton)
                     .addComponent(viewButton))
-                .addGap(38, 38, 38)
+                .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(69, Short.MAX_VALUE))
         );
@@ -337,9 +344,9 @@ public class ExamList extends javax.swing.JPanel {
         String exam_name = examNameText.getText();
         String exam_code = examCodeText.getText();
         String year = (String) yearComboBx.getSelectedItem();
-        String year_fmt = year.equals("select year")?"":year;
+        String year_fmt = year.equals("වර්ෂය තෝරන්න")?"":year;
         String semester = (String) semesterComboBx.getSelectedItem();
-        String semester_fmt = semester.equals("select semester")?"":semester;
+        String semester_fmt = semester.equals("වාරය තෝරන්න")?"":semester;
         System.out.println("exam_name: " + exam_name);
         System.out.println("exam code: " + exam_code);
         System.out.println("year: " + year_fmt);

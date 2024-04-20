@@ -16,64 +16,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="264" max="32767" attributes="0"/>
-              <Component id="closeButton" min="-2" pref="86" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="46" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="gradeInYearOfEnteranceLabel" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Component id="dateOfEnteranceLabel" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Component id="identityCodeLabel" min="-2" max="-2" attributes="0"/>
-                                          <Component id="passportNumberLabel" min="-2" pref="112" max="-2" attributes="0"/>
-                                          <Component id="photoLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Component id="addressLabel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="birthdayLabel" min="-2" pref="63" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="nameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="familyContactNumberLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="currentGradeLabel" alignment="1" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="gradeInyearOfEntaranceValueLabel" alignment="0" pref="333" max="32767" attributes="0"/>
-                                  <Component id="dateOfEntaranceValueLabel" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="photoContainerLabel" min="-2" pref="105" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="passportNumberValueLabel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="identityCodeValueLabel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="contactNumberValueLabel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="birthdayValueLabel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="addressValueLabel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="studentNameValueLabel" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                              <Component id="excelExportButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="130" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="currentGradeValueLabel" alignment="1" min="-2" pref="333" max="-2" attributes="0"/>
                           <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
@@ -112,8 +58,53 @@
                           </Group>
                       </Group>
                   </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="identityCodeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="photoLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="passportNumberLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="currentGradeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="gradeInYearOfEnteranceLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dateOfEnteranceLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="familyContactNumberLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="birthdayLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="addressLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="gradeInyearOfEntaranceValueLabel" alignment="0" pref="333" max="32767" attributes="0"/>
+                                  <Component id="dateOfEntaranceValueLabel" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="photoContainerLabel" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="passportNumberValueLabel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="identityCodeValueLabel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="contactNumberValueLabel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="birthdayValueLabel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="addressValueLabel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="studentNameValueLabel" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
+                              <Component id="excelExportButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace pref="29" max="32767" attributes="0"/>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="closeButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="296" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -215,9 +206,9 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane5" min="-2" pref="200" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Component id="closeButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -228,7 +219,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Date of entarance:  "/>
+        <Property name="text" type="java.lang.String" value="&#xd87;&#xdad;&#xdd4;&#xdbd;&#xdad;&#xdca; &#xdc0;&#xdd3;&#xdb8;&#xdda; &#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="gradeInYearOfEnteranceLabel">
@@ -236,7 +227,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Grade in year of entarance:   "/>
+        <Property name="text" type="java.lang.String" value="&#xd87;&#xdad;&#xdd4;&#xdbd;&#xdad;&#xdca; &#xdc0;&#xdb1; &#xdc0;&#xdbb;&#xdca;&#xdc2;&#xdba;&#xdda;&#xdaf;&#xdd3; &#xdc3;&#xdd2;&#xda7;&#xdd2; &#xdc0;&#xdc3;&#xdbb;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="topicLabel">
@@ -244,7 +235,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="View Student Information"/>
+        <Property name="text" type="java.lang.String" value="&#xdc1;&#xdd2;&#xdc2;&#xdca;&#x200d;&#xdba; &#xdad;&#xddc;&#xdbb;&#xdad;&#xdd4;&#xdbb;&#xdd4;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="nameLabel">
@@ -252,7 +243,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Name:  "/>
+        <Property name="text" type="java.lang.String" value="&#xdc3;&#xdd2;&#xdc3;&#xdd4;/&#xdc3;&#xdd2;&#xdc3;&#xdd4;&#xdc0;&#xdd2;&#xdba;&#xd9c;&#xdda; &#xdb1;&#xdb8;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="addressLabel">
@@ -260,7 +251,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Address:"/>
+        <Property name="text" type="java.lang.String" value="&#xdbd;&#xdd2;&#xdb4;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="birthdayLabel">
@@ -268,7 +259,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Birthday:  "/>
+        <Property name="text" type="java.lang.String" value="&#xd8b;&#xdb4;&#xdb1;&#xdca; &#xdaf;&#xdd2;&#xdb1;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="photoLabel">
@@ -276,7 +267,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Photo:"/>
+        <Property name="text" type="java.lang.String" value="&#xda1;&#xdcf;&#xdba;&#xdcf; &#xdbb;&#xdd6;&#xdb4;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="photoContainerLabel">
@@ -294,7 +285,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Identity code:"/>
+        <Property name="text" type="java.lang.String" value="&#xd87;&#xdad;&#xdd4;&#xdbd;&#xdad;&#xdca; &#xdc0;&#xdd3;&#xdb8;&#xdda; &#xd85;&#xd82;&#xd9a;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="passportNumberLabel">
@@ -302,7 +293,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Passport number:"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdd2;&#xdaf;&#xdda;&#xdc1; &#xd9c;&#xdb8;&#xdb1;&#xdca; &#xdb6;&#xdbd;&#xdb4;&#xdad;&#xdca;&#x200d;&#xdbb; &#xd85;&#xd82;&#xd9a;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="closeButton">
@@ -310,7 +301,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Close"/>
+        <Property name="text" type="java.lang.String" value="&#xdc0;&#xdc3;&#xdcf; &#xdaf;&#xdb8;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeButtonActionPerformed"/>
@@ -452,11 +443,11 @@
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="5" rowCount="0">
-                <Column editable="false" title="Date and Time" type="java.lang.String"/>
-                <Column editable="false" title="Grade" type="java.lang.String"/>
-                <Column editable="false" title="Exam" type="java.lang.String"/>
-                <Column editable="false" title="Marks" type="java.lang.String"/>
-                <Column editable="false" title="ID" type="java.lang.String"/>
+                <Column editable="false" title="&#xdaf;&#xdd2;&#xdb1;&#xdba; &#xdc3;&#xdc4; &#xdc0;&#xdda;&#xdbd;&#xdcf;&#xdc0;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdc0;&#xdc3;&#xdbb;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdc0;&#xdd2;&#xdb7;&#xdcf;&#xd9c;&#xdba;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdbd;&#xd9a;&#xdd4;&#xdab;&#xdd4;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdb4;&#xdaf;&#xdca;&#xdb0;&#xdad;&#xdd2; &#xd9a;&#xdda;&#xdad;&#xdba;" type="java.lang.String"/>
               </Table>
             </Property>
           </Properties>
@@ -504,11 +495,11 @@
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="5" rowCount="0">
-                <Column editable="false" title="Desease" type="java.lang.String"/>
-                <Column editable="false" title="First date of diagnose" type="java.lang.String"/>
-                <Column editable="false" title="First treatement day" type="java.lang.String"/>
-                <Column editable="false" title="Last treatement day" type="java.lang.String"/>
-                <Column editable="false" title="ID" type="java.lang.String"/>
+                <Column editable="false" title="&#xdbb;&#xddd;&#xd9c;&#xdba;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdbb;&#xddd;&#xd9c;&#xdba; &#xdc4;&#xdaf;&#xdd4;&#xdb1;&#xdcf;&#xd9c;&#xdad;&#xdca; &#xdb4;&#xdbd;&#xdb8;&#xdd4; &#xdaf;&#xdd2;&#xdb1;&#xdba;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdc0;&#xddb;&#xdaf;&#xdca;&#x200d;&#xdba;&#xdc0;&#xdbb;&#xdba;&#xdd9;&#xd9a;&#xdd4; &#xdc4;&#xdb8;&#xdd4;&#xdc0;&#xdd6; &#xdb4;&#xdbd;&#xdb8;&#xdd4; &#xdaf;&#xdd2;&#xdb1;&#xdba;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdc0;&#xddb;&#xdaf;&#xdca;&#x200d;&#xdba;&#xdc0;&#xdbb;&#xdba;&#xdd9;&#xd9a;&#xdd4; &#xdc4;&#xdb8;&#xdd4;&#xdc0;&#xdd6; &#xd85;&#xdc0;&#xdc3;&#xdcf;&#xdb1; &#xdaf;&#xdd2;&#xdb1;&#xdba;" type="java.lang.String"/>
+                <Column editable="false" title="&#xdb4;&#xdaf;&#xdca;&#xdb0;&#xdad;&#xdd2; &#xd9a;&#xdda;&#xdad;&#xdba;" type="java.lang.String"/>
               </Table>
             </Property>
           </Properties>
@@ -539,7 +530,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Family contact number:"/>
+        <Property name="text" type="java.lang.String" value="&#xdb4;&#xdc0;&#xdd4;&#xdbd;&#xdda; &#xdaf;&#xdd4;&#xdbb;&#xd9a;&#xdad;&#xdb1; &#xd85;&#xd82;&#xd9a;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="studentNameValueLabel">
@@ -636,7 +627,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="                   Current Grade:"/>
+        <Property name="text" type="java.lang.String" value="                   &#xdc0;&#xdbb;&#xdca;&#xdad;&#xdb8;&#xdcf;&#xdb1;&#xdba;&#xdda; &#xd89;&#xd9c;&#xdd9;&#xdb1;&#xdd4;&#xdb8; &#xdbd;&#xdb6;&#xdb1; &#xdc0;&#xdc3;&#xdbb;:"/>
       </Properties>
     </Component>
   </SubComponents>

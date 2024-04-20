@@ -77,31 +77,31 @@ public class ViewStudentFamilyInfo extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(595, 731));
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
-        topicLabel.setText("Family Member Information");
+        topicLabel.setText("ශිෂ්‍යයන්ගේ පවුලේ තොරතුරු");
 
         studentNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        studentNameLabel.setText("Student name:");
+        studentNameLabel.setText("සිසු/සිසුවියගේ නම:");
 
         fmemberNameLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        fmemberNameLabel.setText("Family member name:");
+        fmemberNameLabel.setText("පවුලේ සාමාජිකයාගේ නම:");
 
         relationshipLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        relationshipLabel.setText("Relationship:");
+        relationshipLabel.setText("නෑකම:");
 
         birthdayLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        birthdayLabel.setText("Birthday:");
+        birthdayLabel.setText("උපන් දිනය:");
 
         nicLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        nicLabel.setText("NIC:");
+        nicLabel.setText("ජාතික හැදුනුම්පත් අංකය:");
 
         careerLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        careerLabel.setText("Career:");
+        careerLabel.setText("ජීවනෝපාය:");
 
         studentNameValueLabel.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         studentNameValueLabel.setText("studentNameValueLabel");
 
         closeButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        closeButton.setText("Close");
+        closeButton.setText("වසා දමන්න");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeButtonActionPerformed(evt);
@@ -134,9 +134,9 @@ public class ViewStudentFamilyInfo extends javax.swing.JPanel {
                     .addComponent(fmemberNameLabel)
                     .addComponent(relationshipLabel)
                     .addComponent(birthdayLabel)
-                    .addComponent(nicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(careerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                    .addComponent(nicLabel)
+                    .addComponent(careerLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(studentNameValueLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
@@ -153,8 +153,8 @@ public class ViewStudentFamilyInfo extends javax.swing.JPanel {
                         .addComponent(topicLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(239, 239, 239)
-                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(180, Short.MAX_VALUE))
+                        .addComponent(closeButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
