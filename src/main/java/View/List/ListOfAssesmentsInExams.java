@@ -337,10 +337,13 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
         String exm_name = examNameText.getText();
         String asmt_name = assignmentNameText.getText();
         String year = dateYearComboBx.getSelectedItem().toString();
-        year = year.equals("Year")?"":year;
+        String year_sinhala_translation = "වර්ෂය";
+        year = year.equals(year_sinhala_translation)?"":year;
         String month = dateMonthComboBx.getSelectedItem().toString();
+        String month_sinhala_translation = "මාසය";
         month = month.equals("Month")?"":month;
         String day = dateDayComboBx.getSelectedItem().toString();
+        String day_sinhala_translation = "දිනය";
         day = day.equals("Day")?"":day;
         String hour = hoursComboBx.getSelectedItem().toString();
         hour = hour.equals("Hour")?"":hour;

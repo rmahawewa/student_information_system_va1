@@ -344,9 +344,11 @@ public class ExamList extends javax.swing.JPanel {
         String exam_name = examNameText.getText();
         String exam_code = examCodeText.getText();
         String year = (String) yearComboBx.getSelectedItem();
-        String year_fmt = year.equals("වර්ෂය තෝරන්න")?"":year;
+        String select_year_sinhala_translation = "වර්ෂය තෝරන්න";
+        String year_fmt = year.equals(select_year_sinhala_translation)?"":year;
         String semester = (String) semesterComboBx.getSelectedItem();
-        String semester_fmt = semester.equals("වාරය තෝරන්න")?"":semester;
+        String select_semester_sinhala_translation = "වාරය තෝරන්න";
+        String semester_fmt = semester.equals(select_semester_sinhala_translation)?"":semester;
         System.out.println("exam_name: " + exam_name);
         System.out.println("exam code: " + exam_code);
         System.out.println("year: " + year_fmt);

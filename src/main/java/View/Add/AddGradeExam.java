@@ -360,7 +360,8 @@ public class AddGradeExam extends javax.swing.JPanel {
         String hour = hoursComboBx.getSelectedItem().toString();
         String minute = minutesComboBx.getSelectedItem().toString();
         String ampm = ampmComboBx.getSelectedItem().toString();
-        if(ampm.equals("පස්වරු")){
+        String pm_sinhala_translation = "පස්වරු";
+        if(ampm.equals(pm_sinhala_translation)){
             int i_hour = Integer.parseInt(hour);
             i_hour = i_hour + 12;
             hour = Integer.toString(i_hour);

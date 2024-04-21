@@ -335,15 +335,19 @@ public class EditExamAssesment extends javax.swing.JPanel {
         }
         String level = this.levelComboBx.getSelectedItem().toString();
         String session = this.sessionComboBx.getSelectedItem().toString();
-        String session_id = session.equals("පලමු අදියර")?"1":(session.equals("දෙවන අදියර")?"2":(session.equals("තෙවන අදියර"))?"3":"4");
+        String first_session_sinhala_translation = "පලමු අදියර";
+        String second_session_sinhala_translation = "දෙවන අදියර";
+        String third_session_sinhala_translation = "තෙවන අදියර";
+        String session_id = session.equals(first_session_sinhala_translation)?"1":(session.equals(second_session_sinhala_translation)?"2":(session.equals(third_session_sinhala_translation))?"3":"4");
         String year = yearComboBx.getSelectedItem().toString();
         String month = monthComboBx.getSelectedItem().toString();
         String day = dayComboBx.getSelectedItem().toString();
         String hour = hoursComboBx.getSelectedItem().toString();
         String minute = minutesComboBx.getSelectedItem().toString();
         String ampm = ampmComboBx.getSelectedItem().toString();
+        String pm_sinhala_translation = "පස්වරු";
         int hour_i = Integer.parseInt(hour);
-        hour_i = ampm.equals("පස්වරු")?(hour_i + 12):hour_i;
+        hour_i = ampm.equals(pm_sinhala_translation)?(hour_i + 12):hour_i;
         hour = Integer.toString(hour_i);
         String date_time = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":00";
         

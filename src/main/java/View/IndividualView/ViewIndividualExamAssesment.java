@@ -45,7 +45,11 @@ public class ViewIndividualExamAssesment extends javax.swing.JPanel {
     }
     
     public void setSession(String text){
-        String session = text.equals("1")?"First Session":(text.equals("2")?"Second Session":(text.equals("3")?"Third Session":"Forth Session"));
+        String first_session_sinhala_translation = "පලමු අදියර";
+        String second_session_sinhala_translation = "දෙවන අදියර";
+        String third_session_sinhala_translation = "තෙවන අදියර";
+        String forth_session_sinhala_translation = "සිවුවන අදියර";
+        String session = text.equals("1")?first_session_sinhala_translation:(text.equals("2")?second_session_sinhala_translation:(text.equals("3")?third_session_sinhala_translation:forth_session_sinhala_translation));
         this.sessionValueLabel.setText(session);
     }
     

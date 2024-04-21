@@ -285,7 +285,8 @@ public class AddStudentSchoolInfo extends javax.swing.JPanel {
         String doe_day = this.doeDateComboBx.getSelectedItem().toString();
         String doe = doe_year + "-" + doe_month_number + "-" + doe_day;
         String current_student = this.isCurrentlyStudingComboBx.getSelectedItem().toString();
-        int crnt_std = current_student.equals("ඔව්")?1:0;
+        String yes_sinhala_translation = "ඔව්";
+        int crnt_std = current_student.equals(yes_sinhala_translation)?1:0;
         String date_of_leave_year = this.dolYearComboBx.getSelectedItem().toString();
         String date_of_leave_month = this.dolMonthComboBx1.getSelectedItem().toString();
         String date_of_leave_month_number = GetTimes.getMonthNumber(date_of_leave_month);

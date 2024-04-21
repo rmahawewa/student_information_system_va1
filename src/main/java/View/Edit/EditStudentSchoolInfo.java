@@ -251,7 +251,8 @@ public class EditStudentSchoolInfo extends javax.swing.JPanel {
         String doe_day = this.doeDateComboBx.getSelectedItem().toString();
         String doe = doe_year + "-" + doe_mnth + "-" + doe_day;
         String i_c_s = this.isCurrentlyStudingComboBx.getSelectedItem().toString();
-        String is_current_student = i_c_s.equals("ඔව්")?"1":"0";
+        String yes_sinhala_translation = "ඔව්";
+        String is_current_student = i_c_s.equals(yes_sinhala_translation)?"1":"0";
         String dol_year = this.dolYearComboBx.getSelectedItem().toString();
         String dol_month = this.dolMonthComboBx.getSelectedItem().toString();
         String dol_mnth = GetTimes.getMonthNumber(dol_month);

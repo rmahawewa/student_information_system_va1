@@ -241,8 +241,9 @@ public class EditGradeExam extends javax.swing.JPanel {
         String hour = hoursComboBx.getSelectedItem().toString();
         String minute = minutesComboBx.getSelectedItem().toString();
         String ampm = ampmComboBx.getSelectedItem().toString();
+        String pm_sinhala_translation = "පස්වරු";
         int hour_i = Integer.parseInt(hour);
-        hour_i = ampm.equals("පස්වරු")?(hour_i + 12):hour_i;
+        hour_i = ampm.equals(pm_sinhala_translation)?(hour_i + 12):hour_i;
         hour = Integer.toString(hour_i);
         String date_time = y + "-" + month + "-" + day + " " +  hour + ":" + minute + ":00";
         ExamGradeController egc = new ExamGradeController();

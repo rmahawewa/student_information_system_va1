@@ -497,8 +497,9 @@ public class AddExamAssesment extends javax.swing.JPanel {
         String hour = hoursComboBx.getSelectedItem().toString();
         String minute = minutesComboBx.getSelectedItem().toString();
         String ampm = ampmComboBx.getSelectedItem().toString();
+        String pm_sinhala_translation = "පස්වරු";
         String month_in_number = GetTimes.getMonthNumber(month);
-        if(ampm.equals("පස්වරු")){
+        if(ampm.equals(pm_sinhala_translation)){
             int i_hour = Integer.parseInt(hour)+12;
             hour = Integer.toString(i_hour);
         }
