@@ -243,9 +243,14 @@ public class AddExamAssesment extends javax.swing.JPanel {
 
         sessionComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         sessionComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "පලමු අදියර", "දෙවන අදියර", "තෙවන අදියර", "සිවුවන අදියර" }));
+        sessionComboBx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sessionComboBxActionPerformed(evt);
+            }
+        });
 
         clearButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
-        clearButton.setText("Clear");
+        clearButton.setText("මකන්න");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButtonActionPerformed(evt);
@@ -351,12 +356,11 @@ public class AddExamAssesment extends javax.swing.JPanel {
                                 .addGap(108, 108, 108)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(assesmentNameListScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(examNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(assesmentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))))))
+                                    .addComponent(examNameValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(assesmentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(clearButton)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -366,7 +370,7 @@ public class AddExamAssesment extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(114, 114, 114)
                         .addComponent(topicLabel)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -440,11 +444,11 @@ public class AddExamAssesment extends javax.swing.JPanel {
                     dlm.addElement(t);
                 }
             }else{
-                   dlm.addElement("- No results found -");
+                   dlm.addElement("- අදාල ප්‍රතිපල දත්ත පද්ධතියේ නොමැතිය -");
             }
         } catch (SQLException ex) {
             Logger.getLogger(AddExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
-            dlm.addElement("- No results found -");
+            dlm.addElement("- අදාල ප්‍රතිපල දත්ත පද්ධතියේ නොමැතිය -");
         }
         assesmentNamesList.setModel(dlm);
         assesmentNameListScrollPane.setVisible(true);
@@ -463,7 +467,8 @@ public class AddExamAssesment extends javax.swing.JPanel {
                 assesmentNameText.setText(name);
                 assesmentNameText.setEditable(false);
                 ((DefaultListModel)lst.getModel()).clear();
-                setAssesmentId(name);                
+//                setAssesmentId(name);   
+                this.assesment_id = getIdFromString(name);
             }
         }
     }//GEN-LAST:event_assesmentNamesListMouseClicked
@@ -521,7 +526,7 @@ public class AddExamAssesment extends javax.swing.JPanel {
             }
         }else{
             FormValidation fv = new FormValidation();
-            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.set_error_message("කරුණාකර අනිවාර්ය කරුණු සියල්ල නිසි ලෙස යතුරුලියනය කර ඇති දැයි පරීක්ෂා කරන්න");
             fv.setVisible(true);
         }
         if(stts >= 0){
@@ -532,24 +537,28 @@ public class AddExamAssesment extends javax.swing.JPanel {
                 Logger.getLogger(AddExamAssesment.class.getName()).log(Level.SEVERE, null, ex);
             }
             Result_SuccessMessage rsm = new Result_SuccessMessage();
-            rsm.setMessage("Exam-Assesment record successfully added.");
+            rsm.setMessage("තරගාවලියේ තරග තොරතුරු සාර්ථක ලෙස දත්ත පද්ධතියට සම්ප්‍රේෂණය විය");
             rsm.setVisible(true);
         }else{
             System.out.println("Failed to add Exam-Assesment record");
             Result_ErrorMessage rem = new Result_ErrorMessage();
-            rem.setMessage("Failed to add Exam-Assesment record. Please try again.");
+            rem.setMessage("තරගාවලියේ තරග තොරතුරු දත්ත පද්ධතියට එක් කිරීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
             rem.setVisible(true);
         }
     }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void sessionComboBxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sessionComboBxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sessionComboBxActionPerformed
 
     public int getSessionId(String session){
         int sid = 1;
         
         HashMap<String,Integer> hm = new HashMap<String,Integer>();
-        hm.put("First Session", 1);
-        hm.put("Second Session", 2);
-        hm.put("Third Session", 3);
-        hm.put("Forth Session", 4);
+        hm.put("පලමු අදියර", 1);
+        hm.put("දෙවන අදියර", 2);
+        hm.put("තෙවන අදියර", 3);
+        hm.put("සිවුවන අදියර", 4);
         
         try{
             sid = hm.get(session);
@@ -559,9 +568,21 @@ public class AddExamAssesment extends javax.swing.JPanel {
         return sid;
     }
     
-    public void setAssesmentId(String text){
-        String[] values = text.split("-");
-        this.assesment_id = Integer.parseInt(values[0]);
+//    public void setAssesmentId(String text){
+//        String[] values = text.split("-");
+//        this.assesment_id = Integer.parseInt(values[0]);
+//    }
+    
+    private int getIdFromString(String strg){
+        int rtn = -1;
+        if(strg.charAt(0)=='-'){ return rtn; }
+        try{
+            String arr[] = strg.split("-");
+            rtn = Integer.parseInt(arr[0]);
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+        return rtn;        
     }
     
     /**

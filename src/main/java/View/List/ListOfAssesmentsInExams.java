@@ -344,17 +344,21 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
         month = month.equals("Month")?"":month;
         String day = dateDayComboBx.getSelectedItem().toString();
         String day_sinhala_translation = "දිනය";
-        day = day.equals("Day")?"":day;
+        day = day.equals(day_sinhala_translation)?"":day;
         String hour = hoursComboBx.getSelectedItem().toString();
-        hour = hour.equals("Hour")?"":hour;
+        String hour_sinhala_translation = "පැය";
+        hour = hour.equals(hour_sinhala_translation)?"":hour;
         String minute = minutesComboBx.getSelectedItem().toString();
-        minute = minute.equals("Minute")?"":minute;
+        String minute_sinhala_translation = "මිනිත්තු";
+        minute = minute.equals(minute_sinhala_translation)?"":minute;
         String ampm = ampmComboBx.getSelectedItem().toString();
+        String pm_sinhala_translation = "පස්වරු";
         String level = levelComboBx.getSelectedItem().toString();
-        level = level.equals("Select Level")?"":level;
+        String level_sinhala_translation = "මට්ටම තෝරන්න";
+        level = level.equals(level_sinhala_translation)?"":level;
         
         //month = GetTimes.getMonthNumber(month);
-        if(ampm.equals("PM")){
+        if(ampm.equals(pm_sinhala_translation)){
             int hour_i = Integer.parseInt(hour) + 12;
             hour = Integer.toString(hour_i);
         }

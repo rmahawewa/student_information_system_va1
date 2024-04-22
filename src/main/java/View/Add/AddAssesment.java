@@ -154,19 +154,19 @@ public class AddAssesment extends javax.swing.JPanel {
         }else{
             System.out.println("Please provide values for all the fields before proceed");
             FormValidation fv = new FormValidation();
-            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.set_error_message("කරුණාකර අනිවාර්ය කරුණු සියල්ල නිසි ලෙස යතුරුලියනය කර ඇති දැයි පරීක්ෂා කරන්න");
             fv.setVisible(true);
         }
         
         if(stts >= 0){
             System.out.println("Assesment record successfully created.");
             Result_SuccessMessage rsm = new Result_SuccessMessage();
-            rsm.setMessage("Assesment record successfully created.");
+            rsm.setMessage("තරග කරුණු සාර්ථක ලෙස දත්ත පද්ධතියට සම්ප්‍රේෂණය විය");
             rsm.setVisible(true);
         }else{
             System.out.println("Failed to create the Assesment record. Please try again.");
             Result_ErrorMessage rem = new Result_ErrorMessage();
-            rem.setMessage("Failed to create the Assesment record. Please try again.");
+            rem.setMessage("තරග කරුණු දත්ත පද්ධතියට එක් කිරීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
             rem.setVisible(true);
         }
     }//GEN-LAST:event_submitButtonActionPerformed

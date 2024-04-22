@@ -151,18 +151,18 @@ public class AddGradeInfo extends javax.swing.JPanel {
                     gradeInNumberText.setText("");
                     gradeInWordsText.setText("");
                     Result_SuccessMessage rsm = new Result_SuccessMessage();
-                    rsm.setMessage("Grade info successfully added.");
+                    rsm.setMessage("වසර පිලිබද තොරතුරු සාර්ථක ලෙස දත්ත පද්ධතියට සම්ප්‍රේෂණය විය");
                     rsm.setVisible(true);
                 }else{
                     Result_ErrorMessage rem = new Result_ErrorMessage();
-                    rem.setMessage("Failed to add Grade information. Please try again.");
+                    rem.setMessage("වසර පිලිබද තොරතුරු දත්ත පද්ධතියට එක් කිරීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
                     rem.setVisible(true);
                 }
             }else{
                 // Message Box
                 System.out.println("message box - required fields"); 
                 FormValidation fv = new FormValidation();
-                fv.set_error_message("Please fill all the required fields before proceed");
+                fv.set_error_message("කරුණාකර අනිවාර්ය කරුණු සියල්ල නිසි ලෙස යතුරුලියනය කර ඇති දැයි පරීක්ෂා කරන්න");
                 fv.setVisible(true);
            }           
             

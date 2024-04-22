@@ -30,14 +30,7 @@ public class AddGradeExam extends javax.swing.JPanel {
 
     private MainView mv;
     private int exam_id;
-    
-    /**
-     * Creates new form AddStudentSchoolInfo
-     */
-//    public AddGradeExam() {
-//        initComponents();
-//    }
-    
+
     public AddGradeExam(MainView mf, int exm_id) {
         initComponents();
         this.mv = mf;
@@ -382,7 +375,7 @@ public class AddGradeExam extends javax.swing.JPanel {
                 if(stts > -1){
                     System.out.println("Grade - Exam record successfully created");
                     Result_SuccessMessage rsm = new Result_SuccessMessage();
-                    rsm.setMessage("Grade - Exam record successfully created.");
+                    rsm.setMessage("වසරට අදාල විභාග තොරතුරු සාර්ථක ලෙස දත්ත පද්ධතියට සම්ප්‍රේෂණය විය");
                     rsm.setVisible(true);
                     clearForm();
                     loadTable();
@@ -395,19 +388,19 @@ public class AddGradeExam extends javax.swing.JPanel {
                 }else{
                     System.out.println("Faild to create the record.");
                     Result_ErrorMessage rem = new Result_ErrorMessage();
-                    rem.setMessage("Faild to create the record. Please try again.");
+                    rem.setMessage("වසරට අදාල විභාග තොරතුරු දත්ත පද්ධතියට එක් කිරීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
                     rem.setVisible(true);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("Faild to create the record");
                 Result_ErrorMessage rem = new Result_ErrorMessage();
-                rem.setMessage("Faild to create the record. Please try again.");
+                rem.setMessage("වසරට අදාල විභාග තොරතුරු දත්ත පද්ධතියට එක් කිරීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
                 rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();
-            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.set_error_message("කරුණාකර අනිවාර්ය කරුණු සියල්ල නිසි ලෙස යතුරුලියනය කර ඇති දැයි පරීක්ෂා කරන්න");
             fv.setVisible(true);
         }      
         
@@ -416,10 +409,10 @@ public class AddGradeExam extends javax.swing.JPanel {
     public int getSessionId(String session){
         int sid = 1;        
         HashMap<String,Integer> hm = new HashMap<String,Integer>();
-        hm.put("First Session", 1);
-        hm.put("Second Session", 2);
-        hm.put("Third Session", 3);
-        hm.put("Forth Session", 4);
+        hm.put("පලමු අදියර", 1);
+        hm.put("දෙවන අදියර", 2);
+        hm.put("තෙවන අදියර", 3);
+        hm.put("සිවුවන අදියර", 4);
         
         try{
             sid = hm.get(session);
