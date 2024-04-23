@@ -20,3 +20,12 @@
   
 -Project technical dependencies:
   -MySql Connector for Java - version 8.0.33
+  -Apache Commons IO - version 2.11.0
+  -Apache POI - version 5.2.0
+  -Apache POI OOXML - version 5.2.0
+  -JXLS - version 1.0.9
+  -Fastexcel-reader - version 0.15.3
+  -Fastexcel - version 0.15.3
+  -Apache Log4j - log4j-to-slf4j - version 2.8.2
+  -SLF4J - slf4j-api - version 2.0.11
+  -SLF4J - slf4j-simple - version 2.0.11
