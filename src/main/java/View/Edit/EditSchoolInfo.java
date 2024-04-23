@@ -212,17 +212,17 @@ public class EditSchoolInfo extends javax.swing.JPanel {
             if(value > 0){
                 System.out.println("School record successfully updated");
                 Result_SuccessMessage rsm = new Result_SuccessMessage();
-                rsm.setMessage("School record successfully updated.");
+                rsm.setMessage("පාසල් තොරතුරු සාර්ථක ලෙස මෙම දත්ත පද්ධතිය තුල යාවත්කාලීන විය");
                 rsm.setVisible(true);
             }else{
                 System.out.println("Couldn't update the record. Please try again");
                 Result_ErrorMessage rem = new Result_ErrorMessage();
-                rem.setMessage("Couldn't update the record. Please try again.");
+                rem.setMessage("පාසල් තොරතුරු දත්ත පද්ධතිය තුල යාවත්කාලීන වීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
                 rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();
-            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.set_error_message("කරුණාකර අනිවාර්ය කරුණු සියල්ල නිසි ලෙස යතුරුලියනය කර ඇති දැයි පරීක්ෂා කරන්න");
             fv.setVisible(true);
         }        
         

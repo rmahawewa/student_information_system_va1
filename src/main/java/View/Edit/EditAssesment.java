@@ -190,19 +190,19 @@ public class EditAssesment extends javax.swing.JPanel {
             
             boolean b = ac.updateAssesment(lst);
             if(b){
-                System.out.println("Assesment record successfully updated");
+                System.out.println("තරගය පිලිබද තොරතුරු සාර්ථක ලෙස මෙම දත්ත පද්ධතිය තුල යාවත්කාලීන විය");
                 Result_SuccessMessage rsm = new Result_SuccessMessage();
-                rsm.setMessage("Assesment record successfully updated.");
+                rsm.setMessage("තරගය පිලිබද තොරතුරු සාර්ථක ලෙස මෙම දත්ත පද්ධතිය තුල යාවත්කාලීන විය");
                 rsm.setVisible(true);
             }else{
                 System.out.println("Failed to update the assesment record");
                 Result_ErrorMessage rem = new Result_ErrorMessage();
-                rem.setMessage("Failed to update the assesment record. Please try again.");
+                rem.setMessage("තරගය පිලිබද තොරතුරු දත්ත පද්ධතිය තුල යාවත්කාලීන වීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
                 rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();
-            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.set_error_message("කරුණාකර අනිවාර්ය කරුණු සියල්ල නිසි ලෙස යතුරුලියනය කර ඇති දැයි පරීක්ෂා කරන්න");
             fv.setVisible(true);
         }
     }//GEN-LAST:event_submitButtonActionPerformed

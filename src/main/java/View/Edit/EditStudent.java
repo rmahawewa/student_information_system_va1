@@ -81,7 +81,7 @@ public class EditStudent extends javax.swing.JPanel {
         gradeInYEComboBx.removeAllItems();
         GradeController gc = new GradeController();
         try {
-            gradeInYEComboBx.addItem("Select grade");
+            gradeInYEComboBx.addItem("වසර තෝරන්න");
             HashMap<Integer, Map<Integer,String>> hm = gc.getAllGrades();
             if(!hm.isEmpty()){
                 hm.forEach((key,value) -> {
@@ -853,17 +853,17 @@ public class EditStudent extends javax.swing.JPanel {
                 }
                 System.out.println("The Student record successfully updated");
                 Result_SuccessMessage rsm = new Result_SuccessMessage();
-                rsm.setMessage("The Student record successfully updated.");
+                rsm.setMessage("ශිෂ්‍ය තොරතුරු සාර්ථක ලෙස මෙම දත්ත පද්ධතිය තුල යාවත්කාලීන විය");
                 rsm.setVisible(true);
             }else{
                 System.out.println("Failed to update the Student record. Please try again");
                 Result_ErrorMessage rem = new Result_ErrorMessage();
-                rem.setMessage("Failed to update the Student record. Please try again.");
+                rem.setMessage("ශිෂ්‍ය තොරතුරු දත්ත පද්ධතිය තුල යාවත්කාලීන වීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
                 rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();
-            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.set_error_message("කරුණාකර අනිවාර්ය කරුණු සියල්ල නිසි ලෙස යතුරුලියනය කර ඇති දැයි පරීක්ෂා කරන්න");
             fv.setVisible(true);
         }     
         
@@ -894,7 +894,7 @@ public class EditStudent extends javax.swing.JPanel {
             esfi.set_fm_birthday(l.get(4));            
             esfi.set_career(l.get(5));
             
-            mv.add_new_component(esfi, "Update Student Family Member");
+            mv.add_new_component(esfi, "පවුලේ තොරතුරු යාවත්කාලීන කිරීම");
         }
     }//GEN-LAST:event_familyInfoEditButtonActionPerformed
 
@@ -915,7 +915,7 @@ public class EditStudent extends javax.swing.JPanel {
             essi.set_is_currently_studing(is_current_student);
             essi.set_date_of_leave(dol);
             
-            mv.add_new_component(essi, "Update Student School Information");
+            mv.add_new_component(essi, "පාසල් තොරතුරු යාවත්කාලීන කිරීම");
         }
     }//GEN-LAST:event_studentSchoolInfoEditButtonActionPerformed
 
@@ -942,7 +942,7 @@ public class EditStudent extends javax.swing.JPanel {
             view.set_remarks(hm.get(1));
             view.set_description(hm.get(2));
             
-            mv.add_new_component(view, "Update Student Exam Assesment");
+            mv.add_new_component(view, "සිසු/සිසුවිය සහභාගී වුනු තරගාවලි සහ තරග තොරතුරු යාවත්කාලීන කිරීම");
         }
     }//GEN-LAST:event_studentAssesmentPerformanceInfoEditButtonActionPerformed
 
@@ -965,7 +965,7 @@ public class EditStudent extends javax.swing.JPanel {
             view.set_remarks(hm.get(1));
             view.set_description(hm.get(2));
             
-            mv.add_new_component(view, "Edit Student Exam performance");
+            mv.add_new_component(view, "සිසු/සිසුවියගේ විභාග ප්‍රතිපල යාවත්කාලීන කිරීම");
         }
     }//GEN-LAST:event_examPerformanceInfoEditButtonActionPerformed
 
@@ -990,7 +990,7 @@ public class EditStudent extends javax.swing.JPanel {
                 view.set_last_date_of_treatment(ldogt);
                 view.set_details(details);
 
-                mv.add_new_component(view, "Update Student Medical Status");
+                mv.add_new_component(view, "සිසු/සිසුවියගේ විශේෂ සෞඛ්‍ය අවශ්‍යතා පිලිබද තොරතුරු යාවත්කාලීන කිරීම");
             } catch (SQLException ex) {
                 Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
             }

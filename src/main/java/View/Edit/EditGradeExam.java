@@ -233,7 +233,11 @@ public class EditGradeExam extends javax.swing.JPanel {
         // TODO add your handling code here:
         int id = this.id;
         String s = sessionComboBx.getSelectedItem().toString();
-        int session = s.equals("First Session")?1:(s.equals("Second Session")?2:s.equals("Third Session")?3:s.equals("Forth Session")?4:-1);
+        String first_session_sinhala_translation = "පලමු අදියර";
+        String second_session_sinhala_translation = "දෙවන අදියර";
+        String third_session_sinhala_translation = "තෙවන අදියර";
+        String forth_session_sinhala_translation = "සිවුවන අදියර";
+        int session = s.equals(first_session_sinhala_translation)?1:(s.equals(second_session_sinhala_translation)?2:s.equals(third_session_sinhala_translation)?3:s.equals(forth_session_sinhala_translation)?4:-1);
         String y = yearComboBx.getSelectedItem().toString();
         String mnth = monthComboBx.getSelectedItem().toString();
         String month = GetTimes.getMonthNumber(mnth);
@@ -251,12 +255,12 @@ public class EditGradeExam extends javax.swing.JPanel {
         if(d>0){
             System.out.println("Grade Exam record successfully edited");
             Result_SuccessMessage rsm = new Result_SuccessMessage();
-            rsm.setMessage("Grade Exam record successfully edited.");
+            rsm.setMessage("වසරට අදාල විභාග තොරතුරු සාර්ථක ලෙස මෙම දත්ත පද්ධතිය තුල යාවත්කාලීන විය");
             rsm.setVisible(true);
         }else{
             System.out.println("Failed to edit the Grade Exam record");
             Result_ErrorMessage rem = new Result_ErrorMessage();
-            rem.setMessage("Failed to edit the Grade Exam record.");
+            rem.setMessage("වසරට අදාල විභාග තොරතුරු දත්ත පද්ධතිය තුල යාවත්කාලීන වීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
             rem.setVisible(true);
         }
     }//GEN-LAST:event_submitButtonActionPerformed

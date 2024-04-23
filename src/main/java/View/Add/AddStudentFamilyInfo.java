@@ -297,7 +297,7 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
             if(i>0){
                 System.out.println("Student family member record successfully saved");
                 Result_SuccessMessage rsm = new Result_SuccessMessage();
-                rsm.setMessage("Student family member record successfully saved.");
+                rsm.setMessage("පවුල් සාමාජික තොරතුරු සාර්ථක ලෙස දත්ත පද්ධතියට සම්ප්‍රේෂණය විය");
                 rsm.setVisible(true);
                 this.clearForm();
                 try {
@@ -308,13 +308,13 @@ public class AddStudentFamilyInfo extends javax.swing.JPanel {
             }else{
                 System.out.println("Failed to save the record. Please try again");
                 Result_ErrorMessage rem = new Result_ErrorMessage();
-                rem.setMessage("Failed to save the record. Please try again.");
+                rem.setMessage("පවුල් සාමාජික තොරතුරු දත්ත පද්ධතියට එක් කිරීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
                 rem.setVisible(true);
             }
         }else{
             System.out.println("Please fill all the fields");
             FormValidation fv = new FormValidation();
-            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.set_error_message("කරුණාකර අනිවාර්ය කරුණු සියල්ල නිසි ලෙස යතුරුලියනය කර ඇති දැයි පරීක්ෂා කරන්න");
             fv.setVisible(true);
         }      
     }//GEN-LAST:event_submitButtonActionPerformed

@@ -319,7 +319,7 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
         String marks = marksText.getText();
         String remarks = remarksText.getText();
         String description = descriptionTextArea.getText();
-        String responce = "Failed to insert the record";
+        //String responce = "Failed to insert the record";
         
         if(student_id > 0 && !marks.equals("")){
             String exam_assesment_id = Integer.toString(this.exam_assesment_id);
@@ -336,16 +336,16 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
             //responce = r>0?"Record successfully inserted":"Failed to insert the record";
             if(r>0){
                 Result_SuccessMessage rsm = new Result_SuccessMessage();
-                rsm.setMessage("Record successfully inserted.");
+                rsm.setMessage("තරගාවලියේ තරගය පිලිබද තොරතුරු සාර්ථක ලෙස දත්ත පද්ධතියට සම්ප්‍රේෂණය විය");
                 rsm.setVisible(true);
             }else{
                 Result_ErrorMessage rem = new Result_ErrorMessage();
-                rem.setMessage("Failed to insert the record. Please try again.");
+                rem.setMessage("තරගාවලියේ තරගය පිලිබද තොරතුරු දත්ත පද්ධතියට එක් කිරීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
                 rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();
-            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.set_error_message("කරුණාකර අනිවාර්ය කරුණු සියල්ල නිසි ලෙස යතුරුලියනය කර ඇති දැයි පරීක්ෂා කරන්න");
             fv.setVisible(true);
         }
         //System.out.println(responce);

@@ -451,18 +451,18 @@ public class AddStudent extends javax.swing.JPanel {
                 }
                 System.out.println("The Student record successfully created");
                 Result_SuccessMessage rsm = new Result_SuccessMessage();
-                rsm.setMessage("The Student record successfully created.");
+                rsm.setMessage("ශිෂ්‍ය තොරතුරු සාර්ථක ලෙස දත්ත පද්ධතියට සම්ප්‍රේෂණය විය");
                 rsm.setVisible(true);
                 this.clear_form();
             }else{
                 System.out.println("Failed to create the Student record");
                 Result_ErrorMessage rem = new Result_ErrorMessage();
-                rem.setMessage("Failed to create the Student record. Please try again.");
+                rem.setMessage("ශිෂ්‍ය තොරතුරු දත්ත පද්ධතියට එක් කිරීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
                 rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();
-            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.set_error_message("කරුණාකර අනිවාර්ය කරුණු සියල්ල නිසි ලෙස යතුරුලියනය කර ඇති දැයි පරීක්ෂා කරන්න");
             fv.setVisible(true);
         }        
         

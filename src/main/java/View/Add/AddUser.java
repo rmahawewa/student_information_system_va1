@@ -178,7 +178,7 @@ public class AddUser extends javax.swing.JPanel {
             int i = uc.save_user(l);
             if(i > 0){
                 Result_SuccessMessage rsm = new Result_SuccessMessage();
-                rsm.setMessage("User successfully created.");
+                rsm.setMessage("මෙම තොරතුරු පද්ධතියේ නවමු භාවිත කරන්නා පිලිබද තොරතුරු සාර්ථක ලෙස දත්ත පද්ධතියට සම්ප්‍රේෂණය විය");
                 rsm.setVisible(true);
                 
                 this.nameText.setText("");
@@ -186,16 +186,16 @@ public class AddUser extends javax.swing.JPanel {
                 this.passwordText.setText("");
             }else if(i < 0){
                 Result_ErrorMessage rem = new Result_ErrorMessage();
-                rem.setMessage("User name, Password combination already exist. Please try another combination.");
+                rem.setMessage("කරුණාකර වෙනත් භාවිත නාමයක් සහ පුද්ගලික කේතයක් භාවිතා කරන්න");
                 rem.setVisible(true);
             }else{
                 Result_ErrorMessage rem = new Result_ErrorMessage();
-                rem.setMessage("Failed to create the User. Please try again.");
+                rem.setMessage("මෙම තොරතුරු පද්ධතියේ නවමු භාවිත කරන්නා පිලිබද තොරතුරු දත්ත පද්ධතියට එක් කිරීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
                 rem.setVisible(true);
             }
         }else{
             FormValidation fv = new FormValidation();
-            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.set_error_message("කරුණාකර අනිවාර්ය කරුණු සියල්ල නිසි ලෙස යතුරුලියනය කර ඇති දැයි පරීක්ෂා කරන්න");
             fv.setVisible(true);
         } 
         

@@ -362,11 +362,11 @@ public class EditExam extends javax.swing.JPanel{
                 if(stts >= 0){
                     System.out.println("Record successfully updated");
                     Result_SuccessMessage rsm = new Result_SuccessMessage();
-                    rsm.setMessage("Record successfully updated.");
+                    rsm.setMessage("තරගාවලිය/විභාගය පිලිබද තොරතුරු සාර්ථක ලෙස මෙම දත්ත පද්ධතිය තුල යාවත්කාලීන විය");
                     rsm.setVisible(true);
                 } else{
                     Result_ErrorMessage rem = new Result_ErrorMessage();
-                    rem.setMessage("Failed to update the Exam record. Please try again.");
+                    rem.setMessage("තරගාවලිය/විභාගය පිලිබද තොරතුරු දත්ත පද්ධතිය තුල යාවත්කාලීන වීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
                     rem.setVisible(true);
                 }
             } catch (SQLException ex) {
@@ -374,7 +374,7 @@ public class EditExam extends javax.swing.JPanel{
             }
         }else{
             FormValidation fv = new FormValidation();
-            fv.set_error_message("Please fill all the required fields before proceed");
+            fv.set_error_message("කරුණාකර අනිවාර්ය කරුණු සියල්ල නිසි ලෙස යතුරුලියනය කර ඇති දැයි පරීක්ෂා කරන්න");
             fv.setVisible(true);
         }    
         

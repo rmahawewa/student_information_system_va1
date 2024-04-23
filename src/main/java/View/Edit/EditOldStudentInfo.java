@@ -229,12 +229,12 @@ public class EditOldStudentInfo extends javax.swing.JPanel {
         if(i > 0){
             System.out.println("Old student information updated successfully");
             Result_SuccessMessage rsm = new Result_SuccessMessage();
-            rsm.setMessage("Old student information updated successfully.");
+            rsm.setMessage("ආදි ශිෂ්‍ය තොරතුරු සාර්ථක ලෙස මෙම දත්ත පද්ධතිය තුල යාවත්කාලීන විය");
             rsm.setVisible(true);
         }else{
             System.out.println("Failed to update old student information. Pleasr try again");
             Result_ErrorMessage rem = new Result_ErrorMessage();
-            rem.setMessage("Failed to update old student information. Pleasr try again.");
+            rem.setMessage("ආදි ශිෂ්‍ය තොරතුරු දත්ත පද්ධතිය තුල යාවත්කාලීන වීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
             rem.setVisible(true);
         }
                 
