@@ -378,7 +378,7 @@ public class StudentList extends javax.swing.JPanel {
                 vsfl.setDateOfEntarance(l.get(7));
                 vsfl.setGradeInYearOfEntarance(l.get(8));
                 vsfl.setCurrentGrade(grade_in_text);
-                mv.add_new_component(vsfl, "Student Information");
+                mv.add_new_component(vsfl, "සිසු/සිසුවියගේ තොරතුරු");
             } catch (SQLException ex) {
                 Logger.getLogger(StudentList.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -395,7 +395,7 @@ public class StudentList extends javax.swing.JPanel {
                 String name = dtm.getValueAt(row, 1).toString();
                 AddStudentFamilyInfo adsfi = new AddStudentFamilyInfo(mv, id);
                 adsfi.set_student_name(name);
-                mv.add_new_component(adsfi, "Add Student Family Information");
+                mv.add_new_component(adsfi, "පවුලේ විස්තර ඇතුලත් කිරීම");
             } catch (SQLException ex) {
                 Logger.getLogger(StudentList.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -412,7 +412,7 @@ public class StudentList extends javax.swing.JPanel {
             String name = dtm.getValueAt(row, 1).toString();
             AddStudentSchoolInfo adssi = new AddStudentSchoolInfo(mv, id);
             adssi.set_student_name(name);
-            mv.add_new_component(adssi, "Add Student School Information");
+            mv.add_new_component(adssi, "පාසල් විස්තර ඇතුලත් කිරීම");
         }
     }//GEN-LAST:event_addSchoolButtonActionPerformed
 
@@ -426,7 +426,7 @@ public class StudentList extends javax.swing.JPanel {
             String name = dtm.getValueAt(row, 1).toString();
             AddOldStudentInfo aosi = new AddOldStudentInfo(mv, id);
             aosi.set_student_name(name);
-            mv.add_new_component(aosi, "Add old Student Information");
+            mv.add_new_component(aosi, "ආදි ශිෂ්‍ය විස්තර ඇතුලත් කිරීම");
         }
         
     }//GEN-LAST:event_oldStudentButtonActionPerformed
@@ -450,7 +450,7 @@ public class StudentList extends javax.swing.JPanel {
                 es.setPassportLabel(l.get(6));
                 es.setDateOfEntarance(l.get(7));
                 es.setGradeInYearOfEntarance(l.get(8));
-                mv.add_new_component(es, "Update Student Information");
+                mv.add_new_component(es, "ශිෂ්‍ය තොරතුරු යාවත්කාලීන කිරීම");
             } catch (SQLException ex) {
                 Logger.getLogger(StudentList.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -675,7 +675,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
             vsfi.set_fm_birthday(l.get(4));            
             vsfi.set_career(l.get(5));
             
-            mv.add_new_component(vsfi, "Student Family Member");
+            mv.add_new_component(vsfi, "පවුලේ සාමාජික විස්තර");
         }
     }//GEN-LAST:event_familyInfoViewButtonActionPerformed
 
@@ -693,7 +693,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
             vsi.setContactNumber(l.get(3));
             vsi.setDetails(l.get(4));
             
-            mv.add_new_component(vsi, "Student School Information");
+            mv.add_new_component(vsi, "පාසල් විස්තර");
         }
     }//GEN-LAST:event_studentSchoolInfoViewButtonActionPerformed
 
@@ -720,7 +720,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
             view.set_remarks(hm.get(1));
             view.set_description(hm.get(2));
             
-            mv.add_new_component(view, "Student Exam Assesment");
+            mv.add_new_component(view, "තරග කුසලතා පිලිබද විස්තර");
         }
     }//GEN-LAST:event_studentAssesmentPerformanceInfoViewButtonActionPerformed
 
@@ -743,7 +743,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
             view.set_remarks(hm.get(1));
             view.set_description(hm.get(2));
             
-            mv.add_new_component(view, "Student Exam performance");
+            mv.add_new_component(view, "විභාග ප්‍රතිපල විස්තර");
         }
     }//GEN-LAST:event_examPerformanceInfoViewButtonActionPerformed
 
@@ -768,7 +768,7 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
                 view.set_last_date_of_treatment(ldogt);
                 view.set_details(details);
 
-                mv.add_new_component(view, "Student Medical Status");
+                mv.add_new_component(view, "විශේෂ සෞඛ්‍ය අවශ්‍යතා");
             } catch (SQLException ex) {
                 Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
             }

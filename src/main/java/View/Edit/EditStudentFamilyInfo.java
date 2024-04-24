@@ -220,7 +220,7 @@ public class EditStudentFamilyInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(cancelButton))
-                .addContainerGap(290, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -243,12 +243,12 @@ public class EditStudentFamilyInfo extends javax.swing.JPanel {
         if(i > 0){
             System.out.println("Student family member record successfully updated");
             Result_SuccessMessage rsm = new Result_SuccessMessage();
-            rsm.setMessage("Student family member record successfully updated.");
+            rsm.setMessage("පවුලේ තොරතුරු සාර්ථක ලෙස මෙම දත්ත පද්ධතිය තුල යාවත්කාලීන විය");
             rsm.setVisible(true);
         }else{
             System.out.println("Failed to update the student family member record. Please try again");
             Result_ErrorMessage rem = new Result_ErrorMessage();
-            rem.setMessage("Failed to update the student family member record. Please try again.");
+            rem.setMessage("පවුලේ තොරතුරු දත්ත පද්ධතිය තුල යාවත්කාලීන වීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
             rem.setVisible(true);
         }
         

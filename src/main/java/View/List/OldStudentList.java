@@ -202,7 +202,7 @@ public class OldStudentList extends javax.swing.JPanel {
                 vosi.set_transferred_damma_school(transferred_damma_school);
                 //JFrame frame = new MainView();
                 
-                mv.add_new_component(vosi, "Old student information");
+                mv.add_new_component(vosi, "ආදි ශිෂ්‍ය තොරතුරු");
             }
         }
     }//GEN-LAST:event_viewButtonActionPerformed
@@ -250,7 +250,7 @@ public class OldStudentList extends javax.swing.JPanel {
                 eosi.set_transferred_damma_school(transferred_damma_school);
                 //JFrame frame = new MainView();
                 
-                mv.add_new_component(eosi, "Update Old student information");
+                mv.add_new_component(eosi, "ආදි ශිෂ්‍ය තොරතුරු යාවත්කාලීන කිරීම");
             }
         }
     }//GEN-LAST:event_editButtonActionPerformed

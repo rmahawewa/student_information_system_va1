@@ -345,7 +345,7 @@ public class GradeExamList extends javax.swing.JPanel {
             form.set_session(session);
             form.set_date(datetime[0]);
             form.set_time(datetime[1]);
-            mv.add_new_component(form, "Grade Exam info");
+            mv.add_new_component(form, "වසර අනුකූල විභාග තොරතුරු");
         }
     }//GEN-LAST:event_viewButtonActionPerformed
 
@@ -358,21 +358,25 @@ public class GradeExamList extends javax.swing.JPanel {
             String exam = dtm.getValueAt(row, 1).toString();
             String grade = dtm.getValueAt(row, 2).toString();
             String session = dtm.getValueAt(row, 3).toString();
-            String ssn = session.equals("1")?"First Session":(session.equals("2")?"Second Session":(session.equals("3")?"Third Session":(session.equals("4")?"Forth Session":"Session")));
+            String first_session_sinhala_translation = "පලමු අදියර";
+            String second_session_sinhala_translation = "දෙවන අදියර";
+            String third_session_sinhala_translation = "තෙවන අදියර";
+            String forth_session_sinhala_translation = "සිවුවන අදියර";
+            String session_sinhala_translation = "අදියර";
+            String ssn = session.equals("1")?first_session_sinhala_translation:(session.equals("2")?second_session_sinhala_translation:(session.equals("3")?third_session_sinhala_translation:(session.equals("4")?forth_session_sinhala_translation:session_sinhala_translation)));
             String date_time = dtm.getValueAt(row, 4).toString();
             String[] datetime = date_time.split(" ");
             String[]  date = datetime[0].split("-");
             String month = GetTimes.getMonthText(date[1]);
             String[] time = datetime[1].split(":");
-            String ampm = "AM";
+            String ampm = "පෙරවරු";
             String hour = time[0];
             if(Integer.parseInt(hour) > 12){
                 int h = Integer.parseInt(hour);
                 h = h - 12;
                 hour = Integer.toString(h);
-                ampm = "PM";
-            }
-            
+                ampm = "පස්වරු";
+            }        
             
             EditGradeExam form = new EditGradeExam(mv, id);
             form.set_exam_name(exam);
@@ -380,7 +384,7 @@ public class GradeExamList extends javax.swing.JPanel {
             form.set_session(ssn);
             form.set_date(date[0],month,date[2]);
             form.set_time(hour, time[1], ampm);
-            mv.add_new_component(form, "Grade Exam edit");
+            mv.add_new_component(form, "වසර අනුගත විභාග තොරතුරු යාවත්කාලීන කිරීම");
         }
     }//GEN-LAST:event_editButtonActionPerformed
 

@@ -177,7 +177,7 @@ public class EditStudentSchoolInfo extends javax.swing.JPanel {
                             .addComponent(schoolNameLabel)
                             .addComponent(dateOfEntaranceLabel)
                             .addComponent(studentNameLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(isCurrentlyStudingComboBx, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -239,7 +239,7 @@ public class EditStudentSchoolInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateButton)
                     .addComponent(closeButton))
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -268,12 +268,12 @@ public class EditStudentSchoolInfo extends javax.swing.JPanel {
         if(i > 0){
             System.out.println("Student School record successfully updated");
             Result_SuccessMessage rsm = new Result_SuccessMessage();
-            rsm.setMessage("Student School record successfully updated.");
+            rsm.setMessage("සිසු/සිසුවියගේ පාසල පිලිබද තොරතුරු සාර්ථක ලෙස මෙම දත්ත පද්ධතිය තුල යාවත්කාලීන විය");
             rsm.setVisible(true);
         }else{
             System.out.println("Failed to update the Student School record. Please try again");
             Result_ErrorMessage rem = new Result_ErrorMessage();
-            rem.setMessage("Failed to update the Student School record. Please try again.");
+            rem.setMessage("සිසු/සිසුවියගේ පාසල පිලිබද තොරතුරු දත්ත පද්ධතිය තුල යාවත්කාලීන වීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
             rem.setVisible(true);
         }
     }//GEN-LAST:event_updateButtonActionPerformed

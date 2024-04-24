@@ -198,7 +198,7 @@ public class SchoolList extends javax.swing.JPanel {
             form.setSchoolAddress(address);
             form.setContactNumber(contact_number);
             form.setDetails(school_details);
-            mv.add_new_component(form, "School info");
+            mv.add_new_component(form, "පාසල් තොරතුරු");
         }
     }//GEN-LAST:event_viewButtonActionPerformed
 
@@ -241,7 +241,7 @@ public class SchoolList extends javax.swing.JPanel {
             form.setSchoolAddress(address);
             form.setContactNumber(contact_number);
             form.setDetails(school_details);
-            mv.add_new_component(form, "Update School info");
+            mv.add_new_component(form, "පාසල් තොරතුරු යාවත්කාලීන කිරීම");
         }
     }//GEN-LAST:event_editButtonActionPerformed
 

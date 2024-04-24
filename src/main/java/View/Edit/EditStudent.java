@@ -942,7 +942,7 @@ public class EditStudent extends javax.swing.JPanel {
             view.set_remarks(hm.get(1));
             view.set_description(hm.get(2));
             
-            mv.add_new_component(view, "සිසු/සිසුවිය සහභාගී වුනු තරගාවලි සහ තරග තොරතුරු යාවත්කාලීන කිරීම");
+            mv.add_new_component(view, "තරග කුසලතා පිලිබද තොරතුරු යාවත්කාලීන කිරීම");
         }
     }//GEN-LAST:event_studentAssesmentPerformanceInfoEditButtonActionPerformed
 
@@ -965,7 +965,7 @@ public class EditStudent extends javax.swing.JPanel {
             view.set_remarks(hm.get(1));
             view.set_description(hm.get(2));
             
-            mv.add_new_component(view, "සිසු/සිසුවියගේ විභාග ප්‍රතිපල යාවත්කාලීන කිරීම");
+            mv.add_new_component(view, "විභාග ප්‍රතිපල යාවත්කාලීන කිරීම");
         }
     }//GEN-LAST:event_examPerformanceInfoEditButtonActionPerformed
 
@@ -990,7 +990,7 @@ public class EditStudent extends javax.swing.JPanel {
                 view.set_last_date_of_treatment(ldogt);
                 view.set_details(details);
 
-                mv.add_new_component(view, "සිසු/සිසුවියගේ විශේෂ සෞඛ්‍ය අවශ්‍යතා පිලිබද තොරතුරු යාවත්කාලීන කිරීම");
+                mv.add_new_component(view, "විශේෂ සෞඛ්‍ය අවශ්‍යතා පිලිබද තොරතුරු යාවත්කාලීන කිරීම");
             } catch (SQLException ex) {
                 Logger.getLogger(ViewStudent_fromList.class.getName()).log(Level.SEVERE, null, ex);
             }

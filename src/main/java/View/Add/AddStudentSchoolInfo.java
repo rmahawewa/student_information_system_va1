@@ -127,7 +127,7 @@ public class AddStudentSchoolInfo extends javax.swing.JPanel {
         dolDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         submit_button.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        submit_button.setText("Submit");
+        submit_button.setText("යොමු කරන්න");
         submit_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submit_buttonActionPerformed(evt);
@@ -135,7 +135,7 @@ public class AddStudentSchoolInfo extends javax.swing.JPanel {
         });
 
         close_button.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
-        close_button.setText("Close");
+        close_button.setText("අවලංගු කරන්න");
         close_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 close_buttonActionPerformed(evt);
@@ -219,13 +219,13 @@ public class AddStudentSchoolInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(155, 155, 155)
-                        .addComponent(submit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(114, 114, 114)
-                        .addComponent(close_button, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(submit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89)
+                        .addComponent(close_button))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(168, 168, 168)
                         .addComponent(topicLabel)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 182, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

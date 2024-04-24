@@ -263,7 +263,7 @@ public class StudentAssesmentExamList extends javax.swing.JPanel {
             form.set_marks(hm.get(0));
             form.set_remarks(hm.get(1));
             form.set_description(hm.get(2));
-            mv.add_new_component(form, "Student Assesment Exam info");
+            mv.add_new_component(form, "ශිෂ්‍ය තරග විස්තර");
         }
     }//GEN-LAST:event_viewButtonActionPerformed
 
@@ -293,7 +293,7 @@ public class StudentAssesmentExamList extends javax.swing.JPanel {
             form.set_marks(hm.get(0));
             form.set_remarks(hm.get(1));
             form.set_description(hm.get(2));
-            mv.add_new_component(form, "Update Student Assesment Exam");
+            mv.add_new_component(form, "ශිෂ්‍ය තරග විස්තර යාවත්කාලීන කිරීම");
         }
     }//GEN-LAST:event_editButtonActionPerformed
 

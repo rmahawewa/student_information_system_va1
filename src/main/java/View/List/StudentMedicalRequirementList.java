@@ -282,7 +282,7 @@ public class StudentMedicalRequirementList extends javax.swing.JPanel {
                 vsmr.set_first_date_of_getting_treatment(first_date_of_getting_treatment);
                 vsmr.set_last_date_of_treatment(last_date_of_diagnose);
                 vsmr.set_details(details);
-                mv.add_new_component(vsmr, "Student medical details");
+                mv.add_new_component(vsmr, "විශේෂ සෞඛ්‍ය අවශ්‍යතා");
             } catch (SQLException ex) {
                 Logger.getLogger(StudentMedicalRequirementList.class.getName()).log(Level.SEVERE, null, ex);
             }           
@@ -312,7 +312,7 @@ public class StudentMedicalRequirementList extends javax.swing.JPanel {
                 vsmr.set_first_date_of_getting_treatment(first_date_of_getting_treatment);
                 vsmr.set_last_date_of_treatment(last_date_of_diagnose);
                 vsmr.set_details(details);
-                mv.add_new_component(vsmr, "Update student medical details");
+                mv.add_new_component(vsmr, "විශේෂ සෞඛ්‍ය අවශ්‍යතා යාවත්කාලීන කිරීම");
             } catch (SQLException ex) {
                 Logger.getLogger(StudentMedicalRequirementList.class.getName()).log(Level.SEVERE, null, ex);
             }           

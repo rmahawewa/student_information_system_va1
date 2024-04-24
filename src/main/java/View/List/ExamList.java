@@ -334,7 +334,7 @@ public class ExamList extends javax.swing.JPanel {
                 ve.setDetails(details);
                 //JFrame frame = new MainView();
                 
-                main_frame.add_new_component(ve,exm_code+" - information");
+                main_frame.add_new_component(ve,exm_code+" - විස්තර");
             }
         }
     }//GEN-LAST:event_viewButtonActionPerformed
@@ -408,7 +408,7 @@ public class ExamList extends javax.swing.JPanel {
                 ee.setDetails(details);
                 
                 //JFrame frame = new MainView();
-                main_frame.add_new_component(ee,exm_code+" - update");
+                main_frame.add_new_component(ee,exm_code+" - යාවත්කාලීන කිරීම");
             }
         }
     }//GEN-LAST:event_editButtonActionPerformed
@@ -424,7 +424,7 @@ public class ExamList extends javax.swing.JPanel {
             //age.setExamId(id);
             age.setExamName(ename);
             
-            main_frame.add_new_component(age, ename+" - add grade");
+            main_frame.add_new_component(age, ename+" - වසර තොරතුරු ඇතුලත් කිරීම");
         }
     }//GEN-LAST:event_addGradeButtonActionPerformed
 
@@ -439,7 +439,7 @@ public class ExamList extends javax.swing.JPanel {
             //age.setExamId(id);
             aea.setExamName(ename);
             
-            main_frame.add_new_component(aea, ename+" - add assesment");
+            main_frame.add_new_component(aea, ename+" - තරග තොරතුරු ඇුතුලත් කිරීම");
         }
     }//GEN-LAST:event_addAssesmentButtonActionPerformed
 

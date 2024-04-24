@@ -243,7 +243,7 @@ public class AssesmentList extends javax.swing.JPanel {
             ViewAssesment va = new ViewAssesment(main_frame);
             va.setAssesmentName(name);
             va.setAssesmentCode(code);
-            main_frame.add_new_component(va, "View Assesment");
+            main_frame.add_new_component(va, "තරග විස්තර");
         }
     }//GEN-LAST:event_viewButtonActionPerformed
 
@@ -261,7 +261,7 @@ public class AssesmentList extends javax.swing.JPanel {
             ea.set_name(name);
             ea.set_code(code);
             
-            main_frame.add_new_component(ea, "Edit Assesment");
+            main_frame.add_new_component(ea, "තරග විස්තර යාවත්කාලීන කිරීම");
         }
     }//GEN-LAST:event_editButtonActionPerformed
 

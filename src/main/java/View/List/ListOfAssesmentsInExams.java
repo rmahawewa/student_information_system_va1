@@ -341,7 +341,7 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
         year = year.equals(year_sinhala_translation)?"":year;
         String month = dateMonthComboBx.getSelectedItem().toString();
         String month_sinhala_translation = "මාසය";
-        month = month.equals("Month")?"":month;
+        month = month.equals(month_sinhala_translation)?"":month;
         String day = dateDayComboBx.getSelectedItem().toString();
         String day_sinhala_translation = "දිනය";
         day = day.equals(day_sinhala_translation)?"":day;
@@ -423,7 +423,7 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
             form.setSession(hm.get(5));
             form.setDate(hm.get(6));
             form.setTime(hm.get(7));
-            mv.add_new_component(form, "Assesment in Exam");
+            mv.add_new_component(form, "තරග තොරතුරු");
         }        
         
     }//GEN-LAST:event_viewButtonActionPerformed
@@ -452,7 +452,9 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
             String[] date_arr = date.split("-");
             String[] time_arr = time.split(":");
             int hour = Integer.parseInt(time_arr[0]);
-            String noon = hour>12?"PM":"AM";
+            String am_sinhala_translation = "AM";
+            String pm_sinhala_translation = "PM";
+            String noon = hour>12?pm_sinhala_translation:am_sinhala_translation;
             hour = hour>12?(hour-12):hour;
             String s_hour = Integer.toString(hour);
             
@@ -465,7 +467,7 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
             eea.set_session(session);
             eea.set_date(date_arr[0], date_arr[1], date_arr[2]);
             eea.set_time(s_hour, time_arr[1], noon);
-            mv.add_new_component(eea, "Edit Assesment in Exam");
+            mv.add_new_component(eea, "තරග තොරතුරු යාවත්කාලීන කිරීම");
             
         }
     }//GEN-LAST:event_editButtonActionPerformed
@@ -487,7 +489,7 @@ public class ListOfAssesmentsInExams extends javax.swing.JPanel {
                 sae.set_exam_assesment_id(Integer.parseInt(e_a_id));
                 sae.set_exam_name(exam_name);
                 sae.set_assesment_name(assesment_name);
-                mv.add_new_component(sae, "Add students for Assesment");
+                mv.add_new_component(sae, "තරග සදහා සිසුන් නම් කිරීම");
             } catch (SQLException ex) {
                 Logger.getLogger(ListOfAssesmentsInExams.class.getName()).log(Level.SEVERE, null, ex);
             }
