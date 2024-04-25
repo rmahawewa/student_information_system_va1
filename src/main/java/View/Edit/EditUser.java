@@ -271,11 +271,11 @@ public class EditUser extends javax.swing.JPanel {
                     demoList.addElement(t);
                 }
             }else{
-                demoList.addElement("-No results found-");
+                demoList.addElement("- අදාල ප්‍රතිපල දත්ත පද්ධතියේ නොමැතිය -");
             }
         }catch(Exception ex){
             System.out.println(ex.getMessage());
-            demoList.addElement("-No results found-");
+            demoList.addElement("- අදාල ප්‍රතිපල දත්ත පද්ධතියේ නොමැතිය -");
         }
         userList.setModel(demoList);
         jScrollPane1.setVisible(true);

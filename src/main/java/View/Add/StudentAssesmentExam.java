@@ -51,10 +51,20 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
     }
     
     public void set_student_id(String text){
-        String[] valus = text.split("-");
-        this.student_id = Integer.parseInt(valus[0]);
+        this.student_id = this.getIdFromString(text);
     }
     
+    private int getIdFromString(String strg){
+        int rtn = -1;
+        if(strg.charAt(0)=='-'){ return rtn; }
+        try{
+            String arr[] = strg.split("-");
+            rtn = Integer.parseInt(arr[0]);
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+        return rtn;        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -278,7 +288,7 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
                 dlm.addElement(i);
             }
         }else{
-            dlm.addElement("- No results found -");
+            dlm.addElement("- අදාල ප්‍රතිපල දත්ත පද්ධතියේ නොමැතිය -");
         }
         
         studentNamesList.setModel(dlm);
@@ -295,7 +305,7 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
             if(index >= 0){
                 Object o = lst.getModel().getElementAt(index);
                 String name = o.toString();
-                if(name.equals("- No results found -")){
+                if(name.equals("- අදාල ප්‍රතිපල දත්ත පද්ධතියේ නොමැතිය -")){
                     return;
                 }
                 this.set_student_id(name);
@@ -356,43 +366,7 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
         mv.close_tab();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
-    
-    
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(StudentAssesmentExam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(StudentAssesmentExam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(StudentAssesmentExam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(StudentAssesmentExam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
 
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new StudentAssesmentExam().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel assesmentLabel;

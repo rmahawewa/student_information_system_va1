@@ -349,9 +349,9 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         gradeInyearOfEntaranceValueLabel.setText("-");
 
         excelExportButton.setBackground(new java.awt.Color(0, 153, 51));
-        excelExportButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        excelExportButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         excelExportButton.setForeground(new java.awt.Color(255, 255, 255));
-        excelExportButton.setText("Excel");
+        excelExportButton.setText("පැතුරුම්පත් ගත කරන්න");
         excelExportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 excelExportButtonActionPerformed(evt);
@@ -436,18 +436,19 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
                                 .addComponent(jScrollPane4)))
                         .addGap(39, 39, 39))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(topicLabel)
-                        .addGap(145, 145, 145)
-                        .addComponent(excelExportButton)
-                        .addGap(37, 37, 37))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(nameLabel)
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(studentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(topicLabel)
+                                .addGap(30, 30, 30)
+                                .addComponent(excelExportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(nameLabel)
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(studentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1)))
                         .addGap(9, 9, 9))))
         );
         layout.setVerticalGroup(
@@ -629,11 +630,11 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
                     demoList.addElement(t);
                 }
             }else{
-                demoList.addElement("-No results found-");
+                demoList.addElement("- අදාල ප්‍රතිපල දත්ත පද්ධතියේ නොමැතිය -");
             }
         } catch (Exception ex) {
             Logger.getLogger(ViewStudent_byNameType.class.getName()).log(Level.SEVERE, null, ex);
-            demoList.addElement("-No results found-");
+            demoList.addElement("- අදාල ප්‍රතිපල දත්ත පද්ධතියේ නොමැතිය -");
         }
 
         studentsNamesList.setModel(demoList);

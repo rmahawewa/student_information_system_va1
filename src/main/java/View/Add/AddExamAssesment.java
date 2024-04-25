@@ -192,6 +192,11 @@ public class AddExamAssesment extends javax.swing.JPanel {
 
         cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         cancelButton.setText("අවලංගු කරන්න");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         ampmComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         ampmComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "පෙරවරු", "පස්වරු" }));
@@ -550,6 +555,11 @@ public class AddExamAssesment extends javax.swing.JPanel {
     private void sessionComboBxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sessionComboBxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sessionComboBxActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        mv.close_tab();        
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     public int getSessionId(String session){
         int sid = 1;

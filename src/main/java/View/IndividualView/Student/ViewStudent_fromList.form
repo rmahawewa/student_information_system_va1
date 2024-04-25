@@ -92,9 +92,8 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
-                              <Component id="excelExportButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="excelExportButton" min="-2" pref="251" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -603,12 +602,12 @@
           <Color blue="33" green="99" red="0" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
+          <Font name="Iskoola Pota" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Excel"/>
+        <Property name="text" type="java.lang.String" value="&#xdb4;&#xdd0;&#xdad;&#xdd4;&#xdbb;&#xdd4;&#xdb8;&#xdca;&#xdb4;&#xdad;&#xdca; &#xd9c;&#xdad; &#xd9a;&#xdbb;&#xdb1;&#xdca;&#xdb1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="excelExportButtonActionPerformed"/>

@@ -472,9 +472,9 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         gradeInyearOfEntaranceValueLabel.setText("grade in year of entarance value");
 
         excelExportButton.setBackground(new java.awt.Color(0, 153, 51));
-        excelExportButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        excelExportButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         excelExportButton.setForeground(new java.awt.Color(255, 255, 255));
-        excelExportButton.setText("Excel");
+        excelExportButton.setText("පැතුරුම්පත් ගත කරන්න");
         excelExportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 excelExportButtonActionPerformed(evt);
@@ -553,9 +553,8 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
                                     .addComponent(studentNameValueLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(topicLabel)
-                                .addGap(175, 175, 175)
-                                .addComponent(excelExportButton)
-                                .addGap(22, 22, 22)))))
+                                .addGap(18, 18, 18)
+                                .addComponent(excelExportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(41, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)

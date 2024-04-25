@@ -38,7 +38,7 @@ public class Result_SuccessMessage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("සටහන");
 
-        okBtn.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        okBtn.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         okBtn.setText("එකගයි");
         okBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

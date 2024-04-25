@@ -143,6 +143,11 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
 
         cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         cancelButton.setText("අවලංගු කරන්න");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         fdotDayComboBx.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
         fdotDayComboBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
@@ -390,11 +395,11 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
                     demoList.addElement(t);
                 }
             }else{
-                demoList.addElement("-No results found-");
+                demoList.addElement("- අදාල ප්‍රතිපල දත්ත පද්ධතියේ නොමැතිය -");
             }
         }catch(Exception ex) {
             Logger.getLogger(AddStudentMedicalRequirement.class.getName()).log(Level.SEVERE, null, ex);
-            demoList.addElement("-No results found-");
+            demoList.addElement("- අදාල ප්‍රතිපල දත්ත පද්ධතියේ නොමැතිය -");
         }
 
         studentNamesList.setModel(demoList);
@@ -463,11 +468,11 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
                     demoList1.addElement(t);
                 }
             }else{
-                demoList1.addElement("-No results found-");
+                demoList1.addElement("- අදාල ප්‍රතිපල දත්ත පද්ධතියේ නොමැතිය -");
             }
         }catch(Exception ex) {
             Logger.getLogger(AddStudentMedicalRequirement.class.getName()).log(Level.SEVERE, null, ex);
-            demoList1.addElement("-No results found-");
+            demoList1.addElement("- අදාල ප්‍රතිපල දත්ත පද්ධතියේ නොමැතිය -");
         }
 
         medicalRequirementsList.setModel(demoList1);
@@ -559,6 +564,28 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
         }        
                
     }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void clear_form(){
+        studentNameText.setText("");
+        this.student_id = 0;
+        medicalRequirementText.setText("");
+        this.medical_requirement_id = 0;
+        fdodYearComboBx.setSelectedIndex(0);
+        fdodMonthComboBx.setSelectedIndex(0);
+        fdodDayComboBx.setSelectedIndex(0);
+        fdotYearComboBx.setSelectedIndex(0);
+        fdotMonthComboBx.setSelectedIndex(0);
+        fdotDayComboBx.setSelectedIndex(0);
+        ldotYearComboBx.setSelectedIndex(0);
+        ldotMonthComboBx.setSelectedIndex(0);
+        ldotDayComboBx.setSelectedIndex(0);
+        detailsTextField.setText("");
+    }
+    
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        this.clear_form();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments

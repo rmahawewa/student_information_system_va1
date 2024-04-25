@@ -408,14 +408,17 @@ public class AddStudent extends javax.swing.JPanel {
         String doeMonthNumber = GetTimes.getMonthNumber(doeMonth);
         String doeDay = doeDComboBx.getSelectedItem().toString();
         String dateOfEnterance = doeYear + "-" + doeMonthNumber + "-" + doeDay;
-        String grade = gradeInYEComboBx.getSelectedItem().toString();
-        GradeController gc = new GradeController();
         int grade_id = 0;
-        try {
-            grade_id = gc.getGradeId(grade);
-        } catch (SQLException ex) {
-            Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+        if(gradeInYEComboBx.getSelectedItem() != null){
+            String grade = gradeInYEComboBx.getSelectedItem().toString();
+            GradeController gc = new GradeController();        
+                try {
+                    grade_id = gc.getGradeId(grade);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AddGradeExam.class.getName()).log(Level.SEVERE, null, ex);
+                }
         }
+        
         LocalDateTime timenow = LocalDateTime.now();
         Timestamp ts = Timestamp.valueOf(timenow);
         Long ms = ts.getTime();

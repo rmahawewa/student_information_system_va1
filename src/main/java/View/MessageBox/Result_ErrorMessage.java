@@ -38,7 +38,7 @@ public class Result_ErrorMessage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("සටහන");
 
-        okButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        okButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         okButton.setText("එකගයි");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

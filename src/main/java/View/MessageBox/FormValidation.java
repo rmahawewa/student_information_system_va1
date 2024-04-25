@@ -44,7 +44,7 @@ public class FormValidation extends javax.swing.JFrame {
         errorMessageLabel.setText("message");
         errorMessageLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        okButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        okButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         okButton.setText("පැහැදිලියි");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,7 +52,7 @@ public class FormValidation extends javax.swing.JFrame {
             }
         });
 
-        cancelButton.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
         cancelButton.setText("අවලංගුයි");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -70,7 +70,7 @@ public class ExcelMaker {
 
         XSSFWorkbook workbook = new XSSFWorkbook();
 
-        XSSFSheet sheet = workbook.createSheet("StudentInfo");
+        XSSFSheet sheet = workbook.createSheet("මූලික තොරතුරු");
         sheet.setColumnWidth(0, 5000);
         sheet.setColumnWidth(1, 6000);
 
@@ -85,7 +85,7 @@ public class ExcelMaker {
         header_style.setFont(font);
 
         XSSFCell headercell = header.createCell(0);
-        headercell.setCellValue("Student Information");
+        headercell.setCellValue("මූලික තොරතුරු");
         headercell.setCellStyle(header_style);
 
         CellStyle cellstyle = workbook.createCellStyle();
@@ -116,7 +116,7 @@ public class ExcelMaker {
         });
         
         
-        XSSFSheet sheet_family = workbook.createSheet("StudentFamilyInfo");
+        XSSFSheet sheet_family = workbook.createSheet("පවුලේ තොරතුරු");
         sheet_family.setColumnWidth(0, 5000);
         sheet_family.setColumnWidth(1, 6000);
 
@@ -131,7 +131,7 @@ public class ExcelMaker {
         header_style_fm.setFont(font_fm);
 
         XSSFCell headercell_fm = header_fm.createCell(0);
-        headercell_fm.setCellValue("Student Family Information");
+        headercell_fm.setCellValue("පවුලේ තොරතුරු");
         headercell_fm.setCellStyle(header_style);
 
         CellStyle cellstyle_fm = workbook.createCellStyle();
@@ -174,7 +174,7 @@ public class ExcelMaker {
         });
         
         
-        XSSFSheet sheet_school = workbook.createSheet("StudentSchoolInfo");
+        XSSFSheet sheet_school = workbook.createSheet("පාසල් තොරතුරු");
         sheet_school.setColumnWidth(0, 5000);
         sheet_school.setColumnWidth(1, 6000);
 
@@ -189,7 +189,7 @@ public class ExcelMaker {
         header_style_scl.setFont(font_scl);
 
         XSSFCell headercell_scl = header_scl.createCell(0);
-        headercell_scl.setCellValue("Student School Information");
+        headercell_scl.setCellValue("පාසල් තොරතුරු");
         headercell_scl.setCellStyle(header_style);
 
         CellStyle cellstyle_scl = workbook.createCellStyle();
@@ -232,7 +232,7 @@ public class ExcelMaker {
         });
         
         
-        XSSFSheet sheet_assesment = workbook.createSheet("StudentAssesmentPerformance");
+        XSSFSheet sheet_assesment = workbook.createSheet("තරග තොරතුරු");
         sheet_assesment.setColumnWidth(0, 5000);
         sheet_assesment.setColumnWidth(1, 6000);
 
@@ -247,7 +247,7 @@ public class ExcelMaker {
         header_style_asmt.setFont(font_asmt);
 
         XSSFCell headercell_asmt = header_asmt.createCell(0);
-        headercell_asmt.setCellValue("Student Assesment Performance");
+        headercell_asmt.setCellValue("තරග තොරතුරු");
         headercell_asmt.setCellStyle(header_style_asmt);
 
         CellStyle cellstyle_asmt = workbook.createCellStyle();
@@ -290,7 +290,7 @@ public class ExcelMaker {
         });
         
         
-        XSSFSheet sheet_exam = workbook.createSheet("StudentExamPerformance");
+        XSSFSheet sheet_exam = workbook.createSheet("විභාග තොරතුරු");
         sheet_assesment.setColumnWidth(0, 5000);
         sheet_assesment.setColumnWidth(1, 6000);
 
@@ -305,7 +305,7 @@ public class ExcelMaker {
         header_style_exam.setFont(font_exam);
 
         XSSFCell headercell_exam = header_exam.createCell(0);
-        headercell_exam.setCellValue("Student Exam Performance");
+        headercell_exam.setCellValue("විභාග තොරතුරු");
         headercell_exam.setCellStyle(header_style_exam);
 
         CellStyle cellstyle_exam = workbook.createCellStyle();
@@ -348,7 +348,7 @@ public class ExcelMaker {
         });
         
         
-        XSSFSheet sheet_md = workbook.createSheet("StudentMedicalInfo");
+        XSSFSheet sheet_md = workbook.createSheet("විශේෂ සෞඛ්‍ය අවශ්‍යතා");
         sheet_md.setColumnWidth(0, 5000);
         sheet_md.setColumnWidth(1, 6000);
 
@@ -363,7 +363,7 @@ public class ExcelMaker {
         header_style_md.setFont(font_md);
 
         XSSFCell headercell_md = header_md.createCell(0);
-        headercell_md.setCellValue("Student Medical Information");
+        headercell_md.setCellValue("විශේෂ සෞඛ්‍ය අවශ්‍යතා");
         headercell_md.setCellStyle(header_style_md);
 
         CellStyle cellstyle_md = workbook.createCellStyle();
@@ -414,7 +414,7 @@ public class ExcelMaker {
         Timestamp ts = Timestamp.valueOf(time_now);
         Long ms = ts.getTime();
         String date_time_ms = Long.toString(ms);
-        String file_name = "userInformation_"+ student_id + "_" + date_time_ms + ".xlsx";
+        String file_name = "ශිෂ්‍ය_විස්තර_ගොනුව_"+ student_id + "_" + date_time_ms + ".xlsx";
 
         String file_location = path.substring(0, path.length()-1) + file_name;
 

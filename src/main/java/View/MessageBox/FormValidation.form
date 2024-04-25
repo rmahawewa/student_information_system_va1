@@ -75,7 +75,7 @@
     <Component class="javax.swing.JButton" name="okButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Iskoola Pota" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&#xdb4;&#xdd0;&#xdc4;&#xdd0;&#xdaf;&#xdd2;&#xdbd;&#xdd2;&#xdba;&#xdd2;"/>
       </Properties>
@@ -86,7 +86,7 @@
     <Component class="javax.swing.JButton" name="cancelButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Iskoola Pota" size="14" style="0"/>
+          <Font name="Iskoola Pota" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&#xd85;&#xdc0;&#xdbd;&#xd82;&#xd9c;&#xdd4;&#xdba;&#xdd2;"/>
       </Properties>
