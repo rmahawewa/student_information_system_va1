@@ -100,6 +100,7 @@ public class MedicalRequirements {
                 mp.put(0, id);
                 mp.put(1, desease_name);
                 hm.put(cnt, mp);
+                cnt++;
             }
         } catch (SQLException ex) {
             Logger.getLogger(MedicalRequirements.class.getName()).log(Level.SEVERE, null, ex);

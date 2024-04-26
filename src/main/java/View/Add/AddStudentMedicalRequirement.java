@@ -566,8 +566,10 @@ public class AddStudentMedicalRequirement extends javax.swing.JPanel {
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void clear_form(){
+        studentNameText.setEditable(true);
         studentNameText.setText("");
         this.student_id = 0;
+        medicalRequirementText.setEditable(true);
         medicalRequirementText.setText("");
         this.medical_requirement_id = 0;
         fdodYearComboBx.setSelectedIndex(0);

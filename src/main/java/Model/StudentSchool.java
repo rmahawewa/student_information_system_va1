@@ -110,10 +110,13 @@ public class StudentSchool {
                 String date_of_leave = result.getString("date_of_leave");
                 String student_school_id = Integer.toString(result.getInt("student_school_id"));
                 
+                String yes_sinhala_translation = "ඔව්";
+                String no_sinhala_translation = "නැත";
+                
                 HashMap<Integer,String> mp = new HashMap<Integer,String>();
                 mp.put(0, school_name);
                 mp.put(1, date_of_entarance);
-                mp.put(2, is_currently_studing.equals("1")?"yes":"no");
+                mp.put(2, is_currently_studing.equals("1")?yes_sinhala_translation:no_sinhala_translation);
                 mp.put(3, date_of_leave);
                 mp.put(4, student_school_id);
                 

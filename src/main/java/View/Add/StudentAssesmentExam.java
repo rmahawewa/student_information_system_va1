@@ -94,7 +94,6 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
         nameListScrollPane = new javax.swing.JScrollPane();
         studentNamesList = new javax.swing.JList<>();
         jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
 
         topicLabel.setFont(new java.awt.Font("Iskoola Pota", 1, 18)); // NOI18N
         topicLabel.setText("සිසුන්ගේ තරග කුසලතා පිලිබද විස්තර ඇතුලත් කිරීම");
@@ -175,10 +174,6 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
         jLabel19.setForeground(new java.awt.Color(255, 51, 51));
         jLabel19.setText("*");
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel20.setText("*");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -191,11 +186,8 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(marksLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(marksLabel)
                             .addComponent(examLabel)
                             .addComponent(assesmentLabel)
                             .addComponent(remarksLabel)
@@ -251,8 +243,7 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(marksLabel)
-                    .addComponent(marksText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20))
+                    .addComponent(marksText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(remarksLabel)
@@ -331,7 +322,7 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
         String description = descriptionTextArea.getText();
         //String responce = "Failed to insert the record";
         
-        if(student_id > 0 && !marks.equals("")){
+        if(student_id > 0){
             String exam_assesment_id = Integer.toString(this.exam_assesment_id);
             String student_id = Integer.toString(this.student_id);
             List<String> l = new ArrayList<String>();
@@ -380,7 +371,6 @@ public class StudentAssesmentExam extends javax.swing.JPanel {
     private javax.swing.JLabel examNameValueLabel;
     private javax.swing.JLabel gradeLabel;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel marksLabel;
     private javax.swing.JTextField marksText;
     private javax.swing.JScrollPane nameListScrollPane;

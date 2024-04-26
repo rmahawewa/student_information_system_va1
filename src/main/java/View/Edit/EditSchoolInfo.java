@@ -30,6 +30,7 @@ public class EditSchoolInfo extends javax.swing.JPanel {
     
     public EditSchoolInfo(MainView mf, int school_id) {
         initComponents();
+        this.mv = mf;
         this.school_id = school_id;        
     }
     
@@ -204,8 +205,8 @@ public class EditSchoolInfo extends javax.swing.JPanel {
             sil.add(0, Integer.toString(school_id));
             sil.add(1, school_name);
             sil.add(2, address);
-            sil.add(1, contact_number);
-            sil.add(1, details);
+            sil.add(3, contact_number);
+            sil.add(4, details);
 
             SchoolController sc = new SchoolController();
             int value = sc.update_school_info(sil);

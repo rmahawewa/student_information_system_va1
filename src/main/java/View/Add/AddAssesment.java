@@ -163,6 +163,7 @@ public class AddAssesment extends javax.swing.JPanel {
             Result_SuccessMessage rsm = new Result_SuccessMessage();
             rsm.setMessage("තරග කරුණු සාර්ථක ලෙස දත්ත පද්ධතියට සම්ප්‍රේෂණය විය");
             rsm.setVisible(true);
+            clearForm();
         }else{
             System.out.println("Failed to create the Assesment record. Please try again.");
             Result_ErrorMessage rem = new Result_ErrorMessage();
