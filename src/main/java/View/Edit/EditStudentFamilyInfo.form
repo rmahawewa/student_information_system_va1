@@ -21,93 +21,104 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="fmemberNameLabel" alignment="0" max="32767" attributes="0"/>
-                  <Component id="relationshipLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="birthdayLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="studentNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="nicLabel" alignment="0" max="32767" attributes="0"/>
-                  <Component id="careerLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="bdYearCmbBx" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="bdMonthCmbBx" pref="174" max="32767" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="bdDayCmbBx" min="-2" pref="64" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="nicText" alignment="0" max="32767" attributes="0"/>
-                  <Component id="careerText" alignment="0" max="32767" attributes="0"/>
-                  <Component id="studentNameValueLabel" alignment="0" max="32767" attributes="0"/>
-                  <Component id="familyMemberNameValueLabel" max="32767" attributes="0"/>
-                  <Component id="relationshipValueLabel" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="birthdayLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="careerLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nicLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="careerText" min="-2" pref="295" max="-2" attributes="0"/>
+                                  <Component id="nicText" min="-2" pref="295" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="fmemberNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="studentNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="relationshipLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="familyMemberNameValueLabel" min="-2" pref="346" max="-2" attributes="0"/>
+                                  <Component id="relationshipValueLabel" min="-2" pref="245" max="-2" attributes="0"/>
+                                  <Component id="studentNameValueLabel" min="-2" pref="346" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="bdYearCmbBx" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="bdMonthCmbBx" min="-2" pref="125" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Component id="bdDayCmbBx" min="-2" pref="64" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                       <Component id="submitButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                       <Component id="cancelButton" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="748" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="studentNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="studentNameValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="fmemberNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="familyMemberNameValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="relationshipLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="relationshipValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="birthdayLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bdYearCmbBx" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bdMonthCmbBx" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bdDayCmbBx" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nicLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="nicText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="careerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="careerText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="careerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <EmptySpace pref="98" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="submitButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="53" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -158,7 +169,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Iskoola Pota" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&#xda2;&#xdcf;&#xdad;&#xdd2;&#xd9a; &#xdc4;&#xdd0;&#xdaf;&#xdd4;&#xdb1;&#xdd4;&#xdb8;&#xdca;&#xdb4;&#xdad;&#xdca; &#xd85;&#xd82;&#xdb1;&#xdba;:"/>
+        <Property name="text" type="java.lang.String" value="&#xda2;&#xdcf;&#xdad;&#xdd2;&#xd9a; &#xdc4;&#xdd0;&#xdaf;&#xdd4;&#xdb1;&#xdd4;&#xdb8;&#xdca;&#xdb4;&#xdad;&#xdca; &#xd85;&#xd82;&#xd9a;&#xdba;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="careerLabel">

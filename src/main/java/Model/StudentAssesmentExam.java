@@ -336,22 +336,34 @@ public class StudentAssesmentExam {
         
         String query = "select exam.exam_name, exam.year, exam.semester, assesment.assesment_name, grade.grade_in_words, exam_assesment.e_a_session, exam_assesment.level, exam_assesment.date_and_time, student_assesment_exam.marks, student_assesment_exam.remarks, student_assesment_exam.description from student_assesment_exam inner join exam_assesment on student_assesment_exam.exam_assesment_id = exam_assesment.e_a_id inner join exam on exam_assesment.exam_id = exam.exam_id inner join assesment on exam_assesment.assesment_id = assesment.assesment_id inner join grade on exam_assesment.grade_id = grade.grade_id where student_assesment_exam.student_id = ?";
         try {
+            String tournament_name_sinhala_translation = "තරගාවලියේ නම:";
+            String year_sinhala_translation = "වර්ෂය:";
+            String semester_sinhala_translation = "වාරය:";
+            String feature_name_sinhala_translation = "තරගය:";
+            String level_sinhala_translation = "මට්ටම:";
+            String grade_sinhala_translation = "වසර:";
+            String session_sinhala_translation = "අදියර:";
+            String date_and_time_sinhala_translation = "දිනය සහ වේලාව:";
+            String marks_sinhala_translation = "ලකුණු:";
+            String remarks_sinhala_translation = "විස්තර:";
+            String description_sinhala_translation = "වැඩිදුර විස්තර:";
+            
             prep = con.prepareStatement(query);
             prep.setInt(1, student_id);
             result = prep.executeQuery();
             while(result.next()){
                 HashMap<String, String> mp = new HashMap<String, String>();
-                mp.put("Tournament name:", result.getString("exam.exam_name"));
-                mp.put("Year:", result.getString("exam.year"));
-                mp.put("Semester:", result.getString("exam.semester"));
-                mp.put("Feature name:", result.getString("assesment.assesment_name"));
-                mp.put("Level:", result.getString("exam_assesment.level"));
-                mp.put("Grade:", result.getString("grade.grade_in_words"));
-                mp.put("Session:", result.getString("exam_assesment.e_a_session"));
-                mp.put("Date and time", result.getString("exam_assesment.date_and_time"));
-                mp.put("Marks:", result.getString("student_assesment_exam.marks"));
-                mp.put("Remarks:", result.getString("student_assesment_exam.remarks"));
-                mp.put("Description:", result.getString("student_assesment_exam.description"));
+                mp.put(tournament_name_sinhala_translation, result.getString("exam.exam_name"));
+                mp.put(year_sinhala_translation, result.getString("exam.year"));
+                mp.put(semester_sinhala_translation, result.getString("exam.semester"));
+                mp.put(feature_name_sinhala_translation, result.getString("assesment.assesment_name"));
+                mp.put(level_sinhala_translation, result.getString("exam_assesment.level"));
+                mp.put(grade_sinhala_translation, result.getString("grade.grade_in_words"));
+                mp.put(session_sinhala_translation, result.getString("exam_assesment.e_a_session"));
+                mp.put(date_and_time_sinhala_translation, result.getString("exam_assesment.date_and_time"));
+                mp.put(marks_sinhala_translation, result.getString("student_assesment_exam.marks"));
+                mp.put(remarks_sinhala_translation, result.getString("student_assesment_exam.remarks"));
+                mp.put(description_sinhala_translation, result.getString("student_assesment_exam.description"));
                 
                 hm.put(count, mp);
                 count++;                

@@ -18,6 +18,8 @@ import View.IndividualView.ViewStudentFamilyInfo;
 import View.IndividualView.ViewStudentGradeExam;
 import View.IndividualView.ViewStudentMedicalRequirement;
 import View.MainView;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.IOException;
@@ -815,8 +817,20 @@ public class ViewStudent_byNameType extends javax.swing.JPanel {
         } catch (IOException ex) {
             System.out.println(ex);
         }
-        if(stts){System.out.println("Excel document successfully created");}
-        else{System.out.println("Failed to create the Excel file");}
+        if(stts){
+            System.out.println("Excel document successfully created");
+            String success_message = "ශිෂ්‍ය තොරතුරු පැතුරුම්පත් ගත කිරීම සාර්ථකයි";
+            Result_SuccessMessage rsm = new Result_SuccessMessage();
+            rsm.setMessage(success_message);
+            rsm.setVisible(true);
+        }
+        else{
+            System.out.println("Failed to create the Excel file");
+            String error_message = "කරුණාකර නැවත උත්සහ කරන්න";
+            Result_ErrorMessage rem = new Result_ErrorMessage();
+            rem.setMessage(error_message);
+            rem.setVisible(true);
+        }
         
     }//GEN-LAST:event_excelExportButtonActionPerformed
   

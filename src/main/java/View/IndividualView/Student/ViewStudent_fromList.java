@@ -25,6 +25,8 @@ import View.IndividualView.ViewStudentAssesmentExam;
 import View.IndividualView.ViewStudentFamilyInfo;
 import View.IndividualView.ViewStudentGradeExam;
 import View.IndividualView.ViewStudentMedicalRequirement;
+import View.MessageBox.Result_ErrorMessage;
+import View.MessageBox.Result_SuccessMessage;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -825,8 +827,19 @@ public class ViewStudent_fromList extends javax.swing.JPanel {
         } catch (IOException ex) {
             System.out.println(ex);
         }
-        if(stts){System.out.println("Excel document successfully created");}
-        else{System.out.println("Failed to create the Excel file");}
+        if(stts){
+            System.out.println("Excel document successfully created");
+            String success_message = "ශිෂ්‍ය තොරතුරු පැතුරුම්පත් ගත කිරීම සාර්ථකයි";
+            Result_SuccessMessage rsm = new Result_SuccessMessage();
+            rsm.setMessage(success_message);
+            rsm.setVisible(true);
+        }
+        else{
+            System.out.println("Failed to create the Excel file");
+            Result_ErrorMessage rem = new Result_ErrorMessage();
+            rem.setMessage("පාසල් තොරතුරු දත්ත පද්ධතිය තුල යාවත්කාලීන වීම අසාර්ථක බැවින් කරුණාකර නැවත උත්සහ කරන්න");
+            rem.setVisible(true);
+        }
         
     }//GEN-LAST:event_excelExportButtonActionPerformed
 

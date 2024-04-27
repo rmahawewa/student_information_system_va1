@@ -478,19 +478,29 @@ public class Student {
         
         String query = "select student_name, student_address, student_birthday, student_contact_number, student_photo_file_path, student_ic, student_passport_number, date_of_entarance, grade_in_year_of_entarance from student where student_id = ?";
         try {
+            String student_name_sinhala_translation = "ශිෂ්‍යයාගේ නම:";
+            String student_address_sinhala_translation = "ශිෂ්‍යයාගේ ලිපිනය:";
+            String student_birthday_sinhala_translation = "ශිෂ්‍යයාගේ උපන්දිනය:";
+            String student_contact_number_sinhala_translation = "ශිෂ්‍යයාගේ දුරකථන අංකය:";
+            String student_photo_sinhala_translation = "ශිෂ්‍යයාගේ ඡායාරූපය:";
+            String student_identity_code_near_sinhala_translation = "ශිෂ්‍යයාගේ ඇතුලත් වීමේ අංකය:";
+            String student_passport_number_sinhala_translation = "ශිෂ්‍යයාගේ විදේශ ගමන් බලපත්‍ර අංකය:";
+            String date_of_entarance_sinhala_translation = "ඇතුලත් වීමේ දිනය:";
+            String grade_in_year_of_entarance_sinhala_translation = "ඇතුලත් වූ වර්ෂයේදී ඉගෙනුම ලැබූ වසර:";
+            
             prep = con.prepareStatement(query);
             prep.setInt(1, student_id);
             result = prep.executeQuery();
             while(result.next()){
-                l.put("Student name:", result.getString("student_name"));
-                l.put("Student address:", result.getString("student_address"));
-                l.put("Student birthday:", result.getString("student_birthday"));
-                l.put("Student Contact number:", result.getString("student_contact_number"));
-                l.put("Student photo:", result.getString("student_photo_file_path"));
-                l.put("Student identity code:", result.getString("student_ic"));
-                l.put("Student passport number:", result.getString("student_passport_number"));
-                l.put("Date of entarance:", result.getString("date_of_entarance"));
-                l.put("Grade in year of entarance:", result.getString("grade_in_year_of_entarance"));
+                l.put(student_name_sinhala_translation, result.getString("student_name"));
+                l.put(student_address_sinhala_translation, result.getString("student_address"));
+                l.put(student_birthday_sinhala_translation, result.getString("student_birthday"));
+                l.put(student_contact_number_sinhala_translation, result.getString("student_contact_number"));
+                l.put(student_photo_sinhala_translation, result.getString("student_photo_file_path"));
+                l.put(student_identity_code_near_sinhala_translation, result.getString("student_ic"));
+                l.put(student_passport_number_sinhala_translation, result.getString("student_passport_number"));
+                l.put(date_of_entarance_sinhala_translation, result.getString("date_of_entarance"));
+                l.put(grade_in_year_of_entarance_sinhala_translation, result.getString("grade_in_year_of_entarance"));
             }
             
         } catch (SQLException ex) {

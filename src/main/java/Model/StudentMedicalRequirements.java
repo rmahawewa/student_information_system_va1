@@ -342,17 +342,23 @@ public class StudentMedicalRequirements {
         
         String query = "select desease_name, first_date_of_diagnose, first_date_of_getting_treatment, last_date_of_getting_treatment, details from student_medical_requirements inner join medical_requirements on student_medical_requirements.medical_requirement_id = medical_requirements.medical_requirement_id where student_medical_requirements.student_id = ?";
         try {
+            String desease_sinhala_translation = "රෝගය:";
+            String first_date_of_diagnose = "රෝගය හදුනා ගත් පලමු දිනය:";
+            String first_treatment_date_sinhala_translation = "ප්‍රතිකාර ලබා ගත් පලමු දිනය:";
+            String last_treatment_date_sinhala_translation = "ප්‍රතිකාර ලබා ගත් අවසන් දිනය:";
+            String details_sinhala_translation = "විස්තර:";
+            
             prep = con.prepareStatement(query);
             prep.setInt(1, student_id);
             result = prep.executeQuery();
             while(result.next()){
                 
                 HashMap<String, String> mp = new HashMap<String, String>();
-                mp.put("Desease:", result.getString("desease_name"));
-                mp.put("First date of diagnose:", result.getString("first_date_of_diagnose"));
-                mp.put("First treatment date:", result.getString("first_date_of_getting_treatment"));
-                mp.put("Last treatment date:", result.getString("last_date_of_getting_treatment"));
-                mp.put("Details:", result.getString("details"));
+                mp.put(desease_sinhala_translation, result.getString("desease_name"));
+                mp.put(first_date_of_diagnose, result.getString("first_date_of_diagnose"));
+                mp.put(first_treatment_date_sinhala_translation, result.getString("first_date_of_getting_treatment"));
+                mp.put(last_treatment_date_sinhala_translation, result.getString("last_date_of_getting_treatment"));
+                mp.put(details_sinhala_translation, result.getString("details"));
                 
                 hm.put(count, mp);
                 count++;

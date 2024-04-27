@@ -378,22 +378,33 @@ public class StudentGradeExam {
         
         String query = "select grade.grade_in_words, exam.exam_name, exam.year, exam.semester, exam.details, grade_exam.session, grade_exam.date_and_time, student_grade_exam.marks, student_grade_exam.remarks, student_grade_exam.description from student_grade_exam inner join grade_exam on student_grade_exam.grade_exam_id = grade_exam.g_e_id inner join grade on grade_exam.gd_id = grade.grade_id inner join exam on grade_exam.em_id = exam.exam_id where student_grade_exam.student_id = ?";
         try {
+            String grade_sinhala_translation = "වසර:";
+            String exam_name_sinhala_translation = "විභාගයේ නම:";
+            String year_sinhala_translation = "වර්ෂය:";
+            String semester_sinhala_translation = "වාරය:";
+            String exam_details_sinhala_translation = "විභාගය පිලිබද විස්තර:";
+            String session_sinhala_translation = "අදියර:";
+            String date_and_time_sinhala_translation = "දිනය සහ වේලාව:";
+            String marks_sinhala_translation = "ලකුණු:";
+            String remarks_sinhala_translation = "විස්තර:";
+            String description_sinhala_translation = "වැඩිදුර විස්තර:";
+            
             prep = con.prepareStatement(query);
             prep.setInt(1, student_id);
             result = prep.executeQuery();
             
             while(result.next()){
                 HashMap<String, String> mp = new HashMap<String, String>();
-                mp.put("Grade:", result.getString("grade.grade_in_words"));
-                mp.put("Exam name:", result.getString("exam.exam_name"));
-                mp.put("Year:", result.getString("exam.year"));
-                mp.put("Semester:", result.getString("exam.semester"));
-                mp.put("Exam details:", result.getString("exam.details"));
-                mp.put("Session:", Integer.toString(result.getInt("grade_exam.session")));
-                mp.put("Date and time:", result.getString("grade_exam.date_and_time"));
-                mp.put("Marks:", result.getString("student_grade_exam.marks"));
-                mp.put("Remarks:", result.getString("student_grade_exam.remarks"));
-                mp.put("Student's exam performance review:", result.getString("student_grade_exam.description"));
+                mp.put(grade_sinhala_translation, result.getString("grade.grade_in_words"));
+                mp.put(exam_name_sinhala_translation, result.getString("exam.exam_name"));
+                mp.put(year_sinhala_translation, result.getString("exam.year"));
+                mp.put(semester_sinhala_translation, result.getString("exam.semester"));
+                mp.put(exam_details_sinhala_translation, result.getString("exam.details"));
+                mp.put(session_sinhala_translation, Integer.toString(result.getInt("grade_exam.session")));
+                mp.put(date_and_time_sinhala_translation, result.getString("grade_exam.date_and_time"));
+                mp.put(marks_sinhala_translation, result.getString("student_grade_exam.marks"));
+                mp.put(remarks_sinhala_translation, result.getString("student_grade_exam.remarks"));
+                mp.put(description_sinhala_translation, result.getString("student_grade_exam.description"));
                 
                 hm.put(count, mp);
                 count++;

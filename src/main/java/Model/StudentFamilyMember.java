@@ -261,6 +261,12 @@ public class StudentFamilyMember {
         String query = "select family_member_name, relationship, nic, birthday, career from student_family_member where student_id = ?";
         
         try {
+            String family_member_name_sinhala_translation = "පවුලේ සාමාජිකයාගේ නම:";
+            String relationship_sinhala_translation = "නෑකම:";
+            String nic_sinhala_translation = "ජාතික හැදුනුම්පත් අංකය:";
+            String birthday_sinhala_translation = "උපන්දිනය:";
+            String career_sinhala_translation = "ජීවනෝපාය:";
+            
             prep = con.prepareStatement(query);
             prep.setInt(1, student_id);
             result = prep.executeQuery();
@@ -273,11 +279,11 @@ public class StudentFamilyMember {
                 String career = result.getString("career");
                 
                 Map<String,String> mp = new HashMap<String,String>();                
-                mp.put("Family member name:", family_member_name);
-                mp.put("Relationship:", relationship);
-                mp.put("NIC:", nic);
-                mp.put("Birthday:", birthday);
-                mp.put("Career:", career);
+                mp.put(family_member_name_sinhala_translation, family_member_name);
+                mp.put(relationship_sinhala_translation, relationship);
+                mp.put(nic_sinhala_translation, nic);
+                mp.put(birthday_sinhala_translation, birthday);
+                mp.put(career_sinhala_translation, career);
                 hm.put(cnt, mp);
                 cnt++;
             }

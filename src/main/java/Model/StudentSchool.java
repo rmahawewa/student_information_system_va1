@@ -258,6 +258,14 @@ public class StudentSchool {
         
         String query = "select school_name, school_address, school_contact_number, details, date_of_entarance, is_currently_studing, date_of_leave from student_school inner join school on student_school.school_id = school.school_id where student_school.student_id = ?";
         try {
+            String school_name_sinhala_translation = "පාසලේ නම:";
+            String school_address_sinhala_translation = "පාසලේ ලිපිනය:";
+            String school_contact_number_sinhala_translation = "පාසලේ දුරකථන අංකය:";
+            String details_sinhala_translation = "විස්තර:";
+            String date_of_entarance_sinhala_translation = "ඇතුලත් වීමේ දිනය:";
+            String is_currently_studing_sinhala_translation = "වර්ථමානයේ මෙම පාසලේ ඉගෙනුම ලබනවාද යන්න:";
+            String date_of_leave_sinhala_translation = "පාසලෙන් ඉවත් වී ගිය දිනය:";
+            
             prep = con.prepareStatement(query);
             prep.setInt(1, student_id);
             result = prep.executeQuery();
@@ -272,18 +280,20 @@ public class StudentSchool {
                 String is_currently_studing = "";
                 String date_of_leave = result.getString("date_of_leave");
                 if(is_currently_studing_num == 1){
-                    is_currently_studing = "yes";
+                    String yes_sinhala_translation = "ඔව්";                    
+                    is_currently_studing = yes_sinhala_translation;
                     date_of_leave = "-";
                 }else{
-                    is_currently_studing = "no";
+                    String no_sinhala_translation = "නැත";
+                    is_currently_studing = no_sinhala_translation;
                 }
-                mp.put("School name:", school_name);
-                mp.put("School adddress:", school_address);
-                mp.put("School contact number:", school_contact_number);
-                mp.put("Details:", details);
-                mp.put("Date of entarance:", date_of_entarance);
-                mp.put("Is currently studing:", is_currently_studing);
-                mp.put("Date of leave:", date_of_leave);
+                mp.put(school_name_sinhala_translation, school_name);
+                mp.put(school_address_sinhala_translation, school_address);
+                mp.put(school_contact_number_sinhala_translation, school_contact_number);
+                mp.put(details_sinhala_translation, details);
+                mp.put(date_of_entarance_sinhala_translation, date_of_entarance);
+                mp.put(is_currently_studing_sinhala_translation, is_currently_studing);
+                mp.put(date_of_leave_sinhala_translation, date_of_leave);
                 
                 hm.put(count, mp);
                 count++;
