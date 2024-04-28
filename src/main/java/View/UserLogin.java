@@ -130,7 +130,9 @@ public class UserLogin extends javax.swing.JFrame {
             this.setVisible(false);
         }else {
             Result_ErrorMessage msg = new Result_ErrorMessage();
-            msg.setMessage("User name, Password missmatch. Please try again.");
+            //msg.setMessage("User name, Password missmatch. Please try again.");
+            String error_message = "හදුනා ගැනීම අසාර්ථකයි. කරුණාකර නැවත උත්සහ කරන්න";
+            msg.setMessage(error_message);
             msg.setVisible(true);
         }
     }//GEN-LAST:event_submitButtonActionPerformed

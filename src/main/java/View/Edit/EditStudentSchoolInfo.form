@@ -24,109 +24,100 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="dateOfLeaveLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="isCurrentlyStudingLabel" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                              <Component id="schoolNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="dateOfEntaranceLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="studentNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                       <Component id="updateButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                      <Component id="closeButton" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="267" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="schoolNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="dateOfEntaranceLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="studentNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="134" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="isCurrentlyStudingComboBx" min="-2" pref="119" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="doeYearComboBx" min="-2" pref="89" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="doeMonthComboBx" pref="149" max="32767" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="doeDateComboBx" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="studentNameValueLabel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="schoolNameValueLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="schoolNameValueLabel" min="-2" pref="346" max="-2" attributes="0"/>
+                          <Component id="studentNameValueLabel" min="-2" pref="346" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="doeYearComboBx" min="-2" pref="89" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="doeMonthComboBx" min="-2" pref="149" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="doeDateComboBx" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="isCurrentlyStudingComboBx" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="dolYearComboBx" min="-2" pref="89" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="closeButton" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="dolMonthComboBx" min="-2" pref="149" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="dolDayComboBx" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="dolMonthComboBx" min="-2" pref="149" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="dolDayComboBx" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Component id="isCurrentlyStudingLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="dateOfLeaveLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="688" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="studentNameValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="studentNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="studentNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="studentNameValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="schoolNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="schoolNameValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="schoolNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="schoolNameValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="doeYearComboBx" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="doeMonthComboBx" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="doeDateComboBx" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="dateOfEntaranceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="isCurrentlyStudingComboBx" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dateOfEntaranceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="doeYearComboBx" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="doeMonthComboBx" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="doeDateComboBx" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="isCurrentlyStudingLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="isCurrentlyStudingComboBx" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="dateOfLeaveLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="dolYearComboBx" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="dolMonthComboBx" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="dolDayComboBx" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="dateOfLeaveLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <EmptySpace pref="64" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="updateButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="closeButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="68" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

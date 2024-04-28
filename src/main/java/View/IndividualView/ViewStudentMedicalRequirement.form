@@ -22,11 +22,12 @@
                       <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="studentNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medicalRequirementLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="medicalRequirementLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="studentNameLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="medicalRequirementValueLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="studentNameValueLabel" min="-2" max="-2" attributes="0"/>
@@ -34,10 +35,10 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="detailsLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="firstDateOfTreatmentLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="firstDateOfDiagnoseLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lastDateOfTraetementLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lastDateOfTraetementLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="firstDateOfDiagnoseLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="detailsLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -45,7 +46,10 @@
                                   <Component id="detailsTextField" min="-2" pref="347" max="-2" attributes="0"/>
                                   <Component id="firstDateOfTreatmentValueLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="firstDateOfDiagnoseValueLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="closeButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
+                                      <Component id="closeButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -55,7 +59,7 @@
                       <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="51" max="32767" attributes="0"/>
+              <EmptySpace pref="743" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -90,13 +94,16 @@
                   <Component id="lastDateOfTreatmentValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="detailsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="detailsTextField" alignment="3" min="-2" pref="97" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="detailsTextField" min="-2" pref="97" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="detailsLabel" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Component id="closeButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="69" max="32767" attributes="0"/>
+              <EmptySpace pref="56" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

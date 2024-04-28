@@ -44,6 +44,8 @@ public class MainView extends javax.swing.JFrame {
 
         initialTabbedPane = new javax.swing.JTabbedPane();
         mainView_ScrollPane = new javax.swing.JScrollPane();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         l1_student_menu = new javax.swing.JMenu();
         l2_addStudent_menuItem = new javax.swing.JMenuItem();
@@ -88,11 +90,18 @@ public class MainView extends javax.swing.JFrame {
                 initialTabbedPaneKeyPressed(evt);
             }
         });
-        initialTabbedPane.addTab("Hello", mainView_ScrollPane);
+        initialTabbedPane.addTab("*", mainView_ScrollPane);
 
-        l1_student_menu.setText("Student");
+        jLabel1.setFont(new java.awt.Font("Iskoola Pota", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel1.setText("*");
 
-        l2_addStudent_menuItem.setText("Add");
+        jLabel2.setFont(new java.awt.Font("Iskoola Pota", 0, 14)); // NOI18N
+        jLabel2.setText("අත්‍යාවශ්‍ය තොරතුරු");
+
+        l1_student_menu.setText("ශිෂ්‍ය තොරතුරු");
+
+        l2_addStudent_menuItem.setText("අලුතින් එක් කිරීම");
         l2_addStudent_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_addStudent_menuItemActionPerformed(evt);
@@ -100,7 +109,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_student_menu.add(l2_addStudent_menuItem);
 
-        l2_listStudents_menuItem.setText("List");
+        l2_listStudents_menuItem.setText("ලැයිස්තුව");
         l2_listStudents_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_listStudents_menuItemActionPerformed(evt);
@@ -108,7 +117,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_student_menu.add(l2_listStudents_menuItem);
 
-        l2_viewStudent_menuItem.setText("View");
+        l2_viewStudent_menuItem.setText("විස්තරය");
         l2_viewStudent_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_viewStudent_menuItemActionPerformed(evt);
@@ -116,9 +125,9 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_student_menu.add(l2_viewStudent_menuItem);
 
-        l2_studentMedicalRequirement_menu.setText("Medical Requirements");
+        l2_studentMedicalRequirement_menu.setText("සෞඛ්‍ය අවශ්‍යතා");
 
-        l3_addStudentMedicalRequirement_menuItem.setText("Add");
+        l3_addStudentMedicalRequirement_menuItem.setText("අලුතින් එක් කිරීම");
         l3_addStudentMedicalRequirement_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l3_addStudentMedicalRequirement_menuItemActionPerformed(evt);
@@ -126,7 +135,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l2_studentMedicalRequirement_menu.add(l3_addStudentMedicalRequirement_menuItem);
 
-        l3_listStudentsMedicalRequirements_menuItem.setText("List");
+        l3_listStudentsMedicalRequirements_menuItem.setText("ලැයිස්තුව");
         l3_listStudentsMedicalRequirements_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l3_listStudentsMedicalRequirements_menuItemActionPerformed(evt);
@@ -136,7 +145,7 @@ public class MainView extends javax.swing.JFrame {
 
         l1_student_menu.add(l2_studentMedicalRequirement_menu);
 
-        l2_student_oldStudentList_menuItem.setText("Old Students List");
+        l2_student_oldStudentList_menuItem.setText("ආදි ශිෂ්‍ය ලැයිස්තුව");
         l2_student_oldStudentList_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_student_oldStudentList_menuItemActionPerformed(evt);
@@ -146,9 +155,9 @@ public class MainView extends javax.swing.JFrame {
 
         menuBar.add(l1_student_menu);
 
-        l1_exam_menu.setText("Exam");
+        l1_exam_menu.setText("විභාග/තරගාවලි ");
 
-        l2_addExam_menuItem.setText("Add");
+        l2_addExam_menuItem.setText("අලුතින් එක් කිරීම");
         l2_addExam_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_addExam_menuItemActionPerformed(evt);
@@ -156,7 +165,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_exam_menu.add(l2_addExam_menuItem);
 
-        l2_listExams_menuItem.setText("List");
+        l2_listExams_menuItem.setText("ලැයිස්තුව");
         l2_listExams_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_listExams_menuItemActionPerformed(evt);
@@ -166,9 +175,9 @@ public class MainView extends javax.swing.JFrame {
 
         menuBar.add(l1_exam_menu);
 
-        l1_grade_menu.setText("Grade");
+        l1_grade_menu.setText("වසර");
 
-        l2_addGrade_menuItem.setText("Add");
+        l2_addGrade_menuItem.setText("අලුතින් එක් කිරීම");
         l2_addGrade_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_addGrade_menuItemActionPerformed(evt);
@@ -176,7 +185,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_grade_menu.add(l2_addGrade_menuItem);
 
-        l2_listGrade_menuItem.setText("List");
+        l2_listGrade_menuItem.setText("ලැයිස්තුව");
         l2_listGrade_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_listGrade_menuItemActionPerformed(evt);
@@ -186,9 +195,9 @@ public class MainView extends javax.swing.JFrame {
 
         menuBar.add(l1_grade_menu);
 
-        l1_assesment_menu.setText("Assesment");
+        l1_assesment_menu.setText("තරග");
 
-        l2_addAssesment_menuItem.setText("Add");
+        l2_addAssesment_menuItem.setText("අලුතින් එක් කිරීම");
         l2_addAssesment_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_addAssesment_menuItemActionPerformed(evt);
@@ -196,7 +205,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_assesment_menu.add(l2_addAssesment_menuItem);
 
-        l2_listAssesment_menuItem.setText("List");
+        l2_listAssesment_menuItem.setText("ලැයිස්තුව");
         l2_listAssesment_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_listAssesment_menuItemActionPerformed(evt);
@@ -206,9 +215,9 @@ public class MainView extends javax.swing.JFrame {
 
         menuBar.add(l1_assesment_menu);
 
-        l1_assesmentInExam_menu.setText("Assesment in Exam");
+        l1_assesmentInExam_menu.setText("තරගාවලි සහ තරග");
 
-        l2_listAssesmentInExam_menuItem.setText("List             ");
+        l2_listAssesmentInExam_menuItem.setText("ලැයිස්තුව");
         l2_listAssesmentInExam_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_listAssesmentInExam_menuItemActionPerformed(evt);
@@ -218,9 +227,9 @@ public class MainView extends javax.swing.JFrame {
 
         menuBar.add(l1_assesmentInExam_menu);
 
-        l1_examForGrades_menu.setText("Exam for Grades");
+        l1_examForGrades_menu.setText("වසර අනුගත විභාග");
 
-        l2_listExamForGrades_menuItem.setText("List");
+        l2_listExamForGrades_menuItem.setText("ලැයිස්තුව");
         l2_listExamForGrades_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_listExamForGrades_menuItemActionPerformed(evt);
@@ -230,9 +239,9 @@ public class MainView extends javax.swing.JFrame {
 
         menuBar.add(l1_examForGrades_menu);
 
-        l1_studentPerformance_menu.setText("Student Performance");
+        l1_studentPerformance_menu.setText("සිසුන්ගේ තරගාවලි/විභාග කුසලතා");
 
-        l2_gradeViseExamStudentPerformance_menuItem.setText("Grade vise Exam");
+        l2_gradeViseExamStudentPerformance_menuItem.setText("වසර අනුගත විභාග ලැයිස්තුව");
         l2_gradeViseExamStudentPerformance_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_gradeViseExamStudentPerformance_menuItemActionPerformed(evt);
@@ -240,7 +249,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_studentPerformance_menu.add(l2_gradeViseExamStudentPerformance_menuItem);
 
-        l2_studentPerformanceAssesment_menuItem.setText("Assesment");
+        l2_studentPerformanceAssesment_menuItem.setText("තරග ලැයිස්තුව");
         l2_studentPerformanceAssesment_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_studentPerformanceAssesment_menuItemActionPerformed(evt);
@@ -250,9 +259,9 @@ public class MainView extends javax.swing.JFrame {
 
         menuBar.add(l1_studentPerformance_menu);
 
-        l1_school_menu.setText("School");
+        l1_school_menu.setText("පාසල්");
 
-        l2_addSchool_menuItem.setText("Add School");
+        l2_addSchool_menuItem.setText("අලුතින් එක් කිරීම");
         l2_addSchool_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_addSchool_menuItemActionPerformed(evt);
@@ -260,7 +269,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_school_menu.add(l2_addSchool_menuItem);
 
-        l2_listSchools_menuItem.setText("List Schools");
+        l2_listSchools_menuItem.setText("පාසල් ලැයිස්තුව");
         l2_listSchools_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_listSchools_menuItemActionPerformed(evt);
@@ -270,9 +279,9 @@ public class MainView extends javax.swing.JFrame {
 
         menuBar.add(l1_school_menu);
 
-        l1_medicalRequirement_menu.setText("Medical Requirement");
+        l1_medicalRequirement_menu.setText("සෞඛ්‍ය තොරතුරු");
 
-        l2_addMedicalRequirement_menuItem.setText("Add");
+        l2_addMedicalRequirement_menuItem.setText("අලුතින් එක් කිරීම");
         l2_addMedicalRequirement_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_addMedicalRequirement_menuItemActionPerformed(evt);
@@ -280,7 +289,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_medicalRequirement_menu.add(l2_addMedicalRequirement_menuItem);
 
-        l2_listMedicalRequirement_menuItem.setText("List");
+        l2_listMedicalRequirement_menuItem.setText("ලැයිස්තුව");
         l2_listMedicalRequirement_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_listMedicalRequirement_menuItemActionPerformed(evt);
@@ -290,9 +299,9 @@ public class MainView extends javax.swing.JFrame {
 
         menuBar.add(l1_medicalRequirement_menu);
 
-        l1_settings_menu.setText("Settings");
+        l1_settings_menu.setText("දත්ත පද්ධතිය හසුරුවන්නන් පිලිබද තොරතුරු");
 
-        l2_userSettings_menuItem.setText("Add user");
+        l2_userSettings_menuItem.setText("අලුතින් එක් කිරීම");
         l2_userSettings_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_userSettings_menuItemActionPerformed(evt);
@@ -300,7 +309,7 @@ public class MainView extends javax.swing.JFrame {
         });
         l1_settings_menu.add(l2_userSettings_menuItem);
 
-        l2_adminS_menuItem.setText("Edit user");
+        l2_adminS_menuItem.setText("තොරතුරු යාවත්කාලීන කිරීම");
         l2_adminS_menuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 l2_adminS_menuItemActionPerformed(evt);
@@ -316,17 +325,27 @@ public class MainView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(280, Short.MAX_VALUE)
-                .addComponent(initialTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(initialTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(initialTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(initialTabbedPane)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addContainerGap(546, Short.MAX_VALUE))
         );
 
         pack();
@@ -530,6 +549,8 @@ public class MainView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane initialTabbedPane;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu l1_assesmentInExam_menu;
     private javax.swing.JMenu l1_assesment_menu;
     private javax.swing.JMenu l1_examForGrades_menu;

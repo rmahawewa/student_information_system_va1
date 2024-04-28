@@ -17,105 +17,105 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="130" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="currentGradeValueLabel" alignment="1" min="-2" pref="333" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="familyInfoViewButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jScrollPane1" alignment="1" min="-2" pref="545" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jScrollPane2" min="-2" pref="545" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="studentSchoolInfoViewButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" min="-2" pref="545" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="studentAssesmentPerformanceInfoViewButton" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="examPerformanceInfoViewButton" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="medicalStatusViewButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jScrollPane4" alignment="1" min="-2" pref="545" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane5" alignment="1" min="-2" pref="545" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
+                      <EmptySpace min="-2" pref="272" max="-2" attributes="0"/>
+                      <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="278" max="-2" attributes="0"/>
+                      <Component id="excelExportButton" min="-2" pref="251" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="identityCodeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="photoLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="passportNumberLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="currentGradeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="gradeInYearOfEnteranceLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="dateOfEnteranceLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="familyContactNumberLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="birthdayLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addressLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="gradeInyearOfEntaranceValueLabel" alignment="0" pref="333" max="32767" attributes="0"/>
-                                  <Component id="dateOfEntaranceValueLabel" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="photoContainerLabel" min="-2" pref="105" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="passportNumberValueLabel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="identityCodeValueLabel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="contactNumberValueLabel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="birthdayValueLabel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="addressValueLabel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="studentNameValueLabel" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="excelExportButton" min="-2" pref="251" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="currentGradeLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="gradeInYearOfEnteranceLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="dateOfEnteranceLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="passportNumberLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="identityCodeLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="photoLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="familyContactNumberLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="birthdayLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="addressLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="gradeInyearOfEntaranceValueLabel" min="-2" pref="333" max="-2" attributes="0"/>
+                          <Component id="currentGradeValueLabel" min="-2" pref="333" max="-2" attributes="0"/>
+                          <Component id="dateOfEntaranceValueLabel" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="passportNumberValueLabel" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="identityCodeValueLabel" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="photoContainerLabel" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
+                          <Component id="contactNumberValueLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="birthdayValueLabel" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="addressValueLabel" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="studentNameValueLabel" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="41" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="443" max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="closeButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="296" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="closeButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPane3" alignment="1" min="-2" pref="1045" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jScrollPane1" min="-2" pref="1045" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="examPerformanceInfoViewButton" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jScrollPane4" alignment="0" min="-2" pref="1045" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="studentAssesmentPerformanceInfoViewButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="studentSchoolInfoViewButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="familyInfoViewButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="1045" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="medicalStatusViewButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPane5" alignment="1" min="-2" pref="1045" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="topicLabel" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="excelExportButton" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="excelExportButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="topicLabel" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="studentNameValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -135,79 +135,74 @@
                   <Component id="familyContactNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="contactNumberValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="photoLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="photoContainerLabel" min="-2" pref="135" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="photoLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="photoContainerLabel" min="-2" pref="135" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="identityCodeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="identityCodeValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="passportNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="passportNumberValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="passportNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="dateOfEnteranceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="dateOfEntaranceValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="gradeInYearOfEnteranceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="gradeInyearOfEntaranceValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="currentGradeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="currentGradeValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="117" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="familyInfoViewButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="200" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="studentSchoolInfoViewButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="200" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="studentAssesmentPerformanceInfoViewButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane3" min="-2" pref="200" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="examPerformanceInfoViewButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane4" min="-2" pref="200" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="medicalStatusViewButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel5" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane5" min="-2" pref="200" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               <Component id="closeButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

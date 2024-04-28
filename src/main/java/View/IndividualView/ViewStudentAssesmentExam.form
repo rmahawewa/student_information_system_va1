@@ -16,38 +16,45 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="examLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="assesmentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="gradeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="marksLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="remarksLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="descriptionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="descriptionValueLabel" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="examNameValueLabel" alignment="0" max="32767" attributes="0"/>
-                      <Component id="assesmentNameValueLabel" alignment="0" pref="343" max="32767" attributes="0"/>
-                      <Component id="studentNameValueLabel" alignment="0" max="32767" attributes="0"/>
-                      <Component id="marksValueLabel" alignment="0" max="32767" attributes="0"/>
-                      <Component id="remarksValueLabel" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="gradeLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="assesmentLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="examLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="marksLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="remarksLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="descriptionLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="assesmentNameValueLabel" min="-2" pref="343" max="-2" attributes="0"/>
+                          <Component id="examNameValueLabel" min="-2" pref="343" max="-2" attributes="0"/>
+                          <Component id="studentNameValueLabel" alignment="0" min="-2" pref="343" max="-2" attributes="0"/>
+                          <Component id="marksValueLabel" alignment="0" min="-2" pref="343" max="-2" attributes="0"/>
+                          <Component id="remarksValueLabel" alignment="0" min="-2" pref="343" max="-2" attributes="0"/>
+                          <Component id="descriptionValueLabel" min="-2" pref="354" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
+                      <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="439" max="-2" attributes="0"/>
+                      <Component id="closeButton" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
-              <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="179" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="closeButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
+              <EmptySpace pref="794" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -86,9 +93,9 @@
                   <Component id="descriptionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="descriptionValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="75" max="32767" attributes="0"/>
+              <EmptySpace pref="73" max="32767" attributes="0"/>
               <Component id="closeButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
